@@ -1,10 +1,11 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 interface SectionProps {
   children: ReactNode;
   spacing?: "sm" | "md" | "lg";
   className?: string;
   id?: string;
+  style?: CSSProperties;
 }
 
 export function Section({
@@ -12,6 +13,7 @@ export function Section({
   spacing = "md",
   className = "",
   id,
+  style,
 }: SectionProps) {
   const spacingClasses = {
     sm: "py-16",
@@ -20,7 +22,7 @@ export function Section({
   };
 
   return (
-    <section id={id} className={`${spacingClasses[spacing]} ${className}`}>
+    <section id={id} className={`${spacingClasses[spacing]} ${className}`} style={style}>
       {children}
     </section>
   );

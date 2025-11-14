@@ -10,15 +10,26 @@ export default function Home() {
       <Header />
       {/* <ProgressLine /> */}
 
-      {/* Hero - Blanc */}
-      <Section id="hero" spacing="lg" className="bg-white text-center">
-        <div className="mx-auto max-w-4xl px-4">
-          <h1 className="font-heading text-5xl font-bold leading-tight text-black sm:text-7xl">
+      {/* Hero - Background Image */}
+      <Section
+        id="hero"
+        spacing="lg"
+        className="relative overflow-hidden bg-cover bg-center bg-no-repeat py-32 text-center sm:py-40 lg:py-48"
+        style={{
+          backgroundImage: "url('/hero-background.jpg')",
+        }}
+      >
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/50" />
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-5xl px-4">
+          <h1 className="font-heading animate-fade-in-up text-6xl font-bold leading-[1.1] text-white sm:text-8xl lg:text-9xl">
             Curiosity.Builders
           </h1>
-          <p className="mt-6 text-xl leading-relaxed text-black sm:text-2xl">
+          <p className="mt-12 animate-fade-in text-2xl leading-relaxed text-white sm:text-3xl lg:text-4xl">
             Plateforme d'accélération de vos projets de lieux.
-            <br />
+          </p>
+          <p className="mt-6 animate-fade-in-delay text-xl leading-relaxed text-white/90 sm:text-2xl">
             Centrée sur l'humain, guidée par la donnée, augmentée par l'IA.
           </p>
         </div>
