@@ -1,0 +1,121 @@
+# Curiosity.Builders - Cursor Rules
+
+## Stack & Technologies
+
+- **React**: v19.2.0
+- **Next.js**: 16 (App Router)
+- **TypeScript**: Strict mode
+- **Tailwind CSS**: v4 uniquement
+- **Package Manager**: npm (NE PAS utiliser yarn)
+
+## Règles de code
+
+### React & TypeScript
+
+- Utiliser React 19 avec les dernières fonctionnalités
+- TypeScript strict activé
+- Toujours typer les props des composants
+- Utiliser des composants fonctionnels uniquement
+- Préférer les Server Components par défaut (Next.js App Router)
+
+### Styling
+
+- **Tailwind CSS v4 uniquement** - pas de CSS modules ou styled-components
+- **Interdiction absolue des classes `dark:`** - pas de dark mode
+- Utiliser les utilitaires Tailwind pour tout le styling
+- Respecter l'espacement généreux (inspiration Subrequest):
+  - Sections: `py-16`, `py-20`, `py-24`
+  - Cards: `p-6` à `p-8`
+  - CTAs: `px-6 py-3`
+
+### Design System
+
+- **Inspiration**: S'inspirer du design épuré et moderne de [Subrequest](https://subrequest.com/fr)
+- **Typographie**:
+  - Oswald pour les titres (H1: `text-4xl` à `text-6xl`, H2: `text-2xl` à `text-4xl`)
+  - Inter pour le texte (`leading-relaxed`)
+- **Couleurs**: Noir (#000), Blanc (#FFF), gris clair (#F9F9F9)
+- **Espacement**: Généreux entre sections, padding confortable
+- **Animations**: Subtiles, scroll effects, fade-ins (1-2s max)
+
+### Composants
+
+- Créer des composants réutilisables dans `src/components/`
+- Structure:
+  - `components/layout/` - Header, Footer, ProgressLine
+  - `components/ui/` - Button, Card, Section, Accordion
+- Utiliser des props TypeScript bien typées
+- Préférer la composition de composants
+
+### Structure de dossiers
+
+```
+src/
+├── app/              # Pages Next.js (App Router)
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── signals/
+│   ├── services/
+│   ├── methode/
+│   └── contact/
+└── components/        # Composants réutilisables
+    ├── layout/
+    └── ui/
+```
+
+### Conventions de nommage
+
+- **Composants**: PascalCase (`Button.tsx`)
+- **Fichiers de pages**: `page.tsx` (convention Next.js)
+- **Variables**: camelCase
+- **Constantes**: UPPER_SNAKE_CASE
+- **Types/Interfaces**: PascalCase avec préfixe si nécessaire
+
+### Interdictions
+
+- ❌ **Aucune classe `dark:`** - le site n'a pas de dark mode
+- ❌ **Pas de Geist** - utiliser uniquement Oswald et Inter
+- ❌ **Pas de CSS modules** - Tailwind uniquement
+- ❌ **Pas de yarn** - utiliser npm
+
+### Bonnes pratiques
+
+- Toujours vérifier que les classes `dark:` ne sont pas présentes
+- Respecter l'espacement généreux (inspiration Subrequest)
+- Utiliser des animations subtiles
+- Images en N&B sauf cas clients réels (couleur)
+- SVG monochrome pour les icons
+- Ligne verticale de progression (1px, marge gauche 10%)
+
+### Exemples de code
+
+#### Composant Button
+
+```typescript
+interface ButtonProps {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary';
+  href?: string;
+}
+
+export function Button({ children, variant = 'primary', href }: ButtonProps) {
+  // Style épuré inspiré Subrequest
+  // Padding généreux: px-6 py-3
+  // Bordures arrondies
+}
+```
+
+#### Section avec espacement
+
+```typescript
+export function Section({ children, spacing = 'md' }: SectionProps) {
+  // py-16 (sm), py-20 (md), py-24 (lg)
+}
+```
+
+### Références
+
+- Design inspiration: https://subrequest.com/fr
+- Next.js 16 Docs: https://nextjs.org/docs
+- Tailwind CSS v4: https://tailwindcss.com/docs
+- React 19: https://react.dev
