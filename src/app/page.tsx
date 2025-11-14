@@ -1,6 +1,5 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { ProgressLine } from "@/components/layout/ProgressLine";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
@@ -11,10 +10,10 @@ export default function Home() {
       <Header />
       {/* <ProgressLine /> */}
 
-      {/* Hero */}
-      <Section id="hero" spacing="lg" className="text-center">
+      {/* Hero - Blanc */}
+      <Section id="hero" spacing="lg" className="bg-white text-center">
         <div className="mx-auto max-w-4xl px-4">
-          <h1 className="font-heading text-5xl font-bold leading-tight text-black sm:text-6xl">
+          <h1 className="font-heading text-5xl font-bold leading-tight text-black sm:text-7xl">
             Curiosity.Builders
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-black sm:text-2xl">
@@ -25,13 +24,13 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Intro */}
-      <Section id="intro" spacing="md">
+      {/* Intro - Noir */}
+      <Section id="intro" spacing="md" className="bg-black">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
             L'immobilier a changé d'ère
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-black">
+          <p className="mt-6 text-lg leading-relaxed text-white">
             Plutôt que de ne parler que de mètres carrés, nous aidons nos
             clients à concevoir, développer, financer et gérer des lieux vivants
             — désirables, durables et performants.
@@ -41,16 +40,18 @@ export default function Home() {
             immobilière, territoire et impact.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button href="/services">Découvrir nos offres</Button>
-            <Button href="/contact" variant="secondary">
+            <Button href="/services" variant="inverted">
+              Découvrir nos offres
+            </Button>
+            <Button href="/contact" variant="secondary-inverted">
               S'abonner à la newsletter
             </Button>
           </div>
         </div>
       </Section>
 
-      {/* Tiers */}
-      <Section id="tiers" spacing="md">
+      {/* Tiers - Blanc */}
+      <Section id="tiers" spacing="md" className="bg-white">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
             3 leviers pour accélérer vos projets
@@ -131,40 +132,40 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Key Metrics */}
-      <Section id="key-metrics" spacing="sm" className="bg-gray-light">
+      {/* Key Metrics - Noir */}
+      <Section id="key-metrics" spacing="sm" className="bg-black">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
             <div>
-              <p className="font-heading text-4xl font-bold text-black sm:text-5xl">
+              <p className="font-heading text-4xl font-bold text-white sm:text-5xl">
                 +50
               </p>
-              <p className="mt-2 text-sm text-black">acteurs interviewés</p>
+              <p className="mt-2 text-sm text-white">acteurs interviewés</p>
             </div>
             <div>
-              <p className="font-heading text-4xl font-bold text-black sm:text-5xl">
+              <p className="font-heading text-4xl font-bold text-white sm:text-5xl">
                 +15
               </p>
-              <p className="mt-2 text-sm text-black">études publiées</p>
+              <p className="mt-2 text-sm text-white">études publiées</p>
             </div>
             <div>
-              <p className="font-heading text-4xl font-bold text-black sm:text-5xl">
+              <p className="font-heading text-4xl font-bold text-white sm:text-5xl">
                 +8
               </p>
-              <p className="mt-2 text-sm text-black">ventures accélérées</p>
+              <p className="mt-2 text-sm text-white">ventures accélérées</p>
             </div>
             <div>
-              <p className="font-heading text-4xl font-bold text-black sm:text-5xl">
+              <p className="font-heading text-4xl font-bold text-white sm:text-5xl">
                 0
               </p>
-              <p className="mt-2 text-sm text-black">Bullshit</p>
+              <p className="mt-2 text-sm text-white">Bullshit</p>
             </div>
           </div>
         </div>
       </Section>
 
-      {/* Cases */}
-      <Section id="cases" spacing="md">
+      {/* Cases - Blanc */}
+      <Section id="cases" spacing="md" className="bg-white">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
             Références & cas
@@ -205,31 +206,33 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Book */}
-      <Section id="book" spacing="md">
+      {/* Book - Noir */}
+      <Section id="book" spacing="md" className="bg-black">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
             Changer l'Immobilier : de l'Utopie à la Réalité
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-black">
+          <p className="mt-6 text-lg leading-relaxed text-white">
             Écrit par Claire Flurin Bellec et Fanny Costes, publié aux Éditions
             de l'Aube, cet ouvrage rassemble les réflexions de plus de cinquante
             acteurs du secteur autour d'une conviction : l'immobilier est en
             pleine transformation.
           </p>
-          <blockquote className="mt-6 border-l-4 border-black pl-4 italic text-black">
+          <blockquote className="mt-6 border-l-4 border-white pl-4 italic text-white">
             "Travailler dès aujourd'hui à la construction d'un futur désirable
             et rentable n'est pas un rêve — c'est un impératif business."
           </blockquote>
           <div className="mt-8">
-            <Button href="/contact">Commander l'ouvrage</Button>
+            <Button href="/contact" variant="inverted">
+              Commander l'ouvrage
+            </Button>
           </div>
         </div>
       </Section>
 
-      {/* Newsletter */}
-      <Section id="newsletter" spacing="md">
-        <div className="mx-auto max-w-4xl px-4 text-center">
+      {/* Newsletter - Blanc */}
+      <Section id="newsletter" spacing="md" className="bg-white text-center">
+        <div className="mx-auto max-w-4xl px-4">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
             Signals & Intelligence
           </h2>
@@ -246,18 +249,20 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Page Footer CTA */}
-      <Section spacing="md" className="bg-gray-light">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+      {/* Page Footer CTA - Noir */}
+      <Section spacing="md" className="bg-black text-center">
+        <div className="mx-auto max-w-4xl px-4">
+          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
             Et si on repensait votre business development autrement ?
           </h2>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button href="/contact">Nous écrire</Button>
-            <Button href="/services" variant="secondary">
+            <Button href="/contact" variant="inverted">
+              Nous écrire
+            </Button>
+            <Button href="/services" variant="secondary-inverted">
               Découvrir nos offres
             </Button>
-            <Button href="/contact" variant="secondary">
+            <Button href="/contact" variant="secondary-inverted">
               Newsletter
             </Button>
           </div>

@@ -77,22 +77,26 @@ Le design s'inspire de [Subrequest](https://subrequest.com/fr) : épuré, modern
 ### Composants UI
 
 #### Button
+
 - Style épuré inspiré Subrequest
 - Bordures arrondies
 - Padding généreux
 - Variantes: primaire et secondaire
 
 #### Card
+
 - Espacement généreux
 - Bordures subtiles
 - Ombres légères
 - Transitions au hover
 
 #### Section
+
 - Wrapper de sections avec espacement vertical généreux
 - Classes utilitaires: `py-16`, `py-20`, `py-24`
 
 #### Accordion
+
 - Pour la page Contact
 - Style épuré
 

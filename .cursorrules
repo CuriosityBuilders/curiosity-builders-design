@@ -94,11 +94,11 @@ src/
 ```typescript
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary';
+  variant?: "primary" | "secondary";
   href?: string;
 }
 
-export function Button({ children, variant = 'primary', href }: ButtonProps) {
+export function Button({ children, variant = "primary", href }: ButtonProps) {
   // Style épuré inspiré Subrequest
   // Padding généreux: px-6 py-3
   // Bordures arrondies
@@ -108,7 +108,7 @@ export function Button({ children, variant = 'primary', href }: ButtonProps) {
 #### Section avec espacement
 
 ```typescript
-export function Section({ children, spacing = 'md' }: SectionProps) {
+export function Section({ children, spacing = "md" }: SectionProps) {
   // py-16 (sm), py-20 (md), py-24 (lg)
 }
 ```
