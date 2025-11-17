@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/Button";
@@ -15,14 +18,24 @@ export function Header() {
       <nav className="mx-auto flex items-center justify-between border border-white/10 bg-white/50 px-24 py-2 shadow-sm backdrop-blur-xl backdrop-saturate-200">
         {/* Logo - Left */}
         <Link href="/" className="flex items-center">
-          <Image
-            src="/LOGO CURIOSITY HD_Balloons_Deep Black.png"
-            alt="Curiosity.Builders"
-            width={120}
-            height={40}
-            className="h-12 w-auto sm:h-16"
-            priority
-          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.1,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
+            <Image
+              src="/LOGO CURIOSITY HD_Balloons_Deep Black.png"
+              alt="Curiosity.Builders"
+              width={120}
+              height={40}
+              className="h-12 w-auto sm:h-16"
+              priority
+            />
+          </motion.div>
         </Link>
 
         {/* Navigation Links - Center */}

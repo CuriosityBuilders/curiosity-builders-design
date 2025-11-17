@@ -244,7 +244,7 @@ export default function Home() {
       </Section>
 
       {/* Key Metrics - Noir */}
-      <Section id="key-metrics" spacing="sm" className="bg-black">
+      <Section id="key-metrics" spacing="md" className="bg-black">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
             <div>
