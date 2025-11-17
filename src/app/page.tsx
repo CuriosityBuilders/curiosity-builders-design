@@ -379,11 +379,11 @@ export default function Home() {
                 { name: "Aken Écosystèmes", logo: "/logos/aken.png" },
                 { name: "Nhood", logo: "/logos/nhood.png" },
                 { name: "Ynov", logo: "/logos/ynov.png" },
-                { name: "Keys REIM", logo: null },
-                { name: "Pardi!", logo: null },
-                { name: "Archipel & Co", logo: null },
-                { name: "MIPIM", logo: null },
-                { name: "Carbon13", logo: null },
+                { name: "Keys REIM", logo: "/logos/keys-reim.png" },
+                { name: "Pardi!", logo: "/logos/pardi.png" },
+                { name: "Archipel & Co", logo: "/logos/archipelco.png" },
+                { name: "MIPIM", logo: "/logos/mipim.png" },
+                { name: "Carbon13", logo: "/logos/carbon13.png" },
               ].map((company) =>
                 company.logo ? (
                   <div
