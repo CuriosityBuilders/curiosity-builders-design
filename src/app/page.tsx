@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { BlurText } from "@/components/ui/BlurText";
 import { Button } from "@/components/ui/Button";
+import { CountUp } from "@/components/ui/CountUp";
 import { Section } from "@/components/ui/Section";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -75,10 +76,29 @@ export default function Home() {
       {/* Intro - Noir */}
       <Section id="intro" spacing="md" className="bg-black">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
+          <motion.h2
+            className="font-heading text-3xl font-bold text-white sm:text-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
             L'immobilier a changé d'ère
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-white">
+          </motion.h2>
+          <motion.p
+            className="mt-6 text-lg leading-relaxed text-white"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.8,
+              delay: 0.2,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
             Plutôt que de ne parler que de mètres carrés, nous aidons nos
             clients à concevoir, développer, financer et gérer des lieux vivants
             — désirables, durables et performants.
@@ -86,15 +106,47 @@ export default function Home() {
             <br />
             Car pour rester pertinent, il faut reconnecter stratégie
             immobilière, territoire et impact.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button href="/services" variant="inverted">
-              Découvrir nos offres
-            </Button>
-            <Button href="/contact" variant="secondary-inverted">
-              S'abonner à la newsletter
-            </Button>
-          </div>
+          </motion.p>
+          <motion.div
+            className="mt-8 flex flex-wrap gap-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.6,
+              delay: 0.4,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.5,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              <Button href="/services" variant="inverted">
+                Découvrir nos offres
+              </Button>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.6,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              <Button href="/contact" variant="secondary-inverted">
+                S'abonner à la newsletter
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
       </Section>
 
@@ -166,13 +218,13 @@ export default function Home() {
                 </div>
               </div>
               <h3 className="font-heading text-2xl font-bold leading-tight text-black">
-                Diagnostiques & Rapid Tests
+                Diagnostiques & Tests
               </h3>
               <p className="mt-3 text-base font-medium text-black/80">
                 Analyser, tester, décider vite
               </p>
               <p className="mt-6 grow text-base leading-relaxed text-black/70">
-                Audits, diagnostics contextuels et pitches.
+                Audits, diagnostiques contextuels et pitches.
               </p>
               <div className="mt-auto pt-6">
                 <p className="text-sm font-medium italic text-black/60">
@@ -249,25 +301,25 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
             <div>
               <p className="font-heading text-4xl font-bold text-white sm:text-5xl">
-                +50
+                <CountUp value={50} prefix="+" />
               </p>
               <p className="mt-2 text-sm text-white">acteurs interviewés</p>
             </div>
             <div>
               <p className="font-heading text-4xl font-bold text-white sm:text-5xl">
-                +15
+                <CountUp value={15} prefix="+" />
               </p>
               <p className="mt-2 text-sm text-white">études publiées</p>
             </div>
             <div>
               <p className="font-heading text-4xl font-bold text-white sm:text-5xl">
-                +3
+                <CountUp value={3} prefix="+" />
               </p>
               <p className="mt-2 text-sm text-white">ventures accélérées</p>
             </div>
             <div>
               <p className="font-heading text-4xl font-bold text-white sm:text-5xl">
-                0
+                <CountUp value={0} />
               </p>
               <p className="mt-2 text-sm text-white">Bullshit</p>
             </div>
@@ -278,16 +330,45 @@ export default function Home() {
       {/* Cases - Blanc */}
       <Section id="cases" spacing="md" className="bg-white">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+          <motion.h2
+            className="font-heading text-center text-3xl font-bold text-black sm:text-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
             Références & cas
-          </h2>
+          </motion.h2>
 
           {/* Clients & Partenaires */}
-          <div className="mt-12">
-            <h3 className="font-heading text-xl font-semibold text-black">
+          <motion.div
+            className="mt-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.6,
+              delay: 0.2,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
+            <h3 className="font-heading text-center text-xl font-semibold text-black">
               Clients & partenaires
             </h3>
-            <div className="mt-6 flex flex-wrap items-center gap-8 opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0">
+            <motion.div
+              className="mt-6 flex flex-wrap items-center justify-center gap-8 opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.4,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
               {[
                 { name: "Aken Écosystèmes", logo: "/logos/aken.png" },
                 { name: "Nhood", logo: "/logos/nhood.png" },
@@ -320,54 +401,169 @@ export default function Home() {
                   </div>
                 )
               )}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Projets */}
-          <div className="mt-12">
-            <h3 className="font-heading text-xl font-semibold text-black">
+          <motion.div
+            className="mt-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.6,
+              delay: 0.2,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
+            <h3 className="font-heading text-center text-xl font-semibold text-black">
               Projets
             </h3>
-            <div className="mt-4 grid gap-4 md:grid-cols-3">
-              <div className="text-sm text-black">Bas-Chantenay (Nantes)</div>
-              <div className="text-sm text-black">Halle G1 (Lille)</div>
-              <div className="text-sm text-black">Neoz BTR</div>
-            </div>
-          </div>
+            <motion.div
+              className="mt-4 grid gap-4 md:grid-cols-3"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.4,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              <motion.div
+                className="text-center text-sm text-black"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.5,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }}
+              >
+                Bas-Chantenay (Nantes)
+              </motion.div>
+              <motion.div
+                className="text-center text-sm text-black"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.6,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }}
+              >
+                Halle G1 (Lille)
+              </motion.div>
+              <motion.div
+                className="text-center text-sm text-black"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.7,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }}
+              >
+                Neoz BTR
+              </motion.div>
+            </motion.div>
+          </motion.div>
 
           {/* Presse & Publications */}
-          <div className="mt-12">
-            <h3 className="font-heading text-xl font-semibold text-black">
+          <motion.div
+            className="mt-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.6,
+              delay: 0.2,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
+            <h3 className="font-heading text-center text-xl font-semibold text-black">
               Presse & publications
             </h3>
-            <p className="mt-4 text-sm text-black">
+            <motion.p
+              className="mt-4 text-center text-sm text-black"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.4,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
               ULI · IEIF · Le Monde · Les Échos · L'Agefi · Le Moniteur
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
       </Section>
 
       {/* Book - Noir */}
       <Section id="book" spacing="md" className="bg-black">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
+          <motion.h2
+            className="font-heading text-3xl font-bold text-white sm:text-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
             Changer l'Immobilier : de l'Utopie à la Réalité
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-white">
+          </motion.h2>
+          <motion.p
+            className="mt-6 text-lg leading-relaxed text-white"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.8,
+              delay: 0.2,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
             Écrit par Claire Flurin Bellec et Fanny Costes, publié aux Éditions
             de l'Aube, cet ouvrage rassemble les réflexions de plus de cinquante
             acteurs du secteur autour d'une conviction : l'immobilier est en
             pleine transformation.
-          </p>
-          <blockquote className="mt-6 border-l-4 border-white pl-4 italic text-white">
+          </motion.p>
+          <motion.blockquote
+            className="mt-6 border-l-4 border-white pl-4 italic text-white"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.8,
+              delay: 0.4,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
             "Travailler dès aujourd'hui à la construction d'un futur désirable
             et rentable n'est pas un rêve — c'est un impératif business."
-          </blockquote>
-          <div className="mt-8">
+          </motion.blockquote>
+          <motion.div
+            className="mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.6,
+              delay: 0.6,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
             <Button href="/contact" variant="inverted">
               Commander l'ouvrage
             </Button>
-          </div>
+          </motion.div>
         </div>
       </Section>
 
@@ -393,20 +589,72 @@ export default function Home() {
       {/* Page Footer CTA - Noir */}
       <Section spacing="md" className="bg-black text-center">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
+          <motion.h2
+            className="font-heading text-3xl font-bold text-white sm:text-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
             Et si on repensait votre business development autrement ?
-          </h2>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button href="/contact" variant="inverted">
-              Nous écrire
-            </Button>
-            <Button href="/services" variant="secondary-inverted">
-              Découvrir nos offres
-            </Button>
-            <Button href="/contact" variant="secondary-inverted">
-              Newsletter
-            </Button>
-          </div>
+          </motion.h2>
+          <motion.div
+            className="mt-8 flex flex-wrap justify-center gap-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.6,
+              delay: 0.3,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.5,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              <Button href="/contact" variant="inverted">
+                Nous écrire
+              </Button>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.6,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              <Button href="/services" variant="secondary-inverted">
+                Découvrir nos offres
+              </Button>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.7,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              <Button href="/contact" variant="secondary-inverted">
+                Newsletter
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
       </Section>
 
