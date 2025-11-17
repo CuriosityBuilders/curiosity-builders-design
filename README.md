@@ -6,6 +6,32 @@ Plateforme d'accélération de vos projets de lieux. Centrée sur l'humain, guid
 
 Site web pour Curiosity.Builders construit avec Next.js 16, React 19, TypeScript et Tailwind CSS v4.
 
+## Tone and Style
+
+Ce site se situe à l'intersection entre **boutique consultancy** et **innovation lab**. Le choix de la stack technique affecte non seulement le design mais aussi la crédibilité et l'image moderne que nous projetons.
+
+Le site doit refléter :
+- Une approche haut de gamme et stratégique
+- Une capacité d'innovation et d'expérimentation
+- Une crédibilité technique et méthodologique
+- Une vision tournée vers l'avenir (IA, données, innovation urbaine)
+
+## Architecture Overview - Curiosity.Builders Offering
+
+### Tiers de services
+
+| Tier | Purpose | URL |
+|------|---------|-----|
+| **Tier 0** | Awareness & intelligence (newsletter, thought leadership) | `/` (Home) + Substack |
+| **Tier 1** | Diagnostics & applied intelligence | `/services` |
+| **Tier 2** | Externalized R&D & Innovation Program | `/services` |
+| **Tier 3** | Venture Development & Pilots | `/services` |
+
+### Pages complémentaires
+
+- **Cases & credibility**: `/cases` (références, études de cas)
+- **About & contact**: `/about` · `/contact`
+
 ## Stack technique
 
 - **Framework**: Next.js 16 (App Router)
@@ -14,11 +40,32 @@ Site web pour Curiosity.Builders construit avec Next.js 16, React 19, TypeScript
 - **Styling**: Tailwind CSS v4
 - **Linter/Formatter**: Biome
 
+### Besoins techniques
+
+#### Phase actuelle
+- Site web haut de gamme, orienté contenu (visual storytelling, portfolio, service tiers clairs)
+- CMS simple pour les études de cas et insights
+- Intégration newsletter avec Substack
+- Automations optionnelles :
+  - Formulaires → Notion/Zapier
+  - Tracking de téléchargement PDF
+  - Analytics
+
+#### Extensibilité future
+- Plateforme AI-agent en version bêta
+
 ## Design System
 
-### Inspiration
+### Inspirations
 
-Le design s'inspire de [Subrequest](https://subrequest.com/fr) : épuré, moderne, avec un espacement généreux, des sections bien délimitées, une navigation simple, une typographie claire et des CTAs bien visibles.
+Le design s'inspire de plusieurs références pour créer une identité unique :
+
+1. **Minimalist studio** - Design épuré, espacement généreux
+2. **Experimental lab** - Innovation, expérimentation visuelle
+3. **AI agencies** - Modernité, crédibilité tech
+4. **Strategic consulting agencies** - Professionnalisme, expertise
+
+Référence principale : [Subrequest](https://subrequest.com/fr) - épuré, moderne, avec un espacement généreux, des sections bien délimitées, une navigation simple, une typographie claire et des CTAs bien visibles.
 
 ### Typographie
 
@@ -30,17 +77,29 @@ Le design s'inspire de [Subrequest](https://subrequest.com/fr) : épuré, modern
 
 ### Palette de couleurs
 
+**Direction** : Fond blanc, texte noir, accents en lime / sand beige / muted teal (cohérent avec le branding Curiosity).
+
 - **Noir**: `#000000` - Textes principaux
 - **Blanc**: `#FFFFFF` - Fonds principaux
 - **Gris clair**: `#F9F9F9` - Fonds alternatifs (bandeaux off-white)
-- **Couleur d'accent**: Optionnelle, à définir si nécessaire
+- **Accents**:
+  - Lime (vert citron)
+  - Sand beige (beige sable)
+  - Muted teal (sarcelle atténué)
 
-**Principes**: Contrastes nets, fonds blancs purs, textes noirs pour un design épuré et professionnel.
+**Principes**: Contrastes nets, fonds blancs purs, textes noirs pour un design épuré et professionnel. Alternance de sections noir/blanc pour créer du rythme visuel.
 
 ### Images
 
-- **Règle générale**: Images en noir et blanc
+**Direction** : Renders architecturaux, vie urbaine, scènes communautaires, visualisations de données. Préférer grayscale avec une couleur d'accent.
+
+- **Règle générale**: Images en noir et blanc / grayscale
 - **Exception**: Cas clients réels → en couleur (ils incarnent la mise en œuvre de la vision)
+- **Types d'images**:
+  - Renders architecturaux
+  - Scènes de vie urbaine
+  - Scènes communautaires
+  - Visualisations de données
 
 ### Animations
 
@@ -63,25 +122,34 @@ Le design s'inspire de [Subrequest](https://subrequest.com/fr) : épuré, modern
   - Animation: "pousse" lentement au scroll
   - Pastilles animées à chaque section clé
 
-### Espacement (inspiration Subrequest)
+### Layout
+
+**Direction** : Blocs modulaires pleine largeur, beaucoup d'espace blanc, révélations douces au scroll.
 
 - **Sections**: Espacement vertical généreux
-  - Hero sections: `py-24`
+  - Hero sections: `py-24` à `py-48` (responsive)
   - Sections principales: `py-20`
   - Sections secondaires: `py-16`
   - Bandeaux: `py-12`
 - **Padding horizontal**: Confortable (`px-4` à `px-8` selon le breakpoint)
 - **Cards**: Espacement interne généreux (`p-6` à `p-8`)
 - **CTAs**: Padding confortable (`px-6 py-3`)
+- **Blocs modulaires**: Pleine largeur avec conteneurs max-width pour le contenu
 
 ### Composants UI
 
 #### Button
 
+**Style CTA** : Boutons texte (outlined ou underline au hover), lowercase pour un ton minimaliste.
+
 - Style épuré inspiré Subrequest
-- Bordures arrondies
+- Bordures arrondies (`rounded-full`)
 - Padding généreux
-- Variantes: primaire et secondaire
+- Variantes:
+  - `primary`: Fond noir, texte blanc
+  - `secondary`: Bordure, fond blanc
+  - `inverted`: Fond blanc, texte noir (pour fonds sombres)
+  - `secondary-inverted`: Bordure blanche, fond transparent (pour fonds sombres)
 
 #### Card
 
@@ -197,8 +265,22 @@ src/
 - **Classes CSS**: Tailwind utilities uniquement
 - **Variables**: camelCase
 
+## SEO Focus Keywords
+
+Mots-clés stratégiques pour le référencement :
+
+- externalized R&D
+- real estate innovation
+- AI in urban development
+- impact-driven investment
+- circular retrofit
+- venture studio
+- UX Immo
+
 ## Notes
 
 - Le site doit donner une impression de "blueprint vivant"
 - Identité visuelle immédiatement reconnaissable, entre tech et architecture
 - Continuité visuelle entre les sections (fil conducteur rappelant la rigueur méthodologique)
+- Design qui reflète la position à l'intersection boutique consultancy / innovation lab
+- Crédibilité technique et modernité au cœur de l'identité visuelle

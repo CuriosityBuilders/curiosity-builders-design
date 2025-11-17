@@ -1,12 +1,12 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Header />
       {/* <ProgressLine /> */}
 
@@ -19,17 +19,17 @@ export default function Home() {
           backgroundImage: "url('/hero-background.jpg')",
         }}
       >
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/50" />
+        {/* Dark Overlay with gradient for better contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/70 to-black/90" />
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-5xl px-4">
-          <h1 className="font-heading animate-fade-in-up text-6xl font-bold leading-[1.1] text-white sm:text-8xl lg:text-9xl">
+          <h1 className="font-heading animate-hero-title text-6xl font-bold leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.2)] sm:text-8xl lg:text-9xl">
             Curiosity.Builders
           </h1>
-          <p className="mt-12 animate-fade-in text-2xl leading-relaxed text-white sm:text-3xl lg:text-4xl">
+          <p className="mt-12 animate-hero-subtitle text-2xl leading-relaxed text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] sm:text-3xl lg:text-4xl">
             Plateforme d'accélération de vos projets de lieux.
           </p>
-          <p className="mt-6 animate-fade-in-delay text-xl leading-relaxed text-white/90 sm:text-2xl">
+          <p className="mt-6 animate-hero-description text-xl leading-relaxed text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)] sm:text-2xl">
             Centrée sur l'humain, guidée par la donnée, augmentée par l'IA.
           </p>
         </div>
@@ -64,81 +64,114 @@ export default function Home() {
       {/* Tiers - Blanc */}
       <Section id="tiers" spacing="md" className="bg-white">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+          <h2 className="font-heading text-center text-3xl font-bold text-black sm:text-4xl">
             3 leviers pour accélérer vos projets
           </h2>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-16 grid gap-8 md:grid-cols-3">
             {/* Card 1 */}
-            <Card>
-              <h3 className="font-heading text-xl font-bold text-black">
-                Signals & Intelligence
+            <div className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white p-8 transition-all duration-300 hover:border-black/20 hover:shadow-xl">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  1
+                </div>
+              </div>
+              <h3 className="font-heading text-2xl font-bold leading-tight text-black">
+                Signaux & Intelligence
               </h3>
-              <p className="mt-2 text-sm font-semibold text-black">
+              <p className="mt-3 text-base font-medium text-black/80">
                 Voir, comprendre, anticiper
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-black">
+              <p className="mt-6 text-base leading-relaxed text-black/70">
                 Veille stratégique, études, capital watch, partenaires &
                 tendances.
               </p>
-              <p className="mt-4 text-sm italic text-black">
-                ➡ Pour nourrir la vision et orienter les décisions.
-              </p>
-              <div className="mt-6">
-                <Button href="/signals" variant="secondary" className="text-sm">
-                  Accéder aux insights
-                </Button>
+              <div className="mt-8 pt-6">
+                <p className="text-sm font-medium italic text-black/60">
+                  Pour nourrir la vision et orienter les décisions.
+                </p>
+                <div className="mt-6">
+                  <Button
+                    href="/signals"
+                    variant="secondary"
+                    className="w-full"
+                  >
+                    Accéder aux insights
+                  </Button>
+                </div>
               </div>
-            </Card>
+            </div>
 
             {/* Card 2 */}
-            <Card>
-              <h3 className="font-heading text-xl font-bold text-black">
-                Diagnostics & Rapid Tests
+            <div className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white p-8 transition-all duration-300 hover:border-black/20 hover:shadow-xl">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  2
+                </div>
+              </div>
+              <h3 className="font-heading text-2xl font-bold leading-tight text-black">
+                Diagnostiques & Rapid Tests
               </h3>
-              <p className="mt-2 text-sm font-semibold text-black">
+              <p className="mt-3 text-base font-medium text-black/80">
                 Analyser, tester, décider vite
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-black">
+              <p className="mt-6 text-base leading-relaxed text-black/70">
                 Audits, diagnostics contextuels et pitches.
               </p>
-              <p className="mt-4 text-sm italic text-black">
-                ➡ Pour adapter vos usages, montages et levées de fonds.
-              </p>
-              <div className="mt-6">
-                <Button href="/contact" variant="secondary" className="text-sm">
-                  Nous écrire
-                </Button>
+              <div className="mt-8 pt-6">
+                <p className="text-sm font-medium italic text-black/60">
+                  Pour adapter vos usages, montages et levées de fonds.
+                </p>
+                <div className="mt-6">
+                  <Button
+                    href="/contact"
+                    variant="secondary"
+                    className="w-full"
+                  >
+                    Nous écrire
+                  </Button>
+                </div>
               </div>
-            </Card>
+            </div>
 
             {/* Card 3 */}
-            <Card>
-              <h3 className="font-heading text-xl font-bold text-black">
+            <div className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white p-8 transition-all duration-300 hover:border-black/20 hover:shadow-xl">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  3
+                </div>
+              </div>
+              <h3 className="font-heading text-2xl font-bold leading-tight text-black">
                 R&D Studio & Strategic Advisory
               </h3>
-              <p className="mt-2 text-sm font-semibold text-black">
+              <p className="mt-3 text-base font-medium text-black/80">
                 Concevoir, financer, scaler
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-black">
+              <p className="mt-6 text-base leading-relaxed text-black/70">
                 R&D externalisée, Fractional Chief R&D Officer, Senior Advisory
                 sur vos startups, scale-ups, spin-off ou nouvelles BU.
               </p>
-              <p className="mt-4 text-sm italic text-black">
-                ➡ Pour passer du test à l'exécution et au changement d'échelle.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                <Button
-                  href="/services"
-                  variant="secondary"
-                  className="text-sm"
-                >
-                  Demander la présentation
-                </Button>
-                <Button href="/contact" variant="secondary" className="text-sm">
-                  Nous écrire
-                </Button>
+              <div className="mt-8 pt-6">
+                <p className="text-sm font-medium italic text-black/60">
+                  Pour passer du test à l'exécution et au changement d'échelle.
+                </p>
+                <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  <Button
+                    href="/services"
+                    variant="primary"
+                    className="w-full py-1 text-sm text-center"
+                  >
+                    Demander la présentation
+                  </Button>
+                  <Button
+                    href="/contact"
+                    variant="secondary"
+                    className="w-full py-1 text-sm"
+                  >
+                    Nous écrire
+                  </Button>
+                </div>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       </Section>
@@ -161,7 +194,7 @@ export default function Home() {
             </div>
             <div>
               <p className="font-heading text-4xl font-bold text-white sm:text-5xl">
-                +8
+                +3
               </p>
               <p className="mt-2 text-sm text-white">ventures accélérées</p>
             </div>
@@ -187,10 +220,40 @@ export default function Home() {
             <h3 className="font-heading text-xl font-semibold text-black">
               Clients & partenaires
             </h3>
-            <p className="mt-4 text-sm text-black">
-              Aken Écosystèmes · Nhood · Keys REIM · Ynov · Pardi! · Archipel &
-              Co · MIPIM · Carbon13
-            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-8 opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0">
+              {[
+                { name: "Aken Écosystèmes", logo: "/logos/aken.png" },
+                { name: "Nhood", logo: "/logos/nhood.png" },
+                { name: "Ynov", logo: "/logos/ynov.png" },
+                { name: "Keys REIM", logo: null },
+                { name: "Pardi!", logo: null },
+                { name: "Archipel & Co", logo: null },
+                { name: "MIPIM", logo: null },
+                { name: "Carbon13", logo: null },
+              ].map((company) =>
+                company.logo ? (
+                  <div
+                    key={company.name}
+                    className="flex h-12 items-center justify-center"
+                  >
+                    <Image
+                      src={company.logo}
+                      alt={company.name}
+                      width={120}
+                      height={48}
+                      className="h-auto max-h-12 w-auto object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    key={company.name}
+                    className="flex h-12 items-center justify-center text-sm text-black/60"
+                  >
+                    {company.name}
+                  </div>
+                ),
+              )}
+            </div>
           </div>
 
           {/* Projets */}

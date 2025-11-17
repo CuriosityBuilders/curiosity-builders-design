@@ -22,7 +22,11 @@ export function Section({
   };
 
   return (
-    <section id={id} className={`${spacingClasses[spacing]} ${className}`} style={style}>
+    <section
+      id={id}
+      className={`${spacingClasses[spacing]} ${className}`}
+      style={style}
+    >
       {children}
     </section>
   );
