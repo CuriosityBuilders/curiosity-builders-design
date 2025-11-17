@@ -23,17 +23,23 @@ export default function Home() {
       >
         {/* Animated Background Image */}
         <motion.div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/hero-background.jpg')",
-          }}
+          className="absolute inset-0"
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{
             duration: 1.5,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
-        />
+        >
+          <Image
+            src="/hero-background.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </motion.div>
         {/* Dark Overlay with gradient for better contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/70 to-black/90" />
         {/* Content */}
@@ -41,7 +47,7 @@ export default function Home() {
           <BlurText
             as="h1"
             className="font-heading text-6xl font-bold leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.2),0_0_30px_rgba(255,255,255,0.3),0_0_60px_rgba(255,255,255,0.2)] sm:text-8xl lg:text-9xl"
-            delay={0.2}
+            delay={0.1}
             duration={0.5}
           >
             Curiosity.Builders
