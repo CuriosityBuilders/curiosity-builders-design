@@ -46,7 +46,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-5xl px-4">
           <BlurText
             as="h1"
-            className="font-heading text-6xl font-bold leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.2),0_0_30px_rgba(255,255,255,0.3),0_0_60px_rgba(255,255,255,0.2)] sm:text-8xl lg:text-9xl"
+            className="font-heading text-5xl font-bold leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.2),0_0_30px_rgba(255,255,255,0.3),0_0_60px_rgba(255,255,255,0.2)] sm:text-7xl lg:text-9xl"
             delay={0.1}
             duration={0.5}
           >
