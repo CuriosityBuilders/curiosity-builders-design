@@ -12,7 +12,7 @@ const navigation = [
 export function Header() {
   return (
     <header className="sticky top-0 z-50">
-      <nav className="mx-auto flex items-center justify-between border border-white/10 bg-white/30 px-20 py-2 shadow-sm backdrop-blur-xl backdrop-saturate-150">
+      <nav className="mx-auto flex items-center justify-between border border-white/10 bg-white/50 px-24 py-2 shadow-sm backdrop-blur-xl backdrop-saturate-200">
         {/* Logo - Left */}
         <Link href="/" className="flex items-center">
           <Image
