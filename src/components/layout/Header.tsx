@@ -4,17 +4,18 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Button } from "../ui/Button";
 
 const navigation = [
   { name: "Accueil", href: "/" },
   { name: "Méthode", href: "/methode" },
   { name: "Services", href: "/services" },
   { name: "Signals", href: "/signals" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export function Header() {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [language, setLanguage] = useState<"EN" | "FR">("FR");
 
   return (
     <header className="sticky top-0 z-50">
@@ -60,26 +61,35 @@ export function Header() {
           ))}
         </div>
 
-        {/* Right Side - Log In & Sign Up */}
+        {/* Right Side - Language Toggle */}
         <div className="flex items-center gap-4">
-          <div className="hidden md:block">
-            <Button
-              href="/contact"
-              variant="primary"
-              className="rounded-lg px-5 py-2.5 text-sm font-medium"
+          {/* Language Toggle */}
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={() => setLanguage("EN")}
+              className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                language === "EN"
+                  ? "bg-black text-white"
+                  : "bg-transparent text-black hover:text-gray-700"
+              }`}
+              aria-label="Switch to English"
             >
-              Contact
-            </Button>
+              EN
+            </button>
+            <button
+              type="button"
+              onClick={() => setLanguage("FR")}
+              className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                language === "FR"
+                  ? "bg-black text-white"
+                  : "bg-transparent text-black hover:text-gray-700"
+              }`}
+              aria-label="Switch to French"
+            >
+              FR
+            </button>
           </div>
-          {/* Mobile menu button */}
-          <Button
-            type="button"
-            variant="secondary"
-            className="text-black md:hidden"
-            aria-label="Menu"
-          >
-            ☰
-          </Button>
         </div>
       </nav>
     </header>

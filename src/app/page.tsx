@@ -505,11 +505,11 @@ export default function Home() {
               }}
             >
               {[
-                { name: "ULI", logo: "/logos/uli.png" },
-                { name: "IEIF", logo: "/logos/ieif.png" },
                 { name: "Le Monde", logo: "/logos/lemonde.png" },
-                { name: "Les Échos", logo: "/logos/lesechos.png" },
+                { name: "IEIF", logo: "/logos/ieif.png" },
+                { name: "ULI", logo: "/logos/uli.png" },
                 { name: "L'Agefi", logo: "/logos/agefi.png" },
+                { name: "Les Échos", logo: "/logos/lesechos.png" },
                 { name: "Le Moniteur", logo: "/logos/lemoniteur.png" },
               ].map((company) =>
                 company.logo ? (
