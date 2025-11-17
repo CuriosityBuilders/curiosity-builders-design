@@ -106,7 +106,17 @@ export default function Home() {
           </h2>
           <div className="mt-16 grid gap-8 md:grid-cols-3">
             {/* Card 1 */}
-            <div className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white p-8 transition-all duration-300 hover:border-black/20 hover:shadow-xl">
+            <motion.div
+              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white p-8 transition-all duration-300 hover:border-black/20 hover:shadow-xl"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.1,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
                   1
@@ -118,11 +128,11 @@ export default function Home() {
               <p className="mt-3 text-base font-medium text-black/80">
                 Voir, comprendre, anticiper
               </p>
-              <p className="mt-6 text-base leading-relaxed text-black/70">
+              <p className="mt-6 grow text-base leading-relaxed text-black/70">
                 Veille stratégique, études, capital watch, partenaires &
                 tendances.
               </p>
-              <div className="mt-8 pt-6">
+              <div className="mt-auto pt-6">
                 <p className="text-sm font-medium italic text-black/60">
                   Pour nourrir la vision et orienter les décisions.
                 </p>
@@ -136,10 +146,20 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 2 */}
-            <div className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white p-8 transition-all duration-300 hover:border-black/20 hover:shadow-xl">
+            <motion.div
+              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white p-8 transition-all duration-300 hover:border-black/20 hover:shadow-xl"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.2,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
                   2
@@ -151,10 +171,10 @@ export default function Home() {
               <p className="mt-3 text-base font-medium text-black/80">
                 Analyser, tester, décider vite
               </p>
-              <p className="mt-6 text-base leading-relaxed text-black/70">
+              <p className="mt-6 grow text-base leading-relaxed text-black/70">
                 Audits, diagnostics contextuels et pitches.
               </p>
-              <div className="mt-8 pt-6">
+              <div className="mt-auto pt-6">
                 <p className="text-sm font-medium italic text-black/60">
                   Pour adapter vos usages, montages et levées de fonds.
                 </p>
@@ -168,10 +188,20 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 3 */}
-            <div className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white p-8 transition-all duration-300 hover:border-black/20 hover:shadow-xl">
+            <motion.div
+              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white p-8 transition-all duration-300 hover:border-black/20 hover:shadow-xl"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
                   3
@@ -183,11 +213,11 @@ export default function Home() {
               <p className="mt-3 text-base font-medium text-black/80">
                 Concevoir, financer, scaler
               </p>
-              <p className="mt-6 text-base leading-relaxed text-black/70">
+              <p className="mt-6 grow text-base leading-relaxed text-black/70">
                 R&D externalisée, Fractional Chief R&D Officer, Senior Advisory
                 sur vos startups, scale-ups, spin-off ou nouvelles BU.
               </p>
-              <div className="mt-8 pt-6">
+              <div className="mt-auto pt-6">
                 <p className="text-sm font-medium italic text-black/60">
                   Pour passer du test à l'exécution et au changement d'échelle.
                 </p>
@@ -208,7 +238,7 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </Section>
