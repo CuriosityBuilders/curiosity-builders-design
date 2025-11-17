@@ -493,10 +493,10 @@ export default function Home() {
             <h3 className="font-heading text-center text-xl font-semibold text-black">
               Presse & publications
             </h3>
-            <motion.p
-              className="mt-4 text-center text-sm text-black"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            <motion.div
+              className="mt-6 flex flex-wrap items-center justify-center gap-8 opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{
                 duration: 0.6,
@@ -504,8 +504,37 @@ export default function Home() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
-              ULI · IEIF · Le Monde · Les Échos · L'Agefi · Le Moniteur
-            </motion.p>
+              {[
+                { name: "ULI", logo: "/logos/uli.png" },
+                { name: "IEIF", logo: "/logos/ieif.png" },
+                { name: "Le Monde", logo: "/logos/lemonde.png" },
+                { name: "Les Échos", logo: "/logos/lesechos.png" },
+                { name: "L'Agefi", logo: "/logos/agefi.png" },
+                { name: "Le Moniteur", logo: "/logos/lemoniteur.png" },
+              ].map((company) =>
+                company.logo ? (
+                  <div
+                    key={company.name}
+                    className="flex h-12 items-center justify-center"
+                  >
+                    <Image
+                      src={company.logo}
+                      alt={company.name}
+                      width={120}
+                      height={48}
+                      className="h-auto max-h-12 w-auto object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    key={company.name}
+                    className="flex h-12 items-center justify-center text-sm text-black/60"
+                  >
+                    {company.name}
+                  </div>
+                )
+              )}
+            </motion.div>
           </motion.div>
         </div>
       </Section>
