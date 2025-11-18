@@ -37,7 +37,7 @@ export function CountUp({
         const easeOut = 1 - (1 - progress) ** 3;
 
         const currentValue = Math.floor(
-          startValue + (endValue - startValue) * easeOut
+          startValue + (endValue - startValue) * easeOut,
         );
         setCount(currentValue);
 

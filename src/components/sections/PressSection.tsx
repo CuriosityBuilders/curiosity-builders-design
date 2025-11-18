@@ -60,7 +60,7 @@ export function PressSection({ companies }: PressSectionProps) {
             >
               {company.name}
             </div>
-          )
+          ),
         )}
       </motion.div>
     </motion.div>

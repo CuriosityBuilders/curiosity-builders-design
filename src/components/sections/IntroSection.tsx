@@ -1,8 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { motion } from "framer-motion";
 
 export function IntroSection() {
   return (
@@ -31,13 +31,13 @@ export function IntroSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          Plutôt que de ne parler que de mètres carrés, nous aidons nos
-          clients à concevoir, développer, financer et gérer des lieux vivants
-          — désirables, durables et performants.
+          Plutôt que de ne parler que de mètres carrés, nous aidons nos clients
+          à concevoir, développer, financer et gérer des lieux vivants —
+          désirables, durables et performants.
           <br />
           <br />
-          Car pour rester pertinent, il faut reconnecter stratégie
-          immobilière, territoire et impact.
+          Car pour rester pertinent, il faut reconnecter stratégie immobilière,
+          territoire et impact.
         </motion.p>
         <motion.div
           className="mt-8 flex flex-wrap gap-4"

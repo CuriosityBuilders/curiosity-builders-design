@@ -1,8 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { motion } from "framer-motion";
 
 export function FooterCTASection() {
   return (

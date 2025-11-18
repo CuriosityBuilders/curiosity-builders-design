@@ -1,8 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { motion } from "framer-motion";
 
 interface TierCardProps {
   number: number;
@@ -68,9 +68,9 @@ export function TierCard({
           <div
             className={`mt-6 ${buttons.length > 1 ? "grid grid-cols-1 gap-3 sm:grid-cols-2" : ""}`}
           >
-            {buttons.map((button, index) => (
+            {buttons.map((button) => (
               <Button
-                key={index}
+                key={`${button.href}-${button.label}`}
                 href={button.href}
                 variant={button.variant}
                 className={button.className || "w-full"}

@@ -21,8 +21,8 @@ export function KeyMetricsSection() {
     <Section id="key-metrics" spacing="md" className="bg-black">
       <div className="mx-auto max-w-7xl px-4">
         <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
-          {metrics.map((metric, index) => (
-            <div key={index}>
+          {metrics.map((metric) => (
+            <div key={metric.label}>
               <p className="font-heading text-4xl font-bold text-white sm:text-5xl">
                 {metric.prefix ? (
                   <CountUp value={metric.value} prefix={metric.prefix} />

@@ -297,9 +297,9 @@ export default function ServicesPage() {
                 Scale-up Support
               </h3>
               <p className="mt-1 text-sm text-black">
-                Appui à la croissance et à l'exécution : positionnement
-                marché, structuration d'équipe, partenariats stratégiques,
-                levée de fonds.
+                Appui à la croissance et à l'exécution : positionnement marché,
+                structuration d'équipe, partenariats stratégiques, levée de
+                fonds.
               </p>
             </div>
             <div>

@@ -60,7 +60,7 @@ export function ClientsSection({ companies }: ClientsSectionProps) {
             >
               {company.name}
             </div>
-          )
+          ),
         )}
       </motion.div>
     </motion.div>

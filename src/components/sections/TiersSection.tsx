@@ -68,11 +68,7 @@ export function TiersSection() {
         </h2>
         <div className="mt-16 grid gap-8 md:grid-cols-3">
           {tiers.map((tier, index) => (
-            <TierCard
-              key={tier.number}
-              {...tier}
-              delay={0.1 + index * 0.1}
-            />
+            <TierCard key={tier.number} {...tier} delay={0.1 + index * 0.1} />
           ))}
         </div>
       </div>

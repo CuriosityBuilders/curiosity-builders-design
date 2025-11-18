@@ -1,7 +1,6 @@
 "use client";
 
 import { Section } from "@/components/ui/Section";
-import { motion } from "framer-motion";
 import { ClientsSection } from "./ClientsSection";
 import { PressSection } from "./PressSection";
 import { ProjectsSection } from "./ProjectsSection";
@@ -17,11 +16,7 @@ interface CasesSectionProps {
   press: Company[];
 }
 
-export function CasesSection({
-  clients,
-  projects,
-  press,
-}: CasesSectionProps) {
+export function CasesSection({ clients, projects, press }: CasesSectionProps) {
   return (
     <Section id="cases" spacing="md" className="bg-white">
       <div className="mx-auto max-w-7xl px-4">

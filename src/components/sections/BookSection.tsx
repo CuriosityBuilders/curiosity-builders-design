@@ -1,8 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { motion } from "framer-motion";
 
 export function BookSection() {
   return (
@@ -31,8 +31,8 @@ export function BookSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          Écrit par Claire Flurin Bellec et Fanny Costes, publié aux Éditions
-          de l'Aube, cet ouvrage rassemble les réflexions de plus de cinquante
+          Écrit par Claire Flurin Bellec et Fanny Costes, publié aux Éditions de
+          l'Aube, cet ouvrage rassemble les réflexions de plus de cinquante
           acteurs du secteur autour d'une conviction : l'immobilier est en
           pleine transformation.
         </motion.p>
@@ -47,8 +47,8 @@ export function BookSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          "Travailler dès aujourd'hui à la construction d'un futur désirable
-          et rentable n'est pas un rêve — c'est un impératif business."
+          "Travailler dès aujourd'hui à la construction d'un futur désirable et
+          rentable n'est pas un rêve — c'est un impératif business."
         </motion.blockquote>
         <motion.div
           className="mt-8"

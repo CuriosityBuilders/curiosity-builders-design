@@ -1,9 +1,9 @@
 "use client";
 
-import { BlurText } from "@/components/ui/BlurText";
-import { Section } from "@/components/ui/Section";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { BlurText } from "@/components/ui/BlurText";
+import { Section } from "@/components/ui/Section";
 
 export function HeroSection() {
   return (
