@@ -7,6 +7,7 @@ import { BlurText } from "@/components/ui/BlurText";
 import { Button } from "@/components/ui/Button";
 import { CountUp } from "@/components/ui/CountUp";
 import { FilmGrain } from "@/components/ui/FilmGrain";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Section } from "@/components/ui/Section";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -169,7 +170,7 @@ export default function Home() {
           <div className="mt-16 grid gap-8 md:grid-cols-3">
             {/* Card 1 */}
             <motion.div
-              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white p-8 transition-all duration-300 hover:border-black/20 hover:shadow-xl"
+              className="relative h-full rounded-2xl border border-black/10"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -179,40 +180,52 @@ export default function Home() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
-              <div className="mb-6 flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
-                  1
+              <GlowingEffect
+                blur={0}
+                borderWidth={2}
+                spread={100}
+                glow={false}
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                variant="white"
+              />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-xl border-0 bg-white p-8 transition-all duration-300 hover:shadow-xl">
+                <div className="mb-6 flex items-start justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                    1
+                  </div>
                 </div>
-              </div>
-              <h3 className="font-heading text-2xl font-bold leading-tight text-black">
-                Signaux & Intelligence
-              </h3>
-              <p className="mt-3 text-base font-medium text-black/80">
-                Voir, comprendre, anticiper
-              </p>
-              <p className="mt-6 grow text-base leading-relaxed text-black/70">
-                Veille stratégique, études, capital watch, partenaires &
-                tendances.
-              </p>
-              <div className="mt-auto pt-6">
-                <p className="text-sm font-medium italic text-black/60">
-                  Pour nourrir la vision et orienter les décisions.
+                <h3 className="font-heading text-2xl font-bold leading-tight text-black">
+                  Signaux & Intelligence
+                </h3>
+                <p className="mt-3 text-base font-medium text-black/80">
+                  Voir, comprendre, anticiper
                 </p>
-                <div className="mt-6">
-                  <Button
-                    href="/signals"
-                    variant="secondary"
-                    className="w-full"
-                  >
-                    Accéder aux insights
-                  </Button>
+                <p className="mt-6 grow text-base leading-relaxed text-black/70">
+                  Veille stratégique, études, capital watch, partenaires &
+                  tendances.
+                </p>
+                <div className="mt-auto pt-6">
+                  <p className="text-sm font-medium italic text-black/60">
+                    Pour nourrir la vision et orienter les décisions.
+                  </p>
+                  <div className="mt-6">
+                    <Button
+                      href="/signals"
+                      variant="secondary"
+                      className="w-full"
+                    >
+                      Accéder aux insights
+                    </Button>
+                  </div>
                 </div>
               </div>
             </motion.div>
 
             {/* Card 2 */}
             <motion.div
-              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white p-8 transition-all duration-300 hover:border-black/20 hover:shadow-xl"
+              className="relative h-full rounded-2xl border border-black/10"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -222,39 +235,51 @@ export default function Home() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
-              <div className="mb-6 flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
-                  2
+              <GlowingEffect
+                blur={0}
+                borderWidth={2}
+                spread={80}
+                glow={false}
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                variant="white"
+              />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-xl border-0 bg-white p-8 transition-all duration-300 hover:shadow-xl">
+                <div className="mb-6 flex items-start justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                    2
+                  </div>
                 </div>
-              </div>
-              <h3 className="font-heading text-2xl font-bold leading-tight text-black">
-                Diagnostiques & Tests
-              </h3>
-              <p className="mt-3 text-base font-medium text-black/80">
-                Analyser, tester, décider vite
-              </p>
-              <p className="mt-6 grow text-base leading-relaxed text-black/70">
-                Audits, diagnostiques contextuels et pitches.
-              </p>
-              <div className="mt-auto pt-6">
-                <p className="text-sm font-medium italic text-black/60">
-                  Pour adapter vos usages, montages et levées de fonds.
+                <h3 className="font-heading text-2xl font-bold leading-tight text-black">
+                  Diagnostiques & Tests
+                </h3>
+                <p className="mt-3 text-base font-medium text-black/80">
+                  Analyser, tester, décider vite
                 </p>
-                <div className="mt-6">
-                  <Button
-                    href="/contact"
-                    variant="secondary"
-                    className="w-full"
-                  >
-                    Nous écrire
-                  </Button>
+                <p className="mt-6 grow text-base leading-relaxed text-black/70">
+                  Audits, diagnostiques contextuels et pitches.
+                </p>
+                <div className="mt-auto pt-6">
+                  <p className="text-sm font-medium italic text-black/60">
+                    Pour adapter vos usages, montages et levées de fonds.
+                  </p>
+                  <div className="mt-6">
+                    <Button
+                      href="/contact"
+                      variant="secondary"
+                      className="w-full"
+                    >
+                      Nous écrire
+                    </Button>
+                  </div>
                 </div>
               </div>
             </motion.div>
 
             {/* Card 3 */}
             <motion.div
-              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white p-8 transition-all duration-300 hover:border-black/20 hover:shadow-xl"
+              className="relative h-full rounded-2xl border border-black/10"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -264,40 +289,54 @@ export default function Home() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
-              <div className="mb-6 flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
-                  3
+              <GlowingEffect
+                blur={0}
+                borderWidth={2}
+                spread={80}
+                glow={false}
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                variant="white"
+              />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-xl border-0 bg-white p-8 transition-all duration-300 hover:shadow-xl">
+                <div className="mb-6 flex items-start justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                    3
+                  </div>
                 </div>
-              </div>
-              <h3 className="font-heading text-2xl font-bold leading-tight text-black">
-                R&D Studio & Strategic Advisory
-              </h3>
-              <p className="mt-3 text-base font-medium text-black/80">
-                Concevoir, financer, scaler
-              </p>
-              <p className="mt-6 grow text-base leading-relaxed text-black/70">
-                R&D externalisée, Fractional Chief R&D Officer, Senior Advisory
-                sur vos startups, scale-ups, spin-off ou nouvelles BU.
-              </p>
-              <div className="mt-auto pt-6">
-                <p className="text-sm font-medium italic text-black/60">
-                  Pour passer du test à l'exécution et au changement d'échelle.
+                <h3 className="font-heading text-2xl font-bold leading-tight text-black">
+                  R&D Studio & Strategic Advisory
+                </h3>
+                <p className="mt-3 text-base font-medium text-black/80">
+                  Concevoir, financer, scaler
                 </p>
-                <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  <Button
-                    href="/services"
-                    variant="primary"
-                    className="w-full py-1 text-sm text-center"
-                  >
-                    Demander la présentation
-                  </Button>
-                  <Button
-                    href="/contact"
-                    variant="secondary"
-                    className="w-full py-1 text-sm"
-                  >
-                    Nous écrire
-                  </Button>
+                <p className="mt-6 grow text-base leading-relaxed text-black/70">
+                  R&D externalisée, Fractional Chief R&D Officer, Senior
+                  Advisory sur vos startups, scale-ups, spin-off ou nouvelles
+                  BU.
+                </p>
+                <div className="mt-auto pt-6">
+                  <p className="text-sm font-medium italic text-black/60">
+                    Pour passer du test à l'exécution et au changement
+                    d'échelle.
+                  </p>
+                  <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <Button
+                      href="/services"
+                      variant="primary"
+                      className="w-full py-1 text-sm text-center"
+                    >
+                      Demander la présentation
+                    </Button>
+                    <Button
+                      href="/contact"
+                      variant="secondary"
+                      className="w-full py-1 text-sm"
+                    >
+                      Nous écrire
+                    </Button>
+                  </div>
                 </div>
               </div>
             </motion.div>

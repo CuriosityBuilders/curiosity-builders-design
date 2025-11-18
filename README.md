@@ -11,6 +11,7 @@ Site web pour Curiosity.Builders construit avec Next.js 16, React 19, TypeScript
 Ce site se situe à l'intersection entre **boutique consultancy** et **innovation lab**. Le choix de la stack technique affecte non seulement le design mais aussi la crédibilité et l'image moderne que nous projetons.
 
 Le site doit refléter :
+
 - Une approche haut de gamme et stratégique
 - Une capacité d'innovation et d'expérimentation
 - Une crédibilité technique et méthodologique
@@ -20,12 +21,12 @@ Le site doit refléter :
 
 ### Tiers de services
 
-| Tier | Purpose | URL |
-|------|---------|-----|
+| Tier       | Purpose                                                   | URL                   |
+| ---------- | --------------------------------------------------------- | --------------------- |
 | **Tier 0** | Awareness & intelligence (newsletter, thought leadership) | `/` (Home) + Substack |
-| **Tier 1** | Diagnostics & applied intelligence | `/services` |
-| **Tier 2** | Externalized R&D & Innovation Program | `/services` |
-| **Tier 3** | Venture Development & Pilots | `/services` |
+| **Tier 1** | Diagnostics & applied intelligence                        | `/services`           |
+| **Tier 2** | Externalized R&D & Innovation Program                     | `/services`           |
+| **Tier 3** | Venture Development & Pilots                              | `/services`           |
 
 ### Pages complémentaires
 
@@ -43,6 +44,7 @@ Le site doit refléter :
 ### Besoins techniques
 
 #### Phase actuelle
+
 - Site web haut de gamme, orienté contenu (visual storytelling, portfolio, service tiers clairs)
 - CMS simple pour les études de cas et insights
 - Intégration newsletter avec Substack
@@ -52,6 +54,7 @@ Le site doit refléter :
   - Analytics
 
 #### Extensibilité future
+
 - Plateforme AI-agent en version bêta
 
 ## Design System
