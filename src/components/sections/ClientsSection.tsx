@@ -43,24 +43,24 @@ export function ClientsSection({ companies }: ClientsSectionProps) {
           company.logo ? (
             <div
               key={company.name}
-              className="flex h-12 items-center justify-center"
+              className="flex h-16 w-32 items-center justify-center"
             >
               <Image
                 src={company.logo}
                 alt={company.name}
-                width={120}
-                height={48}
-                className="h-auto max-h-12 w-auto object-contain"
+                width={128}
+                height={64}
+                className="h-full w-full object-contain"
               />
             </div>
           ) : (
             <div
               key={company.name}
-              className="flex h-12 items-center justify-center text-sm text-black/60"
+              className="flex h-16 w-32 items-center justify-center text-sm text-black/60"
             >
               {company.name}
             </div>
-          ),
+          )
         )}
       </motion.div>
     </motion.div>
