@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { BlurText } from "@/components/ui/BlurText";
 import { Button } from "@/components/ui/Button";
 import { CountUp } from "@/components/ui/CountUp";
+import { FilmGrain } from "@/components/ui/FilmGrain";
 import { Section } from "@/components/ui/Section";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -12,6 +13,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <FilmGrain intensity={0.2} />
       <Header />
       {/* <ProgressLine /> */}
 
