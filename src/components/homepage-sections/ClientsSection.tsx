@@ -8,11 +8,11 @@ interface Company {
   logo?: string;
 }
 
-interface PressSectionProps {
+interface ClientsSectionProps {
   companies: Company[];
 }
 
-export function PressSection({ companies }: PressSectionProps) {
+export function ClientsSection({ companies }: ClientsSectionProps) {
   return (
     <motion.div
       className="mt-12"
@@ -26,7 +26,7 @@ export function PressSection({ companies }: PressSectionProps) {
       }}
     >
       <h3 className="font-heading text-center text-3xl font-semibold text-black">
-        Presse & publications
+        Clients & partenaires
       </h3>
       <motion.div
         className="mt-6 flex flex-wrap items-center justify-center gap-8 opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0"
@@ -43,20 +43,20 @@ export function PressSection({ companies }: PressSectionProps) {
           company.logo ? (
             <div
               key={company.name}
-              className="flex h-12 items-center justify-center"
+              className="flex h-16 w-32 items-center justify-center"
             >
               <Image
                 src={company.logo}
                 alt={company.name}
-                width={120}
-                height={48}
-                className="h-auto max-h-12 w-auto object-contain"
+                width={128}
+                height={64}
+                className="h-full w-full object-contain"
               />
             </div>
           ) : (
             <div
               key={company.name}
-              className="flex h-12 items-center justify-center text-sm text-black/60"
+              className="flex h-16 w-32 items-center justify-center text-sm text-black/60"
             >
               {company.name}
             </div>
