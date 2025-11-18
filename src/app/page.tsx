@@ -17,7 +17,6 @@ export default function Home() {
   const clients = [
     { name: "Aken Écosystèmes", logo: "/logos/aken.png" },
     { name: "Nhood", logo: "/logos/nhood.png" },
-    { name: "Ynov", logo: "/logos/ynov.png" },
     { name: "Keys REIM", logo: "/logos/keys-reim.png" },
     { name: "Pardi!", logo: "/logos/pardi.png" },
     { name: "Archipel & Co", logo: "/logos/archipelco.png" },

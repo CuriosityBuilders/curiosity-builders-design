@@ -25,7 +25,7 @@ export function ClientsSection({ companies }: ClientsSectionProps) {
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
     >
-      <h3 className="font-heading text-center text-xl font-semibold text-black">
+      <h3 className="font-heading text-center text-3xl font-semibold text-black">
         Clients & partenaires
       </h3>
       <motion.div
