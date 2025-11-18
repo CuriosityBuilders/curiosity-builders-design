@@ -2,6 +2,7 @@
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { BlueprintGrid } from "@/components/ui/BlueprintGrid";
 import { BlurText } from "@/components/ui/BlurText";
 import { Button } from "@/components/ui/Button";
 import { CountUp } from "@/components/ui/CountUp";
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <FilmGrain intensity={0.2} />
+      <BlueprintGrid spacing={120} opacity={0.03} />
       <Header />
       {/* <ProgressLine /> */}
 
@@ -43,7 +45,7 @@ export default function Home() {
           />
         </motion.div>
         {/* Dark Overlay with gradient for better contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/70 to-black/90" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/70 to-black/90" />
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-5xl px-4">
           <BlurText
