@@ -44,8 +44,12 @@ export default function ServicesPage() {
           </p>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             <Card>
-              <div className="text-2xl">1️⃣</div>
-              <h3 className="mt-4 font-heading text-xl font-bold text-black">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  1
+                </div>
+              </div>
+              <h3 className="font-heading text-xl font-bold text-black">
                 Diagnostics & Rapid Tests
               </h3>
               <div className="mt-6">
@@ -58,8 +62,12 @@ export default function ServicesPage() {
               </div>
             </Card>
             <Card>
-              <div className="text-2xl">2️⃣</div>
-              <h3 className="mt-4 font-heading text-xl font-bold text-black">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  2
+                </div>
+              </div>
+              <h3 className="font-heading text-xl font-bold text-black">
                 R&D Studio & Strategic Advisory
               </h3>
               <div className="mt-6">
@@ -72,8 +80,12 @@ export default function ServicesPage() {
               </div>
             </Card>
             <Card>
-              <div className="text-2xl">3️⃣</div>
-              <h3 className="mt-4 font-heading text-xl font-bold text-black">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  3
+                </div>
+              </div>
+              <h3 className="font-heading text-xl font-bold text-black">
                 Venture Development & Scale-up Support
               </h3>
               <div className="mt-6">
@@ -114,51 +126,39 @@ export default function ServicesPage() {
           </p>
 
           <div className="mt-8 space-y-4">
-            <div className="flex items-start gap-4">
-              <span className="text-xl">🔹</span>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-black">
-                  Études de site et de portefeuille
-                </h3>
-                <p className="mt-1 text-sm text-black">
-                  Données multi-sources, analyse d'attractivité, cartographie
-                  d'opportunités.
-                </p>
-              </div>
+            <div>
+              <h3 className="font-heading text-lg font-semibold text-black">
+                Études de site et de portefeuille
+              </h3>
+              <p className="mt-1 text-sm text-black">
+                Données multi-sources, analyse d'attractivité, cartographie
+                d'opportunités.
+              </p>
             </div>
-            <div className="flex items-start gap-4">
-              <span className="text-xl">🔹</span>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-black">
-                  Audits et tests rapides
-                </h3>
-                <p className="mt-1 text-sm text-black">
-                  Impact, mix d'usages, scénarios, prévisionnels simplifiés.
-                </p>
-              </div>
+            <div>
+              <h3 className="font-heading text-lg font-semibold text-black">
+                Audits et tests rapides
+              </h3>
+              <p className="mt-1 text-sm text-black">
+                Impact, mix d'usages, scénarios, prévisionnels simplifiés.
+              </p>
             </div>
-            <div className="flex items-start gap-4">
-              <span className="text-xl">🔹</span>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-black">
-                  Stratégies financières
-                </h3>
-                <p className="mt-1 text-sm text-black">
-                  Business plans, opportunités de financement et modélisations
-                  opérationnelles.
-                </p>
-              </div>
+            <div>
+              <h3 className="font-heading text-lg font-semibold text-black">
+                Stratégies financières
+              </h3>
+              <p className="mt-1 text-sm text-black">
+                Business plans, opportunités de financement et modélisations
+                opérationnelles.
+              </p>
             </div>
-            <div className="flex items-start gap-4">
-              <span className="text-xl">🔹</span>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-black">
-                  Pitches opérationnels
-                </h3>
-                <p className="mt-1 text-sm text-black">
-                  OpCo, PropCo, véhicules hybrides, investor decks.
-                </p>
-              </div>
+            <div>
+              <h3 className="font-heading text-lg font-semibold text-black">
+                Pitches opérationnels
+              </h3>
+              <p className="mt-1 text-sm text-black">
+                OpCo, PropCo, véhicules hybrides, investor decks.
+              </p>
             </div>
           </div>
 
@@ -212,7 +212,7 @@ export default function ServicesPage() {
           <div className="mt-8 space-y-6">
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                🔹 Fractional Chief R&D Officer
+                Fractional Chief R&D Officer
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
                 Direction de la R&D intégrée à vos comités de pilotage ou
@@ -225,7 +225,7 @@ export default function ServicesPage() {
             </Card>
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                🔹 R&D externalisée
+                R&D externalisée
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
                 Programme complet de 6 à 12 mois combinant analyse, prototypage
@@ -238,7 +238,7 @@ export default function ServicesPage() {
             </Card>
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                🔹 Senior Advisory
+                Senior Advisory
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
                 Accompagnement d'experts sur des sujets à forte complexité :
@@ -283,43 +283,34 @@ export default function ServicesPage() {
           </p>
 
           <div className="mt-8 space-y-4">
-            <div className="flex items-start gap-4">
-              <span className="text-xl">🔹</span>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-black">
-                  Structuration de véhicules
-                </h3>
-                <p className="mt-1 text-sm text-black">
-                  PropCos, OpCos, spin-offs, business units ou véhicules
-                  d'investissement.
-                </p>
-              </div>
+            <div>
+              <h3 className="font-heading text-lg font-semibold text-black">
+                Structuration de véhicules
+              </h3>
+              <p className="mt-1 text-sm text-black">
+                PropCos, OpCos, spin-offs, business units ou véhicules
+                d'investissement.
+              </p>
             </div>
-            <div className="flex items-start gap-4">
-              <span className="text-xl">🔹</span>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-black">
-                  Scale-up Support
-                </h3>
-                <p className="mt-1 text-sm text-black">
-                  Appui à la croissance et à l'exécution : positionnement
-                  marché, structuration d'équipe, partenariats stratégiques,
-                  levée de fonds.
-                </p>
-              </div>
+            <div>
+              <h3 className="font-heading text-lg font-semibold text-black">
+                Scale-up Support
+              </h3>
+              <p className="mt-1 text-sm text-black">
+                Appui à la croissance et à l'exécution : positionnement
+                marché, structuration d'équipe, partenariats stratégiques,
+                levée de fonds.
+              </p>
             </div>
-            <div className="flex items-start gap-4">
-              <span className="text-xl">🔹</span>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-black">
-                  Strategic Advisory
-                </h3>
-                <p className="mt-1 text-sm text-black">
-                  Playbooks & outils, comité de mission ou d'impact, conseil de
-                  direction sur les enjeux stratégiques, financiers et de
-                  gouvernance.
-                </p>
-              </div>
+            <div>
+              <h3 className="font-heading text-lg font-semibold text-black">
+                Strategic Advisory
+              </h3>
+              <p className="mt-1 text-sm text-black">
+                Playbooks & outils, comité de mission ou d'impact, conseil de
+                direction sur les enjeux stratégiques, financiers et de
+                gouvernance.
+              </p>
             </div>
           </div>
 

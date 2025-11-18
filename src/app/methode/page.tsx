@@ -44,8 +44,12 @@ export default function MethodePage() {
 
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <Card>
-              <div className="text-2xl">1️⃣</div>
-              <h3 className="mt-4 font-heading text-xl font-bold text-black">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  1
+                </div>
+              </div>
+              <h3 className="font-heading text-xl font-bold text-black">
                 Observer — le contexte
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-black">
@@ -59,8 +63,12 @@ export default function MethodePage() {
             </Card>
 
             <Card>
-              <div className="text-2xl">2️⃣</div>
-              <h3 className="mt-4 font-heading text-xl font-bold text-black">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  2
+                </div>
+              </div>
+              <h3 className="font-heading text-xl font-bold text-black">
                 Comprendre — les usages
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-black">
@@ -74,8 +82,12 @@ export default function MethodePage() {
             </Card>
 
             <Card>
-              <div className="text-2xl">3️⃣</div>
-              <h3 className="mt-4 font-heading text-xl font-bold text-black">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  3
+                </div>
+              </div>
+              <h3 className="font-heading text-xl font-bold text-black">
                 Concevoir — le produit et le modèle
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-black">
@@ -89,8 +101,12 @@ export default function MethodePage() {
             </Card>
 
             <Card>
-              <div className="text-2xl">4️⃣</div>
-              <h3 className="mt-4 font-heading text-xl font-bold text-black">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  4
+                </div>
+              </div>
+              <h3 className="font-heading text-xl font-bold text-black">
                 Développer — la stratégie d'exécution
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-black">
@@ -104,8 +120,12 @@ export default function MethodePage() {
             </Card>
 
             <Card>
-              <div className="text-2xl">5️⃣</div>
-              <h3 className="mt-4 font-heading text-xl font-bold text-black">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  5
+                </div>
+              </div>
+              <h3 className="font-heading text-xl font-bold text-black">
                 Déployer — la venture
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-black">
@@ -162,7 +182,7 @@ export default function MethodePage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                🔹 Interdisciplinarité totale
+                Interdisciplinarité totale
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
                 Croiser immobilier, finance, design et data pour une vision
@@ -171,7 +191,7 @@ export default function MethodePage() {
             </Card>
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                🔹 Méthodes éprouvées
+                Méthodes éprouvées
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
                 Issues du product design, du venture building et du conseil
@@ -180,7 +200,7 @@ export default function MethodePage() {
             </Card>
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                🔹 Formats agiles
+                Formats agiles
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
                 Du diagnostic express à la structuration complète de venture.
@@ -188,7 +208,7 @@ export default function MethodePage() {
             </Card>
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                🔹 Tech & IA augmentées
+                Tech & IA augmentées
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
                 Des outils d'analyse avancés, au service de l'expertise humaine.
@@ -196,7 +216,7 @@ export default function MethodePage() {
             </Card>
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                🔹 Impact intégré
+                Impact intégré
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
                 Chaque projet est conçu avec une thèse d'impact et des

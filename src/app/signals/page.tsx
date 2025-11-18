@@ -10,7 +10,7 @@ export default function SignalsPage() {
       <Header />
 
       {/* Hero */}
-      <Section spacing="lg" className="text-center">
+      <Section spacing="lg">
         <div className="mx-auto max-w-4xl px-4">
           <h1 className="font-heading text-5xl font-bold leading-tight text-black sm:text-6xl">
             Signals & Intelligence
@@ -18,7 +18,7 @@ export default function SignalsPage() {
           <p className="mt-6 text-xl leading-relaxed text-black sm:text-2xl">
             Comprendre les transformations du secteur.
           </p>
-          <p className="mt-4 text-lg leading-relaxed text-black">
+          <p className="mt-4 text-xl leading-relaxed text-black">
             Veille sélective sur les signaux faibles, les fonds à impact, les
             nouveaux modèles d'exploitation et les tendances qui transforment la
             fabrique de la ville.
@@ -31,6 +31,11 @@ export default function SignalsPage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-8 md:grid-cols-3">
             <Card>
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  1
+                </div>
+              </div>
               <h3 className="font-heading text-xl font-bold text-black">
                 Curiosity Insights
               </h3>
@@ -39,11 +44,16 @@ export default function SignalsPage() {
                 et les modèles économiques émergents.
               </p>
               <p className="mt-4 text-sm italic text-black">
-                ➡ Comprendre les mutations structurelles du secteur.
+                Comprendre les mutations structurelles du secteur.
               </p>
             </Card>
 
             <Card>
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  2
+                </div>
+              </div>
               <h3 className="font-heading text-xl font-bold text-black">
                 Sustainable Capital Watch
               </h3>
@@ -52,11 +62,16 @@ export default function SignalsPage() {
                 l'international.
               </p>
               <p className="mt-4 text-sm italic text-black">
-                ➡ Observer comment la finance accélère la transition.
+                Observer comment la finance accélère la transition.
               </p>
             </Card>
 
             <Card>
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                  3
+                </div>
+              </div>
               <h3 className="font-heading text-xl font-bold text-black">
                 Operators Watch
               </h3>
@@ -65,7 +80,7 @@ export default function SignalsPage() {
                 hospitalité, résidences gérées, tiers-lieux, bureaux réinventés.
               </p>
               <p className="mt-4 text-sm italic text-black">
-                ➡ Anticiper les nouveaux standards de performance.
+                Anticiper les nouveaux standards de performance.
               </p>
             </Card>
           </div>
