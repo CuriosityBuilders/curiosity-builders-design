@@ -1,72 +1,114 @@
 "use client";
 
-import { BlurText } from "@/components/ui/BlurText";
-import { Section } from "@/components/ui/Section";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { Button } from "@/components/ui/Button";
+import { FloatingPaths } from "@/components/ui/background-paths";
+import { FilmGrain } from "@/components/ui/FilmGrain";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { Section } from "@/components/ui/Section";
 
 export function HeroSection() {
   return (
     <Section
       id="hero"
       spacing="lg"
-      className="relative overflow-hidden py-32 text-center sm:py-40 lg:py-48"
+      className="relative bg-neutral-950 py-24 sm:py-32 lg:py-40 min-h-screen"
     >
-      {/* Animated Background Image */}
-      <motion.div
-        className="absolute inset-0"
-        initial={{ scale: 1.1, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{
-          duration: 1.5,
-          ease: [0.25, 0.46, 0.45, 0.94],
-        }}
-      >
-        <Image
-          src="/hero-background.jpg"
-          alt=""
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
+      {/* Background Layers */}
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+        {/* Base gradient */}
+        <div className="absolute inset-0 bg-linear-to-b from-neutral-950 via-neutral-950 to-neutral-900" />
+
+        {/* Floating Paths Background */}
+        <FloatingPaths position={1} />
+        <FloatingPaths position={-1} />
+
+        {/* Radial gradient overlay for depth */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            background: `radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 50%)`,
+          }}
+          animate={{
+            opacity: [0.5, 0.8, 0.5],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         />
-      </motion.div>
-      {/* Dark Overlay with gradient for better contrast */}
-      <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/70 to-black/90" />
+
+        {/* Subtle bottom gradient fade */}
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-neutral-950 to-transparent" />
+
+        {/* Film Grain Texture */}
+        <FilmGrain intensity={0.05} />
+      </div>
+
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-5xl px-4">
-        <BlurText
-          as="h1"
-          className="font-manrope text-5xl font-black leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.2),0_0_30px_rgba(255,255,255,0.3),0_0_60px_rgba(255,255,255,0.2)] sm:text-7xl lg:text-8xl"
-          delay={0.1}
-          duration={0.5}
+      <div className="relative z-10 mx-auto max-w-4xl px-4">
+        <motion.h1
+          className="font-heading text-4xl font-black leading-tight text-white sm:text-5xl lg:text-8xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94],
+          }}
         >
           Curiosity.Builders
-        </BlurText>
+        </motion.h1>
         <motion.p
-          className="font-manrope mt-12 text-2xl leading-relaxed text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] sm:text-3xl lg:text-4xl"
-          initial={{ opacity: 0, y: 30 }}
+          className="mt-8 text-lg font-bold leading-relaxed text-white sm:text-xl lg:text-4xl"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.8,
-            delay: 0.8,
+            delay: 0.2,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          Plateforme d'accélération de vos projets de lieux.
+          Plateforme d'accélération de vos projets de lieux. Centrée sur
+          l'humain, guidée par la donnée, augmentée par l'IA.
         </motion.p>
-        <motion.p
-          className="font-manrope mt-6 text-xl leading-relaxed text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)] sm:text-2xl"
-          initial={{ opacity: 0, y: 30 }}
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.8,
-            delay: 1.2,
+            delay: 0.4,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
+          className="mt-12"
         >
-          Centrée sur l'humain, guidée par la donnée, augmentée par l'IA.
-        </motion.p>
+          <div className="inline-block group relative rounded-full">
+            <div className="relative bg-linear-to-b from-white/10 to-white/5 p-px rounded-full backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <GlowingEffect
+                variant="grey"
+                blur={0}
+                borderWidth={2}
+                spread={60}
+                glow={true}
+                disabled={false}
+                proximity={48}
+                inactiveZone={0.3}
+              />
+              <Button
+                variant="inverted"
+                className="rounded-full px-4 py-2 text-sm font-medium backdrop-blur-md bg-white/95 hover:bg-white text-black transition-all duration-300 border border-white/20 hover:shadow-md hover:shadow-white/20"
+              >
+                <span className="opacity-90 group-hover:opacity-100 transition-opacity">
+                  Découvrir nos services
+                </span>
+                <span className="ml-2 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+                  →
+                </span>
+              </Button>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </Section>
   );

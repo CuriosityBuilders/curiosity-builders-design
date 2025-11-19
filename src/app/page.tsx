@@ -75,7 +75,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <FilmGrain intensity={0.2} />
+      <FilmGrain intensity={0.1} />
       <BlueprintGrid spacing={120} opacity={0.03} />
       <Header />
       {/* <ProgressLine /> */}
