@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { BlurText } from "@/components/ui/BlurText";
 import { Section } from "@/components/ui/Section";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
@@ -37,14 +37,14 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto max-w-5xl px-4">
         <BlurText
           as="h1"
-          className="font-heading text-5xl font-bold leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.2),0_0_30px_rgba(255,255,255,0.3),0_0_60px_rgba(255,255,255,0.2)] sm:text-7xl lg:text-9xl"
+          className="font-manrope text-5xl font-black leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.2),0_0_30px_rgba(255,255,255,0.3),0_0_60px_rgba(255,255,255,0.2)] sm:text-7xl lg:text-8xl"
           delay={0.1}
           duration={0.5}
         >
           Curiosity.Builders
         </BlurText>
         <motion.p
-          className="mt-12 text-2xl leading-relaxed text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] sm:text-3xl lg:text-4xl"
+          className="font-manrope mt-12 text-2xl leading-relaxed text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] sm:text-3xl lg:text-4xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -56,7 +56,7 @@ export function HeroSection() {
           Plateforme d'accélération de vos projets de lieux.
         </motion.p>
         <motion.p
-          className="mt-6 text-xl leading-relaxed text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)] sm:text-2xl"
+          className="font-manrope mt-6 text-xl leading-relaxed text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)] sm:text-2xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{

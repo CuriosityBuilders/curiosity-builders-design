@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Oswald } from "next/font/google";
+import { Inter, Manrope, Oswald } from "next/font/google";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -11,6 +11,13 @@ const oswald = Oswald({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  weight: ["700"],
   display: "swap",
 });
 
@@ -36,7 +43,9 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${oswald.variable} ${inter.variable} antialiased`}>
+      <body
+        className={`${oswald.variable} ${inter.variable} ${manrope.variable} antialiased`}
+      >
         {children}
       </body>
     </html>

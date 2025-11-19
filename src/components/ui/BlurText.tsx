@@ -9,6 +9,7 @@ interface BlurTextProps {
   delay?: number;
   duration?: number;
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" | "p" | "span";
+  style?: React.CSSProperties;
 }
 
 export function BlurText({
@@ -17,6 +18,7 @@ export function BlurText({
   delay = 0,
   duration = 0.8,
   as: Component = "div",
+  style,
 }: BlurTextProps) {
   const text = String(children);
   const words = text.split(" ");
@@ -78,6 +80,7 @@ export function BlurText({
   return (
     <MotionComponent
       className={className}
+      style={style}
       variants={container}
       initial="hidden"
       animate="visible"
