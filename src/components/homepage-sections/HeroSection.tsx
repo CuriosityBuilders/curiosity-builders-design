@@ -49,7 +49,7 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-4">
         <motion.h1
-          className="font-heading text-4xl font-black leading-tight text-white sm:text-5xl lg:text-8xl"
+          className="font-heading text-4xl font-black leading-tight text-white sm:text-6xl md:text-7xl lg:text-8xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -60,7 +60,7 @@ export function HeroSection() {
           Curiosity.Builders
         </motion.h1>
         <motion.p
-          className="mt-8 text-lg font-bold leading-relaxed text-white sm:text-xl lg:text-4xl"
+          className="mt-8 text-lg font-bold leading-relaxed text-white sm:text-xl lg:text-3xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -69,8 +69,20 @@ export function HeroSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          Plateforme d'accélération de vos projets de lieux. Centrée sur
-          l'humain, guidée par la donnée, augmentée par l'IA.
+          Plateforme d'accélération de vos projets de lieux.
+        </motion.p>
+
+        <motion.p
+          className="text-lg font-bold leading-relaxed text-white sm:text-xl lg:text-3xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.2,
+            ease: [0.25, 0.46, 0.45, 0.94],
+          }}
+        >
+          Centrée sur l'humain, guidée par la donnée, augmentée par l'IA.
         </motion.p>
 
         <motion.div
@@ -86,9 +98,9 @@ export function HeroSection() {
           <div className="inline-block group relative rounded-full">
             <div className="relative bg-linear-to-b from-white/10 to-white/5 p-px rounded-full backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <GlowingEffect
-                variant="grey"
+                variant="default"
                 blur={0}
-                borderWidth={2}
+                borderWidth={4}
                 spread={60}
                 glow={true}
                 disabled={false}
