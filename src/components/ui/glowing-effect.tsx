@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { animate } from "motion/react";
 import { memo, useCallback, useEffect, useRef } from "react";
+import { cn } from "@/lib/utils";
 
 interface GlowingEffectProps {
   blur?: number;
@@ -56,7 +56,7 @@ const GlowingEffect = memo(
           const center = [left + width * 0.5, top + height * 0.5];
           const distanceFromCenter = Math.hypot(
             mouseX - center[0],
-            mouseY - center[1]
+            mouseY - center[1],
           );
           const inactiveRadius = 0.5 * Math.min(width, height) * inactiveZone;
 
@@ -94,7 +94,7 @@ const GlowingEffect = memo(
           });
         });
       },
-      [inactiveZone, proximity, movementDuration]
+      [inactiveZone, proximity, movementDuration],
     );
 
     useEffect(() => {
@@ -125,7 +125,7 @@ const GlowingEffect = memo(
             glow && "opacity-100",
             variant === "white" && "border-white",
             variant === "grey" && "border-neutral-400",
-            disabled && "block!"
+            disabled && "block!",
           )}
         />
         <div
@@ -146,7 +146,7 @@ const GlowingEffect = memo(
                   #000000 calc(25% / var(--repeating-conic-gradient-times))
                 )`
                   : variant === "grey"
-                  ? `radial-gradient(circle, #9ca3af 10%, #9ca3af00 20%),
+                    ? `radial-gradient(circle, #9ca3af 10%, #9ca3af00 20%),
                 radial-gradient(circle at 40% 40%, #6b7280 5%, #6b728000 15%),
                 radial-gradient(circle at 60% 60%, #9ca3af 10%, #9ca3af00 20%),
                 radial-gradient(circle at 40% 60%, #d1d5db 10%, #d1d5db00 20%),
@@ -158,7 +158,7 @@ const GlowingEffect = memo(
                   #d1d5db calc(75% / var(--repeating-conic-gradient-times)),
                   #9ca3af calc(100% / var(--repeating-conic-gradient-times))
                 )`
-                  : `radial-gradient(circle, #dd7bbb 10%, #dd7bbb00 20%),
+                    : `radial-gradient(circle, #dd7bbb 10%, #dd7bbb00 20%),
                 radial-gradient(circle at 40% 40%, #d79f1e 5%, #d79f1e00 15%),
                 radial-gradient(circle at 60% 60%, #5a922c 10%, #5a922c00 20%),
                 radial-gradient(circle at 40% 60%, #4c7894 10%, #4c789400 20%),
@@ -177,7 +177,7 @@ const GlowingEffect = memo(
             glow && "opacity-100",
             blur > 0 && "blur-(--blur) ",
             className,
-            disabled && "hidden!"
+            disabled && "hidden!",
           )}
         >
           <div
@@ -190,13 +190,13 @@ const GlowingEffect = memo(
               "after:opacity-(--active) after:transition-opacity after:duration-300",
               "after:[mask-clip:padding-box,border-box]",
               "after:mask-intersect",
-              "after:mask-[linear-gradient(#0000,#0000),conic-gradient(from_calc((var(--start)-var(--spread))*1deg),#00000000_0deg,#fff,#00000000_calc(var(--spread)*2deg))]"
+              "after:mask-[linear-gradient(#0000,#0000),conic-gradient(from_calc((var(--start)-var(--spread))*1deg),#00000000_0deg,#fff,#00000000_calc(var(--spread)*2deg))]",
             )}
           />
         </div>
       </>
     );
-  }
+  },
 );
 
 GlowingEffect.displayName = "GlowingEffect";
