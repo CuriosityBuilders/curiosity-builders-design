@@ -13,6 +13,9 @@ interface ClientsSectionProps {
 }
 
 export function ClientsSection({ companies }: ClientsSectionProps) {
+  // Duplicate companies array for seamless infinite scroll
+  const duplicatedCompanies = [...companies, ...companies];
+
   return (
     <motion.div
       className="mt-12"
@@ -25,11 +28,8 @@ export function ClientsSection({ companies }: ClientsSectionProps) {
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
     >
-      <h3 className="font-heading text-center text-3xl font-semibold text-black">
-        Clients & partenaires
-      </h3>
       <motion.div
-        className="mt-6 flex flex-wrap items-center justify-center gap-8 opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0"
+        className="mt-6 overflow-hidden group"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -39,29 +39,36 @@ export function ClientsSection({ companies }: ClientsSectionProps) {
           ease: [0.25, 0.46, 0.45, 0.94],
         }}
       >
-        {companies.map((company) =>
-          company.logo ? (
-            <div
-              key={company.name}
-              className="flex h-16 w-32 items-center justify-center"
-            >
-              <Image
-                src={company.logo}
-                alt={company.name}
-                width={128}
-                height={64}
-                className="h-full w-full object-contain"
-              />
-            </div>
-          ) : (
-            <div
-              key={company.name}
-              className="flex h-16 w-32 items-center justify-center text-sm text-black/60"
-            >
-              {company.name}
-            </div>
-          ),
-        )}
+        <div
+          className="animate-scroll flex items-center gap-8 opacity-70 grayscale transition-opacity group-hover:opacity-100 group-hover:grayscale-0"
+          style={{
+            width: "fit-content",
+          }}
+        >
+          {duplicatedCompanies.map((company, index) =>
+            company.logo ? (
+              <div
+                key={`${company.name}-${index}`}
+                className="flex h-16 w-32 shrink-0 items-center justify-center"
+              >
+                <Image
+                  src={company.logo}
+                  alt={company.name}
+                  width={128}
+                  height={64}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+            ) : (
+              <div
+                key={`${company.name}-${index}`}
+                className="flex h-16 w-32 shrink-0 items-center justify-center text-sm text-black/60"
+              >
+                {company.name}
+              </div>
+            )
+          )}
+        </div>
       </motion.div>
     </motion.div>
   );

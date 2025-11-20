@@ -1,9 +1,9 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import { Section } from "@/components/ui/Section";
-import { motion } from "framer-motion";
 
 export function IntroSection() {
   return (

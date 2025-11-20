@@ -19,9 +19,6 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
     >
-      <h3 className="font-heading text-center text-3xl font-semibold text-black">
-        Projets
-      </h3>
       <motion.div
         className="mt-4 grid gap-4 md:grid-cols-3"
         initial={{ opacity: 0 }}
