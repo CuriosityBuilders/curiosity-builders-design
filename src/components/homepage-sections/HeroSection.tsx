@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
+import ShinyText from "@/components/ShinyText";
 import { FloatingPaths } from "@/components/ui/background-paths";
 import { FilmGrain } from "@/components/ui/FilmGrain";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Section } from "@/components/ui/Section";
+import { ShinyButton } from "@/components/ui/shiny-button";
+import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (
@@ -48,8 +48,7 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-4">
-        <motion.h1
-          className="font-heading text-4xl font-black leading-tight text-white sm:text-6xl md:text-7xl lg:text-8xl"
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -57,8 +56,10 @@ export function HeroSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          Curiosity.Builders
-        </motion.h1>
+          <h1 className="font-heading text-4xl font-black leading-tight sm:text-6xl md:text-7xl lg:text-8xl">
+            <ShinyText text="Curiosity.Builders" speed={5} />
+          </h1>
+        </motion.div>
         <motion.p
           className="mt-8 text-lg font-bold leading-relaxed text-white sm:text-xl lg:text-3xl"
           initial={{ opacity: 0, y: 20 }}
@@ -95,31 +96,9 @@ export function HeroSection() {
           }}
           className="mt-12"
         >
-          <div className="inline-block group relative rounded-full">
-            <div className="relative bg-linear-to-b from-white/10 to-white/5 p-px rounded-full backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <GlowingEffect
-                variant="default"
-                blur={0}
-                borderWidth={4}
-                spread={60}
-                glow={true}
-                disabled={false}
-                proximity={48}
-                inactiveZone={0.3}
-              />
-              <Button
-                variant="inverted"
-                className="rounded-full px-4 py-2 text-sm font-medium backdrop-blur-md bg-white/95 hover:bg-white text-black transition-all duration-300 border border-white/20 hover:shadow-md hover:shadow-white/20"
-              >
-                <span className="opacity-90 group-hover:opacity-100 transition-opacity">
-                  Découvrir nos services
-                </span>
-                <span className="ml-2 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
-                  →
-                </span>
-              </Button>
-            </div>
-          </div>
+          <ShinyButton className="bg-white border-black text-black hover:bg-white/90 py-3">
+            Découvrir nos services
+          </ShinyButton>
         </motion.div>
       </div>
     </Section>

@@ -3,36 +3,6 @@ import Link from "next/link";
 export function Footer() {
   return (
     <footer className="relative z-10 w-full overflow-hidden">
-      <style jsx global>{`
-        .glass {
-          backdrop-filter: blur(3px) saturate(180%);
-          background: radial-gradient(
-            circle,
-            #fff9 0%,
-            #f5f5f54d 60%,
-            #e5e5e5 100%
-          );
-          border: 1px solid #d4d4d41a;
-          justify-content: center;
-          align-items: center;
-          transition: all 0.3s;
-          display: flex;
-        }
-        .glass:where(.dark, .dark *) {
-          display: flex;
-          backdrop-filter: blur(2px) !important;
-          background: radial-gradient(
-            circle,
-            #ffffff1a 0%,
-            #1a1a1a1a 60%,
-            #0a0a0a 100%
-          ) !important;
-          border: 1px solid #ffffff0d !important;
-          border-radius: 16px !important;
-          justify-content: center !important;
-          align-items: center !important;
-        }
-      `}</style>
       <div className="pointer-events-none absolute top-0 left-1/2 z-0 h-full w-full -translate-x-1/2 select-none">
         <div className="absolute -top-32 left-1/4 h-72 w-72 rounded-full bg-gray-400/20 blur-3xl"></div>
         <div className="absolute right-1/4 -bottom-24 h-80 w-80 rounded-full bg-gray-400/20 blur-3xl"></div>
