@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function BookSection() {
   return (
@@ -23,7 +23,7 @@ export function BookSection() {
           >
             <div className="relative w-full max-w-64">
               <Image
-                src="/Livre Claire Version Downloaded.webp"
+                src="/images livre/cover_texture.jpg"
                 alt="Changer l'Immobilier : de l'Utopie à la Réalité"
                 width={256}
                 height={384}
