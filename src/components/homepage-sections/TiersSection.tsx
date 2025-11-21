@@ -1,6 +1,7 @@
 "use client";
 
 import { Section } from "@/components/ui/Section";
+import { GridBackground } from "@/components/ui/GridBackground";
 import { TierCard } from "./TierCard";
 
 export function TiersSection() {
@@ -61,8 +62,9 @@ export function TiersSection() {
   ];
 
   return (
-    <Section id="tiers" spacing="md" className="bg-white">
-      <div className="mx-auto max-w-7xl px-4">
+    <Section id="tiers" spacing="md" className="relative bg-white">
+      <GridBackground size={100} opacity={0.05} />
+      <div className="relative mx-auto max-w-7xl px-4">
         <h2 className="font-heading text-center text-3xl font-bold text-black sm:text-4xl">
           3 leviers pour accélérer vos projets
         </h2>

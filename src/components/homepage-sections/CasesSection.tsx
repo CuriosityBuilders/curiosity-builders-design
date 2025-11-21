@@ -78,7 +78,6 @@ export function CasesSection() {
     <Section id="cases" spacing="md" className="bg-white">
       <div className="mx-auto max-w-7xl px-4">
         <ClientsSection companies={clients} />
-        <ProjectsSection projects={projects} />
         <PressSection companies={press} />
       </div>
     </Section>

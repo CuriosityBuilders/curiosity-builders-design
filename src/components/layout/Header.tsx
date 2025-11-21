@@ -20,7 +20,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50">
-      <nav className="mx-auto flex items-center justify-between border border-white/10 bg-white/50 px-4 py-2 shadow-sm backdrop-blur-xl backdrop-saturate-200 sm:px-8 md:px-16 lg:px-24">
+      <nav className="mx-auto flex items-center justify-between border border-black/10 bg-white/50 px-4 py-2 shadow-sm backdrop-blur-xl backdrop-saturate-200 sm:px-8 md:px-16 lg:px-24">
         {/* Logo - Left */}
         <Link href="/" className="flex items-center">
           <motion.div
