@@ -1,6 +1,7 @@
 "use client";
 
 import { CountUp } from "@/components/ui/CountUp";
+import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
 
 interface Metric {
@@ -18,8 +19,16 @@ export function KeyMetricsSection() {
   ];
 
   return (
-    <Section id="key-metrics" spacing="md" className="bg-black">
-      <div className="mx-auto max-w-7xl px-4">
+    <Section id="key-metrics" spacing="md" className="relative bg-black">
+      {/* Particles Background */}
+      <Particles
+        className="absolute inset-0"
+        quantity={80}
+        ease={80}
+        color="#ffffff"
+        refresh
+      />
+      <div className="relative z-10 mx-auto max-w-7xl px-4">
         <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
           {metrics.map((metric) => (
             <div key={metric.label}>

@@ -1,12 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
 import ShinyText from "@/components/ShinyText";
 import { FloatingPaths } from "@/components/ui/background-paths";
 import { FilmGrain } from "@/components/ui/FilmGrain";
 import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
 import { ShinyButton } from "@/components/ui/shiny-button";
+import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (
@@ -60,7 +60,7 @@ export function HeroSection() {
         {/* Particles Background */}
         <Particles
           className="absolute inset-0"
-          quantity={50}
+          quantity={20}
           ease={80}
           color="#ffffff"
           refresh
@@ -68,7 +68,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-4xl px-4 text-center md:text-left">
+      <div className="relative z-10 mx-auto max-w-4xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function BookSection() {
   return (
@@ -22,12 +22,15 @@ export function BookSection() {
             }}
           >
             <div className="relative w-full max-w-64">
+              {/* Glow effect */}
+              <div className="absolute inset-0 -z-10 rounded-lg bg-white/20 blur-3xl" />
+              <div className="absolute inset-0 -z-10 rounded-lg bg-white/10 blur-2xl" />
               <Image
                 src="/images livre/cover_texture.jpg"
                 alt="Changer l'Immobilier : de l'Utopie à la Réalité"
                 width={256}
                 height={384}
-                className="h-auto w-full object-contain"
+                className="relative h-auto w-full object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]"
               />
             </div>
           </motion.div>
