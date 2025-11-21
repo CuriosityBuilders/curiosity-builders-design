@@ -7,9 +7,9 @@ import { HeroSection } from "@/components/homepage-sections/HeroSection";
 import { IntroSection } from "@/components/homepage-sections/IntroSection";
 import { KeyMetricsSection } from "@/components/homepage-sections/KeyMetricsSection";
 import { NewsletterSection } from "@/components/homepage-sections/NewsletterSection";
+import { ProjectsPhotosSection } from "@/components/homepage-sections/ProjectsPhotosSection";
 import { TiersSection } from "@/components/homepage-sections/TiersSection";
 import { FilmGrain } from "@/components/ui/FilmGrain";
-import { ProjectsPhotosSection } from "@/components/homepage-sections/ProjectsPhotosSection";
 
 export default function Home() {
   return (

@@ -1,12 +1,12 @@
 "use client";
 
+import { motion } from "framer-motion";
 import ShinyText from "@/components/ShinyText";
 import { FloatingPaths } from "@/components/ui/background-paths";
 import { FilmGrain } from "@/components/ui/FilmGrain";
 import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
-import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (

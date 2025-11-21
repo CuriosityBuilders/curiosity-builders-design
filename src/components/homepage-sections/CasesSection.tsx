@@ -3,7 +3,6 @@
 import { Section } from "@/components/ui/Section";
 import { ClientsSection } from "./ClientsSection";
 import { PressSection } from "./PressSection";
-import { ProjectsSection } from "./ProjectsSection";
 
 interface Company {
   name: string;
@@ -37,12 +36,6 @@ const clients: Company[] = [
     logo: "/logos/logo partenaires & clients/Logo_Bouygues_Immobilier.png",
   },
   { name: "ULI", logo: "/logos/logo partenaires & clients/ULI.png" },
-];
-
-const projects: string[] = [
-  "Bas-Chantenay (Nantes)",
-  "Halle G1 (Lille)",
-  "Neoz BTR",
 ];
 
 const press: Company[] = [

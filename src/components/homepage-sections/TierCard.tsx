@@ -1,8 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { motion } from "framer-motion";
 
 interface TierCardProps {
   number: number;

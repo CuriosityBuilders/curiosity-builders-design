@@ -1,15 +1,16 @@
-'use client';
+"use client";
 
-import React, { useRef } from 'react';
 import {
+  type MotionStyle,
   motion,
+  type SpringOptions,
   useMotionTemplate,
   useMotionValue,
   useSpring,
   useTransform,
-  MotionStyle,
-  SpringOptions,
-} from 'framer-motion';
+} from "framer-motion";
+import type React from "react";
+import { useRef } from "react";
 
 type TiltProps = {
   children: React.ReactNode;
@@ -41,14 +42,14 @@ export function Tilt({
     [-0.5, 0.5],
     isRevese
       ? [rotationFactor, -rotationFactor]
-      : [-rotationFactor, rotationFactor]
+      : [-rotationFactor, rotationFactor],
   );
   const rotateY = useTransform(
     xSpring,
     [-0.5, 0.5],
     isRevese
       ? [-rotationFactor, rotationFactor]
-      : [rotationFactor, -rotationFactor]
+      : [rotationFactor, -rotationFactor],
   );
 
   const transform = useMotionTemplate`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
@@ -79,7 +80,7 @@ export function Tilt({
       ref={ref}
       className={className}
       style={{
-        transformStyle: 'preserve-3d',
+        transformStyle: "preserve-3d",
         ...style,
         transform,
       }}

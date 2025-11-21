@@ -1,10 +1,10 @@
 "use client";
 
+import { motion } from "framer-motion";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { ShinyButton } from "@/components/ui/shiny-button";
-import { motion } from "framer-motion";
-import Link from "next/link";
 
 export function IntroSection() {
   return (

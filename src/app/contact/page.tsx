@@ -1,9 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { Accordion } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { useState } from "react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -33,7 +33,7 @@ export default function ContactPage() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };

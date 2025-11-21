@@ -1,8 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Section } from "@/components/ui/Section";
 import { ProjectsSection } from "./ProjectsSection";
-import { motion } from "framer-motion";
 
 const projects: string[] = [
   "Bas-Chantenay (Nantes)",
