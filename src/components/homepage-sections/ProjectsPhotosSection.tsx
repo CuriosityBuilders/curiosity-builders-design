@@ -24,7 +24,7 @@ export function ProjectsPhotosSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          Photos projets
+          Photos projets (à venir)
         </motion.h2>
         <ProjectsSection projects={projects} />
       </div>
