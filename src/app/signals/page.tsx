@@ -6,15 +6,15 @@ export default function SignalsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <Section spacing="lg">
+      <Section spacing="lg" className="bg-black">
         <div className="mx-auto max-w-4xl px-4">
-          <h1 className="font-heading text-5xl font-bold leading-tight text-black sm:text-6xl">
+          <h1 className="font-heading text-5xl font-bold leading-tight text-white sm:text-6xl">
             Signals & Intelligence
           </h1>
-          <p className="mt-6 text-xl leading-relaxed text-black sm:text-2xl">
+          <p className="mt-6 text-xl leading-relaxed text-white sm:text-2xl">
             Comprendre les transformations du secteur.
           </p>
-          <p className="mt-4 text-xl leading-relaxed text-black">
+          <p className="mt-4 text-xl leading-relaxed text-white">
             Veille sélective sur les signaux faibles, les fonds à impact, les
             nouveaux modèles d'exploitation et les tendances qui transforment la
             fabrique de la ville.
@@ -90,7 +90,7 @@ export default function SignalsPage() {
       </Section>
 
       {/* Studies Gallery */}
-      <Section spacing="md">
+      <Section spacing="md" className="bg-gray-100">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
             Études & livres blancs
@@ -181,18 +181,20 @@ export default function SignalsPage() {
       </Section>
 
       {/* Page Footer CTA */}
-      <Section spacing="md" className="bg-gray-light">
+      <Section spacing="md" className="bg-black">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
             Chaque projet commence par la même question :{" "}
             <em>comment testez-vous vos hypothèses ?</em>
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-black">
+          <p className="mt-6 text-lg leading-relaxed text-white">
             Curiosity.Builders accompagne les fonds, foncières et opérateurs à{" "}
             <strong>structurer leurs stratégies future-proof</strong>.
           </p>
           <div className="mt-8">
-            <Button href="/contact">Nous écrire</Button>
+            <Button href="/contact" variant="inverted">
+              Nous écrire
+            </Button>
           </div>
         </div>
       </Section>

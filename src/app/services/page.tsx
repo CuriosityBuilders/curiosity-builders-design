@@ -6,16 +6,16 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <Section spacing="lg">
+      <Section spacing="lg" className="bg-black">
         <div className="mx-auto max-w-4xl px-4">
-          <h1 className="font-heading text-5xl font-bold leading-tight text-black sm:text-6xl">
+          <h1 className="font-heading text-5xl font-bold leading-tight text-white sm:text-6xl">
             Une infrastructure d'apprentissage, d'expérimentation et de
             développement stratégique
           </h1>
-          <p className="mt-6 text-xl leading-relaxed text-black sm:text-2xl">
+          <p className="mt-6 text-xl leading-relaxed text-white sm:text-2xl">
             pour les organisations qui font évoluer leurs modèles d'affaires.
           </p>
-          <p className="mt-6 text-lg leading-relaxed text-black">
+          <p className="mt-6 text-lg leading-relaxed text-white">
             À la croisée de trois expertises — conseil stratégique immobilier,
             R&D territoriale & programmatique, venture development à impact —
             nous aidons acteurs de l'immobilier, territoires et de
@@ -23,7 +23,9 @@ export default function ServicesPage() {
             lieux-entreprises performantes, désirables et durables.
           </p>
           <div className="mt-8">
-            <Button href="/methode">Découvrir notre méthode</Button>
+            <Button href="/methode" variant="inverted">
+              Découvrir notre méthode
+            </Button>
           </div>
         </div>
       </Section>
@@ -98,7 +100,7 @@ export default function ServicesPage() {
       </Section>
 
       {/* Diagnostics */}
-      <Section id="diagnostics" spacing="md">
+      <Section id="diagnostics" spacing="md" className="bg-gray-100">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
             Diagnostics & Rapid Tests — analyser, tester, décider vite
@@ -126,7 +128,7 @@ export default function ServicesPage() {
               <h3 className="font-heading text-lg font-semibold text-black">
                 Études de site et de portefeuille
               </h3>
-              <p className="mt-1 text-sm text-black">
+              <p className="mt-1 text-sm text-black/70">
                 Données multi-sources, analyse d'attractivité, cartographie
                 d'opportunités.
               </p>
@@ -135,7 +137,7 @@ export default function ServicesPage() {
               <h3 className="font-heading text-lg font-semibold text-black">
                 Audits et tests rapides
               </h3>
-              <p className="mt-1 text-sm text-black">
+              <p className="mt-1 text-sm text-black/70">
                 Impact, mix d'usages, scénarios, prévisionnels simplifiés.
               </p>
             </div>
@@ -143,7 +145,7 @@ export default function ServicesPage() {
               <h3 className="font-heading text-lg font-semibold text-black">
                 Stratégies financières
               </h3>
-              <p className="mt-1 text-sm text-black">
+              <p className="mt-1 text-sm text-black/70">
                 Business plans, opportunités de financement et modélisations
                 opérationnelles.
               </p>
@@ -152,13 +154,13 @@ export default function ServicesPage() {
               <h3 className="font-heading text-lg font-semibold text-black">
                 Pitches opérationnels
               </h3>
-              <p className="mt-1 text-sm text-black">
+              <p className="mt-1 text-sm text-black/70">
                 OpCo, PropCo, véhicules hybrides, investor decks.
               </p>
             </div>
           </div>
 
-          <div className="mt-8 rounded-lg bg-gray-light p-6">
+          <div className="mt-8 rounded-lg bg-white p-6">
             <p className="font-heading text-lg font-semibold text-black">
               Nous sommes impact-first :
             </p>
@@ -265,7 +267,7 @@ export default function ServicesPage() {
       </Section>
 
       {/* Venture Development */}
-      <Section id="venture-dev" spacing="md">
+      <Section id="venture-dev" spacing="md" className="bg-gray-100">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
             Venture Development & Scale-up Support — du test au déploiement à
@@ -283,7 +285,7 @@ export default function ServicesPage() {
               <h3 className="font-heading text-lg font-semibold text-black">
                 Structuration de véhicules
               </h3>
-              <p className="mt-1 text-sm text-black">
+              <p className="mt-1 text-sm text-black/70">
                 PropCos, OpCos, spin-offs, business units ou véhicules
                 d'investissement.
               </p>
@@ -292,7 +294,7 @@ export default function ServicesPage() {
               <h3 className="font-heading text-lg font-semibold text-black">
                 Scale-up Support
               </h3>
-              <p className="mt-1 text-sm text-black">
+              <p className="mt-1 text-sm text-black/70">
                 Appui à la croissance et à l'exécution : positionnement marché,
                 structuration d'équipe, partenariats stratégiques, levée de
                 fonds.
@@ -302,7 +304,7 @@ export default function ServicesPage() {
               <h3 className="font-heading text-lg font-semibold text-black">
                 Strategic Advisory
               </h3>
-              <p className="mt-1 text-sm text-black">
+              <p className="mt-1 text-sm text-black/70">
                 Playbooks & outils, comité de mission ou d'impact, conseil de
                 direction sur les enjeux stratégiques, financiers et de
                 gouvernance.
@@ -310,7 +312,7 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="mt-8 rounded-lg bg-gray-light p-6">
+          <div className="mt-8 rounded-lg bg-white p-6">
             <p className="font-heading text-lg font-semibold text-black">
               Nous sommes impact-first :
             </p>
@@ -327,20 +329,22 @@ export default function ServicesPage() {
       </Section>
 
       {/* Page Footer CTA */}
-      <Section spacing="md" className="bg-gray-light">
+      <Section spacing="md" className="bg-black">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
             L'innovation n'est pas un département, c'est un état d'esprit et une
             curiosité permanente qui fait grandir avec son temps.
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-black">
+          <p className="mt-6 text-lg leading-relaxed text-white">
             Curiosity.Builders agit comme un cofounder stratégique pour les
             projets à fort potentiel : un partenaire capable de relier design,
             finance et impact pour faire passer vos innovations à l'échelle.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button href="/contact">Nous écrire</Button>
-            <Button href="/methode" variant="secondary">
+            <Button href="/contact" variant="inverted">
+              Nous écrire
+            </Button>
+            <Button href="/methode" variant="secondary-inverted">
               Découvrir la méthode
             </Button>
           </div>

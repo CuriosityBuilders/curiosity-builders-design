@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { Accordion } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { useState } from "react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -33,7 +33,7 @@ export default function ContactPage() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    >
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -41,12 +41,12 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <Section spacing="lg">
+      <Section spacing="lg" className="bg-black">
         <div className="mx-auto max-w-4xl px-4">
-          <h1 className="font-heading text-5xl font-bold leading-tight text-black sm:text-6xl">
+          <h1 className="font-heading text-5xl font-bold leading-tight text-white sm:text-6xl">
             Discutons de votre vision. Parlons de vos projets.
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-black">
+          <p className="mt-6 text-lg leading-relaxed text-white">
             Un diagnostic rapide, un programme de R&D ou une venture à
             structurer ? Choisissez votre besoin ci-dessous et remplissez le
             formulaire.
@@ -55,7 +55,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Forms */}
-      <Section spacing="md">
+      <Section spacing="md" className="bg-gray-100">
         <div className="mx-auto max-w-4xl px-4">
           <div className="space-y-4">
             <h2 className="font-heading text-2xl font-bold text-black">
@@ -526,7 +526,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Alt Contact */}
-      <Section spacing="md" className="bg-gray-light">
+      <Section spacing="md" className="bg-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <p className="text-lg text-black">
             Vous préférez un email direct ? →{" "}
@@ -546,18 +546,18 @@ export default function ContactPage() {
       </Section>
 
       {/* Page Footer CTA */}
-      <Section spacing="md">
+      <Section spacing="md" className="bg-black">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
             Transformer plus vite, décider plus juste.
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-black">
+          <p className="mt-6 text-lg leading-relaxed text-white">
             Prêt à accélérer ?
             <br />
             Ecrivez-nous sur :{" "}
             <a
               href="mailto:hello@curiositybuilders.com"
-              className="underline transition-colors hover:text-gray-700"
+              className="underline transition-colors hover:text-white/80"
             >
               hello@curiositybuilders.com
             </a>
@@ -565,12 +565,12 @@ export default function ContactPage() {
             Ou suivez nos publications sur :{" "}
             <a
               href="https://substack.com"
-              className="underline transition-colors hover:text-gray-700"
+              className="underline transition-colors hover:text-white/80"
             >
               Substack — Signals & Intelligence
             </a>
           </p>
-          <p className="mt-6 text-lg leading-relaxed text-black">
+          <p className="mt-6 text-lg leading-relaxed text-white">
             Curiosity.Builders relie design, finance et impact pour faire passer
             vos innovations urbaines à l'échelle.
           </p>
