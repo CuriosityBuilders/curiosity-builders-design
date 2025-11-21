@@ -8,8 +8,6 @@ import { IntroSection } from "@/components/homepage-sections/IntroSection";
 import { KeyMetricsSection } from "@/components/homepage-sections/KeyMetricsSection";
 import { NewsletterSection } from "@/components/homepage-sections/NewsletterSection";
 import { TiersSection } from "@/components/homepage-sections/TiersSection";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
 import { BlueprintGrid } from "@/components/ui/BlueprintGrid";
 import { FilmGrain } from "@/components/ui/FilmGrain";
 
@@ -18,7 +16,6 @@ export default function Home() {
     <div className="min-h-screen">
       <FilmGrain intensity={0.1} />
       <BlueprintGrid spacing={120} opacity={0.03} />
-      <Header />
       {/* <ProgressLine /> */}
 
       <HeroSection />
@@ -29,8 +26,6 @@ export default function Home() {
       <BookSection />
       <NewsletterSection />
       <FooterCTASection />
-
-      <Footer />
     </div>
   );
 }

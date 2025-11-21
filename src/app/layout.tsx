@@ -1,3 +1,5 @@
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
 import type { Metadata } from "next";
 import { Inter, Manrope, Oswald } from "next/font/google";
 import "./globals.css";
@@ -46,7 +48,9 @@ export default function RootLayout({
       <body
         className={`${oswald.variable} ${inter.variable} ${manrope.variable} antialiased`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

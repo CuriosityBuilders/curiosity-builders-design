@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
 import { Accordion } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
@@ -42,7 +40,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
 
       {/* Hero */}
       <Section spacing="lg">
@@ -581,7 +578,6 @@ export default function ContactPage() {
         </div>
       </Section>
 
-      <Footer />
     </div>
   );
 }

@@ -1,5 +1,3 @@
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
@@ -7,7 +5,6 @@ import { Section } from "@/components/ui/Section";
 export default function MethodePage() {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
 
       {/* Hero */}
       <Section spacing="lg">
@@ -289,7 +286,6 @@ export default function MethodePage() {
         </div>
       </Section>
 
-      <Footer />
     </div>
   );
 }
