@@ -2,16 +2,61 @@
 
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useRef } from "react";
 
 export function BookSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, {
+    stiffness: 500,
+    damping: 100,
+  });
+  const mouseYSpring = useSpring(y, {
+    stiffness: 500,
+    damping: 100,
+  });
+
+  const rotateX = useTransform(
+    mouseYSpring,
+    [-0.5, 0.5],
+    ["17.5deg", "-17.5deg"]
+  );
+  const rotateY = useTransform(
+    mouseXSpring,
+    [-0.5, 0.5],
+    ["-17.5deg", "17.5deg"]
+  );
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+
+    const rect = containerRef.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   return (
     <Section id="book" spacing="md" className="bg-black">
       <div className="mx-auto max-w-7xl px-4">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
           {/* Image à gauche */}
           <motion.div
+            ref={containerRef}
             className="flex items-center justify-center"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -20,8 +65,20 @@ export function BookSection() {
               duration: 0.8,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+              perspective: "1000px",
+            }}
           >
-            <div className="relative w-full max-w-64">
+            <motion.div
+              className="relative w-full max-w-64"
+              style={{
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d",
+              }}
+            >
               {/* Glow effect */}
               <div className="absolute inset-0 -z-10 rounded-lg bg-white/20 blur-3xl" />
               <div className="absolute inset-0 -z-10 rounded-lg bg-white/10 blur-2xl" />
@@ -30,9 +87,9 @@ export function BookSection() {
                 alt="Changer l'Immobilier : de l'Utopie à la Réalité"
                 width={256}
                 height={384}
-                className="relative h-auto w-full object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                className="relative h-auto w-full object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.05)]"
               />
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Contenu à droite */}

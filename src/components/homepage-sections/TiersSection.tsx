@@ -1,7 +1,7 @@
 "use client";
 
-import { Section } from "@/components/ui/Section";
 import { GridBackground } from "@/components/ui/GridBackground";
+import { Section } from "@/components/ui/Section";
 import { TierCard } from "./TierCard";
 
 export function TiersSection() {
