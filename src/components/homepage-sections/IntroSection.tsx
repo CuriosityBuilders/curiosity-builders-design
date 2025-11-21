@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import { Section } from "@/components/ui/Section";
+import { ShinyButton } from "@/components/ui/shiny-button";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function IntroSection() {
   return (
@@ -61,17 +62,11 @@ export function IntroSection() {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
-            <MovingBorderButton
-              as="a"
-              href="/services"
-              borderRadius="9999px"
-              duration={3000}
-              containerClassName="group w-auto h-auto inline-block"
-              borderClassName="bg-[radial-gradient(rgba(255,255,255,0.9)_40%,transparent_60%)] opacity-90"
-              className="bg-white hover:bg-gray-100 text-black border-white/20 backdrop-blur-md px-6 py-3 text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
-            >
-              Découvrir nos offres
-            </MovingBorderButton>
+            <Link href="/services">
+              <ShinyButton className="bg-white border-white/20 text-black hover:bg-white/90 px-6 py-3">
+                Découvrir nos offres
+              </ShinyButton>
+            </Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

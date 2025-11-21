@@ -16,7 +16,7 @@ export function TiersSection() {
       buttons: [
         {
           href: "/signals",
-          variant: "secondary" as const,
+          variant: "primary" as const,
           label: "Accéder aux insights",
           className: "w-full",
         },
@@ -31,7 +31,7 @@ export function TiersSection() {
       buttons: [
         {
           href: "/contact",
-          variant: "secondary" as const,
+          variant: "primary" as const,
           label: "Nous écrire",
           className: "w-full",
         },

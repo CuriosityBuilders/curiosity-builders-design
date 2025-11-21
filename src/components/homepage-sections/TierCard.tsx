@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { motion } from "framer-motion";
 
 interface TierCardProps {
   number: number;
@@ -30,7 +30,7 @@ export function TierCard({
 }: TierCardProps) {
   return (
     <motion.div
-      className="relative h-full rounded-2xl border border-black/10"
+      className="relative h-full rounded-2xl border border-black/20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -66,7 +66,9 @@ export function TierCard({
         <div className="mt-auto pt-6">
           <p className="text-sm font-medium italic text-black/60">{tagline}</p>
           <div
-            className={`mt-6 ${buttons.length > 1 ? "grid grid-cols-1 gap-3 sm:grid-cols-2" : ""}`}
+            className={`mt-6 ${
+              buttons.length > 1 ? "grid grid-cols-1 gap-3 sm:grid-cols-2" : ""
+            }`}
           >
             {buttons.map((button) => (
               <Button

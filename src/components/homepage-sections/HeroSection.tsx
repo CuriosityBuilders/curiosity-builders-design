@@ -3,9 +3,9 @@
 import ShinyText from "@/components/ShinyText";
 import { FloatingPaths } from "@/components/ui/background-paths";
 import { FilmGrain } from "@/components/ui/FilmGrain";
+import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
-import { ShinyButton } from "@/components/ui/shiny-button";
 import { motion } from "framer-motion";
 
 export function HeroSection() {
@@ -117,9 +117,17 @@ export function HeroSection() {
           }}
           className="mt-12"
         >
-          <ShinyButton className="bg-white border-black text-black hover:bg-white/90 py-3">
+          <MovingBorderButton
+            as="a"
+            href="/services"
+            borderRadius="9999px"
+            duration={4000}
+            containerClassName="group w-auto h-auto inline-block"
+            borderClassName="bg-[radial-gradient(rgba(255,255,255,0.9)_40%,transparent_60%)] opacity-90"
+            className="bg-black hover:bg-black/90 text-white border-white/20 backdrop-blur-md px-6 py-3 text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+          >
             Découvrir nos services
-          </ShinyButton>
+          </MovingBorderButton>
         </motion.div>
       </div>
     </Section>
