@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="relative z-10 w-full overflow-hidden">
+    <footer className="relative z-10 w-full overflow-hidden border-t">
       <div className="pointer-events-none absolute top-0 left-1/2 z-0 h-full w-full -translate-x-1/2 select-none">
         <div className="absolute -top-32 left-1/4 h-72 w-72 rounded-full bg-gray-400/20 blur-3xl"></div>
         <div className="absolute right-1/4 -bottom-24 h-80 w-80 rounded-full bg-gray-400/20 blur-3xl"></div>

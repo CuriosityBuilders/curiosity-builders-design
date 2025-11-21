@@ -9,6 +9,7 @@ import { KeyMetricsSection } from "@/components/homepage-sections/KeyMetricsSect
 import { NewsletterSection } from "@/components/homepage-sections/NewsletterSection";
 import { TiersSection } from "@/components/homepage-sections/TiersSection";
 import { FilmGrain } from "@/components/ui/FilmGrain";
+import { ProjectsPhotosSection } from "@/components/homepage-sections/ProjectsPhotosSection";
 
 export default function Home() {
   return (
@@ -20,10 +21,11 @@ export default function Home() {
       <IntroSection />
       <TiersSection />
       <KeyMetricsSection />
-      <CasesSection />
+      <ProjectsPhotosSection />
       <BookSection />
-      <NewsletterSection />
+      <CasesSection />
       <FooterCTASection />
+      <NewsletterSection />
     </div>
   );
 }
