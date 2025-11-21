@@ -1,13 +1,22 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
+import { motion } from "framer-motion";
 
 export function FooterCTASection() {
   return (
-    <Section spacing="md" className="bg-black text-center">
-      <div className="mx-auto max-w-4xl px-4">
+    <Section spacing="md" className="relative bg-black text-center">
+      {/* Particles Background */}
+      <Particles
+        className="absolute inset-0"
+        quantity={40}
+        ease={80}
+        color="#ffffff"
+        refresh
+      />
+      <div className="relative z-10 mx-auto max-w-4xl px-4">
         <motion.h2
           className="font-heading text-3xl font-bold text-white sm:text-4xl"
           initial={{ opacity: 0, y: 30 }}
