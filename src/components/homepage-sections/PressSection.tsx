@@ -66,7 +66,7 @@ export function PressSection({ companies }: PressSectionProps) {
               >
                 {company.name}
               </div>
-            )
+            ),
           )}
         </div>
       </motion.div>

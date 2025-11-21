@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
-import { Section } from "@/components/ui/Section";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
 
 export function BookSection() {
   return (

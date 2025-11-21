@@ -5,7 +5,6 @@ import { Section } from "@/components/ui/Section";
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
-
       {/* Hero */}
       <Section spacing="lg">
         <div className="mx-auto max-w-4xl px-4">
@@ -347,7 +346,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </Section>
-
     </div>
   );
 }
