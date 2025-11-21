@@ -119,14 +119,14 @@ export function HeroSection() {
         >
           <MovingBorderButton
             as="a"
-            href="/services"
+            href="/methode"
             borderRadius="9999px"
             duration={4000}
             containerClassName="group w-auto h-auto inline-block"
             borderClassName="bg-[radial-gradient(rgba(255,255,255,0.9)_40%,transparent_60%)] opacity-90"
             className="bg-black hover:bg-black/90 text-white border-white/20 backdrop-blur-md px-6 py-3 text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
           >
-            Découvrir nos services
+            Découvrir notre méthode
           </MovingBorderButton>
         </motion.div>
       </div>
