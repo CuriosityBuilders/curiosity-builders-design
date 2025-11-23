@@ -17,11 +17,11 @@ const clients: Company[] = [
   { name: "Nhood", logo: "/logos/logo partenaires & clients/Nhood.png" },
   {
     name: "Keys REIM",
-    logo: "/logos/logo partenaires & clients/keys reim.png",
+    logo: "/logos/logo partenaires & clients/keys reim.svg",
   },
   {
     name: "Archipel & Co",
-    logo: "/logos/logo partenaires & clients/Archipel.webp",
+    logo: "/logos/logo partenaires & clients/Archipel.svg",
   },
   {
     name: "MIPIM",
@@ -52,13 +52,13 @@ const press: Company[] = [
   { name: "L'Agefi", logo: "/logos/logos presse/agefi.png" },
   {
     name: "Business Immo",
-    logo: "/logos/logos presse/Business-Immo-Logo.png",
+    logo: "/logos/logos presse/Business-Immo-Logo.svg",
   },
   {
     name: "ID Info Durable",
-    logo: "/logos/logos presse/ID info durable.png",
+    logo: "/logos/logos presse/ID info durable.svg",
   },
-  { name: "Radio Immo", logo: "/logos/logos presse/radio immo.png" },
+  { name: "Radio Immo", logo: "/logos/logos presse/radio immo.svg" },
   {
     name: "Maison & Objet",
     logo: "/logos/logos presse/maisonobjet-2lines-logotype_black-553x410.png",

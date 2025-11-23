@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export const InfiniteMovingCards = ({
@@ -14,6 +15,8 @@ export const InfiniteMovingCards = ({
     quote: string;
     name: string;
     title: string;
+    src?: string;
+    alt?: string;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -76,7 +79,7 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 max-w-7xl overflow-hidden mask-[linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20 max-w-7xl overflow-hidden",
         className,
       )}
     >
@@ -90,28 +93,54 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item) => (
           <li
-            className="relative w-[350px] max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6 md:w-[450px] dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]"
+            className={cn(
+              "relative shrink-0 border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] overflow-hidden",
+              item.src
+                ? "w-[280px] h-[180px] md:w-[360px] md:h-[220px]"
+                : "w-[350px] max-w-full rounded-2xl px-8 py-6 md:w-[450px]"
+            )}
             key={item.name}
           >
-            <blockquote>
-              <div
-                aria-hidden="true"
-                className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%+4px)] w-[calc(100%+4px)]"
-              />
-              <span className="relative z-20 text-sm leading-[1.6] font-normal text-neutral-800 dark:text-gray-100">
-                {item.quote}
-              </span>
-              <div className="relative z-20 mt-6 flex flex-row items-center">
-                <span className="flex flex-col gap-1">
-                  <span className="text-sm leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
-                    {item.name}
-                  </span>
-                  <span className="text-sm leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
+            {item.src ? (
+              <div className="relative w-full h-full">
+                <Image
+                  src={item.src}
+                  alt={item.alt || item.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 280px, 360px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+                  <h3 className="text-white font-heading text-sm md:text-base font-bold mb-1">
                     {item.title}
-                  </span>
-                </span>
+                  </h3>
+                  {item.name !== item.title && (
+                    <p className="text-white/80 text-xs md:text-sm">{item.name}</p>
+                  )}
+                </div>
               </div>
-            </blockquote>
+            ) : (
+              <blockquote>
+                <div
+                  aria-hidden="true"
+                  className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%+4px)] w-[calc(100%+4px)]"
+                />
+                <span className="relative z-20 text-sm leading-[1.6] font-normal text-neutral-800">
+                  {item.quote}
+                </span>
+                <div className="relative z-20 mt-6 flex flex-row items-center">
+                  <span className="flex flex-col gap-1">
+                    <span className="text-sm leading-[1.6] font-normal text-neutral-500">
+                      {item.name}
+                    </span>
+                    <span className="text-sm leading-[1.6] font-normal text-neutral-500">
+                      {item.title}
+                    </span>
+                  </span>
+                </div>
+              </blockquote>
+            )}
           </li>
         ))}
       </ul>

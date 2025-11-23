@@ -79,15 +79,13 @@ export function BookSection() {
                 transformStyle: "preserve-3d",
               }}
             >
-              {/* Glow effect */}
-              <div className="absolute inset-0 -z-10 rounded-lg bg-white/20 blur-3xl" />
-              <div className="absolute inset-0 -z-10 rounded-lg bg-white/10 blur-2xl" />
+              
               <Image
                 src="/images livre/cover_texture.jpg"
                 alt="Changer l'Immobilier : de l'Utopie à la Réalité"
                 width={256}
                 height={384}
-                className="relative h-auto w-full object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.05)]"
+                className="relative h-auto w-full object-contain"
               />
             </motion.div>
           </motion.div>

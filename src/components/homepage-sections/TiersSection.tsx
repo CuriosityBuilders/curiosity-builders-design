@@ -66,7 +66,7 @@ export function TiersSection() {
       <GridBackground size={100} opacity={0.1} />
       <div className="relative mx-auto max-w-7xl px-4">
         <h2 className="font-heading text-center text-3xl font-bold text-black sm:text-4xl">
-          3 leviers pour accélérer vos projets
+          3 LEVIERS POUR ACCÉLÉRER VOS PROJETS
         </h2>
         <div className="mt-16 grid gap-8 md:grid-cols-3">
           {tiers.map((tier, index) => (
