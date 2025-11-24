@@ -1,12 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
-import ShinyText from "@/components/ShinyText";
 import { FloatingPaths } from "@/components/ui/background-paths";
 import { FilmGrain } from "@/components/ui/FilmGrain";
-import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
+import { ShinyButton } from "@/components/ui/shiny-button";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -58,54 +58,53 @@ export function HeroSection() {
         <FilmGrain intensity={0.05} />
 
         {/* Particles Background */}
-        <Particles
+        {/* <Particles
           className="absolute inset-0"
-          quantity={20}
+          quantity={100}
           ease={80}
           color="#ffffff"
           refresh
-        />
+        /> */}
+
+        {/* Decorative Lines */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute left-[10%] top-0 bottom-0 w-px bg-white/10" />
+          <div className="absolute left-[30%] top-0 bottom-0 w-px bg-white/10" />
+          <div className="absolute left-[50%] top-0 bottom-0 w-px bg-white/10" />
+          <div className="absolute left-[70%] top-0 bottom-0 w-px bg-white/10" />
+          <div className="absolute left-[90%] top-0 bottom-0 w-px bg-white/10" />
+        </div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-4xl px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94],
-          }}
-        >
-          <h1 className="font-heading text-4xl font-black leading-tight sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-            <ShinyText text="Curiosity.Builders" speed={5} />
-          </h1>
-        </motion.div>
-        <motion.p
-          className="mt-8 text-lg font-bold leading-relaxed text-white sm:text-xl lg:text-3xl drop-shadow-[0_2px_20px_rgba(255,255,255,0.2)]"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.2,
-            ease: [0.25, 0.46, 0.45, 0.94],
-          }}
-        >
-          Plateforme d'accélération de vos projets de lieux.
-        </motion.p>
-
-        <motion.p
-          className="text-lg font-bold leading-relaxed text-white sm:text-xl lg:text-3xl drop-shadow-[0_2px_20px_rgba(255,255,255,0.2)]"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.2,
-            ease: [0.25, 0.46, 0.45, 0.94],
-          }}
-        >
-          Centrée sur l'humain, guidée par la donnée, augmentée par l'IA.
-        </motion.p>
+      <div className="relative z-10 ml-0 mr-auto max-w-4xl pl-4 pr-4 md:pl-8 lg:pl-44">
+        <div className="flex flex-col gap-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
+            <h1 className="font-epilogue text-4xl md:text-5xl lg:text-[80px] max-w-3xl font-black text-white">
+              Stimulateur de créativité et de productivité pour le bâti.
+            </h1>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.2,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
+            <p className="font-epilogue text-2xl font-extrabold leading-relaxed text-white">
+              Centrée sur l'humain, guidée par la donnée, <br /> augmentée par l'IA.
+            </p>
+          </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -117,17 +116,11 @@ export function HeroSection() {
           }}
           className="mt-12"
         >
-          <MovingBorderButton
-            as="a"
-            href="/methode"
-            borderRadius="9999px"
-            duration={4000}
-            containerClassName="group w-auto h-auto inline-block"
-            borderClassName="bg-[radial-gradient(rgba(255,255,255,0.9)_40%,transparent_60%)] opacity-90"
-            className="bg-black hover:bg-black/90 text-white border-white/20 backdrop-blur-md px-6 py-3 text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
-          >
-            Découvrir notre méthode
-          </MovingBorderButton>
+          <Link href="/methode">
+            <ShinyButton className="bg-white border-white/20 text-black hover:bg-white/90 px-6 py-3">
+              Découvrir notre méthode
+            </ShinyButton>
+          </Link>
         </motion.div>
       </div>
     </Section>

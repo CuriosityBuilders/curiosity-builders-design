@@ -27,7 +27,7 @@ const projectPhotos = [
   },
   {
     src: "/photos projets/Screenshot 2025-11-19 at 17.48.55.png",
-    alt: "Projet Screenshot",
+    alt: "Projet Coliving",
     title: "Projet Coliving",
   },
 ];

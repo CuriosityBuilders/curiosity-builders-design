@@ -127,6 +127,10 @@ h6 {
   font-family: var(--font-manrope), sans-serif;
 }
 
+.font-epilogue {
+  font-family: var(--font-epilogue), sans-serif;
+}
+
 .bg-gray-light {
   background-color: var(--gray-light);
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Manrope, Oswald } from "next/font/google";
+import { Epilogue, Inter, Manrope, Oswald } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import "./globals.css";
@@ -20,6 +20,13 @@ const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
   weight: ["700"],
+  display: "swap",
+});
+
+const epilogue = Epilogue({
+  variable: "--font-epilogue",
+  subsets: ["latin"],
+  weight: ["400", "700", "800", "900"],
   display: "swap",
 });
 
@@ -46,7 +53,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${oswald.variable} ${inter.variable} ${manrope.variable} antialiased`}
+        className={`${oswald.variable} ${inter.variable} ${manrope.variable} ${epilogue.variable} antialiased`}
       >
         <Header />
         {children}

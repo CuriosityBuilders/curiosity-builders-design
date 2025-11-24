@@ -39,16 +39,16 @@ export function TiersSection() {
     },
     {
       number: 3,
-      title: "R&D Studio & Strategic Advisory",
+      title: "Studio R&D",
       subtitle: "Concevoir, financer, scaler",
       description:
-        "R&D externalisée, Fractional Chief R&D Officer, Senior Advisory sur vos startups, scale-ups, spin-off ou nouvelles BU.",
+        "Accompagnement senior et expérimentation structurée pour faire croitre vos projets-entreprises. ",
       tagline: "Pour passer du test à l'exécution et au changement d'échelle.",
       buttons: [
         {
           href: "/services",
           variant: "primary" as const,
-          label: "Demander la présentation",
+          label: "Brochure",
           className: "w-full py-1 text-sm text-center",
         },
         {
