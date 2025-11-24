@@ -1,8 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
-import { motion } from "framer-motion";
 
 interface TierCardProps {
   number: number;

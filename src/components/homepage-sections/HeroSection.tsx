@@ -1,11 +1,11 @@
 "use client";
 
+import { motion } from "framer-motion";
+import Link from "next/link";
 import { FloatingPaths } from "@/components/ui/background-paths";
 import { FilmGrain } from "@/components/ui/FilmGrain";
 import { Section } from "@/components/ui/Section";
 import { ShinyButton } from "@/components/ui/shiny-button";
-import { motion } from "framer-motion";
-import Link from "next/link";
 
 export function HeroSection() {
   return (

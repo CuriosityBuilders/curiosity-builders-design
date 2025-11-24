@@ -1,9 +1,9 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { GridBackground } from "@/components/ui/GridBackground";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { Section } from "@/components/ui/Section";
-import { motion } from "framer-motion";
 
 const projectPhotos = [
   {

@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+import React, { useCallback, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export const InfiniteMovingCards = ({
@@ -97,7 +97,7 @@ export const InfiniteMovingCards = ({
               "relative shrink-0 border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] overflow-hidden",
               item.src
                 ? "w-[280px] h-[180px] md:w-[360px] md:h-[220px]"
-                : "w-[350px] max-w-full rounded-2xl px-8 py-6 md:w-[450px]"
+                : "w-[350px] max-w-full rounded-2xl px-8 py-6 md:w-[450px]",
             )}
             key={item.name}
           >
@@ -110,36 +110,38 @@ export const InfiniteMovingCards = ({
                   className="object-cover"
                   sizes="(max-width: 768px) 280px, 360px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
                   <h3 className="text-white font-heading text-sm md:text-base font-bold mb-1">
                     {item.title}
                   </h3>
                   {item.name !== item.title && (
-                    <p className="text-white/80 text-xs md:text-sm">{item.name}</p>
+                    <p className="text-white/80 text-xs md:text-sm">
+                      {item.name}
+                    </p>
                   )}
                 </div>
               </div>
             ) : (
-            <blockquote>
-              <div
-                aria-hidden="true"
-                className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%+4px)] w-[calc(100%+4px)]"
-              />
+              <blockquote>
+                <div
+                  aria-hidden="true"
+                  className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%+4px)] w-[calc(100%+4px)]"
+                />
                 <span className="relative z-20 text-sm leading-[1.6] font-normal text-neutral-800">
-                {item.quote}
-              </span>
-              <div className="relative z-20 mt-6 flex flex-row items-center">
-                <span className="flex flex-col gap-1">
-                    <span className="text-sm leading-[1.6] font-normal text-neutral-500">
-                    {item.name}
-                  </span>
-                    <span className="text-sm leading-[1.6] font-normal text-neutral-500">
-                    {item.title}
-                  </span>
+                  {item.quote}
                 </span>
-              </div>
-            </blockquote>
+                <div className="relative z-20 mt-6 flex flex-row items-center">
+                  <span className="flex flex-col gap-1">
+                    <span className="text-sm leading-[1.6] font-normal text-neutral-500">
+                      {item.name}
+                    </span>
+                    <span className="text-sm leading-[1.6] font-normal text-neutral-500">
+                      {item.title}
+                    </span>
+                  </span>
+                </div>
+              </blockquote>
             )}
           </li>
         ))}

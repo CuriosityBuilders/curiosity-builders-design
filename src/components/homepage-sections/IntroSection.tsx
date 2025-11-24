@@ -71,7 +71,7 @@ export function IntroSection() {
               borderClassName="bg-[radial-gradient(rgba(255,255,255,0.9)_40%,transparent_60%)] opacity-90"
               className="bg-white hover:bg-white/90 text-black border-white/20 backdrop-blur-md px-6 py-3 text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
             >
-                Découvrir nos offres
+              Découvrir nos offres
             </MovingBorderButton>
           </motion.div>
           <motion.div
