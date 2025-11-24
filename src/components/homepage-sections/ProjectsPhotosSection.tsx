@@ -45,10 +45,10 @@ export function ProjectsPhotosSection() {
 
   return (
     <Section id="projects" spacing="md" className="relative bg-white">
-      <GridBackground size={100} opacity={0.1} />
+      <GridBackground size={200} opacity={0.1} />
       <div className="relative mx-auto max-w-7xl px-4">
         <motion.h2
-          className="font-heading text-center text-3xl font-bold text-black sm:text-4xl"
+          className="font-heading text-center text-3xl font-extrabold text-black sm:text-4xl"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}

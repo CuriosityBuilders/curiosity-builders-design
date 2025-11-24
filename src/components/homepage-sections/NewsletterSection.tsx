@@ -12,7 +12,7 @@ export function NewsletterSection() {
       spacing="md"
       className="relative bg-white text-center"
     >
-      <GridBackground size={100} opacity={0.1} />
+      <GridBackground size={150} opacity={0.1} />
       <div className="relative mx-auto max-w-4xl px-4">
         <DotCard>
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
