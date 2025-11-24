@@ -72,7 +72,7 @@ export function BookSection() {
             }}
           >
             <motion.div
-              className="relative w-full max-w-64"
+              className="relative w-full max-w-76"
               style={{
                 rotateX,
                 rotateY,

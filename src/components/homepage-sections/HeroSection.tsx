@@ -100,7 +100,7 @@ export function HeroSection() {
             }}
           >
             <p className="font-epilogue text-2xl font-extrabold leading-relaxed text-white">
-              Centrée sur l'humain, guidée par la donnée, <br /> augmentée par
+              Centré sur l'humain, guidé par la donnée, <br /> augmenté par
               l'IA.
             </p>
           </motion.div>
