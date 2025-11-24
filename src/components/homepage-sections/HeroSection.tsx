@@ -2,7 +2,6 @@
 
 import { FloatingPaths } from "@/components/ui/background-paths";
 import { FilmGrain } from "@/components/ui/FilmGrain";
-import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { motion } from "framer-motion";
@@ -87,7 +86,7 @@ export function HeroSection() {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
-            <h1 className="font-epilogue text-4xl md:text-5xl lg:text-[80px] max-w-3xl font-black text-white">
+            <h1 className="font-epilogue text-4xl md:text-5xl lg:text-[84px] max-w-4xl font-bold text-white tracking-medium">
               Stimulateur de créativité et de productivité pour le bâti.
             </h1>
           </motion.div>
@@ -101,7 +100,8 @@ export function HeroSection() {
             }}
           >
             <p className="font-epilogue text-2xl font-extrabold leading-relaxed text-white">
-              Centrée sur l'humain, guidée par la donnée, <br /> augmentée par l'IA.
+              Centrée sur l'humain, guidée par la donnée, <br /> augmentée par
+              l'IA.
             </p>
           </motion.div>
         </div>
@@ -117,7 +117,7 @@ export function HeroSection() {
           className="mt-12"
         >
           <Link href="/methode">
-            <ShinyButton className="bg-white border-white/20 text-black hover:bg-white/90 px-6 py-3">
+            <ShinyButton className="font-epilogue bg-white border-white/20 text-black hover:bg-white/90 px-6 py-3">
               Découvrir notre méthode
             </ShinyButton>
           </Link>
