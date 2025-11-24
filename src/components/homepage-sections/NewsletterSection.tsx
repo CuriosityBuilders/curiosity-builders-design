@@ -2,12 +2,18 @@
 
 import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
+import { GridBackground } from "@/components/ui/GridBackground";
 import { Section } from "@/components/ui/Section";
 
 export function NewsletterSection() {
   return (
-    <Section id="newsletter" spacing="md" className="bg-white text-center">
-      <div className="mx-auto max-w-4xl px-4">
+    <Section
+      id="newsletter"
+      spacing="md"
+      className="relative bg-white text-center"
+    >
+      <GridBackground size={100} opacity={0.1} />
+      <div className="relative mx-auto max-w-4xl px-4">
         <DotCard>
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
             Signals & Intelligence

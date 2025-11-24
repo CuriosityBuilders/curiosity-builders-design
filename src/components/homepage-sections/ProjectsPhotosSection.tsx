@@ -1,5 +1,6 @@
 "use client";
 
+import { GridBackground } from "@/components/ui/GridBackground";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { Section } from "@/components/ui/Section";
 import { motion } from "framer-motion";
@@ -43,8 +44,9 @@ export function ProjectsPhotosSection() {
   }));
 
   return (
-    <Section id="projects" spacing="md" className="bg-white">
-      <div className="mx-auto max-w-7xl px-4">
+    <Section id="projects" spacing="md" className="relative bg-white">
+      <GridBackground size={100} opacity={0.1} />
+      <div className="relative mx-auto max-w-7xl px-4">
         <motion.h2
           className="font-heading text-center text-3xl font-bold text-black sm:text-4xl"
           initial={{ opacity: 0, y: 30 }}
@@ -55,7 +57,7 @@ export function ProjectsPhotosSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          Photos projets
+          NOS RÉALISATIONS
         </motion.h2>
 
         <motion.div
