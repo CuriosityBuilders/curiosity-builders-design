@@ -39,7 +39,7 @@ export function Footer() {
               Centré sur l'humain, guidé par la donnée, augmenté par l'IA.
             </p>
             <div className="mt-4 flex flex-col gap-3 text-sm">
-            <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4">
                 <a
                   href="https://linkedin.com"
                   target="_blank"
@@ -73,7 +73,6 @@ export function Footer() {
                   Politique de confidentialité
                 </Link>
               </div>
-
             </div>
           </div>
           <div className="flex flex-col items-start gap-6">
@@ -83,8 +82,7 @@ export function Footer() {
             <p className="text-sm text-black ">© 2025 Curiosity.Builders</p>
           </div>
         </div>
-        <div className="w-full relative z-10 border-t border-gray-200 pt-4">
-        </div>
+        <div className="w-full relative z-10 border-t border-gray-200 pt-4"></div>
       </div>
     </footer>
   );
