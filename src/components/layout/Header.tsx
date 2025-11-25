@@ -1,22 +1,24 @@
 "use client";
 
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { Link } from "@/i18n/routing";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 const navigation = [
-  { name: "Accueil", href: "/" },
-  { name: "Méthode", href: "/methode" },
-  { name: "Services", href: "/services" },
-  { name: "Signals", href: "/signals" },
-  { name: "Contact", href: "/contact" },
+  { key: "home", href: "/" },
+  { key: "method", href: "/methode" },
+  { key: "services", href: "/services" },
+  { key: "signals", href: "/signals" },
+  { key: "contact", href: "/contact" },
 ];
 
 export function Header() {
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [language, setLanguage] = useState<"EN" | "FR">("FR");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const t = useTranslations("common");
 
   return (
     <header className="sticky top-0 z-50">
@@ -53,11 +55,11 @@ export function Header() {
         <div className="hidden items-center space-x-4 md:space-x-6 md:flex lg:space-x-8">
           {navigation.map((item) => (
             <Link
-              key={item.name}
+              key={item.key}
               href={item.href}
               className="text-sm font-medium text-black transition-colors duration-200 hover:text-gray-600 lg:text-base"
             >
-              {item.name}
+              {t(item.key)}
             </Link>
           ))}
         </div>
@@ -65,31 +67,8 @@ export function Header() {
         {/* Right Side - Language Toggle & Mobile Menu */}
         <div className="flex items-center gap-3 sm:gap-4">
           {/* Language Toggle - Desktop */}
-          <div className="hidden items-center gap-1 md:flex">
-            <button
-              type="button"
-              onClick={() => setLanguage("EN")}
-              className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors sm:px-4 sm:py-2 sm:text-sm ${
-                language === "EN"
-                  ? "bg-black text-white"
-                  : "bg-transparent text-black hover:text-gray-700"
-              }`}
-              aria-label="Switch to English"
-            >
-              EN
-            </button>
-            <button
-              type="button"
-              onClick={() => setLanguage("FR")}
-              className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors sm:px-4 sm:py-2 sm:text-sm ${
-                language === "FR"
-                  ? "bg-black text-white"
-                  : "bg-transparent text-black hover:text-gray-700"
-              }`}
-              aria-label="Switch to French"
-            >
-              FR
-            </button>
+          <div className="hidden md:flex">
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -136,42 +115,19 @@ export function Header() {
               <nav className="space-y-2">
                 {navigation.map((item) => (
                   <Link
-                    key={item.name}
+                    key={item.key}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className="block rounded-lg px-4 py-3 text-base font-medium text-black transition-colors hover:bg-black/5"
                   >
-                    {item.name}
+                    {t(item.key)}
                   </Link>
                 ))}
               </nav>
 
               {/* Language Toggle - Mobile */}
-              <div className="mt-4 flex items-center justify-center gap-1 border-t border-black/10 pt-4">
-                <button
-                  type="button"
-                  onClick={() => setLanguage("EN")}
-                  className={`rounded-lg px-4 py-1.5 text-sm font-medium transition-colors ${
-                    language === "EN"
-                      ? "bg-black text-white"
-                      : "bg-transparent text-black hover:text-gray-700"
-                  }`}
-                  aria-label="Switch to English"
-                >
-                  EN
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setLanguage("FR")}
-                  className={`rounded-lg px-4 py-1.5 text-sm font-medium transition-colors ${
-                    language === "FR"
-                      ? "bg-black text-white"
-                      : "bg-transparent text-black hover:text-gray-700"
-                  }`}
-                  aria-label="Switch to French"
-                >
-                  FR
-                </button>
+              <div className="mt-4 flex items-center justify-center border-t border-black/10 pt-4">
+                <LanguageSwitcher />
               </div>
             </div>
           </motion.div>

@@ -1,13 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
 import { FloatingPaths } from "@/components/ui/background-paths";
 import { FilmGrain } from "@/components/ui/FilmGrain";
 import { Section } from "@/components/ui/Section";
 import { ShinyButton } from "@/components/ui/shiny-button";
+import { Link } from "@/i18n/routing";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export function HeroSection() {
+  const t = useTranslations("hero");
   return (
     <Section
       id="hero"
@@ -87,7 +89,7 @@ export function HeroSection() {
             }}
           >
             <h1 className="font-epilogue text-4xl md:text-5xl lg:text-[84px] max-w-4xl font-bold text-white tracking-medium">
-              Stimulateur de créativité et de productivité pour le bâti.
+              {t("title")}
             </h1>
           </motion.div>
           <motion.div
@@ -100,8 +102,7 @@ export function HeroSection() {
             }}
           >
             <p className="font-epilogue text-2xl font-extrabold leading-relaxed text-white">
-              Centré sur l'humain, guidé par la donnée, <br /> augmenté par
-              l'IA.
+              {t("subtitleLine1")} <br /> {t("subtitleLine2")}
             </p>
           </motion.div>
         </div>
@@ -118,7 +119,7 @@ export function HeroSection() {
         >
           <Link href="/methode">
             <ShinyButton className="font-epilogue bg-white border-white/20 text-black hover:bg-white/90 px-6 py-3">
-              Découvrir notre méthode
+              {t("cta")}
             </ShinyButton>
           </Link>
         </motion.div>

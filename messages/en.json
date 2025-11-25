@@ -1,0 +1,17 @@
+{
+  "common": {
+    "home": "Home",
+    "method": "Method",
+    "services": "Services",
+    "signals": "Signals",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "A creativity and productivity accelerator for the built environment.",
+    "subtitle": "Human-centered, data-driven, AI-enhanced.",
+    "subtitleLine1": "Human-centered, data-guided,",
+    "subtitleLine2": "AI-augmented.",
+    "cta": "Discover our method"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "common": {
+    "home": "Accueil",
+    "method": "Méthode",
+    "services": "Services",
+    "signals": "Signals",
+    "contact": "Contact",
+    "language": "Langue"
+  },
+  "hero": {
+    "title": "Stimulateur de créativité et de productivité pour le bâti.",
+    "subtitle": "Centré sur l'humain, guidé par la donnée, augmenté par l'IA.",
+    "subtitleLine1": "Centré sur l'humain, guidé par la donnée,",
+    "subtitleLine2": "augmenté par l'IA.",
+    "cta": "Découvrir notre méthode"
+  }
+}
