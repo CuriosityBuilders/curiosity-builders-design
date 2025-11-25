@@ -1,10 +1,10 @@
 "use client";
 
+import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { Button } from "@/components/ui/Button";
-import { Section } from "@/components/ui/Section";
 
 export function BookSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,12 +23,12 @@ export function BookSection() {
   const rotateX = useTransform(
     mouseYSpring,
     [-0.5, 0.5],
-    ["17.5deg", "-17.5deg"],
+    ["17.5deg", "-17.5deg"]
   );
   const rotateY = useTransform(
     mouseXSpring,
     [-0.5, 0.5],
-    ["-17.5deg", "17.5deg"],
+    ["-17.5deg", "17.5deg"]
   );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -53,11 +53,11 @@ export function BookSection() {
   return (
     <Section id="book" spacing="md" className="bg-black">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-10 md:gap-2 md:grid-cols-2 ">
           {/* Image à gauche */}
           <motion.div
             ref={containerRef}
-            className="flex items-center justify-center"
+            className="flex items-center justify-center md:justify-end md:pr-20"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}

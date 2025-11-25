@@ -29,7 +29,7 @@ export function Footer() {
         <div className="flex flex-col gap-8 md:flex-row md:justify-between md:items-start">
           <div className="flex flex-col">
             <Link href="/" className="mb-4">
-              <h2 className="font-heading text-2xl font-extrabold text-black">
+              <h2 className="font-heading text-3xl font-extrabold text-black">
                 Curiosity.Builders
               </h2>
             </Link>
@@ -38,48 +38,60 @@ export function Footer() {
               <br />
               Centré sur l'humain, guidé par la donnée, augmenté par l'IA.
             </p>
-            <div className="mt-4 flex flex-col gap-3 text-sm">
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-black transition-colors hover:text-gray-700"
-                >
-                  <Linkedin className="h-5 w-5" />
-                  LinkedIn
-                </a>
-                <a
-                  href="https://substack.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 text-black transition-colors hover:text-gray-700"
-                >
-                  <SubstackIcon className="h-5 w-5" />
-                  Substack
-                </a>
+            <div className="mt-4 flex flex-col gap-6 text-sm">
+              <div className="flex flex-col gap-2">
+                <h3 className="font-heading text-xs font-semibold uppercase tracking-wide text-black">
+                  Suivez-nous
+                </h3>
+                <div className="flex flex-wrap gap-4">
+                  <a
+                    href="https://fr.linkedin.com/in/claireflurin"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-black transition-colors hover:text-gray-700"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                    LinkedIn
+                  </a>
+                  <a
+                    href="https://substack.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 text-black transition-colors hover:text-gray-700"
+                  >
+                    <SubstackIcon className="h-5 w-5" />
+                    Substack
+                  </a>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/mentions-legales"
-                  className="text-black transition-colors hover:text-gray-700"
-                >
-                  Mentions légales
-                </Link>
-                <Link
-                  href="/politique-confidentialite"
-                  className="text-black transition-colors hover:text-gray-700"
-                >
-                  Politique de confidentialité
-                </Link>
+              <div className="flex flex-col gap-2">
+                <h3 className="font-heading text-xs font-semibold uppercase tracking-wide text-black">
+                  Confidentialité
+                </h3>
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    href="/mentions-legales"
+                    className="text-black transition-colors hover:text-gray-700"
+                  >
+                    Mentions légales
+                  </Link>
+                  <Link
+                    href="/politique-confidentialite"
+                    className="text-black transition-colors hover:text-gray-700"
+                  >
+                    Politique de confidentialité
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start gap-6">
+          <div className="flex flex-col items-start gap-2">
             <p className="text-md text-black italic">
               "Built with curiosity — for places with purpose."
             </p>
-            <p className="text-sm text-black ">© 2025 Curiosity.Builders</p>
+            <p className="text-sm text-black">
+              © 2025 Curiosity.Builders. Tous droits réservés.
+            </p>
           </div>
         </div>
         <div className="w-full relative z-10 border-t border-gray-200 pt-4"></div>
