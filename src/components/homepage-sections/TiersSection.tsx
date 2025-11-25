@@ -63,10 +63,10 @@ export function TiersSection() {
 
   return (
     <Section id="tiers" spacing="md" className="relative bg-white">
-      <GridBackground size={300} opacity={0.1} />
+      <GridBackground size={300} opacity={0.2} />
       <div className="relative mx-auto max-w-7xl px-4">
         <h2 className="font-heading text-center text-3xl font-extrabold text-black sm:text-4xl py-2 tracking-wide">
-        NOS LEVIERS D'ACCÉLÉRATION
+          NOS LEVIERS D'ACCÉLÉRATION
         </h2>
         <div className="mt-16 grid gap-8 md:grid-cols-3 items-stretch">
           {tiers.map((tier, index) => (
