@@ -1,60 +1,61 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { GridBackground } from "@/components/ui/GridBackground";
 import { Section } from "@/components/ui/Section";
 import { TierCard } from "./TierCard";
 
 export function TiersSection() {
+  const t = useTranslations("tiers");
+
   const tiers = [
     {
       number: 1,
-      title: "Signaux & Intelligence",
-      subtitle: "Voir, comprendre, anticiper",
-      description:
-        "Veille stratégique, études, capital watch, partenaires & tendances.",
-      tagline: "Pour nourrir la vision et orienter les décisions.",
+      title: t("card1.title"),
+      subtitle: t("card1.subtitle"),
+      description: t("card1.description"),
+      tagline: t("card1.tagline"),
       buttons: [
         {
           href: "/signals",
           variant: "primary" as const,
-          label: "Accéder aux insights",
+          label: t("card1.cta"),
           className: "w-full",
         },
       ],
     },
     {
       number: 2,
-      title: "Diagnostiques & Tests",
-      subtitle: "Analyser, tester, décider vite",
-      description: "Audits, diagnostiques contextuels et pitches.",
-      tagline: "Pour adapter vos usages, montages et levées de fonds.",
+      title: t("card2.title"),
+      subtitle: t("card2.subtitle"),
+      description: t("card2.description"),
+      tagline: t("card2.tagline"),
       buttons: [
         {
           href: "/contact",
           variant: "primary" as const,
-          label: "Nous écrire",
+          label: t("card2.cta"),
           className: "w-full",
         },
       ],
     },
     {
       number: 3,
-      title: "Studio R&D",
-      subtitle: "Concevoir, financer, scaler",
-      description:
-        "Accompagnement senior et expérimentation structurée pour faire croitre vos projets-entreprises. ",
-      tagline: "Pour passer du test à l'exécution et au changement d'échelle.",
+      title: t("card3.title"),
+      subtitle: t("card3.subtitle"),
+      description: t("card3.description"),
+      tagline: t("card3.tagline"),
       buttons: [
         {
           href: "/services",
           variant: "primary" as const,
-          label: "Brochure",
+          label: t("card3.cta1"),
           className: "w-full py-1 text-sm text-center",
         },
         {
           href: "/contact",
           variant: "secondary" as const,
-          label: "Nous écrire",
+          label: t("card3.cta2"),
           className: "w-full py-1 text-sm",
         },
       ],
@@ -65,8 +66,8 @@ export function TiersSection() {
     <Section id="tiers" spacing="md" className="relative bg-white">
       <GridBackground size={300} opacity={0.2} />
       <div className="relative mx-auto max-w-7xl px-4">
-        <h2 className="font-heading text-center text-3xl font-extrabold text-black sm:text-4xl py-2 tracking-wide">
-          NOS LEVIERS D'ACCÉLÉRATION
+        <h2 className="font-heading text-center text-3xl font-extrabold text-black sm:text-4xl py-2 tracking-wide uppercase">
+          {t("title")}
         </h2>
         <div className="mt-16 grid gap-8 md:grid-cols-3 items-stretch">
           {tiers.map((tier, index) => (

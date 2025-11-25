@@ -57,7 +57,7 @@ export function LanguageSwitcher() {
             key={loc}
             type="button"
             onClick={() => handleLocaleChange(loc)}
-            className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors sm:px-4 sm:py-2 sm:text-sm ${
+            className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors sm:px-4 sm:py-2 sm:text-sm ${
               isActive
                 ? "bg-black text-white"
                 : "bg-transparent text-black hover:text-gray-700"

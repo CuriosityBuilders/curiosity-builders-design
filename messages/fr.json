@@ -13,5 +13,72 @@
     "subtitleLine1": "Centré sur l'humain, guidé par la donnée,",
     "subtitleLine2": "augmenté par l'IA.",
     "cta": "Découvrir notre méthode"
+  },
+  "intro": {
+    "title": "L'immobilier a changé d'ère",
+    "body": "Plutôt que de ne parler que de mètres carrés, nous aidons nos clients à concevoir, développer, financer et gérer des lieux vivants — désirables, durables et performants.\n\nCar pour rester pertinent, il faut reconnecter stratégie immobilière, territoire et impact.",
+    "cta1": "Découvrir nos offres",
+    "cta2": "S'abonner à la newsletter"
+  },
+  "tiers": {
+    "title": "3 leviers pour vos projets",
+    "card1": {
+      "title": "Signaux & Intelligence",
+      "subtitle": "Voir, comprendre, anticiper",
+      "description": "Veille stratégique, études, capital watch, partenaires & tendances.",
+      "tagline": "Pour nourrir la vision et orienter les décisions.",
+      "cta": "Accéder aux insights"
+    },
+    "card2": {
+      "title": "Diagnostiques & Tests",
+      "subtitle": "Analyser, tester, décider vite",
+      "description": "Audits, diagnostiques contextuels et pitches.",
+      "tagline": "Pour adapter vos usages, montages et levées de fonds.",
+      "cta": "Nous écrire"
+    },
+    "card3": {
+      "title": "Studio R&D",
+      "subtitle": "Concevoir, financer, scaler",
+      "description": "Accompagnement senior et expérimentation structurée pour faire croitre vos projets-entreprises.",
+      "tagline": "Pour passer du test à l'exécution et au changement d'échelle.",
+      "cta1": "Brochure",
+      "cta2": "Nous écrire"
+    }
+  },
+  "keyMetrics": {
+    "metric1": "acteurs interviewés",
+    "metric2": "études publiées",
+    "metric3": "ventures accélérées",
+    "metric4": "Bullshit"
+  },
+  "projects": {
+    "title": "NOS RÉALISATIONS"
+  },
+  "book": {
+    "title": "Changer l'Immobilier : de l'Utopie à la Réalité",
+    "description": "Écrit par Claire Flurin Bellec et Fanny Costes, publié aux Éditions de l'Aube, cet ouvrage rassemble les réflexions de plus de cinquante acteurs du secteur autour d'une conviction : l'immobilier est en pleine transformation.",
+    "quote": "Travailler dès aujourd'hui à la construction d'un futur désirable et rentable n'est pas un rêve — c'est un impératif business.",
+    "cta": "Commander l'ouvrage"
+  },
+  "footerCTA": {
+    "title": "Et si on repensait votre business development autrement ?",
+    "cta1": "Nous écrire",
+    "cta2": "Découvrir nos offres",
+    "cta3": "Newsletter"
+  },
+  "newsletter": {
+    "title": "Signals & Intelligence",
+    "description": "La veille stratégique de Curiosity.Builders pour anticiper les mutations de l'immobilier et des territoires.",
+    "cta1": "S'abonner",
+    "cta2": "En savoir plus"
+  },
+  "footer": {
+    "description": "Stimulateur de créativité et de productivité pour le bâti.\nCentré sur l'humain, guidé par la donnée, augmenté par l'IA.",
+    "tagline": "Built with curiosity — for places with purpose.",
+    "copyright": "© 2025 Curiosity.Builders. Tous droits réservés.",
+    "followUs": "Suivez-nous",
+    "privacy": "Confidentialité",
+    "legalNotice": "Mentions légales",
+    "privacyPolicy": "Politique de confidentialité"
   }
 }

@@ -1,11 +1,13 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
 
 export function FooterCTASection() {
+  const t = useTranslations("footerCTA");
   return (
     <Section spacing="md" className="relative bg-black text-center">
       {/* Particles Background */}
@@ -27,7 +29,7 @@ export function FooterCTASection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          Et si on repensait votre business development autrement ?
+          {t("title")}
         </motion.h2>
         <motion.div
           className="mt-8 flex flex-wrap justify-center gap-4"
@@ -51,7 +53,7 @@ export function FooterCTASection() {
             }}
           >
             <Button href="/contact" variant="inverted">
-              Nous écrire
+              {t("cta1")}
             </Button>
           </motion.div>
           <motion.div
@@ -65,7 +67,7 @@ export function FooterCTASection() {
             }}
           >
             <Button href="/services" variant="secondary-inverted">
-              Découvrir nos offres
+              {t("cta2")}
             </Button>
           </motion.div>
           <motion.div
@@ -79,7 +81,7 @@ export function FooterCTASection() {
             }}
           >
             <Button href="/contact" variant="secondary-inverted">
-              Newsletter
+              {t("cta3")}
             </Button>
           </motion.div>
         </motion.div>

@@ -3,6 +3,7 @@
 import { CountUp } from "@/components/ui/CountUp";
 import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
+import { useTranslations } from "next-intl";
 
 interface Metric {
   value: number;
@@ -11,11 +12,13 @@ interface Metric {
 }
 
 export function KeyMetricsSection() {
+  const t = useTranslations("keyMetrics");
+
   const metrics: Metric[] = [
-    { value: 50, prefix: "+", label: "acteurs interviewés" },
-    { value: 15, prefix: "+", label: "études publiées" },
-    { value: 3, prefix: "+", label: "ventures accélérées" },
-    { value: 0, label: "Bullshit" },
+    { value: 50, prefix: "+", label: t("metric1") },
+    { value: 15, prefix: "+", label: t("metric2") },
+    { value: 3, prefix: "+", label: t("metric3") },
+    { value: 0, label: t("metric4") },
   ];
 
   return (

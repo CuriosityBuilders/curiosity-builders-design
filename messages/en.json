@@ -13,5 +13,72 @@
     "subtitleLine1": "Human-centered, data-guided,",
     "subtitleLine2": "AI-augmented.",
     "cta": "Discover our method"
+  },
+  "intro": {
+    "title": "Real estate has entered a new era. Places must come alive.",
+    "body": "For too long, real estate has been reduced to square meters. At Curiosity.Builders, we don't just talk about buildings: we help create new visual, entrepreneurial, institutional, and social horizons — by bringing creativity back into the way living spaces are conceived, developed, and financed. Our goal: designing places that are useful, desirable, and built to last.",
+    "cta1": "Discover our services",
+    "cta2": "Subscribe to newsletter"
+  },
+  "tiers": {
+    "title": "3 LEVERS FOR YOUR PROJECTS",
+    "card1": {
+      "title": "Signals & Intelligence",
+      "subtitle": "See, understand, anticipate",
+      "description": "Monthly curiosity-driven market intelligence and capital watch, and on-demand studies.",
+      "tagline": "Because context is the foundation of every good decision.",
+      "cta": "Explore Insights"
+    },
+    "card2": {
+      "title": "Diagnostics & Rapid Tests",
+      "subtitle": "Analyze, test, decide fast",
+      "description": "Audits, contextual diagnostics, pitches.",
+      "tagline": "To adapt uses, structures and fundraising strategies to real-life conditions.",
+      "cta": "Contact Us"
+    },
+    "card3": {
+      "title": "R&D Studio & Advisory",
+      "subtitle": "Design, finance, scale",
+      "description": "Senior advice and structured experimentation to grow your startups, scale-ups, spin-offs or new business units.",
+      "tagline": "To move from testing to execution — and scale with intention.",
+      "cta1": "Request the Deck",
+      "cta2": "Contact Us"
+    }
+  },
+  "keyMetrics": {
+    "metric1": "experts interviewed",
+    "metric2": "studies published",
+    "metric3": "ventures accelerated",
+    "metric4": "Bullshit"
+  },
+  "projects": {
+    "title": "OUR PROJECTS"
+  },
+  "book": {
+    "title": "Changing Real Estate: from Utopia to Reality",
+    "description": "Written by Claire Flurin Bellec and Fanny Costes, published by Éditions de l'Aube, this book gathers the perspectives of more than fifty leaders around a shared conviction: real estate is undergoing a profound transformation.",
+    "quote": "Building a desirable and profitable future is not a dream — it is a business imperative.",
+    "cta": "Order the Book"
+  },
+  "footerCTA": {
+    "title": "Ready to rethink your business development?",
+    "cta1": "Contact Us",
+    "cta2": "Explore Our Services",
+    "cta3": "Newsletter"
+  },
+  "newsletter": {
+    "title": "Signals & Intelligence",
+    "description": "Curiosity.Builders' strategic watch to anticipate shifts in city developments and real estate markets.",
+    "cta1": "Join",
+    "cta2": "Learn More"
+  },
+  "footer": {
+    "description": "Creativity and productivity accelerator for the built environment.\nHuman-centered, data-guided, AI-augmented.",
+    "tagline": "Built with curiosity — for places with purpose.",
+    "copyright": "© 2025 Curiosity.Builders",
+    "followUs": "Follow Us",
+    "privacy": "Privacy",
+    "legalNotice": "Legal Notice",
+    "privacyPolicy": "Privacy Policy"
   }
 }

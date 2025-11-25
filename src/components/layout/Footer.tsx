@@ -1,5 +1,6 @@
+import { Link } from "@/i18n/routing";
 import { Linkedin } from "lucide-react";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 // Substack icon component
 function SubstackIcon({ className }: { className?: string }) {
@@ -18,7 +19,13 @@ function SubstackIcon({ className }: { className?: string }) {
   );
 }
 
-export function Footer() {
+interface FooterProps {
+  locale: string;
+}
+
+export async function Footer({ locale }: FooterProps) {
+  const t = await getTranslations({ locale, namespace: "footer" });
+
   return (
     <footer className="relative z-10 w-full overflow-hidden border-t">
       <div className="pointer-events-none absolute top-0 left-1/2 z-0 h-full w-full -translate-x-1/2 select-none">
@@ -33,15 +40,13 @@ export function Footer() {
                 Curiosity.Builders
               </h2>
             </Link>
-            <p className="mt-2 text-sm text-black">
-              Stimulateur de créativité et de productivité pour le bâti.
-              <br />
-              Centré sur l'humain, guidé par la donnée, augmenté par l'IA.
+            <p className="mt-2 text-sm text-black whitespace-pre-line">
+              {t("description")}
             </p>
             <div className="mt-4 flex flex-col gap-6 text-sm">
               <div className="flex flex-col gap-2">
                 <h3 className="font-heading text-xs font-semibold uppercase tracking-wide text-black">
-                  Suivez-nous
+                  {t("followUs")}
                 </h3>
                 <div className="flex flex-wrap gap-4">
                   <a
@@ -66,32 +71,28 @@ export function Footer() {
               </div>
               <div className="flex flex-col gap-2">
                 <h3 className="font-heading text-xs font-semibold uppercase tracking-wide text-black">
-                  Confidentialité
+                  {t("privacy")}
                 </h3>
                 <div className="flex flex-wrap gap-4">
                   <Link
                     href="/mentions-legales"
                     className="text-black transition-colors hover:text-gray-700"
                   >
-                    Mentions légales
+                    {t("legalNotice")}
                   </Link>
                   <Link
                     href="/politique-confidentialite"
                     className="text-black transition-colors hover:text-gray-700"
                   >
-                    Politique de confidentialité
+                    {t("privacyPolicy")}
                   </Link>
                 </div>
               </div>
             </div>
           </div>
           <div className="flex flex-col items-start gap-2">
-            <p className="text-md text-black italic">
-              "Built with curiosity — for places with purpose."
-            </p>
-            <p className="text-sm text-black">
-              © 2025 Curiosity.Builders. Tous droits réservés.
-            </p>
+            <p className="text-md text-black italic">{t("tagline")}</p>
+            <p className="text-sm text-black">{t("copyright")}</p>
           </div>
         </div>
         <div className="w-full relative z-10 border-t border-gray-200 pt-4"></div>

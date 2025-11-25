@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
@@ -7,6 +8,7 @@ import Image from "next/image";
 import { useRef } from "react";
 
 export function BookSection() {
+  const t = useTranslations("book");
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -101,7 +103,7 @@ export function BookSection() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
-              Changer l'Immobilier : de l'Utopie à la Réalité
+              {t("title")}
             </motion.h2>
             <motion.p
               className="mt-6 text-lg leading-relaxed text-white"
@@ -114,10 +116,7 @@ export function BookSection() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
-              Écrit par Claire Flurin Bellec et Fanny Costes, publié aux
-              Éditions de l'Aube, cet ouvrage rassemble les réflexions de plus
-              de cinquante acteurs du secteur autour d'une conviction :
-              l'immobilier est en pleine transformation.
+              {t("description")}
             </motion.p>
             <motion.blockquote
               className="mt-12 rounded-lg bg-white/10 px-6 py-6 italic text-white backdrop-blur-sm"
@@ -131,9 +130,7 @@ export function BookSection() {
               }}
             >
               <p className="font-heading text-xl font-bold leading-relaxed">
-                "Travailler dès aujourd'hui à la construction d'un futur
-                désirable et rentable n'est pas un rêve — c'est un impératif
-                business."
+                "{t("quote")}"
               </p>
             </motion.blockquote>
             <motion.div
@@ -148,7 +145,7 @@ export function BookSection() {
               }}
             >
               <Button href="/contact" variant="inverted">
-                Commander l'ouvrage
+                {t("cta")}
               </Button>
             </motion.div>
           </div>

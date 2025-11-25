@@ -1,11 +1,13 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
 import { GridBackground } from "@/components/ui/GridBackground";
 import { Section } from "@/components/ui/Section";
 
 export function NewsletterSection() {
+  const t = useTranslations("newsletter");
   return (
     <Section
       id="newsletter"
@@ -16,16 +18,15 @@ export function NewsletterSection() {
       <div className="relative mx-auto max-w-4xl px-4">
         <DotCard>
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            Signals & Intelligence
+            {t("title")}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-black">
-            La veille stratégique de Curiosity.Builders pour anticiper les
-            mutations de l'immobilier et des territoires.
+            {t("description")}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button href="/contact">S'abonner</Button>
+            <Button href="/contact">{t("cta1")}</Button>
             <Button href="/signals" variant="secondary">
-              En savoir plus
+              {t("cta2")}
             </Button>
           </div>
         </DotCard>

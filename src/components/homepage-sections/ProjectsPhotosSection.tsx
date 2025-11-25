@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { GridBackground } from "@/components/ui/GridBackground";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
@@ -34,6 +35,8 @@ const projectPhotos = [
 ];
 
 export function ProjectsPhotosSection() {
+  const t = useTranslations("projects");
+
   // Convert photos to the format expected by InfiniteMovingCards
   const cardItems = projectPhotos.map((photo) => ({
     quote: photo.title,
@@ -57,7 +60,7 @@ export function ProjectsPhotosSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          NOS RÉALISATIONS
+          {t("title")}
         </motion.h2>
 
         <motion.div

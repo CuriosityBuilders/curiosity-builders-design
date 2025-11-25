@@ -57,7 +57,7 @@ export function Header() {
             <Link
               key={item.key}
               href={item.href}
-              className="text-sm font-medium text-black transition-colors duration-200 hover:text-gray-600 lg:text-base"
+              className="text-sm font-semibold text-black transition-colors duration-200 hover:text-gray-600 lg:text-base"
             >
               {t(item.key)}
             </Link>
@@ -118,7 +118,7 @@ export function Header() {
                     key={item.key}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block rounded-lg px-4 py-3 text-base font-medium text-black transition-colors hover:bg-black/5"
+                    className="block rounded-lg px-4 py-3 text-base font-semibold text-black transition-colors hover:bg-black/5"
                   >
                     {t(item.key)}
                   </Link>
