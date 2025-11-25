@@ -1,10 +1,10 @@
 "use client";
 
+import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { Button } from "@/components/ui/Button";
-import { Section } from "@/components/ui/Section";
 
 export function BookSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,12 +23,12 @@ export function BookSection() {
   const rotateX = useTransform(
     mouseYSpring,
     [-0.5, 0.5],
-    ["17.5deg", "-17.5deg"],
+    ["17.5deg", "-17.5deg"]
   );
   const rotateY = useTransform(
     mouseXSpring,
     [-0.5, 0.5],
-    ["-17.5deg", "17.5deg"],
+    ["-17.5deg", "17.5deg"]
   );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -120,7 +120,7 @@ export function BookSection() {
               l'immobilier est en pleine transformation.
             </motion.p>
             <motion.blockquote
-              className="mt-6 border-l-4 border-white pl-4 italic text-white"
+              className="mt-12 rounded-lg bg-white/10 px-6 py-6 italic text-white backdrop-blur-sm"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -130,8 +130,11 @@ export function BookSection() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
-              "Travailler dès aujourd'hui à la construction d'un futur désirable
-              et rentable n'est pas un rêve — c'est un impératif business."
+              <p className="font-heading text-xl font-bold leading-relaxed">
+                "Travailler dès aujourd'hui à la construction d'un futur
+                désirable et rentable n'est pas un rêve — c'est un impératif
+                business."
+              </p>
             </motion.blockquote>
             <motion.div
               className="mt-8"
