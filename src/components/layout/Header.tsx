@@ -40,7 +40,7 @@ export function Header() {
               <div className="absolute inset-0 animate-pulse bg-gray-200" />
             )}
             <Image
-              src="/Logo Curiosity V2.svg"
+              src="/Logo Curiosity V3.svg"
               alt="Curiosity.Builders"
               width={120}
               height={40}
