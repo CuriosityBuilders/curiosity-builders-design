@@ -2,10 +2,32 @@
 
 import { routing, usePathname } from "@/i18n/routing";
 import { useLocale } from "next-intl";
+import { useEffect, useState } from "react";
 
 export function LanguageSwitcher() {
   const pathname = usePathname();
-  const locale = useLocale();
+  const localeFromHook = useLocale();
+
+  // Track the current locale from the URL to ensure button state is correct
+  const [currentLocale, setCurrentLocale] = useState(localeFromHook);
+
+  useEffect(() => {
+    // Update locale from URL on mount and when it changes
+    if (typeof window !== "undefined") {
+      const path = window.location.pathname;
+      const match = path.match(/^\/(fr|en)(\/|$)/);
+      if (
+        match &&
+        routing.locales.includes(match[1] as (typeof routing.locales)[number])
+      ) {
+        setCurrentLocale(match[1]);
+      } else {
+        setCurrentLocale(localeFromHook);
+      }
+    }
+  }, [localeFromHook]);
+
+  const locale = currentLocale;
 
   const handleLocaleChange = (newLocale: string) => {
     // pathname from next-intl already excludes the locale prefix
