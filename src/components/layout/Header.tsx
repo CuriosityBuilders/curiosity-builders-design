@@ -38,11 +38,11 @@ export function Header() {
               <div className="absolute inset-0 animate-pulse bg-gray-200" />
             )}
             <Image
-              src="/LOGO CURIOSITY HD_Balloons_Deep Black.png"
+              src="/Logo Curiosity V2.svg"
               alt="Curiosity.Builders"
               width={120}
               height={40}
-              className="relative h-10 w-auto sm:h-12 md:h-16"
+              className="relative h-10 w-full sm:h-12 md:h-16"
               priority
               onLoad={() => setImageLoaded(true)}
             />
