@@ -57,7 +57,7 @@ export default function ContactPage() {
       <Section spacing="lg" className="bg-black">
         <div className="mx-auto max-w-4xl px-4">
           <h1 className="font-heading text-5xl font-bold leading-tight text-white sm:text-6xl">
-            Échangeons ensemble.
+            Échangeons.
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-white">
             En reliant design, finance et impact pour faire passer vos

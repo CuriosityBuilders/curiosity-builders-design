@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React, { useCallback, useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
 
 export const InfiniteMovingCards = ({
   items,
@@ -17,6 +17,7 @@ export const InfiniteMovingCards = ({
     title: string;
     src?: string;
     alt?: string;
+    objectPosition?: string;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -32,12 +33,12 @@ export const InfiniteMovingCards = ({
       if (direction === "left") {
         containerRef.current.style.setProperty(
           "--animation-direction",
-          "forwards",
+          "forwards"
         );
       } else {
         containerRef.current.style.setProperty(
           "--animation-direction",
-          "reverse",
+          "reverse"
         );
       }
     }
@@ -80,7 +81,7 @@ export const InfiniteMovingCards = ({
       ref={containerRef}
       className={cn(
         "scroller relative z-20 max-w-7xl overflow-hidden",
-        className,
+        className
       )}
     >
       <ul
@@ -88,7 +89,7 @@ export const InfiniteMovingCards = ({
         className={cn(
           "flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
           start && "animate-scroll",
-          pauseOnHover && "hover:paused",
+          pauseOnHover && "hover:paused"
         )}
       >
         {items.map((item) => (
@@ -97,7 +98,7 @@ export const InfiniteMovingCards = ({
               "relative shrink-0 border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] overflow-hidden",
               item.src
                 ? "w-[280px] h-[180px] md:w-[360px] md:h-[220px]"
-                : "w-[350px] max-w-full rounded-2xl px-8 py-6 md:w-[450px]",
+                : "w-[350px] max-w-full rounded-2xl px-8 py-6 md:w-[450px]"
             )}
             key={item.name}
           >
@@ -108,6 +109,7 @@ export const InfiniteMovingCards = ({
                   alt={item.alt || item.title}
                   fill
                   className="object-cover"
+                  style={{ objectPosition: item.objectPosition || "center" }}
                   sizes="(max-width: 768px) 280px, 360px"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />

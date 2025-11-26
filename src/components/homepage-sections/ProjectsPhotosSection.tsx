@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
 import { GridBackground } from "@/components/ui/GridBackground";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { Section } from "@/components/ui/Section";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const projectPhotos = [
   {
@@ -18,9 +18,10 @@ const projectPhotos = [
     title: "Bas Chantenay - Usine électrique",
   },
   {
-    src: "/photos projets/parcours UX bas chantenay.png",
+    src: "/photos projets/parcours UX bas chantenay 2.png",
     alt: "Parcours UX Bas Chantenay",
     title: "Parcours UX Bas Chantenay",
+    objectPosition: "top",
   },
   {
     src: "/photos projets/Ref Neoz.png",
@@ -44,6 +45,7 @@ export function ProjectsPhotosSection() {
     title: photo.title,
     src: photo.src,
     alt: photo.alt,
+    objectPosition: photo.objectPosition,
   }));
 
   return (
