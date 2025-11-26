@@ -68,7 +68,7 @@ export function HeroSection() {
         /> */}
 
         {/* Decorative Lines */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none hidden md:block">
           <div className="absolute left-[10%] top-0 bottom-0 w-px bg-white/10" />
           <div className="absolute left-[30%] top-0 bottom-0 w-px bg-white/10" />
           <div className="absolute left-[50%] top-0 bottom-0 w-px bg-white/10" />
