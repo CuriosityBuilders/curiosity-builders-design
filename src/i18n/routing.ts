@@ -7,6 +7,9 @@ export const routing = defineRouting({
 
   // Locale utilisée par défaut quand aucune locale ne correspond
   defaultLocale: "fr",
+
+  // Afficher la locale seulement si ce n'est pas la locale par défaut
+  localePrefix: "as-needed",
 });
 
 // Wrappers légers autour des APIs de navigation de Next.js
