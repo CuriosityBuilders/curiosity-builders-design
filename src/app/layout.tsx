@@ -41,20 +41,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-      </head>
-      <body
-        className={`${oswald.variable} ${inter.variable} ${manrope.variable} ${epilogue.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html
+      lang="fr"
+      suppressHydrationWarning
+      className={`${oswald.variable} ${inter.variable} ${manrope.variable} ${epilogue.variable}`}
+    >
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
