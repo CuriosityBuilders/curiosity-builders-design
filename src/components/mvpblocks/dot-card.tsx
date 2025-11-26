@@ -6,7 +6,7 @@ interface DotCardProps {
 
 export default function DotCard({ children }: DotCardProps) {
   return (
-    <div className="relative mx-auto h-full w-full rounded-lg border border-dashed border-zinc-300 bg-white px-4 sm:px-6 md:px-8 flex flex-col">
+    <div className="relative mx-auto h-full w-full rounded-md border border-dashed border-zinc-300 bg-white px-4 sm:px-6 md:px-8 flex flex-col">
       <div className="absolute top-4 left-0 z-0 h-px w-full bg-zinc-400 sm:top-6 md:top-8" />
       <div className="absolute bottom-4 left-0 z-0 h-px w-full bg-zinc-400 sm:bottom-6 md:bottom-8" />
       <div className="relative w-full flex-1 flex flex-col border-x border-zinc-400">

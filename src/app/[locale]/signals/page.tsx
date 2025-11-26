@@ -1,3 +1,4 @@
+import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
@@ -26,7 +27,7 @@ export default function SignalsPage() {
       <Section spacing="md">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-8 md:grid-cols-3">
-            <Card>
+            <DotCard>
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
                   1
@@ -42,9 +43,9 @@ export default function SignalsPage() {
               <p className="mt-4 text-sm italic text-black">
                 Comprendre les mutations structurelles du secteur.
               </p>
-            </Card>
+            </DotCard>
 
-            <Card>
+            <DotCard>
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
                   2
@@ -60,9 +61,9 @@ export default function SignalsPage() {
               <p className="mt-4 text-sm italic text-black">
                 Observer comment la finance accélère la transition.
               </p>
-            </Card>
+            </DotCard>
 
-            <Card>
+            <DotCard>
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
                   3
@@ -78,7 +79,7 @@ export default function SignalsPage() {
               <p className="mt-4 text-sm italic text-black">
                 Anticiper les nouveaux standards de performance.
               </p>
-            </Card>
+            </DotCard>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button href="/contact">Consulter</Button>

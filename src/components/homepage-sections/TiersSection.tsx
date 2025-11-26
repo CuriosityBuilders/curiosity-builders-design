@@ -64,7 +64,7 @@ export function TiersSection() {
 
   return (
     <Section id="tiers" spacing="md" className="relative bg-white">
-      <GridBackground size={300} opacity={0.2} />
+      {/* <GridBackground size={300} opacity={0.2} /> */}
       <div className="relative mx-auto max-w-7xl px-4">
         <h2 className="font-heading text-center text-3xl font-extrabold text-black sm:text-4xl py-2 tracking-wide uppercase">
           {t("title")}

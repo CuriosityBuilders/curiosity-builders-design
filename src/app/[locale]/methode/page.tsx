@@ -1,3 +1,4 @@
+import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
@@ -39,7 +40,7 @@ export default function MethodePage() {
           </p>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <Card>
+            <DotCard>
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
                   1
@@ -56,9 +57,9 @@ export default function MethodePage() {
                 Outils : analyses multi-sources, data territoriale,
                 cartographies et scoring d'attractivité.
               </p>
-            </Card>
+            </DotCard>
 
-            <Card>
+            <DotCard>
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
                   2
@@ -75,9 +76,9 @@ export default function MethodePage() {
                 Outils : micro-panels, entretiens, UX mapping, analyses
                 comportementales.
               </p>
-            </Card>
+            </DotCard>
 
-            <Card>
+            <DotCard>
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
                   3
@@ -94,9 +95,9 @@ export default function MethodePage() {
                 Outils : modélisation financière et spatiale, design produit,
                 théorie de changement.
               </p>
-            </Card>
+            </DotCard>
 
-            <Card>
+            <DotCard>
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
                   4
@@ -113,9 +114,9 @@ export default function MethodePage() {
                 financements, montages immobiliers, thèse d'impact,
                 identification des partenaires.
               </p>
-            </Card>
+            </DotCard>
 
-            <Card>
+            <DotCard>
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
                   5
@@ -133,7 +134,7 @@ export default function MethodePage() {
                 spin-offs), partenariats stratégiques, gouvernance et capital
                 raising.
               </p>
-            </Card>
+            </DotCard>
           </div>
         </div>
       </Section>

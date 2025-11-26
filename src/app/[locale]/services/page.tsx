@@ -1,6 +1,5 @@
 import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
-import { GridBackground } from "@/components/ui/GridBackground";
 import { Section } from "@/components/ui/Section";
 
 export default function ServicesPage() {
@@ -57,7 +56,7 @@ export default function ServicesPage() {
 
       {/* Diagnostics et tests */}
       <Section id="diagnostics" spacing="md" className="relative bg-white">
-        <GridBackground size={350} opacity={0.1} />
+        {/* <GridBackground size={350} opacity={0.1} /> */}
         <div className="relative mx-auto max-w-7xl px-4">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
             Diagnostics et tests
@@ -83,52 +82,54 @@ export default function ServicesPage() {
             <li>• et les modèles économiques viables.</li>
           </ul>
 
-          <h3 className="mt-12 font-heading text-2xl font-bold text-black sm:text-3xl">
-            Ce que vous obtenez
-          </h3>
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <DotCard>
-              <h4 className="font-heading text-lg font-bold text-black">
-                Diagnostic contextuel
-              </h4>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                Données multi-sources, démographie, mobilités, signaux de
-                marché, cartographie des opportunités.
-              </p>
-            </DotCard>
-            <DotCard>
-              <h4 className="font-heading text-lg font-bold text-black">
-                Scenario planning
-              </h4>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                Mix d'usages, user journeys, trajectoires opérationnelles,
-                production d'impact, opportunités de marché.
-              </p>
-            </DotCard>
-            <DotCard>
-              <h4 className="font-heading text-lg font-bold text-black">
-                B.A.-BA financier
-              </h4>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                Principes de business plan, prévisionnels simplifiés,
-                opportunités de financement, modélisation OpCo/PropCo.
-              </p>
-            </DotCard>
-            <DotCard>
-              <h4 className="font-heading text-lg font-bold text-black">
-                Narrative produit
-              </h4>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                Storyline, positionnement, concept book, deck investisseurs.
-              </p>
-            </DotCard>
+          <div className="mt-12 bg-gray-50 -mx-4 px-4 py-8">
+            <h3 className="font-heading text-2xl font-bold text-black sm:text-3xl">
+              Ce que vous obtenez
+            </h3>
+            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              <DotCard>
+                <h4 className="font-heading text-lg font-bold text-black">
+                  Diagnostic contextuel
+                </h4>
+                <p className="mt-4 text-sm leading-relaxed text-black">
+                  Données multi-sources, démographie, mobilités, signaux de
+                  marché, cartographie des opportunités.
+                </p>
+              </DotCard>
+              <DotCard>
+                <h4 className="font-heading text-lg font-bold text-black">
+                  Scenario planning
+                </h4>
+                <p className="mt-4 text-sm leading-relaxed text-black">
+                  Mix d'usages, user journeys, trajectoires opérationnelles,
+                  production d'impact, opportunités de marché.
+                </p>
+              </DotCard>
+              <DotCard>
+                <h4 className="font-heading text-lg font-bold text-black">
+                  B.A.-BA financier
+                </h4>
+                <p className="mt-4 text-sm leading-relaxed text-black">
+                  Principes de business plan, prévisionnels simplifiés,
+                  opportunités de financement, modélisation OpCo/PropCo.
+                </p>
+              </DotCard>
+              <DotCard>
+                <h4 className="font-heading text-lg font-bold text-black">
+                  Narrative produit
+                </h4>
+                <p className="mt-4 text-sm leading-relaxed text-black">
+                  Storyline, positionnement, concept book, deck investisseurs.
+                </p>
+              </DotCard>
+            </div>
           </div>
         </div>
       </Section>
 
       {/* R&D Studio */}
       <Section id="r-d-studio" spacing="md" className="relative bg-white">
-        <GridBackground size={300} opacity={0.1} />
+        {/* <GridBackground size={300} opacity={0.1} /> */}
         <div className="relative mx-auto max-w-7xl px-4">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
             Studio R&D
@@ -152,47 +153,49 @@ export default function ServicesPage() {
             du diagnostic au déploiement.
           </p>
 
-          <h3 className="mt-12 font-heading text-2xl font-bold text-black sm:text-3xl">
-            Ce que vous obtenez
-          </h3>
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <DotCard>
-              <h4 className="font-heading text-lg font-bold text-black">
-                Proofs of Concept
-              </h4>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                Gestion de projets pilotes de lieux, services, modèles
-                d'exploitation ou véhicules de financement, pour valider usages,
-                programmes et soutenabilité économique.
-              </p>
-            </DotCard>
-            <DotCard>
-              <h4 className="font-heading text-lg font-bold text-black">
-                Programme d'innovation externalisé
-              </h4>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                Votre cycle complet de R&D géré par notre équipe : analyse →
-                expérimentation → prototypage → décision → déploiement.
-              </p>
-            </DotCard>
-            <DotCard>
-              <h4 className="font-heading text-lg font-bold text-black">
-                Responsable R&D mutualisé
-              </h4>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                Un lead R&D intégré chez vous pour faire avancer l'innovation de
-                l'intérieur.
-              </p>
-            </DotCard>
-            <DotCard>
-              <h4 className="font-heading text-lg font-bold text-black">
-                Advisory expert
-              </h4>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                Un accompagnement mensuel pour clarifier les priorités, lever
-                les blocages, et accélérer la prise de décision.
-              </p>
-            </DotCard>
+          <div className="mt-12 bg-gray-50 -mx-4 px-4 py-8">
+            <h3 className="font-heading text-2xl font-bold text-black sm:text-3xl">
+              Ce que vous obtenez
+            </h3>
+            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              <DotCard>
+                <h4 className="font-heading text-lg font-bold text-black">
+                  Proofs of Concept
+                </h4>
+                <p className="mt-4 text-sm leading-relaxed text-black">
+                  Gestion de projets pilotes de lieux, services, modèles
+                  d'exploitation ou véhicules de financement, pour valider
+                  usages, programmes et soutenabilité économique.
+                </p>
+              </DotCard>
+              <DotCard>
+                <h4 className="font-heading text-lg font-bold text-black">
+                  Programme d'innovation externalisé
+                </h4>
+                <p className="mt-4 text-sm leading-relaxed text-black">
+                  Votre cycle complet de R&D géré par notre équipe : analyse →
+                  expérimentation → prototypage → décision → déploiement.
+                </p>
+              </DotCard>
+              <DotCard>
+                <h4 className="font-heading text-lg font-bold text-black">
+                  Responsable R&D mutualisé
+                </h4>
+                <p className="mt-4 text-sm leading-relaxed text-black">
+                  Un lead R&D intégré chez vous pour faire avancer l'innovation
+                  de l'intérieur.
+                </p>
+              </DotCard>
+              <DotCard>
+                <h4 className="font-heading text-lg font-bold text-black">
+                  Advisory expert
+                </h4>
+                <p className="mt-4 text-sm leading-relaxed text-black">
+                  Un accompagnement mensuel pour clarifier les priorités, lever
+                  les blocages, et accélérer la prise de décision.
+                </p>
+              </DotCard>
+            </div>
           </div>
         </div>
       </Section>
@@ -232,7 +235,7 @@ export default function ServicesPage() {
 
       {/* Venture Development */}
       <Section id="venture-dev" spacing="md" className="relative bg-white">
-        <GridBackground size={300} opacity={0.1} />
+        {/* <GridBackground size={300} opacity={0.1} /> */}
         <div className="relative mx-auto max-w-7xl px-4">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
             Venture Development
@@ -256,38 +259,40 @@ export default function ServicesPage() {
             concept en portefeuille.
           </p>
 
-          <h3 className="mt-12 font-heading text-2xl font-bold text-black sm:text-3xl">
-            Ce que vous obtenez
-          </h3>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <DotCard>
-              <h4 className="font-heading text-lg font-bold text-black">
-                Business plans des futures entités
-              </h4>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                Conception et structuration d'OpCos, PropCos, spin-offs,
-                business units ou véhicules d'investissement.
-              </p>
-            </DotCard>
-            <DotCard>
-              <h4 className="font-heading text-lg font-bold text-black">
-                Impact & gouvernance
-              </h4>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                Principes organisationnels, KPIs, cadre de gouvernance, thèse
-                d'investissement et thèse d'impact.
-              </p>
-            </DotCard>
-            <DotCard>
-              <h4 className="font-heading text-lg font-bold text-black">
-                Data room et croissance
-              </h4>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                Venture briefs, pitch decks, memos d'investissement, due
-                diligence, partenariats stratégiques, structuration commerciale,
-                etc.
-              </p>
-            </DotCard>
+          <div className="mt-12 bg-gray-50 -mx-4 px-4 py-8">
+            <h3 className="font-heading text-2xl font-bold text-black sm:text-3xl">
+              Ce que vous obtenez
+            </h3>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              <DotCard>
+                <h4 className="font-heading text-lg font-bold text-black">
+                  Business plans des futures entités
+                </h4>
+                <p className="mt-4 text-sm leading-relaxed text-black">
+                  Conception et structuration d'OpCos, PropCos, spin-offs,
+                  business units ou véhicules d'investissement.
+                </p>
+              </DotCard>
+              <DotCard>
+                <h4 className="font-heading text-lg font-bold text-black">
+                  Impact & gouvernance
+                </h4>
+                <p className="mt-4 text-sm leading-relaxed text-black">
+                  Principes organisationnels, KPIs, cadre de gouvernance, thèse
+                  d'investissement et thèse d'impact.
+                </p>
+              </DotCard>
+              <DotCard>
+                <h4 className="font-heading text-lg font-bold text-black">
+                  Data room et croissance
+                </h4>
+                <p className="mt-4 text-sm leading-relaxed text-black">
+                  Venture briefs, pitch decks, memos d'investissement, due
+                  diligence, partenariats stratégiques, structuration
+                  commerciale, etc.
+                </p>
+              </DotCard>
+            </div>
           </div>
         </div>
       </Section>
