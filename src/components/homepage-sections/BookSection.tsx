@@ -1,11 +1,11 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { Button } from "@/components/ui/Button";
-import { Section } from "@/components/ui/Section";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useRef } from "react";
+import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
 
 export function BookSection() {
   const t = useTranslations("book");
@@ -25,12 +25,12 @@ export function BookSection() {
   const rotateX = useTransform(
     mouseYSpring,
     [-0.5, 0.5],
-    ["17.5deg", "-17.5deg"]
+    ["17.5deg", "-17.5deg"],
   );
   const rotateY = useTransform(
     mouseXSpring,
     [-0.5, 0.5],
-    ["-17.5deg", "17.5deg"]
+    ["-17.5deg", "17.5deg"],
   );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {

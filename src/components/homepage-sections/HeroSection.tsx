@@ -1,12 +1,12 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { FloatingPaths } from "@/components/ui/background-paths";
 import { FilmGrain } from "@/components/ui/FilmGrain";
 import { Section } from "@/components/ui/Section";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Link } from "@/i18n/routing";
-import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
 
 export function HeroSection() {
   const t = useTranslations("hero");

@@ -1,7 +1,7 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { GridBackground } from "@/components/ui/GridBackground";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { Section } from "@/components/ui/Section";

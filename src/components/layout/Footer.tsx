@@ -1,6 +1,6 @@
-import { Link } from "@/i18n/routing";
 import { Linkedin } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 
 // Substack icon component
 function SubstackIcon({ className }: { className?: string }) {

@@ -1,11 +1,11 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Link } from "@/i18n/routing";
-import { AnimatePresence, motion } from "framer-motion";
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-import { useState } from "react";
 
 const navigation = [
   { key: "home", href: "/" },

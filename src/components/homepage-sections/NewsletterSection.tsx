@@ -1,9 +1,9 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { GridBackground } from "@/components/ui/GridBackground";
 import { Section } from "@/components/ui/Section";
-import { useTranslations } from "next-intl";
 
 export function NewsletterSection() {
   const t = useTranslations("newsletter");

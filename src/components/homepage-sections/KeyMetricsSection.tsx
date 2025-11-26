@@ -1,9 +1,9 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { CountUp } from "@/components/ui/CountUp";
 import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
-import { useTranslations } from "next-intl";
 
 interface Metric {
   value: number;

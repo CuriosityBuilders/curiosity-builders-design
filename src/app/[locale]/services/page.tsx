@@ -1,3 +1,4 @@
+import CircularText from "@/components/mvpblocks/circular-text";
 import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
@@ -204,25 +205,26 @@ export default function ServicesPage() {
       <Section spacing="md" className="bg-black">
         <div className="mx-auto max-w-4xl px-4">
           <div className="text-center">
-            <div className="mb-8 flex items-center justify-center gap-4 text-lg font-medium text-white sm:text-xl">
-              <span>Diagnostic</span>
-              <span>→</span>
-              <span>expérimentation</span>
-              <span>→</span>
-              <span>prototype</span>
-              <span>→</span>
-              <span>apprentissage</span>
-              <span>→</span>
-              <span>venture</span>
+            <div className="flex items-center justify-center">
+              <CircularText
+                text="Diagnostic → expérimentation → prototype → apprentissage → venture • "
+                spinDuration={20}
+                onHover="speedUp"
+                className="text-white"
+                textSize="text-sm"
+              />
             </div>
-            <blockquote className="mt-8 text-lg italic leading-relaxed text-white sm:text-xl">
-              « Il faut en effet pouvoir tester, prototyper, comprendre comment
-              d'autres mondes et modes d'être sont possibles et viables. »
-            </blockquote>
-            <p className="mt-4 text-sm text-white">
-              Cynthia Fleury, philosophe, professeure au Conservatoire national
-              des arts et métiers et aux Mines de Paris – PSL
-            </p>
+            <div className="mt-8 rounded-lg bg-gray-50/10 px-6 py-6 font-bold">
+              <blockquote className="text-lg italic leading-relaxed text-white sm:text-xl">
+                « Il faut en effet pouvoir tester, prototyper, comprendre
+                comment d'autres mondes et modes d'être sont possibles et
+                viables. »
+              </blockquote>
+              <p className="mt-4 text-sm text-white">
+                Cynthia Fleury, philosophe, professeure au Conservatoire
+                national des arts et métiers et aux Mines de Paris – PSL
+              </p>
+            </div>
             <p className="mt-8 text-base leading-relaxed text-white">
               Dans un secteur longtemps resté immobile, prétendre "faire de
               l'impact" exige bien plus que des intentions : cela requiert de

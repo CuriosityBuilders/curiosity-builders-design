@@ -1,11 +1,11 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import { Section } from "@/components/ui/Section";
 import { Link } from "@/i18n/routing";
-import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
 
 export function IntroSection() {
   const t = useTranslations("intro");

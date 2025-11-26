@@ -1,7 +1,7 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
