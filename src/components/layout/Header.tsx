@@ -51,21 +51,21 @@ export function Header() {
           </motion.div>
         </Link>
 
-        {/* Navigation Links - Center (Desktop & Tablet) */}
-        <div className="hidden items-center space-x-4 md:space-x-6 md:flex lg:space-x-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.key}
-              href={item.href}
-              className="text-sm font-semibold text-black transition-colors duration-200 hover:text-gray-600 lg:text-base"
-            >
-              {t(item.key)}
-            </Link>
-          ))}
-        </div>
+        {/* Right Side - Navigation Links, Language Toggle & Mobile Menu */}
+        <div className="flex items-center gap-3 sm:gap-12">
+          {/* Navigation Links - Desktop & Tablet */}
+          <div className="hidden items-center space-x-4 md:space-x-6 md:flex lg:space-x-10">
+            {navigation.map((item) => (
+              <Link
+                key={item.key}
+                href={item.href}
+                className="text-sm font-semibold text-black transition-colors duration-200 hover:text-gray-600 lg:text-base"
+              >
+                {t(item.key)}
+              </Link>
+            ))}
+          </div>
 
-        {/* Right Side - Language Toggle & Mobile Menu */}
-        <div className="flex items-center gap-3 sm:gap-4">
           {/* Language Toggle - Desktop */}
           <div className="hidden md:flex">
             <LanguageSwitcher />

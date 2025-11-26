@@ -8,10 +8,11 @@ export function LanguageSwitcher() {
   const router = useRouter();
   const locale = useLocale();
 
+  // Calculate target locale (the language we'll switch to)
+  const targetLocale = locale === "fr" ? "en" : "fr";
+
   const handleToggle = () => {
-    // Get the other locale (toggle between en and fr)
-    const otherLocale = locale === "fr" ? "en" : "fr";
-    router.replace(pathname, { locale: otherLocale });
+    router.replace(pathname, { locale: targetLocale });
   };
 
   return (
@@ -19,9 +20,9 @@ export function LanguageSwitcher() {
       type="button"
       onClick={handleToggle}
       className="rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors sm:px-4 sm:py-2 sm:text-sm bg-black text-white hover:bg-gray-800"
-      aria-label={`Switch to ${locale === "fr" ? "English" : "Français"}`}
+      aria-label={`Switch to ${targetLocale === "en" ? "English" : "Français"}`}
     >
-      {locale.toUpperCase()}
+      {targetLocale.toUpperCase()}
     </button>
   );
 }
