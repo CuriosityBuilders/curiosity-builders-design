@@ -1,7 +1,12 @@
+"use client";
+
 import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
+import { SparklesCore } from "@/components/ui/sparkles";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function MethodePage() {
   return (
@@ -274,11 +279,81 @@ export default function MethodePage() {
             immobilier, de la R&D territoriale & programmatique et du venture
             development à impact.
           </p>
-          <div className="mt-8">
-            <p className="text-sm text-white/80">
-              Aken Écosystèmes · Nhood · Keys REIM · Ynov · Pardi! · Archipel &
-              Co
-            </p>
+          <div className="relative mt-8 overflow-hidden rounded-lg">
+            <div className="relative z-10 flex flex-wrap items-center justify-center gap-6 py-8 md:gap-8">
+              <motion.div
+                className="flex h-10 w-20 shrink-0 items-center justify-center opacity-90 grayscale-50 transition-all hover:opacity-100 hover:grayscale-0 md:h-14 md:w-28"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <Image
+                  src="/logos/logo partenaires & clients/LOGO_AKENECOSYSTEMES_COULEUR_RVB.png"
+                  alt="Aken Écosystèmes"
+                  width={112}
+                  height={56}
+                  className="h-full w-full object-contain brightness-0 invert opacity-70"
+                />
+              </motion.div>
+              <motion.div
+                className="flex h-10 w-20 shrink-0 items-center justify-center opacity-90 grayscale-50 transition-all hover:opacity-100 hover:grayscale-0 md:h-14 md:w-28"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <Image
+                  src="/logos/logo partenaires & clients/Nhood.png"
+                  alt="Nhood"
+                  width={112}
+                  height={56}
+                  className="h-full w-full object-contain brightness-0 invert opacity-70"
+                />
+              </motion.div>
+              <motion.div
+                className="flex h-10 w-20 shrink-0 items-center justify-center opacity-90 grayscale-50 transition-all hover:opacity-100 hover:grayscale-0 md:h-14 md:w-28"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <Image
+                  src="/logos/logo partenaires & clients/keys reim.svg"
+                  alt="Keys REIM"
+                  width={112}
+                  height={56}
+                  className="h-full w-full object-contain brightness-0 invert opacity-70"
+                />
+              </motion.div>
+              <motion.div
+                className="flex h-10 w-20 shrink-0 items-center justify-center opacity-90 grayscale-50 transition-all hover:opacity-100 hover:grayscale-0 md:h-14 md:w-28"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <Image
+                  src="/logos/logo partenaires & clients/Archipel.svg"
+                  alt="Archipel & Co"
+                  width={112}
+                  height={56}
+                  className="h-full w-full object-contain brightness-0 invert opacity-70"
+                />
+              </motion.div>
+            </div>
+            <div className="absolute inset-0 z-0 mask-[radial-gradient(50%_50%,white,transparent_70%)]">
+              <SparklesCore
+                id="tsparticles-logos"
+                background="transparent"
+                particleDensity={150}
+                particleColor="#ffffff"
+                minSize={0.5}
+                maxSize={1.5}
+                speed={1.5}
+                className="absolute inset-0 h-full w-full opacity-60"
+              />
+            </div>
           </div>
           <div className="mt-8">
             <Button href="/contact" variant="inverted">
