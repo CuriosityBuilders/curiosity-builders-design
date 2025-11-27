@@ -1,6 +1,6 @@
+import { Link } from "@/i18n/routing";
 import { Linkedin } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/routing";
 
 // Substack icon component
 function SubstackIcon({ className }: { className?: string }) {
@@ -32,8 +32,9 @@ export async function Footer({ locale }: FooterProps) {
         <div className="absolute -top-32 left-1/4 h-72 w-72 rounded-full bg-gray-400/20 blur-3xl"></div>
         <div className="absolute right-1/4 -bottom-24 h-80 w-80 rounded-full bg-gray-400/20 blur-3xl"></div>
       </div>
-      <div className="glass relative mx-auto flex w-full flex-col gap-12 py-16">
-        <div className="flex flex-col gap-8 md:flex-row md:justify-between md:items-start">
+      <div className="glass relative mx-auto flex w-full  flex-col gap-12 px-4 py-16">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12">
+          {/* Colonne 1 : Logo + Description */}
           <div className="flex flex-col">
             <Link href="/" className="mb-4">
               <h2 className="font-heading text-3xl font-extrabold text-black">
@@ -43,59 +44,51 @@ export async function Footer({ locale }: FooterProps) {
             <p className="mt-2 text-sm text-black whitespace-pre-line">
               {t("description")}
             </p>
-            <div className="mt-4 flex flex-col gap-6 text-sm">
-              <div className="flex flex-col gap-2">
-                <h3 className="font-heading text-xs font-semibold uppercase tracking-wide text-black">
-                  {t("followUs")}
-                </h3>
-                <div className="flex flex-wrap gap-4">
-                  <a
-                    href="https://fr.linkedin.com/in/claireflurin"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-black transition-colors hover:text-gray-700"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                    LinkedIn
-                  </a>
-                  <a
-                    href="https://substack.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 text-black transition-colors hover:text-gray-700"
-                  >
-                    <SubstackIcon className="h-5 w-5" />
-                    Substack
-                  </a>
-                </div>
-              </div>
-              <div className="flex flex-col gap-2">
-                <h3 className="font-heading text-xs font-semibold uppercase tracking-wide text-black">
-                  {t("privacy")}
-                </h3>
-                <div className="flex flex-wrap gap-4">
-                  <Link
-                    href="/mentions-legales"
-                    className="text-black transition-colors hover:text-gray-700"
-                  >
-                    {t("legalNotice")}
-                  </Link>
-                  <Link
-                    href="/politique-confidentialite"
-                    className="text-black transition-colors hover:text-gray-700"
-                  >
-                    {t("privacyPolicy")}
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
-          <div className="flex flex-col items-start gap-2">
-            <p className="text-md text-black italic">{t("tagline")}</p>
-            <p className="text-sm text-black">{t("copyright")}</p>
+
+          {/* Colonne 2 : Tagline */}
+          <div className="flex flex-col items-start gap-2 md:items-end">
+            <p className="text-md font-bold text-black italic">{t("tagline")}</p>
           </div>
         </div>
-        <div className="w-full relative z-10 border-t border-gray-200 pt-4"></div>
+
+        {/* Ligne de liens horizontale */}
+        <div className="flex flex-wrap justify-center gap-4 md:justify-start md:gap-6">
+          <a
+            href="https://fr.linkedin.com/in/claireflurin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-black transition-colors hover:text-gray-700"
+          >
+            <Linkedin className="h-5 w-5" />
+            LinkedIn
+          </a>
+          <a
+            href="https://substack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-black transition-colors hover:text-gray-700"
+          >
+            <SubstackIcon className="h-5 w-5" />
+            Substack
+          </a>
+          <Link
+            href="/mentions-legales"
+            className="text-black transition-colors hover:text-gray-700"
+          >
+            {t("legalNotice")}
+          </Link>
+          <Link
+            href="/politique-confidentialite"
+            className="text-black transition-colors hover:text-gray-700"
+          >
+            {t("privacyPolicy")}
+          </Link>
+        </div>
+
+        <div className="w-full relative z-10 border-t border-gray-200 pt-4">
+          <p className="text-center text-sm text-black">{t("copyright")}</p>
+        </div>
       </div>
     </footer>
   );
