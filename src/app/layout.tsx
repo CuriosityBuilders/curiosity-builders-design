@@ -33,6 +33,15 @@ export const metadata: Metadata = {
     "Curiosity.Builders - Plateforme d'accélération de vos projets de lieux",
   description:
     "Plateforme d'accélération de vos projets de lieux. Centrée sur l'humain, guidée par la donnée, augmentée par l'IA.",
+  openGraph: {
+    title: "Curiosity.Builders - Plateforme d'accélération de vos projets de lieux",
+    description: "Plateforme d'accélération de vos projets de lieux. Centrée sur l'humain, guidée par la donnée, augmentée par l'IA.",
+    images: [
+      {
+        url: "/LOGO CURIOSITY HD_Balloons_Deep Black.png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
