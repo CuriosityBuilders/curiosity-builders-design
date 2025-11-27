@@ -77,10 +77,19 @@ export default function ServicesPage() {
             construisons des outils d'analyse avancés pour aider développeurs,
             investisseurs et collectivités à identifier :
           </p>
-          <ul className="mt-4 space-y-2 text-lg leading-relaxed text-black">
-            <li>• les besoins réels des usagers,</li>
-            <li>• les opportunités programmatiques et financières,</li>
-            <li>• et les modèles économiques viables.</li>
+          <ul className="mt-4 space-y-3 text-lg leading-relaxed text-black">
+            <li className="flex items-start gap-4">
+              <span className="mt-0.5 shrink-0 font-black text-xl">→</span>
+              <span>Les besoins réels des usagers,</span>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="mt-0.5 shrink-0 font-black text-xl">→</span>
+              <span>Les opportunités programmatiques et financières,</span>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="mt-0.5 shrink-0 font-black text-xl">→</span>
+              <span>Et les modèles économiques viables.</span>
+            </li>
           </ul>
 
           <div className="mt-12 bg-gray-50 -mx-4 px-4 py-8">
@@ -301,7 +310,7 @@ export default function ServicesPage() {
 
       {/* Section Impact */}
       <Section spacing="md" className="relative bg-gray-50">
-        <div className="relative mx-auto max-w-4xl px-4">
+        <div className="relative mx-auto max-w-4xl px-4 text-center">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
             Impact-first, par design
           </h2>

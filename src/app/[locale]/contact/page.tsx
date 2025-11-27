@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function ContactPage() {
   const [showBrochureForm, setShowBrochureForm] = useState(false);
@@ -40,7 +40,7 @@ export default function ContactPage() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    >
   ) => {
     const { name, value, type } = e.target;
     const checked = (e.target as HTMLInputElement).checked;
@@ -136,7 +136,7 @@ export default function ContactPage() {
 
       {/* Section Vous ne savez pas par où commencer ? */}
       <Section spacing="md" className="bg-gray-50">
-        <div className="mx-auto max-w-4xl px-4">
+        <div className="mx-auto max-w-4xl px-4 text-center">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
             Vous ne savez pas par où commencer ?
           </h2>
@@ -144,23 +144,20 @@ export default function ContactPage() {
             Nous pouvons vous aider à clarifier vos besoins — d'un diagnostic
             rapide à une roadmap d'innovation complète.
           </p>
-          <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button
-              variant="secondary"
+              variant="primary"
               onClick={() => window.open("https://substack.com", "_blank")}
             >
               S'abonner à la newsletter
             </Button>
             <Button
-              variant="secondary"
+              variant="primary"
               onClick={() => window.open("https://calendly.com", "_blank")}
             >
               Prendre un rendez-vous
             </Button>
-            <Button
-              variant="secondary"
-              onClick={() => setShowBrochureForm(true)}
-            >
+            <Button variant="primary" onClick={() => setShowBrochureForm(true)}>
               Demander la brochure
             </Button>
           </div>
