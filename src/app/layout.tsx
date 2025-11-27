@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { metadata } from "@/app/metadata";
 import { Epilogue, Inter, Manrope, Oswald } from "next/font/google";
 import "./globals.css";
 
@@ -28,21 +28,7 @@ const epilogue = Epilogue({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title:
-    "Curiosity.Builders - Plateforme d'accélération de vos projets de lieux",
-  description:
-    "Plateforme d'accélération de vos projets de lieux. Centrée sur l'humain, guidée par la donnée, augmentée par l'IA.",
-  openGraph: {
-    title: "Curiosity.Builders - Plateforme d'accélération de vos projets de lieux",
-    description: "Plateforme d'accélération de vos projets de lieux. Centrée sur l'humain, guidée par la donnée, augmentée par l'IA.",
-    images: [
-      {
-        url: "/LOGO CURIOSITY HD_Balloons_Deep Black.png",
-      },
-    ],
-  },
-};
+export { metadata };
 
 export default function RootLayout({
   children,
