@@ -9,7 +9,7 @@ export function MissionTaglineSection() {
   const t = useTranslations("mission");
   return (
     <Section id="mission-tagline" spacing="md" className="bg-black">
-      <div className="mx-auto max-w-4xl px-4">
+      <div className="mx-auto max-w-4xl px-4 text-center">
         <motion.p
           className="font-heading text-xl font-bold text-white sm:text-3xl"
           initial={{ opacity: 0, y: 30 }}
@@ -23,7 +23,7 @@ export function MissionTaglineSection() {
           {t("tagline")}
         </motion.p>
         <motion.div
-          className="mt-8 flex flex-wrap gap-4"
+          className="mt-8 flex flex-wrap gap-4 justify-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
