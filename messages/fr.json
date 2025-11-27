@@ -16,9 +16,16 @@
   },
   "intro": {
     "title": "L'immobilier a changé d'ère. Les lieux doivent devenir vivants.",
-    "body": "Pendant trop longtemps, on a réduit la ville à des mètres carrés. \n Chez Curiosity Builders, nous ne parlons pas seulement de bâti : nous voulons contribuer à créer des horizons visuels, entrepreneuriaux, institutionnels et sociétaux - en stimulant la créativité dans la conception, le développement et le financement d’espaces de vie conçus pour être utiles, désirables et durables.",
+    "body": "Pendant trop longtemps, on a réduit la ville à des mètres carrés. \n Chez Curiosity Builders, nous ne parlons pas seulement de bâti : nous voulons contribuer à créer des horizons visuels, entrepreneuriaux, institutionnels et sociétaux - en stimulant la créativité dans la conception, le développement et le financement d'espaces de vie conçus pour être utiles, désirables et durables.",
     "cta1": "Découvrir nos offres",
     "cta2": "S'abonner à la newsletter"
+  },
+  "mission": {
+    "title": "Plateforme d'accélération de la transformation des financements, design et exploitation de nos espaces de vie.",
+    "body": "Nous réunissons stratégie immobilière, finance, data, usages, tech, territoire et impact pour imaginer des lieux utiles, désirables et capables d'évoluer avec les besoins réels de leurs communautés d'utilisateurs.\n\n Nous sommes à la fois impact-first et pro-business : nous dépassons les silos, nous replaçons l'usage et le vivant au cœur de la décision, et nous bâtissons des modèles économiques qui tiennent dans le temps.\n\nParce que pour que ce secteur continue d'exister, il faut que l'immobilier redevienne une manière de mieux faire société.",
+    "tagline": "Projets de lieux. Projets de villes. \nProjets de vie.",
+    "cta1": "Découvrir nos services",
+    "cta2": "Nous contacter"
   },
   "tiers": {
     "title": "3 leviers pour vos projets",

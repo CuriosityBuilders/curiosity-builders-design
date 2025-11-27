@@ -6,6 +6,8 @@ import { FooterCTASection } from "@/components/homepage-sections/FooterCTASectio
 import { HeroSection } from "@/components/homepage-sections/HeroSection";
 import { IntroSection } from "@/components/homepage-sections/IntroSection";
 import { KeyMetricsSection } from "@/components/homepage-sections/KeyMetricsSection";
+import { MissionSection } from "@/components/homepage-sections/MissionSection";
+import { MissionTaglineSection } from "@/components/homepage-sections/MissionTaglineSection";
 import { NewsletterSection } from "@/components/homepage-sections/NewsletterSection";
 import { ProjectsPhotosSection } from "@/components/homepage-sections/ProjectsPhotosSection";
 import { TiersSection } from "@/components/homepage-sections/TiersSection";
@@ -19,6 +21,8 @@ export default function Home() {
 
       <HeroSection />
       <IntroSection />
+      <MissionSection />
+      <MissionTaglineSection />
       <TiersSection />
       <KeyMetricsSection />
       <ProjectsPhotosSection />
