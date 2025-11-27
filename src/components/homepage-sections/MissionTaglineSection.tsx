@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
+import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -8,8 +9,16 @@ import { useTranslations } from "next-intl";
 export function MissionTaglineSection() {
   const t = useTranslations("mission");
   return (
-    <Section id="mission-tagline" spacing="md" className="bg-black">
-      <div className="mx-auto max-w-4xl px-4 text-center">
+    <Section id="mission-tagline" spacing="md" className="relative bg-black">
+      {/* Particles Background */}
+      <Particles
+        className="absolute inset-0"
+        quantity={40}
+        ease={80}
+        color="#ffffff"
+        refresh
+      />
+      <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
         <motion.p
           className="font-heading text-xl font-bold text-white sm:text-3xl"
           initial={{ opacity: 0, y: 30 }}
