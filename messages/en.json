@@ -22,7 +22,7 @@
   },
   "mission": {
     "title": "A user-centric, tech-augmented platform reshaping how places are financed, designed, and operated.",
-    "body": "We bring together real estate strategy, finance, data, uses, tech, territory and impact to imagine useful, desirable places capable of evolving with the real needs of their user communities.\n\nWe are both impact-first and pro-business: we break down silos, we put use and life back at the heart of decision-making, and we build economic models that stand the test of time.\n\nBecause for this sector to continue to exist, real estate must once again become a way of making society better.",
+    "body": "We bring together real estate strategy, finance, data, uses, tech, territory and impact to imagine useful, desirable places capable of evolving with the real needs of their user communities. We are both impact-first and pro-business: we break down silos, we put use and life back at the heart of decision-making, and we build economic models that stand the test of time. Because for this sector to continue to exist, real estate must once again become a way of making society better.",
     "tagline": "For places and buildings with purpose.",
     "cta1": "Discover our services",
     "cta2": "Contact Us"
@@ -87,5 +87,107 @@
     "privacy": "Privacy",
     "legalNotice": "Legal Notice",
     "privacyPolicy": "Privacy Policy"
+  },
+  "services": {
+    "hero": {
+      "title": "Three ways to accelerate your projects",
+      "body": "From first insights to full-scale ventures. We support and guide you through the full innovation journey: identify, test, deploy.",
+      "button1": "Diagnostics & Rapid Tests",
+      "button2": "R&D Studio",
+      "button3": "Venture Development"
+    },
+    "overview": {
+      "title": "A launchpad for new projects, better products, and future-proof ventures.",
+      "body1": "Drawing from design thinking, behavioral science, urban analysis, product strategy, and impact economics, we help organizations learn faster, test smarter, and build place-based products, programs, operating models, and ventures that actually work for people and territories.",
+      "body2": "We help you move from hypotheses to prototypes, and from prototypes to validated decisions, through short, iterative learning loops that blend product logic, territorial insight, user research, and financial modeling.",
+      "cta": "Our approach"
+    },
+    "diagnostics": {
+      "title": "Diagnostics & Tests",
+      "subtitle": "analyze, test, decide fast",
+      "body1": "Good decisions start with context you can trust.",
+      "body2": "Our diagnosis blend territorial intelligence, user research, data science, behavioral insights, engineering, and financial modeling to reveal what a site, building, or portfolio can realistically become. With AI-assisted analysis and proprietary models, we help teams uncover :",
+      "bullet1": "real user needs rather than assumptions,",
+      "bullet2": "contextual and programmatic opportunities,",
+      "bullet3": "financial and operating models that hold up in real life.",
+      "deliverablesTitle": "What you walk away with?",
+      "card1": {
+        "title": "Context Diagnosis",
+        "description": "Multi-source data, demographics, mobility, market signals."
+      },
+      "card2": {
+        "title": "Scenario Options",
+        "description": "Use mixes, operational pathways, impact logic."
+      },
+      "card3": {
+        "title": "Financial Logic Baseline",
+        "description": "Business plan principles, PropCo/OpCo structure."
+      },
+      "card4": {
+        "title": "Product Narrative",
+        "description": "Storyline, positioning, concept summary."
+      }
+    },
+    "rndStudio": {
+      "title": "R&D Studio",
+      "subtitle": "design, test, transform",
+      "body1": "Innovation requires more than ideas — it requires clear processes, dedicated time, and the right people in the room. Our R&D Studio embeds itself into your teams to help you prioritize what matters, prepare projects for launch, and run the full innovation cycle — from diagnosis to deployment.",
+      "body2": "We help you move from hypotheses to prototypes, and from prototypes to validated decisions, through short, iterative learning loops that blend product logic, territorial insight, user research, and financial modeling.",
+      "deliverablesTitle": "What you get?",
+      "card1": {
+        "title": "Proofs of Concept for Places",
+        "description": "Pilot project management to validate land uses, programs, operational models, investability."
+      },
+      "card2": {
+        "title": "Externalized Innovation Program Management",
+        "description": "Your full R&D cycle run by our team."
+      },
+      "card3": {
+        "title": "Fractional R&D Lead",
+        "description": "An in-house lead to drive innovation forward from the inside."
+      },
+      "card4": {
+        "title": "Senior Advisory",
+        "description": "Expert guidance monthly to clarify priorities."
+      }
+    },
+    "loop": {
+      "text": "Diagnosis → experiment → prototype → learning → venture • ",
+      "quote": "We must test and prototype to understand how new ways of living can become viable.",
+      "author": "Cynthia Fleury, philosopher, Professor of Humanités et Santé at the Conservatoire national des arts et métiers, and Associate Professor at Mines Paris PSL.",
+      "subtext": "In a sector that has stayed still for too long, claiming to be \"impact-driven\" requires more than intentions — it requires experimentation: fast, frugal, and always grounded in reality."
+    },
+    "ventureDev": {
+      "title": "Venture Development",
+      "subtitle": "launch, build, scale",
+      "body1": "Some innovation projects deserve to become business units, or full ventures.",
+      "body2": "Our Venture Development support helps founders, operators, and leadership teams move from successful pilots to operational products, real operating models, and investment-ready vehicles. We also help startups and scale-ups enter and navigate the real estate sector with clarity and traction.",
+      "body3": "We support founders, operators, and leaders who want to move from experimentation to controlled growth: transforming a prototype into a product, a project into a company, a concept into a portfolio.",
+      "deliverablesTitle": "What you get?",
+      "card1": {
+        "title": "Venture & Vehicle Business Plans",
+        "description": "OpCos, PropCos, spin-offs and investment vehicles."
+      },
+      "card2": {
+        "title": "Impact & Governance Setup",
+        "description": "Operating principles, KPIs, governance and impact investment frameworks."
+      },
+      "card3": {
+        "title": "Investor & Partner Materials",
+        "description": "Venture briefs, partner decks and data rooms ready for due diligence."
+      }
+    },
+    "impact": {
+      "title": "Impact-first by design",
+      "body1": "Every project we work on integrates a credible impact lens — carbon, social value, governance — used as a driver of performance and legitimacy, not an afterthought.",
+      "body2": "Impact isn't a separate track; it's woven into the strategy, the model, and the execution from day one."
+    },
+    "finalCta": {
+      "title": "Transform faster. Decide smarter.",
+      "body1": "Innovation is not a department — it's a continuous practice of learning, testing, and building with purpose.",
+      "body2": "Curiosity.Builders supports high-potential teams and founders as a long-term partner: helping you connect design, finance, data, and impact to turn ideas into real products, real ventures, and real outcomes.",
+      "button1": "Contact Us",
+      "button2": "Discover Our Method"
+    }
   }
 }

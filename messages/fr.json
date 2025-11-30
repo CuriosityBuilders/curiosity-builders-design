@@ -22,7 +22,7 @@
   },
   "mission": {
     "title": "Plateforme d'accélération de la transformation des financements, design et exploitation de nos espaces de vie.",
-    "body": "Nous réunissons stratégie immobilière, finance, data, usages, tech, territoire et impact pour imaginer des lieux utiles, désirables et capables d'évoluer avec les besoins réels de leurs communautés d'utilisateurs.\n\n Nous sommes à la fois impact-first et pro-business : nous dépassons les silos, nous replaçons l'usage et le vivant au cœur de la décision, et nous bâtissons des modèles économiques qui tiennent dans le temps.\n\nParce que pour que ce secteur continue d'exister, il faut que l'immobilier redevienne une manière de mieux faire société.",
+    "body": "Nous réunissons stratégie immobilière, finance, data, usages, tech, territoire et impact pour imaginer des lieux utiles, désirables et capables d'évoluer avec les besoins réels de leurs communautés d'utilisateurs. Nous sommes à la fois impact-first et pro-business : nous dépassons les silos, nous replaçons l'usage et le vivant au cœur de la décision, et nous bâtissons des modèles économiques qui tiennent dans le temps. Parce que pour que ce secteur continue d'exister, il faut que l'immobilier redevienne une manière de mieux faire société.",
     "tagline": "Projets de lieux. Projets de villes. \nProjets de vie.",
     "cta1": "Découvrir nos services",
     "cta2": "Nous contacter"
@@ -87,5 +87,107 @@
     "privacy": "Confidentialité",
     "legalNotice": "Mentions légales",
     "privacyPolicy": "Politique de confidentialité"
+  },
+  "services": {
+    "hero": {
+      "title": "Trois manières d'accélérer vos projets",
+      "body": "De la première intuition au développement du projet-entreprise à grande échelle. Nous vous accompagnons sur tout le cycle d'innovation : identifier, tester, déployer.",
+      "button1": "Diagnostics & Tests",
+      "button2": "Studio R&D",
+      "button3": "Venture Development"
+    },
+    "overview": {
+      "title": "Une infrastructure de développement pour vos nouveaux produits et projets-entreprises.",
+      "body1": "Nous mobilisons recherche, design, data et impact pour aider développeurs, investisseurs, opérateurs et collectivités à imaginer, tester et déployer des projets immobiliers ancrés dans la réalité des territoires et des usages.",
+      "body2": "Notre rôle : transformer vos intuitions en produits, programmes, modèles opérationnels et ventures capables de tenir dans le temps — techniquement, économiquement et socialement.",
+      "cta": "Notre méthode"
+    },
+    "diagnostics": {
+      "title": "Diagnostics et tests",
+      "subtitle": "analyser, tester, décider vite",
+      "body1": "Parce que la bonne compréhension du contexte est à la base de toute bonne décision. Nos diagnostics associent data, sciences comportementales, micro-enquêtes, ingénierie, planification urbaine et finance pour révéler le potentiel social, environnemental et économique de chaque site ou portefeuille.",
+      "body2": "En exploitant les possibilités ouvertes par la data et l'IA, nous construisons des outils d'analyse avancés pour aider développeurs, investisseurs et collectivités à identifier :",
+      "bullet1": "Les besoins réels des usagers,",
+      "bullet2": "Les opportunités programmatiques et financières,",
+      "bullet3": "Et les modèles économiques viables.",
+      "deliverablesTitle": "Ce que vous obtenez",
+      "card1": {
+        "title": "Diagnostic contextuel",
+        "description": "Données multi-sources, démographie, mobilités, signaux de marché, cartographie des opportunités."
+      },
+      "card2": {
+        "title": "Scenario planning",
+        "description": "Mix d'usages, user journeys, trajectoires opérationnelles, production d'impact, opportunités de marché."
+      },
+      "card3": {
+        "title": "B.A.-BA financier",
+        "description": "Principes de business plan, prévisionnels simplifiés, opportunités de financement, modélisation OpCo/PropCo."
+      },
+      "card4": {
+        "title": "Narrative produit",
+        "description": "Storyline, positionnement, concept book, deck investisseurs."
+      }
+    },
+    "rndStudio": {
+      "title": "Studio R&D",
+      "subtitle": "concevoir, tester, transformer",
+      "body1": "Passer de l'idée à l'exécution exige une démarche structurée : poser des hypothèses, concevoir des scénarios, prototyper, mesurer, décider.",
+      "body2": "Notre R&D Studio agit comme une extension de vos capacités internes, en pilotant des boucles d'innovation courtes qui combinent logique produit, intelligence territoriale, recherche usagers et ingénierie financière pour concevoir, tester, structurer et déployer les modèles et produits immobiliers de demain. Nous nous intégrons dans vos équipes pour vous aider à hiérarchiser les priorités, préparer les projets au lancement, piloter l'ensemble du cycle d'innovation — du diagnostic au déploiement.",
+      "deliverablesTitle": "Ce que vous obtenez",
+      "card1": {
+        "title": "Proofs of Concept",
+        "description": "Gestion de projets pilotes de lieux, services, modèles d'exploitation ou véhicules de financement, pour valider usages, programmes et soutenabilité économique."
+      },
+      "card2": {
+        "title": "Programme d'innovation externalisé",
+        "description": "Votre cycle complet de R&D géré par notre équipe : analyse → expérimentation → prototypage → décision → déploiement."
+      },
+      "card3": {
+        "title": "Responsable R&D mutualisé",
+        "description": "Un lead R&D intégré chez vous pour faire avancer l'innovation de l'intérieur."
+      },
+      "card4": {
+        "title": "Advisory expert",
+        "description": "Un accompagnement mensuel pour clarifier les priorités, lever les blocages, et accélérer la prise de décision."
+      }
+    },
+    "loop": {
+      "text": "Diagnostic → expérimentation → prototype → apprentissage → venture • ",
+      "quote": "« Il faut en effet pouvoir tester, prototyper, comprendre comment d'autres mondes et modes d'être sont possibles et viables. »",
+      "author": "Cynthia Fleury, philosophe, professeure au Conservatoire national des arts et métiers et aux Mines de Paris – PSL",
+      "subtext": "Dans un secteur longtemps resté immobile, prétendre \"faire de l'impact\" exige bien plus que des intentions : cela requiert de savoir expérimenter — vite, frugalement, et toujours en phase avec l'économie réelle."
+    },
+    "ventureDev": {
+      "title": "Venture Development",
+      "subtitle": "amorcer, bâtir, déployer",
+      "body1": "Quand un projet mérite de devenir un produit, ou une entreprise.",
+      "body2": "Certains projets ont le potentiel de devenir des business units, des véhicules d'investissement ou de véritables entreprises. Mais pénétrer, et naviguer, le secteur immobilier avec clarté, crédibilité et traction reste un défi majeur.",
+      "body3": "Nous accompagnons les fondateurs, opérateurs et dirigeants qui veulent passer de l'expérimentation à une croissance maîtrisée : transformer un prototype en produit, un projet en entreprise, un concept en portefeuille.",
+      "deliverablesTitle": "Ce que vous obtenez",
+      "card1": {
+        "title": "Business plans des futures entités",
+        "description": "Conception et structuration d'OpCos, PropCos, spin-offs, business units ou véhicules d'investissement."
+      },
+      "card2": {
+        "title": "Impact & gouvernance",
+        "description": "Principes organisationnels, KPIs, cadre de gouvernance, thèse d'investissement et thèse d'impact."
+      },
+      "card3": {
+        "title": "Data room et croissance",
+        "description": "Venture briefs, pitch decks, memos d'investissement, due diligence, partenariats stratégiques, structuration commerciale, etc."
+      }
+    },
+    "impact": {
+      "title": "Impact-first, par design",
+      "body1": "Chez nous, chaque projet intègre une thèse d'impact — carbone, social, gouvernance — pensée comme un levier de performance et de légitimité, jamais comme une contrainte.",
+      "body2": "Nous transformons vos ambitions d'impact en modèles d'affaires compétitifs et différenciants."
+    },
+    "finalCta": {
+      "title": "Transformer plus vite. Décider plus juste.",
+      "body1": "L'innovation n'est pas un département : c'est une dynamique continue faite de curiosité, d'apprentissage et d'expérimentations éclairées.",
+      "body2": "Curiosity.Builders accompagne les organisations dans la conception, le test et le déploiement de projets, produits et ventures durables — en alliant design, finance, data et impact.",
+      "button1": "Nous contacter",
+      "button2": "Découvrir notre méthode"
+    }
   }
 }

@@ -12,7 +12,6 @@ export function NewsletterSection() {
       spacing="md"
       className="relative bg-white text-center overflow-hidden"
     >
-
       <div className="relative mx-auto max-w-4xl px-4 py-8">
         {/* Horizontal lines extending full width */}
         <div

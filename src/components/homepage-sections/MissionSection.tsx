@@ -1,8 +1,8 @@
 "use client";
 
-import { Section } from "@/components/ui/Section";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { Section } from "@/components/ui/Section";
 
 export function MissionSection() {
   const t = useTranslations("mission");

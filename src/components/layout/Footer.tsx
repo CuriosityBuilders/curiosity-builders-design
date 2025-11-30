@@ -1,6 +1,6 @@
-import { Link } from "@/i18n/routing";
 import { Linkedin } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 
 // Substack icon component
 function SubstackIcon({ className }: { className?: string }) {
@@ -48,7 +48,9 @@ export async function Footer({ locale }: FooterProps) {
 
           {/* Colonne 2 : Tagline */}
           <div className="flex flex-col items-start gap-2 md:items-end">
-            <p className="text-md font-bold text-black italic">{t("tagline")}</p>
+            <p className="text-md font-bold text-black italic">
+              {t("tagline")}
+            </p>
           </div>
         </div>
 

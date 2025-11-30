@@ -1,5 +1,5 @@
-import { metadata } from "@/app/metadata";
 import { Epilogue, Inter, Manrope, Oswald } from "next/font/google";
+import { metadata } from "@/app/metadata";
 import "./globals.css";
 
 const oswald = Oswald({
