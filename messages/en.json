@@ -237,5 +237,92 @@
       "body": "Curiosity.Builders helps funds, real estate firms, and operators structure future-proof strategies, grounded in real context and real user needs.",
       "button": "Contact Us"
     }
+  },
+  "methode": {
+    "hero": {
+      "title": "An approach that turns insight into action.",
+      "body1": "Real estate is a complex ecosystem. We believe strong projects emerge when strategy, context, uses, finance, and impact align.",
+      "body2": "Our method adapts principles from design thinking, lean product development, and venture building to real estate and urban development — turning complexity into a clear, actionable path. The rationale is simple: analyze before you build, so every project is rooted in the reality of its territory, its users, and its economic conditions."
+    },
+    "curiosityLoop": {
+      "title": "The Curiosity Loop: from insight to venture",
+      "subtitle": "A continuous loop of learning and growth — aligning design, data, and finance to create the next generation of places with purpose. Each phase blends analysis, field insight, product thinking, and strategic modeling to turn knowledge into competitive advantage.",
+      "step1": {
+        "title": "Discover — Context",
+        "description": "We start by decoding the context: who lives here, what moves, what's missing. Through data, fieldwork, and expert analysis, we uncover the social, economic, and environmental DNA of a place — revealing hidden potential and constraints.",
+        "tools": "Territorial data analysis · Multi-source mapping · Attractiveness scoring · Field interviews · One-page diagnostic · Opportunity map · Key contextual insights"
+      },
+      "step2": {
+        "title": "Understand — Users",
+        "description": "We uncover how people live, work, behave, move and decide — identifying real needs, emerging expectations, and friction points that shape uses, services, and daily-life experiences.",
+        "tools": "User surveys · Micro-panels · Interviews · Behavioral insights · UX mapping · Personas · Demand analysis · Insight summary"
+      },
+      "step3": {
+        "title": "Design — Product & Experience",
+        "description": "We translate insights into tangible product concepts and spatial experiences — defining programmatic mixes, service layers, user journeys, and operational logic.",
+        "tools": "Program mix modeling · Spatial & financial modeling · User journeys · Experience design · Service blueprint · Concept Book (vision, experience, operating model)"
+      },
+      "step4": {
+        "title": "Activate — Business",
+        "description": "We run rapid tests to make the product viable — shaping business and governance models that ensure long-term financial resilience, operational coherence, and measurable impact.",
+        "tools": "MVPs & prototypes · Business model canvas · PropCo/OpCo modeling · Preliminary forecast · Financial logic · Impact thesis · Partnership mapping · Governance options"
+      },
+      "step5": {
+        "title": "Scale — Venture",
+        "description": "We bring validated concepts to market — structuring pilots, operating companies, investment vehicles or digital spin-offs and a development path you can defend with investors, partners, cities and users.",
+        "tools": "Venture brief · Investor deck · Pilot definition · Vehicle structuring (OpCo/PropCo, funds, spin-offs) · Partnership roadmap · Capital raising support"
+      }
+    },
+    "impact": {
+      "title": "Impact-first, by design",
+      "body": "Impact isn't an afterthought — it's our north star. Every mission integrates a pragmatic, measurable impact thesis (carbon, social, governance) designed as a performance lever, not a constraint. Our goal is simple: build regenerative places, while enabling sustainable economic returns."
+    },
+    "singularity": {
+      "title": "What makes us different",
+      "body1": "Curiosity.Builders brings together the standards of strategic consulting, the rigor of applied research, and the creativity of product design.",
+      "body2": "We operate across the full real estate value chain — combining data, design, engineering, finance, and impact to turn ideas into robust, high-performing models.",
+      "body3": "Our expertise spans five innovation domains: product & spatial design, technology, organizational strategy, impact & sustainability, and venture development.",
+      "card1": {
+        "title": "Total interdisciplinarity",
+        "description": "Blending real estate, finance, design, and data for an integrated perspective."
+      },
+      "card2": {
+        "title": "Proven methods",
+        "description": "Rooted in product design, venture building, and social sciences."
+      },
+      "card3": {
+        "title": "Agile formats",
+        "description": "From real-time diagnostics to full venture structuring."
+      },
+      "card4": {
+        "title": "Tech & AI augmented",
+        "description": "Up-to-date advanced analytical tools supporting expert reasoning."
+      },
+      "card5": {
+        "title": "Integrated impact",
+        "description": "Every project includes a measurable impact thesis and KPIs."
+      }
+    },
+    "proofs": {
+      "title": "Proofs",
+      "quote1": {
+        "text": "Projects rooted in their context go to market 20% faster and retain long-term value.",
+        "author": "— Cushman & Wakefield"
+      },
+      "quote2": {
+        "text": "Impact is no longer a differentiator — it's business-as-usual.",
+        "author": "— Lisette Van Doorn, ULI"
+      },
+      "quote3": {
+        "text": "Understanding local context reduces delivery delays by up to 30%.",
+        "author": ""
+      },
+      "button": "Reach Out"
+    },
+    "finalCta": {
+      "title": "Transform faster. Decide smarter.",
+      "body": "Curiosity.Builders is an augmented advisory practice, blending strategic real estate consulting, territorial & programmatic research & development, and impact-driven venture development.",
+      "button": "Reach Out"
+    }
   }
 }

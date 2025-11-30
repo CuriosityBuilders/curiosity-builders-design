@@ -7,26 +7,24 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { SparklesCore } from "@/components/ui/sparkles";
+import { useTranslations } from "next-intl";
 
 export default function MethodePage() {
+  const t = useTranslations("methode");
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
       <Section spacing="lg" className="bg-black">
         <div className="mx-auto max-w-4xl px-4">
           <h1 className="font-heading text-5xl font-bold leading-tight text-white sm:text-6xl">
-            Notre méthode pour transformer vos idées en produits robustes et
-            désirables.
+            {t("hero.title")}
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-white">
-            Notre approche UX Immo transpose au secteur immobilier les méthodes
-            de design thinking, lean product development et venture building
-            éprouvée dans la tech et la grande consommation.
+            {t("hero.body1")}
             <br />
             <br />
-            Elle repose sur un principe simple : analyser avant de construire,
-            pour garantir que chaque projet s'ancre dans la réalité du
-            territoire dans lequel il s'implante.
+            {t("hero.body2")}
           </p>
         </div>
       </Section>
@@ -35,13 +33,10 @@ export default function MethodePage() {
       <Section spacing="md">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            Le Curiosity Loop — 5 étapes pour connecter vision, contexte et
-            exécution
+            {t("curiosityLoop.title")}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-black">
-            Chaque phase combine analyse de données, expertise terrain et
-            modélisation stratégique pour transformer la connaissance en
-            avantage compétitif.
+            {t("curiosityLoop.subtitle")}
           </p>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -52,15 +47,13 @@ export default function MethodePage() {
                 </div>
               </div>
               <h3 className="font-heading text-xl font-bold text-black">
-                Observer — le contexte
+                {t("curiosityLoop.step1.title")}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-black">
-                Identifier les dynamiques territoriales, économiques et
-                environnementales qui façonnent un projet.
+                {t("curiosityLoop.step1.description")}
               </p>
               <p className="mt-4 text-xs italic text-black">
-                Outils : analyses multi-sources, data territoriale,
-                cartographies et scoring d'attractivité.
+                {t("curiosityLoop.step1.tools")}
               </p>
             </DotCard>
 
@@ -71,15 +64,13 @@ export default function MethodePage() {
                 </div>
               </div>
               <h3 className="font-heading text-xl font-bold text-black">
-                Comprendre — les usages
+                {t("curiosityLoop.step2.title")}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-black">
-                Décoder les comportements et attentes réelles des usagers
-                finaux, partenaires et acteurs locaux.
+                {t("curiosityLoop.step2.description")}
               </p>
               <p className="mt-4 text-xs italic text-black">
-                Outils : micro-panels, entretiens, UX mapping, analyses
-                comportementales.
+                {t("curiosityLoop.step2.tools")}
               </p>
             </DotCard>
 
@@ -90,15 +81,13 @@ export default function MethodePage() {
                 </div>
               </div>
               <h3 className="font-heading text-xl font-bold text-black">
-                Concevoir — le produit et le modèle
+                {t("curiosityLoop.step3.title")}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-black">
-                Transformer les insights en scénarios d'usage et d'exploitation,
-                concepts programmatiques et modèles économiques.
+                {t("curiosityLoop.step3.description")}
               </p>
               <p className="mt-4 text-xs italic text-black">
-                Outils : modélisation financière et spatiale, design produit,
-                théorie de changement.
+                {t("curiosityLoop.step3.tools")}
               </p>
             </DotCard>
 
@@ -109,15 +98,13 @@ export default function MethodePage() {
                 </div>
               </div>
               <h3 className="font-heading text-xl font-bold text-black">
-                Développer — la stratégie d'exécution
+                {t("curiosityLoop.step4.title")}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-black">
-                Structurer un modèle d'affaires rentable et finançable.
+                {t("curiosityLoop.step4.description")}
               </p>
               <p className="mt-4 text-xs italic text-black">
-                Outils : business modeling PropCo/OpCo, structuration des
-                financements, montages immobiliers, thèse d'impact,
-                identification des partenaires.
+                {t("curiosityLoop.step4.tools")}
               </p>
             </DotCard>
 
@@ -128,16 +115,13 @@ export default function MethodePage() {
                 </div>
               </div>
               <h3 className="font-heading text-xl font-bold text-black">
-                Déployer — la venture
+                {t("curiosityLoop.step5.title")}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-black">
-                Transformer la stratégie en réalité : du concept à l'entreprise,
-                du pilote au marché.
+                {t("curiosityLoop.step5.description")}
               </p>
               <p className="mt-4 text-xs italic text-black">
-                Outils : structuration de véhicules (OpCo/PropCo, fonds,
-                spin-offs), partenariats stratégiques, gouvernance et capital
-                raising.
+                {t("curiosityLoop.step5.tools")}
               </p>
             </DotCard>
           </div>
@@ -148,12 +132,10 @@ export default function MethodePage() {
       <Section spacing="md" className="bg-gray-100">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            Impact-first, by design
+            {t("impact.title")}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-black">
-            Chaque projet que nous accompagnons intègre une thèse d'impact
-            pragmatique — carbone, social, gouvernance — conçue non comme une
-            contrainte, mais comme un levier de performance et de résilience.
+            {t("impact.body")}
           </p>
         </div>
       </Section>
@@ -162,67 +144,57 @@ export default function MethodePage() {
       <Section spacing="md">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            Notre singularité
+            {t("singularity.title")}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-black">
-            Curiosity.Builders réunit les standards du conseil stratégique, la
-            rigueur de la recherche appliquée et la créativité du design
-            produit.
+            {t("singularity.body1")}
             <br />
             <br />
-            Nous travaillons sur toute la chaîne de valeur immobilière — du
-            diagnostic territorial à la stratégie d'investissement — en
-            combinant data, design, ingénierie et impact pour transformer les
-            idées en modèles robustes et performants.
+            {t("singularity.body2")}
             <br />
             <br />
-            Nos expertises couvrent cinq champs d'innovation : produit et
-            spatial, technologique, managérial, impact et durabilité, et venture
-            development.
+            {t("singularity.body3")}
           </p>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                Interdisciplinarité totale
+                {t("singularity.card1.title")}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
-                Croiser immobilier, finance, design et data pour une vision
-                intégrée.
+                {t("singularity.card1.description")}
               </p>
             </Card>
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                Méthodes éprouvées
+                {t("singularity.card2.title")}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
-                Issues du product design, du venture building et du conseil
-                stratégique.
+                {t("singularity.card2.description")}
               </p>
             </Card>
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                Formats agiles
+                {t("singularity.card3.title")}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
-                Du diagnostic express à la structuration complète de venture.
+                {t("singularity.card3.description")}
               </p>
             </Card>
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                Tech & IA augmentées
+                {t("singularity.card4.title")}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
-                Des outils d'analyse avancés, au service de l'expertise humaine.
+                {t("singularity.card4.description")}
               </p>
             </Card>
             <Card>
               <h3 className="font-heading text-lg font-semibold text-black">
-                Impact intégré
+                {t("singularity.card5.title")}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-black">
-                Chaque projet est conçu avec une thèse d'impact et des
-                indicateurs mesurables.
+                {t("singularity.card5.description")}
               </p>
             </Card>
           </div>
@@ -233,36 +205,42 @@ export default function MethodePage() {
       <Section spacing="md" className="bg-white">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="font-heading text-2xl font-bold text-black">
-            Un meilleur ancrage, de meilleures performances.
+            {t("proofs.title")}
           </h2>
           <div className="mt-8 space-y-6">
             <blockquote className="border-l-4 border-black pl-4">
               <p className="text-lg italic text-black">
-                Un projet aligné sur son contexte se commercialise 20 % plus
-                vite et conserve une valeur durablement supérieure
+                {t("proofs.quote1.text")}
               </p>
-              <p className="mt-2 text-sm text-black">
-                (Cushman & Wakefield, 2024)
-              </p>
+              {t("proofs.quote1.author") && (
+                <p className="mt-2 text-sm text-black">
+                  {t("proofs.quote1.author")}
+                </p>
+              )}
             </blockquote>
             <blockquote className="border-l-4 border-black pl-4">
               <p className="text-lg italic text-black">
-                L'impact n'est plus un différenciant dans la recherche de
-                capital, c'est un impératif business-as-usual
+                {t("proofs.quote2.text")}
               </p>
-              <p className="mt-2 text-sm text-black">
-                (Lisette Van Doorn, ULI)
-              </p>
+              {t("proofs.quote2.author") && (
+                <p className="mt-2 text-sm text-black">
+                  {t("proofs.quote2.author")}
+                </p>
+              )}
             </blockquote>
             <blockquote className="border-l-4 border-black pl-4">
               <p className="text-lg italic text-black">
-                Une compréhension fine du contexte local réduit les retards de
-                livraison des projets jusqu'à 30 %.
+                {t("proofs.quote3.text")}
               </p>
+              {t("proofs.quote3.author") && (
+                <p className="mt-2 text-sm text-black">
+                  {t("proofs.quote3.author")}
+                </p>
+              )}
             </blockquote>
           </div>
           <div className="mt-8">
-            <Button href="/contact">Nous écrire</Button>
+            <Button href="/contact">{t("proofs.button")}</Button>
           </div>
         </div>
       </Section>
@@ -271,13 +249,10 @@ export default function MethodePage() {
       <Section spacing="md" className="bg-black">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
-            Transformer plus vite, décider plus juste.
+            {t("finalCta.title")}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-white">
-            Curiosity.Builders est une plateforme de conseil augmenté fondée par
-            Claire Flurin Bellec, à la croisée du conseil stratégique
-            immobilier, de la R&D territoriale & programmatique et du venture
-            development à impact.
+            {t("finalCta.body")}
           </p>
           <div className="relative mt-8 overflow-hidden rounded-lg">
             <div className="relative z-10 flex flex-wrap items-center justify-center gap-6 py-8 md:gap-8">
@@ -357,7 +332,7 @@ export default function MethodePage() {
           </div>
           <div className="mt-8">
             <Button href="/contact" variant="inverted">
-              Nous écrire
+              {t("finalCta.button")}
             </Button>
           </div>
         </div>

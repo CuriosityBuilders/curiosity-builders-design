@@ -237,5 +237,92 @@
       "body": "Curiosity.Builders accompagne les fonds, foncières et opérateurs à structurer leurs stratégies future-proof.",
       "button": "Nous écrire"
     }
+  },
+  "methode": {
+    "hero": {
+      "title": "Notre méthode pour transformer vos idées en produits robustes et désirables.",
+      "body1": "Notre approche UX Immo transpose au secteur immobilier les méthodes de design thinking, lean product development et venture building éprouvée dans la tech et la grande consommation.",
+      "body2": "Elle repose sur un principe simple : analyser avant de construire, pour garantir que chaque projet s'ancre dans la réalité du territoire dans lequel il s'implante."
+    },
+    "curiosityLoop": {
+      "title": "Le Curiosity Loop — 5 étapes pour connecter vision, contexte et exécution",
+      "subtitle": "Chaque phase combine analyse de données, expertise terrain et modélisation stratégique pour transformer la connaissance en avantage compétitif.",
+      "step1": {
+        "title": "Observer — le contexte",
+        "description": "Identifier les dynamiques territoriales, économiques et environnementales qui façonnent un projet.",
+        "tools": "Outils : analyses multi-sources, data territoriale, cartographies et scoring d'attractivité."
+      },
+      "step2": {
+        "title": "Comprendre — les usages",
+        "description": "Décoder les comportements et attentes réelles des usagers finaux, partenaires et acteurs locaux.",
+        "tools": "Outils : micro-panels, entretiens, UX mapping, analyses comportementales."
+      },
+      "step3": {
+        "title": "Concevoir — le produit et le modèle",
+        "description": "Transformer les insights en scénarios d'usage et d'exploitation, concepts programmatiques et modèles économiques.",
+        "tools": "Outils : modélisation financière et spatiale, design produit, théorie de changement."
+      },
+      "step4": {
+        "title": "Développer — la stratégie d'exécution",
+        "description": "Structurer un modèle d'affaires rentable et finançable.",
+        "tools": "Outils : business modeling PropCo/OpCo, structuration des financements, montages immobiliers, thèse d'impact, identification des partenaires."
+      },
+      "step5": {
+        "title": "Déployer — la venture",
+        "description": "Transformer la stratégie en réalité : du concept à l'entreprise, du pilote au marché.",
+        "tools": "Outils : structuration de véhicules (OpCo/PropCo, fonds, spin-offs), partenariats stratégiques, gouvernance et capital raising."
+      }
+    },
+    "impact": {
+      "title": "Impact-first, by design",
+      "body": "Chaque projet que nous accompagnons intègre une thèse d'impact pragmatique — carbone, social, gouvernance — conçue non comme une contrainte, mais comme un levier de performance et de résilience."
+    },
+    "singularity": {
+      "title": "Notre singularité",
+      "body1": "Curiosity.Builders réunit les standards du conseil stratégique, la rigueur de la recherche appliquée et la créativité du design produit.",
+      "body2": "Nous travaillons sur toute la chaîne de valeur immobilière — du diagnostic territorial à la stratégie d'investissement — en combinant data, design, ingénierie et impact pour transformer les idées en modèles robustes et performants.",
+      "body3": "Nos expertises couvrent cinq champs d'innovation : produit et spatial, technologique, managérial, impact et durabilité, et venture development.",
+      "card1": {
+        "title": "Interdisciplinarité totale",
+        "description": "Croiser immobilier, finance, design et data pour une vision intégrée."
+      },
+      "card2": {
+        "title": "Méthodes éprouvées",
+        "description": "Issues du product design, du venture building et du conseil stratégique."
+      },
+      "card3": {
+        "title": "Formats agiles",
+        "description": "Du diagnostic express à la structuration complète de venture."
+      },
+      "card4": {
+        "title": "Tech & IA augmentées",
+        "description": "Des outils d'analyse avancés, au service de l'expertise humaine."
+      },
+      "card5": {
+        "title": "Impact intégré",
+        "description": "Chaque projet est conçu avec une thèse d'impact et des indicateurs mesurables."
+      }
+    },
+    "proofs": {
+      "title": "Un meilleur ancrage, de meilleures performances.",
+      "quote1": {
+        "text": "Un projet aligné sur son contexte se commercialise 20 % plus vite et conserve une valeur durablement supérieure",
+        "author": "(Cushman & Wakefield, 2024)"
+      },
+      "quote2": {
+        "text": "L'impact n'est plus un différenciant dans la recherche de capital, c'est un impératif business-as-usual",
+        "author": "(Lisette Van Doorn, ULI)"
+      },
+      "quote3": {
+        "text": "Une compréhension fine du contexte local réduit les retards de livraison des projets jusqu'à 30 %.",
+        "author": ""
+      },
+      "button": "Nous écrire"
+    },
+    "finalCta": {
+      "title": "Transformer plus vite, décider plus juste.",
+      "body": "Curiosity.Builders est une plateforme de conseil augmenté fondée par Claire Flurin Bellec, à la croisée du conseil stratégique immobilier, de la R&D territoriale & programmatique et du venture development à impact.",
+      "button": "Nous écrire"
+    }
   }
 }

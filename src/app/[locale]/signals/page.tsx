@@ -183,8 +183,7 @@ export default function SignalsPage() {
           <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
             {t("finalCta.titleEmphasis") ? (
               <>
-                {t("finalCta.title")}{" "}
-                <em>{t("finalCta.titleEmphasis")}</em>
+                {t("finalCta.title")} <em>{t("finalCta.titleEmphasis")}</em>
               </>
             ) : (
               t("finalCta.title")
