@@ -189,5 +189,53 @@
       "button1": "Nous contacter",
       "button2": "Découvrir notre méthode"
     }
+  },
+  "signals": {
+    "hero": {
+      "title": "Signals & Intelligence",
+      "subtitle": "Comprendre les transformations du secteur.",
+      "body": "Veille sélective sur les signaux faibles, les fonds à impact, les nouveaux modèles d'exploitation et les tendances qui transforment la fabrique de la ville."
+    },
+    "cards": {
+      "card1": {
+        "title": "Curiosity Insights",
+        "description": "Décryptages et analyses croisées sur les usages, les territoires et les modèles économiques émergents.",
+        "tagline": "Comprendre les mutations structurelles du secteur."
+      },
+      "card2": {
+        "title": "Sustainable Capital Watch",
+        "description": "Suivi des fonds, véhicules et deals à impact, en France et à l'international.",
+        "tagline": "Observer comment la finance accélère la transition."
+      },
+      "card3": {
+        "title": "Operators Watch",
+        "description": "Étude des nouveaux opérateurs et modèles d'exploitation : hospitalité, résidences gérées, tiers-lieux, bureaux réinventés.",
+        "tagline": "Anticiper les nouveaux standards de performance."
+      },
+      "button1": "Consulter",
+      "button2": "S'abonner"
+    },
+    "studies": {
+      "title": "Études & livres blancs",
+      "body1": "Nos publications en recherche appliquée explorent les mutations du secteur à travers des études, diagnostics et analyses de fond.",
+      "body2": "Chaque document est disponible à la demande — ou peut inspirer une étude sur mesure pour votre organisation.",
+      "exampleTitle": "Étude exemple",
+      "exampleTheme": "Thème • Durée de lecture",
+      "exampleSummary": "Résumé de l'étude...",
+      "downloadButton": "Télécharger le PDF",
+      "cta": "Commander une étude"
+    },
+    "book": {
+      "title": "Changer l'Immobilier : de l'Utopie à la Réalité",
+      "description": "300 pages pour comprendre que le secteur immobilier est en mouvement.",
+      "quote": "Travailler dès aujourd'hui à la construction d'un futur désirable et rentable n'est pas un rêve — c'est un impératif business.",
+      "cta": "Commander l'ouvrage"
+    },
+    "finalCta": {
+      "title": "Chaque projet commence par la même question :",
+      "titleEmphasis": "comment testez-vous vos hypothèses ?",
+      "body": "Curiosity.Builders accompagne les fonds, foncières et opérateurs à structurer leurs stratégies future-proof.",
+      "button": "Nous écrire"
+    }
   }
 }

@@ -189,5 +189,53 @@
       "button1": "Contact Us",
       "button2": "Discover Our Method"
     }
+  },
+  "signals": {
+    "hero": {
+      "title": "Signals & Intelligence",
+      "subtitle": "Our research & curiosity foundation — to anticipate shifts in city development, real estate markets, and impact finance.",
+      "body": "A selective watch on weak signals, impact funds, emerging operating models, and the trends reshaping how cities and real estate are built."
+    },
+    "cards": {
+      "card1": {
+        "title": "Curiosity Insights",
+        "description": "Cross-analysis and deep dives into emerging uses, territories, and business models.",
+        "tagline": "Understand the structural shifts transforming the sector."
+      },
+      "card2": {
+        "title": "Sustainable Capital Watch",
+        "description": "Tracking impact funds, vehicles, and deals.",
+        "tagline": "See how capital is accelerating the transition."
+      },
+      "card3": {
+        "title": "Operators Watch",
+        "description": "A study of new operators and operating models: hospitality, managed living, third places, reinvented workspaces.",
+        "tagline": "Anticipate the next performance standards."
+      },
+      "button1": "Browse",
+      "button2": "Subscribe"
+    },
+    "studies": {
+      "title": "Research & White Papers",
+      "body1": "Our applied research publications explore the deeper shifts transforming the sector through studies, diagnostics, and long-form analysis.",
+      "body2": "Each document is available on demand — or can inspire a custom study for your organization.",
+      "exampleTitle": "Study example",
+      "exampleTheme": "Theme • Reading time",
+      "exampleSummary": "Study summary...",
+      "downloadButton": "Download PDF",
+      "cta": "Order a Study"
+    },
+    "book": {
+      "title": "Changer l'Immobilier : de l'Utopie à la Réalité",
+      "description": "300 pages to understand that the real estate sector is in motion.",
+      "quote": "Working today to build a desirable and profitable future is not a dream — it's a business imperative.",
+      "cta": "Order the Book"
+    },
+    "finalCta": {
+      "title": "Have you tested your assumptions?",
+      "titleEmphasis": "",
+      "body": "Curiosity.Builders helps funds, real estate firms, and operators structure future-proof strategies, grounded in real context and real user needs.",
+      "button": "Contact Us"
+    }
   }
 }
