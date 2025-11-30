@@ -324,5 +324,57 @@
       "body": "Curiosity.Builders est une plateforme de conseil augmenté fondée par Claire Flurin Bellec, à la croisée du conseil stratégique immobilier, de la R&D territoriale & programmatique et du venture development à impact.",
       "button": "Nous écrire"
     }
+  },
+  "contact": {
+    "hero": {
+      "title": "Échangeons.",
+      "body": "En reliant design, finance et impact pour faire passer vos innovations urbaines à l'échelle, Curiosity.Builders accompagne les dirigeants, fondateurs, investisseurs et opérateurs à concevoir, tester ou lancer de nouveaux projets, produits ou ventures — dans l'immobilier, l'architecture, l'urbanisme, ou le développement territorial."
+    },
+    "contactSection": {
+      "workWithUs": {
+        "title": "Travaillons ensemble",
+        "body": "Pour toute demande de projet, partenariat ou collaboration :",
+        "email": "contact@curiosity.builders"
+      },
+      "press": {
+        "title": "Presse & interventions",
+        "body": "Interviews, conférences, keynotes, panels :",
+        "email": "media@curiosity.builders"
+      },
+      "newsletter": {
+        "title": "S'abonner à la newsletter",
+        "body": "Veille, études et signaux sur la transformation de l'immobilier et des territoires :",
+        "link": "S'abonner"
+      }
+    },
+    "unsure": {
+      "title": "Vous ne savez pas par où commencer ?",
+      "body": "Nous pouvons vous aider à clarifier vos besoins — d'un diagnostic rapide à une roadmap d'innovation complète.",
+      "button1": "S'abonner à la newsletter",
+      "button2": "Prendre un rendez-vous",
+      "button3": "Demander la brochure"
+    },
+    "form": {
+      "title": "Formulaire",
+      "description": "Choisissez les documents que vous souhaitez recevoir :",
+      "brochureLabel": "Brochure Curiosity.Builders",
+      "bookExtractLabel": "Extrait du livre",
+      "bookTitle": "Changer l'Immobilier : de l'Utopie à la Réalité",
+      "nameLabel": "Nom *",
+      "organizationLabel": "Organisation *",
+      "emailLabel": "Email professionnel *",
+      "interestLabel": "Sujet d'intérêt",
+      "interestPlaceholder": "...",
+      "consentLabel": "Consentement RGPD *",
+      "submitButton": "Envoyer",
+      "successMessage": "Merci — nous revenons vers vous très rapidement."
+    },
+    "finalCta": {
+      "title": "Transformer plus vite. Décider plus juste.",
+      "body1": "Curiosity.Builders est un cabinet de conseil nouvelle génération qui combine recherche, design, data et impact pour imaginer des lieux utiles, désirables et durables.",
+      "body2": "Nous aidons les acteurs de l'immobilier à transformer leurs modèles, du financement à l'exploitation.",
+      "button1": "Nous écrire",
+      "button2": "Découvrir notre méthode"
+    }
   }
 }

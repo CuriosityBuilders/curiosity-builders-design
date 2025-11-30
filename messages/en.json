@@ -324,5 +324,57 @@
       "body": "Curiosity.Builders is an augmented advisory practice, blending strategic real estate consulting, territorial & programmatic research & development, and impact-driven venture development.",
       "button": "Reach Out"
     }
+  },
+  "contact": {
+    "hero": {
+      "title": "Let's work together.",
+      "body": "Curiosity.Builders supports leaders, founders, investors, and operators who want to design, test, or launch new projects, products, or ventures — across real estate, architecture, urban planning, and investment."
+    },
+    "contactSection": {
+      "workWithUs": {
+        "title": "Work with us",
+        "body": "For project inquiries, partnerships or collaborations:",
+        "email": "contact@curiosity.builders"
+      },
+      "press": {
+        "title": "Press & speaking",
+        "body": "For interviews, keynotes, panels, and events:",
+        "email": "media@curiosity.builders"
+      },
+      "newsletter": {
+        "title": "Join the newsletter",
+        "body": "Signals, studies, and insights on real estate and urban transformation:",
+        "link": "Subscribe"
+      }
+    },
+    "unsure": {
+      "title": "Not sure where to start?",
+      "body": "We can help you clarify your needs — from a one-page diagnostic to a full innovation roadmap.",
+      "button1": "Join the newsletter",
+      "button2": "Book a call",
+      "button3": "Request documentation"
+    },
+    "form": {
+      "title": "Contact Form",
+      "description": "Select the documents you'd like to receive:",
+      "brochureLabel": "Curiosity.Builders Brochure",
+      "bookExtractLabel": "Extract from the book",
+      "bookTitle": "Changing Real Estate : from Utopia to Reality",
+      "nameLabel": "Name*",
+      "organizationLabel": "Organization*",
+      "emailLabel": "Professional email*",
+      "interestLabel": "Topic of interest",
+      "interestPlaceholder": "...",
+      "consentLabel": "GDPR consent*",
+      "submitButton": "Send",
+      "successMessage": "Thank you — we'll get back to you shortly."
+    },
+    "finalCta": {
+      "title": "Transform faster. Decide smarter.",
+      "body1": "Curiosity.Builders is an augmented advisory practice for real estate and urban development, combining territorial & programmatic research, product and UX thinking, and impact-driven venture development.",
+      "body2": "",
+      "button1": "Contact Us",
+      "button2": "Discover Our Method"
+    }
   }
 }
