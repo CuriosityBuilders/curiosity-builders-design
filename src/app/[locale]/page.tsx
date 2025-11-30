@@ -17,7 +17,6 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <FilmGrain intensity={0.1} />
-      {/* <ProgressLine /> */}
 
       <HeroSection />
       <IntroSection />

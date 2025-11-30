@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function NotFound() {
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-4">
-      <div className="relative mx-auto max-w-2xl py-8 text-center">
+      <div className="relative mx-auto max-w-2xl py-8 px-4 text-center">
         {/* Horizontal lines extending full width */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"

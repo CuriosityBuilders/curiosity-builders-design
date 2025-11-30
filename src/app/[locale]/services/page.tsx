@@ -1,10 +1,10 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import CircularText from "@/components/mvpblocks/circular-text";
 import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { useTranslations } from "next-intl";
 
 export default function ServicesPage() {
   const t = useTranslations("services");
