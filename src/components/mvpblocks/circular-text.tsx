@@ -67,7 +67,7 @@ export function CircularText({
         transitionConfig = getTransition(spinDuration * 2, start);
         break;
       case "speedUp":
-        transitionConfig = getTransition(spinDuration / 4, start);
+        transitionConfig = getTransition(spinDuration / 3, start);
         break;
       case "pause":
         transitionConfig = {

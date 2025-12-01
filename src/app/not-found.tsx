@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
 
 export default function NotFound() {
   return (

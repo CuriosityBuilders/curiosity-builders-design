@@ -1,10 +1,10 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
-import { useTranslations } from "next-intl";
 
 export default function SignalsPage() {
   const t = useTranslations("signals");

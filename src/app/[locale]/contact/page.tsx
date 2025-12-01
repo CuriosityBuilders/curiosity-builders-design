@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { ArrowDown } from "@/components/animate-ui/icons/arrow-down";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 
@@ -142,7 +143,9 @@ export default function ContactPage() {
           <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button
               variant="primary"
-              onClick={() => window.open("https://substack.com/@curiositybuilders", "_blank")}
+              onClick={() =>
+                window.open("https://substack.com/@curiositybuilders", "_blank")
+              }
             >
               {t("unsure.button1")}
             </Button>
@@ -153,7 +156,14 @@ export default function ContactPage() {
               {t("unsure.button2")}
             </Button>
             <Button variant="primary" onClick={() => setShowBrochureForm(true)}>
-              {t("unsure.button3")}
+              <span className="flex items-center">
+                {t("unsure.button3")}
+                <ArrowDown
+                  size={16}
+                  className="ml-2"
+                  animateOnHover="default"
+                />
+              </span>
             </Button>
           </div>
         </div>

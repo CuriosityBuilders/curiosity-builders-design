@@ -1,13 +1,13 @@
 "use client";
 
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { SparklesCore } from "@/components/ui/sparkles";
-import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 export default function MethodePage() {
   const t = useTranslations("methode");
