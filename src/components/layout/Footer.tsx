@@ -66,7 +66,7 @@ export async function Footer({ locale }: FooterProps) {
             LinkedIn
           </a>
           <a
-            href="https://substack.com"
+            href="https://substack.com/@curiositybuilders"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-black transition-colors hover:text-gray-700"

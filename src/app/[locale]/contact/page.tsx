@@ -117,7 +117,7 @@ export default function ContactPage() {
               </p>
               <p className="mt-4">
                 <a
-                  href="https://substack.com"
+                  href="https://substack.com/@curiositybuilders"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-lg text-black underline transition-colors hover:text-gray-700"
@@ -142,7 +142,7 @@ export default function ContactPage() {
           <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button
               variant="primary"
-              onClick={() => window.open("https://substack.com", "_blank")}
+              onClick={() => window.open("https://substack.com/@curiositybuilders", "_blank")}
             >
               {t("unsure.button1")}
             </Button>
