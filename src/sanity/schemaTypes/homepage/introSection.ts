@@ -1,52 +1,52 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: 'introSection',
-  title: 'Intro Section',
-  type: 'document',
+  name: "introSection",
+  title: "Intro Section",
+  type: "document",
   fields: [
     defineField({
-      name: 'language',
-      type: 'string',
+      name: "language",
+      type: "string",
       readOnly: true,
       hidden: true,
     }),
     defineField({
-      name: 'title',
-      type: 'string',
-      title: 'Title',
+      name: "title",
+      type: "string",
+      title: "Title",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'body',
-      type: 'array',
-      title: 'Body',
+      name: "body",
+      type: "array",
+      title: "Body",
       of: [
         {
-          type: 'block',
+          type: "block",
         },
       ],
     }),
     defineField({
-      name: 'cta1',
-      type: 'string',
-      title: 'Call to Action 1 Text',
+      name: "cta1",
+      type: "string",
+      title: "Call to Action 1 Text",
     }),
     defineField({
-      name: 'cta2',
-      type: 'string',
-      title: 'Call to Action 2 Text',
+      name: "cta2",
+      type: "string",
+      title: "Call to Action 2 Text",
     }),
   ],
   preview: {
     select: {
-      title: 'title',
-      language: 'language',
+      title: "title",
+      language: "language",
     },
     prepare(selection) {
       return {
-        title: `${selection.title} (${selection.language?.toUpperCase() || 'N/A'})`,
-      }
+        title: `${selection.title} (${selection.language?.toUpperCase() || "N/A"})`,
+      };
     },
   },
-})
+});

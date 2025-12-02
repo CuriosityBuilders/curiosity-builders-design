@@ -1,20 +1,20 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: 'header',
-  title: 'Header',
-  type: 'document',
+  name: "header",
+  title: "Header",
+  type: "document",
   fields: [
     defineField({
-      name: 'language',
-      type: 'string',
+      name: "language",
+      type: "string",
       readOnly: true,
       hidden: true,
     }),
     defineField({
-      name: 'logo',
-      type: 'image',
-      title: 'Logo',
+      name: "logo",
+      type: "image",
+      title: "Logo",
       options: {
         hotspot: true,
       },
@@ -22,12 +22,12 @@ export default defineType({
   ],
   preview: {
     select: {
-      language: 'language',
+      language: "language",
     },
     prepare(selection) {
       return {
-        title: `Header (${selection.language?.toUpperCase() || 'N/A'})`,
-      }
+        title: `Header (${selection.language?.toUpperCase() || "N/A"})`,
+      };
     },
   },
-})
+});
