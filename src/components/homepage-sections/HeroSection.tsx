@@ -1,15 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
 import { FloatingPaths } from "@/components/ui/background-paths";
 import { FilmGrain } from "@/components/ui/FilmGrain";
 import { Section } from "@/components/ui/Section";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Link } from "@/i18n/routing";
 
-export function HeroSection() {
-  const t = useTranslations("hero");
+interface HeroSectionProps {
+  data?: {
+    title?: string;
+    subtitleLine1?: string;
+    subtitleLine2?: string;
+    cta?: string;
+  };
+}
+
+export function HeroSection({ data }: HeroSectionProps) {
   return (
     <Section
       id="hero"
@@ -89,7 +96,7 @@ export function HeroSection() {
             }}
           >
             <h1 className="font-epilogue text-4xl md:text-5xl lg:text-[84px] max-w-4xl font-bold text-white tracking-medium">
-              {t("title")}
+              {data?.title ?? ""}
             </h1>
           </motion.div>
           <motion.div
@@ -102,7 +109,7 @@ export function HeroSection() {
             }}
           >
             <p className="font-epilogue text-2xl font-extrabold leading-relaxed text-white">
-              {t("subtitleLine1")} <br /> {t("subtitleLine2")}
+              {data?.subtitleLine1 ?? ""} <br /> {data?.subtitleLine2 ?? ""}
             </p>
           </motion.div>
         </div>
@@ -119,7 +126,7 @@ export function HeroSection() {
         >
           <Link href="/methode">
             <ShinyButton className="font-epilogue bg-white border-white/20 text-black hover:bg-white/90 px-6 py-3">
-              {t("cta")}
+              {data?.cta ?? ""}
             </ShinyButton>
           </Link>
         </motion.div>

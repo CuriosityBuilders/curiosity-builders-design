@@ -1,5 +1,3 @@
-"use client";
-
 import { BookSection } from "@/components/homepage-sections/BookSection";
 import { CasesSection } from "@/components/homepage-sections/CasesSection";
 import { FooterCTASection } from "@/components/homepage-sections/FooterCTASection";
@@ -12,14 +10,23 @@ import { NewsletterSection } from "@/components/homepage-sections/NewsletterSect
 import { ProjectsPhotosSection } from "@/components/homepage-sections/ProjectsPhotosSection";
 import { TiersSection } from "@/components/homepage-sections/TiersSection";
 import { FilmGrain } from "@/components/ui/FilmGrain";
+import { getHeroSection, getIntroSection } from "@/sanity/lib/queries";
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const heroData = await getHeroSection(locale);
+  const introData = await getIntroSection(locale);
+
   return (
     <div className="min-h-screen">
       <FilmGrain intensity={0.1} />
 
-      <HeroSection />
-      <IntroSection />
+      <HeroSection data={heroData} />
+      <IntroSection data={introData} />
       <MissionSection />
       <MissionTaglineSection />
       <TiersSection />

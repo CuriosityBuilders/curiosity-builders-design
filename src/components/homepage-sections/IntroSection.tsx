@@ -1,14 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import { Section } from "@/components/ui/Section";
 import { Link } from "@/i18n/routing";
+import { PortableText } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/types";
+import { motion } from "framer-motion";
 
-export function IntroSection() {
-  const t = useTranslations("intro");
+interface IntroSectionProps {
+  data?: {
+    title?: string;
+    body?: PortableTextBlock[];
+    cta1?: string;
+    cta2?: string;
+  };
+}
+
+export function IntroSection({ data }: IntroSectionProps) {
   return (
     <Section id="intro" spacing="md" className="bg-black">
       <div className="mx-auto max-w-4xl px-4">
@@ -22,10 +31,10 @@ export function IntroSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          {t("title")}
+          {data?.title ?? ""}
         </motion.h2>
-        <motion.p
-          className="mt-6 text-lg leading-relaxed text-white whitespace-pre-line"
+        <motion.div
+          className="mt-6 text-lg leading-relaxed text-white"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -35,8 +44,8 @@ export function IntroSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          {t("body")}
-        </motion.p>
+          {data?.body && <PortableText value={data.body} />}
+        </motion.div>
         <motion.div
           className="mt-8 flex flex-wrap gap-4"
           initial={{ opacity: 0 }}
@@ -67,7 +76,7 @@ export function IntroSection() {
               borderClassName="bg-[radial-gradient(rgba(255,255,255,0.9)_40%,transparent_60%)] opacity-90"
               className="bg-white hover:bg-white/90 text-black border-white/20 backdrop-blur-md px-6 py-3 text-base font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
             >
-              {t("cta1")}
+              {data?.cta1 ?? ""}
             </MovingBorderButton>
           </motion.div>
           <motion.div
@@ -81,7 +90,7 @@ export function IntroSection() {
             }}
           >
             <Button href="/contact" variant="secondary-inverted">
-              {t("cta2")}
+              {data?.cta2 ?? ""}
             </Button>
           </motion.div>
         </motion.div>
