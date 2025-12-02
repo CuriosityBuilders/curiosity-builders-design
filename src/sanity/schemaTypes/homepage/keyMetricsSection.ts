@@ -1,33 +1,33 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: 'keyMetricsSection',
-  title: 'Key Metrics Section',
-  type: 'document',
+  name: "keyMetricsSection",
+  title: "Key Metrics Section",
+  type: "document",
   fields: [
     defineField({
-      name: 'language',
-      type: 'string',
+      name: "language",
+      type: "string",
       readOnly: true,
       hidden: true,
     }),
     defineField({
-      name: 'metrics',
-      type: 'array',
-      title: 'Metrics',
+      name: "metrics",
+      type: "array",
+      title: "Metrics",
       of: [
         {
-          type: 'object',
+          type: "object",
           fields: [
             defineField({
-              name: 'value',
-              type: 'string',
-              title: 'Value',
+              name: "value",
+              type: "string",
+              title: "Value",
             }),
             defineField({
-              name: 'label',
-              type: 'string',
-              title: 'Label',
+              name: "label",
+              type: "string",
+              title: "Label",
             }),
           ],
         },
@@ -36,12 +36,12 @@ export default defineType({
   ],
   preview: {
     select: {
-      language: 'language',
+      language: "language",
     },
     prepare(selection) {
       return {
-        title: `Key Metrics (${selection.language?.toUpperCase() || 'N/A'})`,
-      }
+        title: `Key Metrics (${selection.language?.toUpperCase() || "N/A"})`,
+      };
     },
   },
-})
+});

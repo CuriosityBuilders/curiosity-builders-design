@@ -131,29 +131,31 @@ export const structure: StructureResolver = (S) =>
       S.listItem()
         .title("Pages")
         .icon(DocumentIcon)
-        .child(S.list()
-          .title("Pages")
-          .items([
-            createLanguageGroup(S, "signalsPage", "Signals", DocumentIcon),
-            createLanguageGroup(S, "servicesPage", "Services", DocumentIcon),
-            createLanguageGroup(S, "methodePage", "Méthode", DocumentIcon),
-            createLanguageGroup(S, "contactPage", "Contact", DocumentIcon),
-          ])
+        .child(
+          S.list()
+            .title("Pages")
+            .items([
+              createLanguageGroup(S, "signalsPage", "Signals", DocumentIcon),
+              createLanguageGroup(S, "servicesPage", "Services", DocumentIcon),
+              createLanguageGroup(S, "methodePage", "Méthode", DocumentIcon),
+              createLanguageGroup(S, "contactPage", "Contact", DocumentIcon),
+            ])
         ),
 
       // Divider
       S.divider(),
 
       S.listItem()
-      .title("Layout")
-      .icon(StackIcon)
-      .child(S.list()
+        .title("Layout")
+        .icon(StackIcon)
+        .child(
+          S.list()
             .title("Layout")
             .items([
-            createLanguageGroup(S, "navigation", "Navigation", ComposeIcon),
-            createLanguageGroup(S, "header", "Header", FilterIcon),
-            createLanguageGroup(S, "footer", "Footer", FilterIcon),
-          ])
+              createLanguageGroup(S, "navigation", "Navigation", ComposeIcon),
+              createLanguageGroup(S, "header", "Header", FilterIcon),
+              createLanguageGroup(S, "footer", "Footer", FilterIcon),
+            ])
         ),
 
       // Divider

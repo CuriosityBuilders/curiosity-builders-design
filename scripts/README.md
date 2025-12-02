@@ -33,6 +33,7 @@ npx tsx scripts/migrate-content.ts
 ## What it does
 
 The script will:
+
 1. Read content from `messages/fr.json` and `messages/en.json`
 2. Convert plain text to Portable Text format (for rich text fields)
 3. Create all documents in Sanity for both French and English

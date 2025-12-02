@@ -1,6 +1,8 @@
-import { Linkedin } from "lucide-react";
-import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
+import { getFooter } from "@/sanity/lib/queries";
+import { PortableText } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/types";
+import { Linkedin } from "lucide-react";
 
 // Substack icon component
 function SubstackIcon({ className }: { className?: string }) {
@@ -24,7 +26,7 @@ interface FooterProps {
 }
 
 export async function Footer({ locale }: FooterProps) {
-  const t = await getTranslations({ locale, namespace: "footer" });
+  const footerData = await getFooter(locale);
 
   return (
     <footer className="relative z-10 w-full overflow-hidden border-t">
@@ -41,15 +43,19 @@ export async function Footer({ locale }: FooterProps) {
                 Curiosity.Builders
               </h2>
             </Link>
-            <p className="mt-2 text-sm text-black whitespace-pre-line">
-              {t("description")}
-            </p>
+            <div className="mt-2 text-sm text-black">
+              {footerData?.description && (
+                <PortableText
+                  value={footerData.description as PortableTextBlock[]}
+                />
+              )}
+            </div>
           </div>
 
           {/* Colonne 2 : Tagline */}
           <div className="flex flex-col items-start gap-2 md:items-end">
             <p className="text-md font-bold text-black italic">
-              {t("tagline")}
+              {footerData?.tagline || ""}
             </p>
           </div>
         </div>
@@ -78,18 +84,20 @@ export async function Footer({ locale }: FooterProps) {
             href="/mentions-legales"
             className="text-black transition-colors hover:text-gray-700"
           >
-            {t("legalNotice")}
+            {footerData?.legalNotice || ""}
           </Link>
           <Link
             href="/politique-confidentialite"
             className="text-black transition-colors hover:text-gray-700"
           >
-            {t("privacyPolicy")}
+            {footerData?.privacyPolicy || ""}
           </Link>
         </div>
 
         <div className="w-full relative z-10 border-t border-gray-200 pt-4">
-          <p className="text-center text-sm text-black">{t("copyright")}</p>
+          <p className="text-center text-sm text-black">
+            {footerData?.copyright || ""}
+          </p>
         </div>
       </div>
     </footer>

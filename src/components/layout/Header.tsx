@@ -1,24 +1,42 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { useState } from "react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Link } from "@/i18n/routing";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
 
-const navigation = [
-  { key: "home", href: "/" },
-  { key: "method", href: "/methode" },
-  { key: "services", href: "/services" },
-  { key: "signals", href: "/signals" },
-  { key: "contact", href: "/contact" },
-];
+interface NavigationItem {
+  _key: string;
+  label: string;
+  href: string;
+}
 
-export function Header() {
+interface HeaderProps {
+  navigationItems?: NavigationItem[];
+  logoUrl?: string;
+  logoAlt?: string;
+}
+
+export function Header({
+  navigationItems = [],
+  logoUrl,
+  logoAlt = "Curiosity.Builders",
+}: HeaderProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const t = useTranslations("common");
+
+  // Fallback to default navigation if no items from Sanity
+  const navigation =
+    navigationItems && navigationItems.length > 0
+      ? navigationItems
+      : [
+          { _key: "home", label: "Accueil", href: "/" },
+          { _key: "method", label: "Méthode", href: "/methode" },
+          { _key: "services", label: "Services", href: "/services" },
+          { _key: "signals", label: "Signals", href: "/signals" },
+          { _key: "contact", label: "Contact", href: "/contact" },
+        ];
 
   return (
     <header className="sticky top-0 z-50">
@@ -39,15 +57,27 @@ export function Header() {
             {!imageLoaded && (
               <div className="absolute inset-0 animate-pulse bg-gray-200" />
             )}
-            <Image
-              src="/Logo Curiosity Builders V2.svg"
-              alt="Curiosity.Builders"
-              width={120}
-              height={40}
-              className="relative h-10 w-full sm:h-12 md:h-16"
-              priority
-              onLoad={() => setImageLoaded(true)}
-            />
+            {logoUrl ? (
+              <Image
+                src={logoUrl}
+                alt={logoAlt}
+                width={120}
+                height={40}
+                className="relative h-10 w-full sm:h-12 md:h-16"
+                priority
+                onLoad={() => setImageLoaded(true)}
+              />
+            ) : (
+              <Image
+                src="/Logo Curiosity Builders V2.svg"
+                alt={logoAlt}
+                width={120}
+                height={40}
+                className="relative h-10 w-full sm:h-12 md:h-16"
+                priority
+                onLoad={() => setImageLoaded(true)}
+              />
+            )}
           </motion.div>
         </Link>
 
@@ -57,11 +87,11 @@ export function Header() {
           <div className="hidden items-center space-x-4 md:space-x-6 md:flex lg:space-x-10">
             {navigation.map((item) => (
               <Link
-                key={item.key}
+                key={item._key || item.href}
                 href={item.href}
                 className="text-sm font-semibold text-black transition-colors duration-200 hover:text-gray-600 lg:text-base"
               >
-                {t(item.key)}
+                {item.label}
               </Link>
             ))}
           </div>
@@ -115,12 +145,12 @@ export function Header() {
               <nav className="space-y-2">
                 {navigation.map((item) => (
                   <Link
-                    key={item.key}
+                    key={item._key || item.href}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className="block rounded-lg px-4 py-3 text-base font-semibold text-black transition-colors hover:bg-black/5"
                   >
-                    {t(item.key)}
+                    {item.label}
                   </Link>
                 ))}
               </nav>

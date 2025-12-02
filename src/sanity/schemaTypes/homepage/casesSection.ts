@@ -1,38 +1,38 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: 'casesSection',
-  title: 'Cases Section',
-  type: 'document',
+  name: "casesSection",
+  title: "Cases Section",
+  type: "document",
   fields: [
     defineField({
-      name: 'language',
-      type: 'string',
+      name: "language",
+      type: "string",
       readOnly: true,
       hidden: true,
     }),
     defineField({
-      name: 'title',
-      type: 'string',
-      title: 'Title',
+      name: "title",
+      type: "string",
+      title: "Title",
     }),
     defineField({
-      name: 'clients',
-      type: 'array',
-      title: 'Clients',
+      name: "clients",
+      type: "array",
+      title: "Clients",
       of: [
         {
-          type: 'object',
+          type: "object",
           fields: [
             defineField({
-              name: 'name',
-              type: 'string',
-              title: 'Client Name',
+              name: "name",
+              type: "string",
+              title: "Client Name",
             }),
             defineField({
-              name: 'logo',
-              type: 'image',
-              title: 'Logo',
+              name: "logo",
+              type: "image",
+              title: "Logo",
               options: {
                 hotspot: true,
               },
@@ -42,22 +42,22 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'press',
-      type: 'array',
-      title: 'Press',
+      name: "press",
+      type: "array",
+      title: "Press",
       of: [
         {
-          type: 'object',
+          type: "object",
           fields: [
             defineField({
-              name: 'name',
-              type: 'string',
-              title: 'Press Name',
+              name: "name",
+              type: "string",
+              title: "Press Name",
             }),
             defineField({
-              name: 'logo',
-              type: 'image',
-              title: 'Logo',
+              name: "logo",
+              type: "image",
+              title: "Logo",
               options: {
                 hotspot: true,
               },
@@ -69,13 +69,13 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: 'title',
-      language: 'language',
+      title: "title",
+      language: "language",
     },
     prepare(selection) {
       return {
-        title: `${selection.title || 'Cases'} (${selection.language?.toUpperCase() || 'N/A'})`,
-      }
+        title: `${selection.title || "Cases"} (${selection.language?.toUpperCase() || "N/A"})`,
+      };
     },
   },
-})
+});

@@ -1,23 +1,23 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: 'projectsSection',
-  title: 'Projects Section',
-  type: 'document',
+  name: "projectsSection",
+  title: "Projects Section",
+  type: "document",
   fields: [
     defineField({
-      name: 'language',
-      type: 'string',
+      name: "language",
+      type: "string",
       readOnly: true,
       hidden: true,
     }),
     defineField({
-      name: 'images',
-      type: 'array',
-      title: 'Project Images',
+      name: "images",
+      type: "array",
+      title: "Project Images",
       of: [
         {
-          type: 'image',
+          type: "image",
           options: {
             hotspot: true,
           },
@@ -27,12 +27,12 @@ export default defineType({
   ],
   preview: {
     select: {
-      language: 'language',
+      language: "language",
     },
     prepare(selection) {
       return {
-        title: `Projects (${selection.language?.toUpperCase() || 'N/A'})`,
-      }
+        title: `Projects (${selection.language?.toUpperCase() || "N/A"})`,
+      };
     },
   },
-})
+});

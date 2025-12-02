@@ -18,6 +18,14 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      fields: [
+        defineField({
+          name: "alt",
+          type: "string",
+          title: "Alt Text",
+          description: "Alternative text for the logo",
+        }),
+      ],
     }),
   ],
   preview: {

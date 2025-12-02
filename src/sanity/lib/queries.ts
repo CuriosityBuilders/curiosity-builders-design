@@ -1,6 +1,62 @@
 import { cache } from "react";
 import { client } from "./client";
 
+// Layout
+export const getFooter = cache(async (language: string) => {
+  const query = `*[_type == "footer" && language == $language][0] {
+    _id,
+    description[],
+    tagline,
+    copyright,
+    followUs,
+    privacy,
+    legalNotice,
+    privacyPolicy,
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getHeader = cache(async (language: string) => {
+  const query = `*[_type == "header" && language == $language][0] {
+    _id,
+    logo {
+      asset->{
+        _id,
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      },
+      alt,
+      hotspot,
+      crop
+    },
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getNavigation = cache(async (language: string) => {
+  const query = `*[_type == "navigation" && language == $language][0] {
+    _id,
+    items[] {
+      _key,
+      label,
+      href
+    },
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+// Homepage Sections
 export const getHeroSection = cache(async (language: string) => {
   const query = `*[_type == "heroSection" && language == $language][0] {
     _id,
@@ -21,6 +77,410 @@ export const getIntroSection = cache(async (language: string) => {
     body[],
     cta1,
     cta2,
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getMissionSection = cache(async (language: string) => {
+  const query = `*[_type == "missionSection" && language == $language][0] {
+    _id,
+    title,
+    body[],
+    tagline,
+    cta1,
+    cta2,
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getTiersSection = cache(async (language: string) => {
+  const query = `*[_type == "tiersSection" && language == $language][0] {
+    _id,
+    title,
+    cards[] {
+      _key,
+      number,
+      title,
+      subtitle,
+      description,
+      tagline,
+      cta,
+      cta1,
+      cta2,
+      href
+    },
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getKeyMetricsSection = cache(async (language: string) => {
+  const query = `*[_type == "keyMetricsSection" && language == $language][0] {
+    _id,
+    metrics[] {
+      _key,
+      value,
+      label
+    },
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getProjectsSection = cache(async (language: string) => {
+  const query = `*[_type == "projectsSection" && language == $language][0] {
+    _id,
+    images[] {
+      asset->{
+        _id,
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    },
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getBookSection = cache(async (language: string) => {
+  const query = `*[_type == "bookSection" && language == $language][0] {
+    _id,
+    title,
+    description[],
+    quote,
+    cta,
+    image {
+      asset->{
+        _id,
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    },
+    link,
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getCasesSection = cache(async (language: string) => {
+  const query = `*[_type == "casesSection" && language == $language][0] {
+    _id,
+    title,
+    clients[] {
+      _key,
+      name,
+      logo {
+        asset->{
+          _id,
+          url,
+          metadata {
+            dimensions {
+              width,
+              height
+            }
+          }
+        }
+      }
+    },
+    press[] {
+      _key,
+      name,
+      logo {
+        asset->{
+          _id,
+          url,
+          metadata {
+            dimensions {
+              width,
+              height
+            }
+          }
+        }
+      }
+    },
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getFooterCTASection = cache(async (language: string) => {
+  const query = `*[_type == "footerCTASection" && language == $language][0] {
+    _id,
+    title,
+    cta1,
+    cta2,
+    cta3,
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getNewsletterSection = cache(async (language: string) => {
+  const query = `*[_type == "newsletterSection" && language == $language][0] {
+    _id,
+    title,
+    description[],
+    cta1,
+    cta2,
+    link,
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+// Pages
+export const getSignalsPage = cache(async (language: string) => {
+  const query = `*[_type == "signalsPage" && language == $language][0] {
+    _id,
+    hero {
+      title,
+      subtitle,
+      body[]
+    },
+    cards {
+      items[] {
+        _key,
+        title,
+        description[],
+        tagline
+      },
+      button1,
+      button2
+    },
+    studies {
+      title,
+      body1[],
+      body2[],
+      exampleTitle,
+      exampleTheme,
+      exampleSummary,
+      downloadButton,
+      cta
+    },
+    book {
+      title,
+      description[],
+      quote,
+      cta
+    },
+    finalCta {
+      title,
+      titleEmphasis,
+      body[],
+      button
+    },
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getServicesPage = cache(async (language: string) => {
+  const query = `*[_type == "servicesPage" && language == $language][0] {
+    _id,
+    hero {
+      title,
+      body[],
+      button1,
+      button2,
+      button3
+    },
+    overview {
+      title,
+      body1[],
+      body2[],
+      cta
+    },
+    diagnostics {
+      title,
+      subtitle,
+      body1[],
+      body2[],
+      bullets[],
+      deliverablesTitle,
+      cards[] {
+        _key,
+        title,
+        description
+      }
+    },
+    rndStudio {
+      title,
+      subtitle,
+      body1[],
+      body2[],
+      deliverablesTitle,
+      cards[] {
+        _key,
+        title,
+        description
+      }
+    },
+    loop {
+      text,
+      quote,
+      author,
+      subtext[]
+    },
+    ventureDev {
+      title,
+      subtitle,
+      body1[],
+      body2[],
+      body3[],
+      deliverablesTitle,
+      cards[] {
+        _key,
+        title,
+        description
+      }
+    },
+    impact {
+      title,
+      body1[],
+      body2[]
+    },
+    finalCta {
+      title,
+      body1[],
+      body2[],
+      button1,
+      button2
+    },
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getMethodePage = cache(async (language: string) => {
+  const query = `*[_type == "methodePage" && language == $language][0] {
+    _id,
+    hero {
+      title,
+      body1[],
+      body2[]
+    },
+    curiosityLoop {
+      title,
+      subtitle,
+      steps[] {
+        _key,
+        number,
+        title,
+        description[],
+        tools
+      }
+    },
+    impact {
+      title,
+      body[]
+    },
+    singularity {
+      title,
+      body1[],
+      body2[],
+      body3[],
+      cards[] {
+        _key,
+        title,
+        description
+      }
+    },
+    proofs {
+      title,
+      quotes[] {
+        _key,
+        text,
+        author
+      },
+      button
+    },
+    finalCta {
+      title,
+      body[],
+      button
+    },
+    language
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+export const getContactPage = cache(async (language: string) => {
+  const query = `*[_type == "contactPage" && language == $language][0] {
+    _id,
+    hero {
+      title,
+      body[]
+    },
+    contactSection {
+      workWithUs {
+        title,
+        body,
+        email
+      },
+      press {
+        title,
+        body,
+        email
+      },
+      newsletter {
+        title,
+        body,
+        link
+      }
+    },
+    unsure {
+      title,
+      body[],
+      button1,
+      button2,
+      button3
+    },
+    form {
+      title,
+      description,
+      brochureLabel,
+      bookExtractLabel,
+      bookTitle,
+      nameLabel,
+      organizationLabel,
+      emailLabel,
+      interestLabel,
+      interestPlaceholder,
+      consentLabel,
+      submitButton,
+      successMessage
+    },
+    finalCta {
+      title,
+      body1[],
+      body2[],
+      button1,
+      button2
+    },
     language
   }`;
 
