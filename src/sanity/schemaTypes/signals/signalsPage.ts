@@ -199,8 +199,9 @@ export default defineType({
       language: "language",
     },
     prepare(selection) {
+      const flag = selection.language === "fr" ? "🇫🇷" : selection.language === "en" ? "🇬🇧" : "";
       return {
-        title: `${selection.title || "Signals Page"} (${selection.language?.toUpperCase() || "N/A"})`,
+        title: ` ${flag} Signals Page (${selection.language?.toUpperCase() || "N/A"})`,
       };
     },
   },

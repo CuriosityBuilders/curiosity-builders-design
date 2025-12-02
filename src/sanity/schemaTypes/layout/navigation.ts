@@ -48,8 +48,10 @@ export default defineType({
       language: "language",
     },
     prepare(selection) {
+      const flag = selection.language === "fr" ? "🇫🇷" : selection.language === "en" ? "🇬🇧" : "";
+
       return {
-        title: `Navigation (${selection.language?.toUpperCase() || "N/A"})`,
+        title: ` ${flag} Navigation (${selection.language?.toUpperCase() || "N/A"})`,
       };
     },
   },

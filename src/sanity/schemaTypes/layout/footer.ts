@@ -57,8 +57,9 @@ export default defineType({
       language: "language",
     },
     prepare(selection) {
+      const flag = selection.language === "fr" ? "🇫🇷" : selection.language === "en" ? "🇬🇧" : "";
       return {
-        title: `Footer (${selection.language?.toUpperCase() || "N/A"})`,
+        title: ` ${flag} Footer (${selection.language?.toUpperCase() || "N/A"})`,
       };
     },
   },

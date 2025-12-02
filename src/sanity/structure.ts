@@ -1,5 +1,4 @@
 import {
-  ApiIcon,
   BarChartIcon,
   BookIcon,
   ComposeIcon,
@@ -15,7 +14,52 @@ import {
 import type { StructureResolver } from "sanity/structure";
 
 // Helper function to create language-filtered lists
-const createLanguageGroup = (
+// const createLanguageGroup = (
+//   S: Parameters<StructureResolver>[0],
+//   schemaType: string,
+//   title: string,
+//   icon: React.ComponentType | (() => string)
+// ) => {
+//   return S.listItem()
+//     .title(title)
+//     .icon(icon)
+//     .child(
+//       S.list()
+//         .title(`${title} by Language`)
+//         .items([
+//           S.listItem()
+//             .title("Français")
+//             .icon(() => "🇫🇷")
+//             .child(
+//               S.documentList()
+//                 .title(`${title} (FR)`)
+//                 .filter(`_type == $schemaType && language == $fr`)
+//                 .params({ schemaType, fr: "fr" })
+//             ),
+//           S.listItem()
+//             .title("English")
+//             .icon(() => "🇬🇧")
+//             .child(
+//               S.documentList()
+//                 .title(`${title} (EN)`)
+//                 .filter(`_type == $schemaType && language == $en`)
+//                 .params({ schemaType, en: "en" })
+//             ),
+//           S.listItem()
+//             .title("All Languages")
+//             .icon(() => "🌐")
+//             .child(
+//               S.documentList()
+//                 .title(`All ${title}`)
+//                 .filter(`_type == $schemaType`)
+//                 .params({ schemaType })
+//             ),
+//         ])
+//     );
+// };
+
+// Helper function to create direct document lists (no language grouping)
+const createDirectList = (
   S: Parameters<StructureResolver>[0],
   schemaType: string,
   title: string,
@@ -25,37 +69,10 @@ const createLanguageGroup = (
     .title(title)
     .icon(icon)
     .child(
-      S.list()
-        .title(`${title} by Language`)
-        .items([
-          S.listItem()
-            .title("Français")
-            .icon(() => "🇫🇷")
-            .child(
-              S.documentList()
-                .title(`${title} (FR)`)
-                .filter(`_type == $schemaType && language == $fr`)
-                .params({ schemaType, fr: "fr" })
-            ),
-          S.listItem()
-            .title("English")
-            .icon(() => "🇬🇧")
-            .child(
-              S.documentList()
-                .title(`${title} (EN)`)
-                .filter(`_type == $schemaType && language == $en`)
-                .params({ schemaType, en: "en" })
-            ),
-          S.listItem()
-            .title("All Languages")
-            .icon(() => "🌐")
-            .child(
-              S.documentList()
-                .title(`All ${title}`)
-                .filter(`_type == $schemaType`)
-                .params({ schemaType })
-            ),
-        ])
+      S.documentList()
+        .title(`All ${title}`)
+        .filter(`_type == $schemaType`)
+        .params({ schemaType })
     );
 };
 
@@ -74,51 +91,51 @@ export const structure: StructureResolver = (S) =>
           S.list()
             .title("Homepage Sections")
             .items([
-              createLanguageGroup(S, "heroSection", "Hero Section", RocketIcon),
-              createLanguageGroup(
+              createDirectList(S, "heroSection", "Hero Section", RocketIcon),
+              createDirectList(
                 S,
                 "introSection",
                 "Intro Section",
                 DocumentIcon
               ),
-              createLanguageGroup(
+              createDirectList(
                 S,
                 "missionSection",
                 "Mission Section",
                 StackIcon
               ),
-              createLanguageGroup(
+              createDirectList(
                 S,
                 "tiersSection",
                 "Tiers Section",
                 BarChartIcon
               ),
-              createLanguageGroup(
+              createDirectList(
                 S,
                 "keyMetricsSection",
                 "Key Metrics Section",
                 BarChartIcon
               ),
-              createLanguageGroup(
+              createDirectList(
                 S,
                 "projectsSection",
                 "Projects Section",
                 ImageIcon
               ),
-              createLanguageGroup(S, "bookSection", "Book Section", BookIcon),
-              createLanguageGroup(
+              createDirectList(S, "bookSection", "Book Section", BookIcon),
+              createDirectList(
                 S,
                 "casesSection",
                 "Cases Section",
                 UsersIcon
               ),
-              createLanguageGroup(
+              createDirectList(
                 S,
                 "footerCTASection",
                 "Footer CTA Section",
-                ApiIcon
+                DocumentTextIcon
               ),
-              createLanguageGroup(
+              createDirectList(
                 S,
                 "newsletterSection",
                 "Newsletter Section",
@@ -130,15 +147,15 @@ export const structure: StructureResolver = (S) =>
       // Pages
       S.listItem()
         .title("Pages")
-        .icon(DocumentIcon)
+        .icon(DocumentTextIcon)
         .child(
           S.list()
             .title("Pages")
             .items([
-              createLanguageGroup(S, "signalsPage", "Signals", DocumentIcon),
-              createLanguageGroup(S, "servicesPage", "Services", DocumentIcon),
-              createLanguageGroup(S, "methodePage", "Méthode", DocumentIcon),
-              createLanguageGroup(S, "contactPage", "Contact", DocumentIcon),
+              createDirectList(S, "signalsPage", "Signals", DocumentTextIcon),
+              createDirectList(S, "servicesPage", "Services", DocumentTextIcon),
+              createDirectList(S, "methodePage", "Méthode", DocumentTextIcon),
+              createDirectList(S, "contactPage", "Contact", DocumentTextIcon),
             ])
         ),
 
@@ -152,9 +169,9 @@ export const structure: StructureResolver = (S) =>
           S.list()
             .title("Layout")
             .items([
-              createLanguageGroup(S, "navigation", "Navigation", ComposeIcon),
-              createLanguageGroup(S, "header", "Header", FilterIcon),
-              createLanguageGroup(S, "footer", "Footer", FilterIcon),
+              createDirectList(S, "navigation", "Navigation", ComposeIcon),
+              createDirectList(S, "header", "Header", FilterIcon),
+              createDirectList(S, "footer", "Footer", FilterIcon),
             ])
         ),
 
