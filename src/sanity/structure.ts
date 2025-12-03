@@ -1,15 +1,9 @@
 import {
-  BarChartIcon,
-  BookIcon,
   ComposeIcon,
-  DocumentIcon,
   DocumentTextIcon,
   FilterIcon,
   HomeIcon,
-  ImageIcon,
-  RocketIcon,
   StackIcon,
-  UsersIcon,
 } from "@sanity/icons";
 import type { StructureResolver } from "sanity/structure";
 
@@ -76,6 +70,42 @@ const createDirectList = (
     );
 };
 
+// Helper function to create singleton documents (one per language)
+const createSingleton = (
+  S: Parameters<StructureResolver>[0],
+  schemaType: string,
+  title: string,
+  icon: React.ComponentType | (() => string)
+) => {
+  return S.listItem()
+    .title(title)
+    .icon(icon)
+    .child(
+      S.list()
+        .title(`${title} by Language`)
+        .items([
+          S.listItem()
+            .title("Français")
+            .icon(() => "🇫🇷")
+            .child(
+              S.document()
+                .schemaType(schemaType)
+                .documentId(`${schemaType}-fr`)
+                .title(`${title} (FR)`)
+            ),
+          S.listItem()
+            .title("English")
+            .icon(() => "🇬🇧")
+            .child(
+              S.document()
+                .schemaType(schemaType)
+                .documentId(`${schemaType}-en`)
+                .title(`${title} (EN)`)
+            ),
+        ])
+    );
+};
+
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -83,66 +113,8 @@ export const structure: StructureResolver = (S) =>
     .items([
       // Layout Section
 
-      // Homepage Section
-      S.listItem()
-        .title("Homepage")
-        .icon(HomeIcon)
-        .child(
-          S.list()
-            .title("Homepage Sections")
-            .items([
-              createDirectList(S, "heroSection", "Hero Section", RocketIcon),
-              createDirectList(
-                S,
-                "introSection",
-                "Intro Section",
-                DocumentIcon
-              ),
-              createDirectList(
-                S,
-                "missionSection",
-                "Mission Section",
-                StackIcon
-              ),
-              createDirectList(
-                S,
-                "tiersSection",
-                "Tiers Section",
-                BarChartIcon
-              ),
-              createDirectList(
-                S,
-                "keyMetricsSection",
-                "Key Metrics Section",
-                BarChartIcon
-              ),
-              createDirectList(
-                S,
-                "projectsSection",
-                "Projects Section",
-                ImageIcon
-              ),
-              createDirectList(S, "bookSection", "Book Section", BookIcon),
-              createDirectList(
-                S,
-                "casesSection",
-                "Cases Section",
-                UsersIcon
-              ),
-              createDirectList(
-                S,
-                "footerCTASection",
-                "Footer CTA Section",
-                DocumentTextIcon
-              ),
-              createDirectList(
-                S,
-                "newsletterSection",
-                "Newsletter Section",
-                DocumentTextIcon
-              ),
-            ])
-        ),
+      // Homepage - Single document (new approach)
+      createSingleton(S, "homepage", "Homepage", HomeIcon),
 
       // Pages
       S.listItem()
@@ -185,6 +157,7 @@ export const structure: StructureResolver = (S) =>
             "navigation",
             "header",
             "footer",
+            "homepage",
             "heroSection",
             "introSection",
             "missionSection",

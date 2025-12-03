@@ -1,11 +1,21 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { PortableText } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/types";
 
-export function NewsletterSection() {
-  const t = useTranslations("newsletter");
+interface NewsletterSectionProps {
+  data?: {
+    title?: string;
+    description?: PortableTextBlock[];
+    cta1?: string;
+    cta2?: string;
+    link?: string;
+  };
+}
+
+export function NewsletterSection({ data }: NewsletterSectionProps) {
   return (
     <Section
       id="newsletter"
@@ -50,16 +60,20 @@ export function NewsletterSection() {
         {/* Content */}
         <div className="relative z-20">
           <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            {t("title")}
+            {data?.title ?? ""}
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-black">
-            {t("description")}
-          </p>
+          <div className="mt-6 text-lg leading-relaxed text-black">
+            {data?.description && <PortableText value={data.description} />}
+          </div>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button href="/contact">{t("cta1")}</Button>
-            <Button href="/signals" variant="secondary">
-              {t("cta2")}
-            </Button>
+            {data?.cta1 && (
+              <Button href={data.link || "/contact"}>{data.cta1}</Button>
+            )}
+            {data?.cta2 && (
+              <Button href="/signals" variant="secondary">
+                {data.cta2}
+              </Button>
+            )}
           </div>
         </div>
       </div>

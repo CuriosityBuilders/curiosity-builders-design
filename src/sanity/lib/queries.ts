@@ -56,7 +56,148 @@ export const getNavigation = cache(async (language: string) => {
   return client.fetch(query, { language });
 });
 
-// Homepage Sections
+// Homepage - Single document with all sections
+export const getHomepage = cache(async (language: string) => {
+  const query = `*[_type == "homepage" && language == $language][0] {
+    _id,
+    language,
+    hero {
+      title,
+      subtitleLine1,
+      subtitleLine2,
+      cta
+    },
+    intro {
+      title,
+      body[],
+      cta1,
+      cta2
+    },
+    mission {
+      title,
+      body[],
+      tagline,
+      cta1,
+      cta2
+    },
+    tiers {
+      title,
+      cards[] {
+        _key,
+        number,
+        title,
+        subtitle,
+        description,
+        tagline,
+        cta,
+        cta1,
+        cta2,
+        href
+      }
+    },
+    keyMetrics {
+      metrics[] {
+        _key,
+        number,
+        prefix,
+        label
+      }
+    },
+    projects {
+      images[] {
+        asset->{
+          _id,
+          url,
+          metadata {
+            dimensions {
+              width,
+              height
+            }
+          }
+        },
+        hotspot,
+        crop
+      }
+    },
+    book {
+      title,
+      description[],
+      quote,
+      cta,
+      image {
+        asset->{
+          _id,
+          url,
+          metadata {
+            dimensions {
+              width,
+              height
+            }
+          }
+        },
+        hotspot,
+        crop
+      },
+      link
+    },
+    cases {
+      title,
+      clients[] {
+        _key,
+        name,
+        logo {
+          asset->{
+            _id,
+            url,
+            metadata {
+              dimensions {
+                width,
+                height
+              }
+            }
+          },
+          hotspot,
+          crop
+        }
+      },
+      press[] {
+        _key,
+        name,
+        logo {
+          asset->{
+            _id,
+            url,
+            metadata {
+              dimensions {
+                width,
+                height
+              }
+            }
+          },
+          hotspot,
+          crop
+        }
+      }
+    },
+    footerCTA {
+      title,
+      cta1,
+      cta2,
+      cta3
+    },
+    newsletter {
+      title,
+      description[],
+      cta1,
+      cta2,
+      link
+    }
+  }`;
+
+  return client.fetch(query, { language });
+});
+
+// Homepage Sections (kept for backward compatibility during migration)
 export const getHeroSection = cache(async (language: string) => {
   const query = `*[_type == "heroSection" && language == $language][0] {
     _id,

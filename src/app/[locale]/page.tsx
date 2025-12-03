@@ -10,7 +10,7 @@ import { NewsletterSection } from "@/components/homepage-sections/NewsletterSect
 import { ProjectsPhotosSection } from "@/components/homepage-sections/ProjectsPhotosSection";
 import { TiersSection } from "@/components/homepage-sections/TiersSection";
 import { FilmGrain } from "@/components/ui/FilmGrain";
-import { getHeroSection, getIntroSection } from "@/sanity/lib/queries";
+import { getHomepage } from "@/sanity/lib/queries";
 
 export default async function Home({
   params,
@@ -18,24 +18,23 @@ export default async function Home({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const heroData = await getHeroSection(locale);
-  const introData = await getIntroSection(locale);
+  const homepageData = await getHomepage(locale);
 
   return (
     <div className="min-h-screen">
       <FilmGrain intensity={0.1} />
 
-      <HeroSection data={heroData} />
-      <IntroSection data={introData} />
-      <MissionSection />
+      <HeroSection data={homepageData?.hero} />
+      <IntroSection data={homepageData?.intro} />
+      <MissionSection data={homepageData?.mission} />
       <MissionTaglineSection />
-      <TiersSection />
-      <KeyMetricsSection />
-      <ProjectsPhotosSection />
-      <BookSection />
-      <CasesSection />
-      <FooterCTASection />
-      <NewsletterSection />
+      <TiersSection data={homepageData?.tiers} />
+      <KeyMetricsSection data={homepageData?.keyMetrics} />
+      <ProjectsPhotosSection data={homepageData?.projects} />
+      <BookSection data={homepageData?.book} />
+      <CasesSection data={homepageData?.cases} />
+      <FooterCTASection data={homepageData?.footerCTA} />
+      <NewsletterSection data={homepageData?.newsletter} />
     </div>
   );
 }

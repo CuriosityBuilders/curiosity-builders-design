@@ -35,7 +35,9 @@ export default defineConfig({
         "navigation",
         "header",
         "footer",
-        // Homepage
+        // Homepage - Single document
+        "homepage",
+        // Old homepage sections (kept for migration)
         "heroSection",
         "introSection",
         "missionSection",

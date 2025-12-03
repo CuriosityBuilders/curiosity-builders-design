@@ -9,7 +9,8 @@
     "lint": "biome check",
     "lint:fix": "biome check --write",
     "format": "biome format --write",
-    "migrate:content": "tsx scripts/migrate-content.ts"
+    "migrate:content": "tsx scripts/migrate-content.ts",
+    "migrate:homepage": "tsx scripts/migrate-to-homepage.ts"
   },
   "dependencies": {
     "@portabletext/react": "^5.0.0",

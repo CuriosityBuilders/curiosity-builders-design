@@ -1,13 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
+import { motion } from "framer-motion";
 
-export function FooterCTASection() {
-  const t = useTranslations("footerCTA");
+interface FooterCTASectionProps {
+  data?: {
+    title?: string;
+    cta1?: string;
+    cta2?: string;
+    cta3?: string;
+  };
+}
+
+export function FooterCTASection({ data }: FooterCTASectionProps) {
   return (
     <Section spacing="md" className="relative bg-black text-center">
       {/* Particles Background */}
@@ -29,7 +36,7 @@ export function FooterCTASection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          {t("title")}
+          {data?.title ?? ""}
         </motion.h2>
         <motion.div
           className="mt-8 flex flex-wrap justify-center gap-4"
@@ -42,48 +49,54 @@ export function FooterCTASection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{
-              duration: 0.6,
-              delay: 0.5,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-          >
-            <Button href="/contact" variant="inverted">
-              {t("cta1")}
-            </Button>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{
-              duration: 0.6,
-              delay: 0.6,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-          >
-            <Button href="/services" variant="secondary-inverted">
-              {t("cta2")}
-            </Button>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{
-              duration: 0.6,
-              delay: 0.7,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-          >
-            <Button href="/contact" variant="secondary-inverted">
-              {t("cta3")}
-            </Button>
-          </motion.div>
+          {data?.cta1 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.5,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              <Button href="/contact" variant="inverted">
+                {data.cta1}
+              </Button>
+            </motion.div>
+          )}
+          {data?.cta2 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.6,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              <Button href="/services" variant="secondary-inverted">
+                {data.cta2}
+              </Button>
+            </motion.div>
+          )}
+          {data?.cta3 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.7,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              <Button href="/contact" variant="secondary-inverted">
+                {data.cta3}
+              </Button>
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </Section>

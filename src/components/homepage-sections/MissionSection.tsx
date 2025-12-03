@@ -1,11 +1,21 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
 import { Section } from "@/components/ui/Section";
+import { PortableText } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/types";
+import { motion } from "framer-motion";
 
-export function MissionSection() {
-  const t = useTranslations("mission");
+interface MissionSectionProps {
+  data?: {
+    title?: string;
+    body?: PortableTextBlock[];
+    tagline?: string;
+    cta1?: string;
+    cta2?: string;
+  };
+}
+
+export function MissionSection({ data }: MissionSectionProps) {
   return (
     <Section id="mission" spacing="md" className="bg-white">
       <div className="mx-auto max-w-4xl px-4">
@@ -19,10 +29,10 @@ export function MissionSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          {t("title")}
+          {data?.title ?? ""}
         </motion.h2>
-        <motion.p
-          className="mt-6 text-lg leading-relaxed text-black whitespace-pre-line"
+        <motion.div
+          className="mt-6 text-lg leading-relaxed text-black"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -32,8 +42,8 @@ export function MissionSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          {t("body")}
-        </motion.p>
+          {data?.body && <PortableText value={data.body} />}
+        </motion.div>
       </div>
     </Section>
   );

@@ -1,10 +1,11 @@
 import { type SchemaTypeDefinition } from "sanity";
+// Keep old sections for backward compatibility (can be removed later)
 import bookSection from "./homepage/bookSection";
 import casesSection from "./homepage/casesSection";
 import footerCTASection from "./homepage/footerCTASection";
-
-// Homepage
 import heroSection from "./homepage/heroSection";
+// Homepage - Single document
+import homepage from "./homepage/homepage";
 import introSection from "./homepage/introSection";
 import keyMetricsSection from "./homepage/keyMetricsSection";
 import missionSection from "./homepage/missionSection";
@@ -27,7 +28,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     navigation,
     header,
     footer,
-    // Homepage
+    // Homepage - Single document (new)
+    homepage,
+    // Old homepage sections (kept for migration, can be removed later)
     heroSection,
     introSection,
     missionSection,

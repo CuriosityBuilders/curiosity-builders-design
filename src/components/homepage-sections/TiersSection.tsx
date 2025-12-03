@@ -1,71 +1,69 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { Section } from "@/components/ui/Section";
 import { TierCard } from "./TierCard";
 
-export function TiersSection() {
-  const t = useTranslations("tiers");
+interface TiersSectionProps {
+  data?: {
+    title?: string;
+    cards?: Array<{
+      _key?: string;
+      number?: number;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      tagline?: string;
+      cta?: string;
+      cta1?: string;
+      cta2?: string;
+      href?: string;
+    }>;
+  };
+}
 
-  const tiers = [
-    {
-      number: 1,
-      title: t("card1.title"),
-      subtitle: t("card1.subtitle"),
-      description: t("card1.description"),
-      tagline: t("card1.tagline"),
-      buttons: [
-        {
-          href: "/signals",
+export function TiersSection({ data }: TiersSectionProps) {
+  const tiers =
+    data?.cards?.map((card) => {
+      const buttons = [];
+      if (card.cta && card.href) {
+        buttons.push({
+          href: card.href,
           variant: "primary" as const,
-          label: t("card1.cta"),
+          label: card.cta,
           className: "w-full",
-        },
-      ],
-    },
-    {
-      number: 2,
-      title: t("card2.title"),
-      subtitle: t("card2.subtitle"),
-      description: t("card2.description"),
-      tagline: t("card2.tagline"),
-      buttons: [
-        {
-          href: "/contact",
+        });
+      } else if (card.cta1 && card.href) {
+        buttons.push({
+          href: card.href,
           variant: "primary" as const,
-          label: t("card2.cta"),
-          className: "w-full",
-        },
-      ],
-    },
-    {
-      number: 3,
-      title: t("card3.title"),
-      subtitle: t("card3.subtitle"),
-      description: t("card3.description"),
-      tagline: t("card3.tagline"),
-      buttons: [
-        {
-          href: "/services",
-          variant: "primary" as const,
-          label: t("card3.cta1"),
+          label: card.cta1,
           className: "w-full py-1 text-sm text-center",
-        },
-        {
-          href: "/contact",
-          variant: "secondary" as const,
-          label: t("card3.cta2"),
-          className: "w-full py-1 text-sm",
-        },
-      ],
-    },
-  ];
+        });
+        if (card.cta2) {
+          buttons.push({
+            href: "/contact",
+            variant: "secondary" as const,
+            label: card.cta2,
+            className: "w-full py-1 text-sm",
+          });
+        }
+      }
+
+      return {
+        number: card.number || 0,
+        title: card.title || "",
+        subtitle: card.subtitle || "",
+        description: card.description || "",
+        tagline: card.tagline || "",
+        buttons,
+      };
+    }) || [];
 
   return (
     <Section id="tiers" spacing="md" className="relative bg-white">
       <div className="relative mx-auto max-w-7xl px-4">
         <h2 className="font-heading text-center text-3xl font-extrabold text-black sm:text-4xl py-2 tracking-wide uppercase">
-          {t("title")}
+          {data?.title ?? ""}
         </h2>
         <div className="mt-16 grid gap-8 md:grid-cols-3 items-stretch">
           {tiers.map((tier, index) => (

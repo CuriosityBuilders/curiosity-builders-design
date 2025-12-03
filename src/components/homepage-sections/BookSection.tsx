@@ -1,14 +1,39 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { urlFor } from "@/sanity/lib/image";
+import { PortableText } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/types";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import Image from "next/image";
+import { useRef } from "react";
 
-export function BookSection() {
-  const t = useTranslations("book");
+interface BookSectionProps {
+  data?: {
+    title?: string;
+    description?: PortableTextBlock[];
+    quote?: string;
+    cta?: string;
+    image?: {
+      asset?: {
+        _id?: string;
+        url?: string;
+        metadata?: {
+          dimensions?: {
+            width?: number;
+            height?: number;
+          };
+        };
+      };
+      hotspot?: { x: number; y: number };
+      crop?: { top: number; bottom: number; left: number; right: number };
+    };
+    link?: string;
+  };
+}
+
+export function BookSection({ data }: BookSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -25,12 +50,12 @@ export function BookSection() {
   const rotateX = useTransform(
     mouseYSpring,
     [-0.5, 0.5],
-    ["17.5deg", "-17.5deg"],
+    ["17.5deg", "-17.5deg"]
   );
   const rotateY = useTransform(
     mouseXSpring,
     [-0.5, 0.5],
-    ["-17.5deg", "17.5deg"],
+    ["-17.5deg", "17.5deg"]
   );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -81,13 +106,28 @@ export function BookSection() {
                 transformStyle: "preserve-3d",
               }}
             >
-              <Image
-                src="/images livre/cover_texture.jpg"
-                alt="Changer l'Immobilier : de l'Utopie à la Réalité"
-                width={256}
-                height={384}
-                className="relative h-auto w-full object-contain"
-              />
+              {data?.image?.asset?.url ? (
+                <Image
+                  src={urlFor(data.image)
+                    .width(256)
+                    .height(384)
+                    .fit("max")
+                    .auto("format")
+                    .url()}
+                  alt={data.title || "Book cover"}
+                  width={256}
+                  height={384}
+                  className="relative h-auto w-full object-contain"
+                />
+              ) : (
+                <Image
+                  src="/images livre/cover_texture.jpg"
+                  alt="Changer l'Immobilier : de l'Utopie à la Réalité"
+                  width={256}
+                  height={384}
+                  className="relative h-auto w-full object-contain"
+                />
+              )}
             </motion.div>
           </motion.div>
 
@@ -103,9 +143,9 @@ export function BookSection() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
-              {t("title")}
+              {data?.title ?? ""}
             </motion.h2>
-            <motion.p
+            <motion.div
               className="mt-6 text-lg leading-relaxed text-white"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -116,38 +156,48 @@ export function BookSection() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
-              {t("description")}
-            </motion.p>
-            <motion.blockquote
-              className="mt-12 rounded-lg bg-white/10 px-6 py-6 italic text-white backdrop-blur-sm"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{
-                duration: 0.8,
-                delay: 0.4,
-                ease: [0.25, 0.46, 0.45, 0.94],
-              }}
-            >
-              <p className="font-heading text-xl font-bold leading-relaxed">
-                "{t("quote")}"
-              </p>
-            </motion.blockquote>
-            <motion.div
-              className="mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{
-                duration: 0.6,
-                delay: 0.6,
-                ease: [0.25, 0.46, 0.45, 0.94],
-              }}
-            >
-              <Button href="/contact" variant="inverted">
-                {t("cta")}
-              </Button>
+              {data?.description && <PortableText value={data.description} />}
             </motion.div>
+            {data?.quote && (
+              <motion.blockquote
+                className="mt-12 rounded-lg bg-white/10 px-6 py-6 italic text-white backdrop-blur-sm"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.4,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }}
+              >
+                <p className="font-heading text-xl font-bold leading-relaxed">
+                  "{data.quote}"
+                </p>
+              </motion.blockquote>
+            )}
+            {data?.cta && (
+              <motion.div
+                className="mt-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.6,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }}
+              >
+                {data.link ? (
+                  <Button href={data.link} variant="inverted">
+                    {data.cta}
+                  </Button>
+                ) : (
+                  <Button href="/contact" variant="inverted">
+                    {data.cta}
+                  </Button>
+                )}
+              </motion.div>
+            )}
           </div>
         </div>
       </div>
