@@ -7,6 +7,7 @@
 import { documentInternationalization } from "@sanity/document-internationalization";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
+import { media } from "sanity-plugin-media";
 import { structureTool } from "sanity/structure";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
@@ -25,6 +26,9 @@ export default defineConfig({
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
+    // Media browser for convenient asset management
+    // https://www.sanity.io/plugins/sanity-plugin-media
+    media(),
     documentInternationalization({
       supportedLanguages: [
         { id: "fr", title: "Français" },
