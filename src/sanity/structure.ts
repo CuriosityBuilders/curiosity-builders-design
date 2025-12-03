@@ -1,9 +1,8 @@
 import {
-  ComposeIcon,
   DocumentTextIcon,
-  FilterIcon,
   HomeIcon,
-  StackIcon,
+  MenuIcon,
+  FilterIcon
 } from "@sanity/icons";
 import type { StructureResolver } from "sanity/structure";
 
@@ -52,24 +51,6 @@ import type { StructureResolver } from "sanity/structure";
 //     );
 // };
 
-// Helper function to create direct document lists (no language grouping)
-const createDirectList = (
-  S: Parameters<StructureResolver>[0],
-  schemaType: string,
-  title: string,
-  icon: React.ComponentType | (() => string)
-) => {
-  return S.listItem()
-    .title(title)
-    .icon(icon)
-    .child(
-      S.documentList()
-        .title(`All ${title}`)
-        .filter(`_type == $schemaType`)
-        .params({ schemaType })
-    );
-};
-
 // Helper function to create singleton documents (one per language)
 const createSingleton = (
   S: Parameters<StructureResolver>[0],
@@ -116,39 +97,21 @@ export const structure: StructureResolver = (S) =>
       // Homepage - Single document (new approach)
       createSingleton(S, "homepage", "Homepage", HomeIcon),
 
-      // Pages
-      S.listItem()
-        .title("Pages")
-        .icon(DocumentTextIcon)
-        .child(
-          S.list()
-            .title("Pages")
-            .items([
-              createDirectList(S, "signalsPage", "Signals", DocumentTextIcon),
-              createDirectList(S, "servicesPage", "Services", DocumentTextIcon),
-              createDirectList(S, "methodePage", "Méthode", DocumentTextIcon),
-              createDirectList(S, "contactPage", "Contact", DocumentTextIcon),
-            ])
-        ),
+      // Pages - Each page as a singleton with language grouping
+      S.divider().title("Pages"),
+      createSingleton(S, "signalsPage", "Signals", DocumentTextIcon),
+      createSingleton(S, "servicesPage", "Services", DocumentTextIcon),
+      createSingleton(S, "methodePage", "Méthode", DocumentTextIcon),
+      createSingleton(S, "contactPage", "Contact", DocumentTextIcon),
+
+      // Layout - Each element as a singleton with language grouping
+      S.divider().title("Layout"),
+      createSingleton(S, "navigation", "Navigation", MenuIcon),
+      createSingleton(S, "header", "Header", FilterIcon),
+      createSingleton(S, "footer", "Footer", FilterIcon),
 
       // Divider
-      S.divider(),
-
-      S.listItem()
-        .title("Layout")
-        .icon(StackIcon)
-        .child(
-          S.list()
-            .title("Layout")
-            .items([
-              createDirectList(S, "navigation", "Navigation", ComposeIcon),
-              createDirectList(S, "header", "Header", FilterIcon),
-              createDirectList(S, "footer", "Footer", FilterIcon),
-            ])
-        ),
-
-      // Divider
-      S.divider(),
+      S.divider().title("Other"),
 
       // All other documents (fallback for any schemas not explicitly listed above)
       ...S.documentTypeListItems().filter(
