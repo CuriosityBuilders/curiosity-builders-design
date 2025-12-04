@@ -1,308 +1,310 @@
-"use client";
-
-import { useTranslations } from "next-intl";
-import CircularText from "@/components/mvpblocks/circular-text";
 import DotCard from "@/components/mvpblocks/dot-card";
+import { ServicesLoopSection } from "@/components/pages/ServicesLoopSection";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { getServicesPage } from "@/sanity/lib/queries";
+import { PortableText } from "@portabletext/react";
 
-export default function ServicesPage() {
-  const t = useTranslations("services");
+export default async function ServicesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const data = await getServicesPage(locale);
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <Section spacing="lg" className="bg-black">
-        <div className="mx-auto max-w-4xl px-4">
-          <h1 className="font-heading text-5xl font-bold leading-tight text-white sm:text-6xl">
-            {t("hero.title")}
-          </h1>
-          <p className="mt-6 text-lg leading-relaxed text-white">
-            {t("hero.body")}
-          </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Button href="#diagnostics" variant="inverted">
-              {t("hero.button1")}
-            </Button>
-            <Button href="#r-d-studio" variant="inverted">
-              {t("hero.button2")}
-            </Button>
-            <Button href="#venture-dev" variant="inverted">
-              {t("hero.button3")}
-            </Button>
+      {data?.hero && (
+        <Section spacing="lg" className="bg-black">
+          <div className="mx-auto max-w-4xl px-4">
+            <h1 className="font-heading text-5xl font-bold leading-tight text-white sm:text-6xl">
+              {data.hero.title}
+            </h1>
+            <div className="mt-6 text-lg leading-relaxed text-white">
+              {data.hero.body && <PortableText value={data.hero.body} />}
+            </div>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              {data.hero.button1 && (
+                <Button href="#diagnostics" variant="inverted">
+                  {data.hero.button1}
+                </Button>
+              )}
+              {data.hero.button2 && (
+                <Button href="#r-d-studio" variant="inverted">
+                  {data.hero.button2}
+                </Button>
+              )}
+              {data.hero.button3 && (
+                <Button href="#venture-dev" variant="inverted">
+                  {data.hero.button3}
+                </Button>
+              )}
+            </div>
           </div>
-        </div>
-      </Section>
+        </Section>
+      )}
 
       {/* Overview */}
-      <Section spacing="md" className="relative bg-gray-50">
-        <div className="relative mx-auto max-w-7xl px-4">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            {t("overview.title")}
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-black">
-            {t("overview.body1")}
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-black">
-            {t("overview.body2")}
-          </p>
-          <div className="mt-8">
-            <Button href="/methode">{t("overview.cta")}</Button>
+      {data?.overview && (
+        <Section spacing="md" className="relative bg-gray-50">
+          <div className="relative mx-auto max-w-7xl px-4">
+            <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+              {data.overview.title}
+            </h2>
+            <div className="mt-6 text-lg leading-relaxed text-black">
+              {data.overview.body1 && (
+                <PortableText value={data.overview.body1} />
+              )}
+            </div>
+            <div className="mt-4 text-lg leading-relaxed text-black">
+              {data.overview.body2 && (
+                <PortableText value={data.overview.body2} />
+              )}
+            </div>
+            {data.overview.cta && (
+              <div className="mt-8">
+                <Button href="/methode">{data.overview.cta}</Button>
+              </div>
+            )}
           </div>
-        </div>
-      </Section>
+        </Section>
+      )}
 
       {/* Diagnostics et tests */}
-      <Section id="diagnostics" spacing="md" className="relative bg-white">
-        {/* <GridBackground size={350} opacity={0.1} /> */}
-        <div className="relative mx-auto max-w-7xl px-4">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            {t("diagnostics.title")}
-          </h2>
-          <p className="mt-2 font-heading text-xl font-semibold text-black">
-            {t("diagnostics.subtitle")}
-          </p>
-          <p className="mt-6 text-lg leading-relaxed text-black">
-            {t("diagnostics.body1")}
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-black">
-            {t("diagnostics.body2")}
-          </p>
-          <ul className="mt-4 space-y-3 text-lg leading-relaxed text-black">
-            <li className="flex items-start gap-4">
-              <span className="mt-0.5 shrink-0 font-black text-xl">→</span>
-              <span>{t("diagnostics.bullet1")}</span>
-            </li>
-            <li className="flex items-start gap-4">
-              <span className="mt-0.5 shrink-0 font-black text-xl">→</span>
-              <span>{t("diagnostics.bullet2")}</span>
-            </li>
-            <li className="flex items-start gap-4">
-              <span className="mt-0.5 shrink-0 font-black text-xl">→</span>
-              <span>{t("diagnostics.bullet3")}</span>
-            </li>
-          </ul>
-
-          <div className="mt-12 bg-gray-50 -mx-4 px-4 py-8">
-            <h3 className="font-heading text-2xl font-bold text-black sm:text-3xl">
-              {t("diagnostics.deliverablesTitle")}
-            </h3>
-            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              <DotCard>
-                <h4 className="font-heading text-lg font-bold text-black">
-                  {t("diagnostics.card1.title")}
-                </h4>
-                <p className="mt-4 text-sm leading-relaxed text-black">
-                  {t("diagnostics.card1.description")}
-                </p>
-              </DotCard>
-              <DotCard>
-                <h4 className="font-heading text-lg font-bold text-black">
-                  {t("diagnostics.card2.title")}
-                </h4>
-                <p className="mt-4 text-sm leading-relaxed text-black">
-                  {t("diagnostics.card2.description")}
-                </p>
-              </DotCard>
-              <DotCard>
-                <h4 className="font-heading text-lg font-bold text-black">
-                  {t("diagnostics.card3.title")}
-                </h4>
-                <p className="mt-4 text-sm leading-relaxed text-black">
-                  {t("diagnostics.card3.description")}
-                </p>
-              </DotCard>
-              <DotCard>
-                <h4 className="font-heading text-lg font-bold text-black">
-                  {t("diagnostics.card4.title")}
-                </h4>
-                <p className="mt-4 text-sm leading-relaxed text-black">
-                  {t("diagnostics.card4.description")}
-                </p>
-              </DotCard>
+      {data?.diagnostics && (
+        <Section id="diagnostics" spacing="md" className="relative bg-white">
+          <div className="relative mx-auto max-w-7xl px-4">
+            <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+              {data.diagnostics.title}
+            </h2>
+            {data.diagnostics.subtitle && (
+              <p className="mt-2 font-heading text-xl font-semibold text-black">
+                {data.diagnostics.subtitle}
+              </p>
+            )}
+            <div className="mt-6 text-lg leading-relaxed text-black">
+              {data.diagnostics.body1 && (
+                <PortableText value={data.diagnostics.body1} />
+              )}
             </div>
+            <div className="mt-4 text-lg leading-relaxed text-black">
+              {data.diagnostics.body2 && (
+                <PortableText value={data.diagnostics.body2} />
+              )}
+            </div>
+            {data.diagnostics.bullets &&
+              data.diagnostics.bullets.length > 0 && (
+                <ul className="mt-4 space-y-3 text-lg leading-relaxed text-black">
+                  {data.diagnostics.bullets.map((bullet: string) => (
+                    <li key={bullet} className="flex items-start gap-4">
+                      <span className="mt-0.5 shrink-0 font-black text-xl">
+                        →
+                      </span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+            {data.diagnostics.deliverablesTitle && (
+              <div className="mt-12 bg-gray-50 -mx-4 px-4 py-8">
+                <h3 className="font-heading text-2xl font-bold text-black sm:text-3xl">
+                  {data.diagnostics.deliverablesTitle}
+                </h3>
+                {data.diagnostics.cards &&
+                  data.diagnostics.cards.length > 0 && (
+                    <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                      {data.diagnostics.cards.map(
+                        (card: {
+                          _key: string;
+                          title: string;
+                          description: string;
+                        }) => (
+                          <DotCard key={card._key}>
+                            <h4 className="font-heading text-lg font-bold text-black">
+                              {card.title}
+                            </h4>
+                            <p className="mt-4 text-sm leading-relaxed text-black">
+                              {card.description}
+                            </p>
+                          </DotCard>
+                        )
+                      )}
+                    </div>
+                  )}
+              </div>
+            )}
           </div>
-        </div>
-      </Section>
+        </Section>
+      )}
 
       {/* R&D Studio */}
-      <Section id="r-d-studio" spacing="md" className="relative bg-white">
-        {/* <GridBackground size={300} opacity={0.1} /> */}
-        <div className="relative mx-auto max-w-7xl px-4">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            {t("rndStudio.title")}
-          </h2>
-          <p className="mt-2 font-heading text-xl font-semibold text-black">
-            {t("rndStudio.subtitle")}
-          </p>
-          <p className="mt-6 text-lg leading-relaxed text-black">
-            {t("rndStudio.body1")}
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-black">
-            {t("rndStudio.body2")}
-          </p>
-
-          <div className="mt-12 bg-gray-50 -mx-4 px-4 py-8">
-            <h3 className="font-heading text-2xl font-bold text-black sm:text-3xl">
-              {t("rndStudio.deliverablesTitle")}
-            </h3>
-            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              <DotCard>
-                <h4 className="font-heading text-lg font-bold text-black">
-                  {t("rndStudio.card1.title")}
-                </h4>
-                <p className="mt-4 text-sm leading-relaxed text-black">
-                  {t("rndStudio.card1.description")}
-                </p>
-              </DotCard>
-              <DotCard>
-                <h4 className="font-heading text-lg font-bold text-black">
-                  {t("rndStudio.card2.title")}
-                </h4>
-                <p className="mt-4 text-sm leading-relaxed text-black">
-                  {t("rndStudio.card2.description")}
-                </p>
-              </DotCard>
-              <DotCard>
-                <h4 className="font-heading text-lg font-bold text-black">
-                  {t("rndStudio.card3.title")}
-                </h4>
-                <p className="mt-4 text-sm leading-relaxed text-black">
-                  {t("rndStudio.card3.description")}
-                </p>
-              </DotCard>
-              <DotCard>
-                <h4 className="font-heading text-lg font-bold text-black">
-                  {t("rndStudio.card4.title")}
-                </h4>
-                <p className="mt-4 text-sm leading-relaxed text-black">
-                  {t("rndStudio.card4.description")}
-                </p>
-              </DotCard>
+      {data?.rndStudio && (
+        <Section id="r-d-studio" spacing="md" className="relative bg-white">
+          <div className="relative mx-auto max-w-7xl px-4">
+            <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+              {data.rndStudio.title}
+            </h2>
+            {data.rndStudio.subtitle && (
+              <p className="mt-2 font-heading text-xl font-semibold text-black">
+                {data.rndStudio.subtitle}
+              </p>
+            )}
+            <div className="mt-6 text-lg leading-relaxed text-black">
+              {data.rndStudio.body1 && (
+                <PortableText value={data.rndStudio.body1} />
+              )}
             </div>
+            <div className="mt-4 text-lg leading-relaxed text-black">
+              {data.rndStudio.body2 && (
+                <PortableText value={data.rndStudio.body2} />
+              )}
+            </div>
+
+            {data.rndStudio.deliverablesTitle && (
+              <div className="mt-12 bg-gray-50 -mx-4 px-4 py-8">
+                <h3 className="font-heading text-2xl font-bold text-black sm:text-3xl">
+                  {data.rndStudio.deliverablesTitle}
+                </h3>
+                {data.rndStudio.cards && data.rndStudio.cards.length > 0 && (
+                  <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                    {data.rndStudio.cards.map(
+                      (card: {
+                        _key: string;
+                        title: string;
+                        description: string;
+                      }) => (
+                        <DotCard key={card._key}>
+                          <h4 className="font-heading text-lg font-bold text-black">
+                            {card.title}
+                          </h4>
+                          <p className="mt-4 text-sm leading-relaxed text-black">
+                            {card.description}
+                          </p>
+                        </DotCard>
+                      )
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
-        </div>
-      </Section>
+        </Section>
+      )}
 
       {/* Bannière Le Loop */}
-      <Section spacing="md" className="bg-black">
-        <div className="mx-auto max-w-4xl px-4">
-          <div className="text-center">
-            <div className="flex items-center justify-center">
-              <CircularText
-                text={t("loop.text")}
-                spinDuration={20}
-                onHover="speedUp"
-                className="text-white"
-                textSize="text-sm"
-              />
-            </div>
-            <div className="mt-8 rounded-lg bg-gray-50/10 px-6 py-6 font-bold">
-              <blockquote className="text-lg italic leading-relaxed text-white sm:text-xl">
-                {t("loop.quote")}
-              </blockquote>
-              <p className="mt-4 text-sm text-white">{t("loop.author")}</p>
-            </div>
-            <p className="mt-8 text-base leading-relaxed text-white">
-              {t("loop.subtext")}
-            </p>
-          </div>
-        </div>
-      </Section>
+      <ServicesLoopSection data={data?.loop} />
 
       {/* Venture Development */}
-      <Section id="venture-dev" spacing="md" className="relative bg-white">
-        {/* <GridBackground size={300} opacity={0.1} /> */}
-        <div className="relative mx-auto max-w-7xl px-4">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            {t("ventureDev.title")}
-          </h2>
-          <p className="mt-2 font-heading text-xl font-semibold text-black">
-            {t("ventureDev.subtitle")}
-          </p>
-          <p className="mt-6 text-lg leading-relaxed text-black">
-            {t("ventureDev.body1")}
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-black">
-            {t("ventureDev.body2")}
-          </p>
-          {t("ventureDev.body3") && (
-            <p className="mt-4 text-lg leading-relaxed text-black">
-              {t("ventureDev.body3")}
-            </p>
-          )}
-
-          <div className="mt-12 bg-gray-50 -mx-4 px-4 py-8">
-            <h3 className="font-heading text-2xl font-bold text-black sm:text-3xl">
-              {t("ventureDev.deliverablesTitle")}
-            </h3>
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
-              <DotCard>
-                <h4 className="font-heading text-lg font-bold text-black">
-                  {t("ventureDev.card1.title")}
-                </h4>
-                <p className="mt-4 text-sm leading-relaxed text-black">
-                  {t("ventureDev.card1.description")}
-                </p>
-              </DotCard>
-              <DotCard>
-                <h4 className="font-heading text-lg font-bold text-black">
-                  {t("ventureDev.card2.title")}
-                </h4>
-                <p className="mt-4 text-sm leading-relaxed text-black">
-                  {t("ventureDev.card2.description")}
-                </p>
-              </DotCard>
-              <DotCard>
-                <h4 className="font-heading text-lg font-bold text-black">
-                  {t("ventureDev.card3.title")}
-                </h4>
-                <p className="mt-4 text-sm leading-relaxed text-black">
-                  {t("ventureDev.card3.description")}
-                </p>
-              </DotCard>
+      {data?.ventureDev && (
+        <Section id="venture-dev" spacing="md" className="relative bg-white">
+          <div className="relative mx-auto max-w-7xl px-4">
+            <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+              {data.ventureDev.title}
+            </h2>
+            {data.ventureDev.subtitle && (
+              <p className="mt-2 font-heading text-xl font-semibold text-black">
+                {data.ventureDev.subtitle}
+              </p>
+            )}
+            <div className="mt-6 text-lg leading-relaxed text-black">
+              {data.ventureDev.body1 && (
+                <PortableText value={data.ventureDev.body1} />
+              )}
             </div>
+            <div className="mt-4 text-lg leading-relaxed text-black">
+              {data.ventureDev.body2 && (
+                <PortableText value={data.ventureDev.body2} />
+              )}
+            </div>
+            {data.ventureDev.body3 && (
+              <div className="mt-4 text-lg leading-relaxed text-black">
+                <PortableText value={data.ventureDev.body3} />
+              </div>
+            )}
+
+            {data.ventureDev.deliverablesTitle && (
+              <div className="mt-12 bg-gray-50 -mx-4 px-4 py-8">
+                <h3 className="font-heading text-2xl font-bold text-black sm:text-3xl">
+                  {data.ventureDev.deliverablesTitle}
+                </h3>
+                {data.ventureDev.cards && data.ventureDev.cards.length > 0 && (
+                  <div className="mt-8 grid gap-6 md:grid-cols-3">
+                    {data.ventureDev.cards.map(
+                      (card: {
+                        _key: string;
+                        title: string;
+                        description: string;
+                      }) => (
+                        <DotCard key={card._key}>
+                          <h4 className="font-heading text-lg font-bold text-black">
+                            {card.title}
+                          </h4>
+                          <p className="mt-4 text-sm leading-relaxed text-black">
+                            {card.description}
+                          </p>
+                        </DotCard>
+                      )
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
-        </div>
-      </Section>
+        </Section>
+      )}
 
       {/* Section Impact */}
-      <Section spacing="md" className="relative bg-gray-50">
-        <div className="relative mx-auto max-w-4xl px-4 text-center">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            {t("impact.title")}
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-black">
-            {t("impact.body1")}
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-black">
-            {t("impact.body2")}
-          </p>
-        </div>
-      </Section>
+      {data?.impact && (
+        <Section spacing="md" className="relative bg-gray-50">
+          <div className="relative mx-auto max-w-4xl px-4 text-center">
+            <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+              {data.impact.title}
+            </h2>
+            <div className="mt-6 text-lg leading-relaxed text-black">
+              {data.impact.body1 && <PortableText value={data.impact.body1} />}
+            </div>
+            <div className="mt-4 text-lg leading-relaxed text-black">
+              {data.impact.body2 && <PortableText value={data.impact.body2} />}
+            </div>
+          </div>
+        </Section>
+      )}
 
       {/* Final CTA */}
-      <Section spacing="md" className="bg-black">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
-            {t("finalCta.title")}
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-white">
-            {t("finalCta.body1")}
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-white">
-            {t("finalCta.body2")}
-          </p>
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Button href="/contact" variant="inverted">
-              {t("finalCta.button1")}
-            </Button>
-            <Button href="/methode" variant="secondary-inverted">
-              {t("finalCta.button2")}
-            </Button>
+      {data?.finalCta && (
+        <Section spacing="md" className="bg-black">
+          <div className="mx-auto max-w-4xl px-4 text-center">
+            <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
+              {data.finalCta.title}
+            </h2>
+            <div className="mt-6 text-lg leading-relaxed text-white">
+              {data.finalCta.body1 && (
+                <PortableText value={data.finalCta.body1} />
+              )}
+            </div>
+            <div className="mt-4 text-lg leading-relaxed text-white">
+              {data.finalCta.body2 && (
+                <PortableText value={data.finalCta.body2} />
+              )}
+            </div>
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              {data.finalCta.button1 && (
+                <Button href="/contact" variant="inverted">
+                  {data.finalCta.button1}
+                </Button>
+              )}
+              {data.finalCta.button2 && (
+                <Button href="/methode" variant="secondary-inverted">
+                  {data.finalCta.button2}
+                </Button>
+              )}
+            </div>
           </div>
-        </div>
-      </Section>
+        </Section>
+      )}
     </div>
   );
 }

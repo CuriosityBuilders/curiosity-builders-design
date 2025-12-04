@@ -241,7 +241,12 @@ export default defineType({
       language: "language",
     },
     prepare(selection) {
-      const flag = selection.language === "fr" ? "🇫🇷" : selection.language === "en" ? "🇬🇧" : "";
+      const flag =
+        selection.language === "fr"
+          ? "🇫🇷"
+          : selection.language === "en"
+            ? "🇬🇧"
+            : "";
       return {
         title: ` ${flag} Méthode Page (${selection.language?.toUpperCase() || "N/A"})`,
       };
