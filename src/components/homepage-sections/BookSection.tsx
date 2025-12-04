@@ -109,12 +109,14 @@ export function BookSection({ data }: BookSectionProps) {
               {data?.image?.asset?.url ? (
                 <Image
                   src={urlFor(data.image)
-                    .width(256)
-                    .height(384)
+                    .width(1024)
+                    .height(1536)
                     .fit("max")
+                    .quality(100)
                     .auto("format")
                     .url()}
                   alt={data.title || "Book cover"}
+                  quality={100}
                   width={256}
                   height={384}
                   className="relative h-auto w-full object-contain"

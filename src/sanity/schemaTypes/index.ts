@@ -19,6 +19,8 @@ import navigation from "./layout/navigation";
 import contactPage from "./services/contactPage";
 import methodePage from "./services/methodePage";
 import servicesPage from "./services/servicesPage";
+// Shared
+import bookImage from "./shared/bookImage";
 // Pages
 import signalsPage from "./signals/signalsPage";
 
@@ -28,6 +30,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     navigation,
     header,
     footer,
+    // Shared (not internationalized)
+    bookImage,
     // Homepage - Single document (new)
     homepage,
     // Old homepage sections (kept for migration, can be removed later)

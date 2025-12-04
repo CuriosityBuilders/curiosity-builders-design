@@ -127,7 +127,7 @@ export const getHomepage = cache(async (language: string) => {
       description[],
       quote,
       cta,
-      image {
+      "image": imageRef->image {
         asset->{
           _id,
           url,

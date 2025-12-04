@@ -298,12 +298,14 @@ export default defineType({
           title: "Call to Action Text",
         }),
         defineField({
-          name: "image",
-          type: "image",
+          name: "imageRef",
+          type: "reference",
           title: "Book Cover",
-          options: {
-            hotspot: true,
-          },
+          description:
+            "Référence vers l'image partagée (même image pour toutes les langues)",
+          to: [{ type: "bookImage" }],
+          weak: true,
+          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: "link",
