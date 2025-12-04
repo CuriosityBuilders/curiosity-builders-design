@@ -47,19 +47,8 @@ export default defineConfig({
         "navigation",
         "header",
         "footer",
-        // Homepage - Single document
+        // Homepage - New Single document
         "homepage",
-        // Old homepage sections (kept for migration)
-        "heroSection",
-        "introSection",
-        "missionSection",
-        "tiersSection",
-        "keyMetricsSection",
-        "projectsSection",
-        "bookSection",
-        "casesSection",
-        "footerCTASection",
-        "newsletterSection",
         // Pages
         "signalsPage",
         "servicesPage",
