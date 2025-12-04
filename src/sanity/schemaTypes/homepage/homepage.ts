@@ -1,9 +1,30 @@
+import {
+  BookIcon,
+  DocumentTextIcon,
+  ImageIcon,
+  SparklesIcon,
+  StackIcon,
+  TargetIcon,
+  UsersIcon,
+} from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "homepage",
   title: "Homepage",
   type: "document",
+  groups: [
+    { name: "hero", title: "Hero", icon: SparklesIcon, default: true },
+    { name: "intro", title: "Intro", icon: DocumentTextIcon },
+    { name: "mission", title: "Mission", icon: TargetIcon },
+    { name: "tiers", title: "Tiers", icon: StackIcon },
+    { name: "keyMetrics", title: "Key Metrics", icon: DocumentTextIcon },
+    { name: "projects", title: "Projects", icon: ImageIcon },
+    { name: "book", title: "Book", icon: BookIcon },
+    { name: "cases", title: "Cases", icon: UsersIcon },
+    { name: "footerCTA", title: "Footer CTA", icon: DocumentTextIcon },
+    { name: "newsletter", title: "Newsletter", icon: DocumentTextIcon },
+  ],
   fields: [
     defineField({
       name: "language",
@@ -16,6 +37,7 @@ export default defineType({
       name: "hero",
       type: "object",
       title: "Hero Section",
+      group: "hero",
       fields: [
         defineField({
           name: "title",
@@ -45,6 +67,7 @@ export default defineType({
       name: "intro",
       type: "object",
       title: "Intro Section",
+      group: "intro",
       fields: [
         defineField({
           name: "title",
@@ -79,6 +102,7 @@ export default defineType({
       name: "mission",
       type: "object",
       title: "Mission Section",
+      group: "mission",
       fields: [
         defineField({
           name: "title",
@@ -118,6 +142,7 @@ export default defineType({
       name: "tiers",
       type: "object",
       title: "Tiers Section",
+      group: "tiers",
       fields: [
         defineField({
           name: "title",
@@ -189,6 +214,7 @@ export default defineType({
       name: "keyMetrics",
       type: "object",
       title: "Key Metrics Section",
+      group: "keyMetrics",
       fields: [
         defineField({
           name: "metrics",
@@ -249,6 +275,7 @@ export default defineType({
       name: "projects",
       type: "object",
       title: "Projects Section",
+      group: "projects",
       fields: [
         defineField({
           name: "imagesRef",
@@ -266,6 +293,7 @@ export default defineType({
       name: "book",
       type: "object",
       title: "Book Section",
+      group: "book",
       fields: [
         defineField({
           name: "title",
@@ -315,6 +343,7 @@ export default defineType({
       name: "cases",
       type: "object",
       title: "Cases Section",
+      group: "cases",
       fields: [
         defineField({
           name: "title",
@@ -337,6 +366,7 @@ export default defineType({
       name: "footerCTA",
       type: "object",
       title: "Footer CTA Section",
+      group: "footerCTA",
       fields: [
         defineField({
           name: "title",
@@ -366,6 +396,7 @@ export default defineType({
       name: "newsletter",
       type: "object",
       title: "Newsletter Section",
+      group: "newsletter",
       fields: [
         defineField({
           name: "title",
