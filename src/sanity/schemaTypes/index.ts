@@ -22,6 +22,7 @@ import servicesPage from "./services/servicesPage";
 // Shared
 import bookImage from "./shared/bookImage";
 import logos from "./shared/logos";
+import projectImages from "./shared/projectImages";
 // Pages
 import signalsPage from "./signals/signalsPage";
 
@@ -34,6 +35,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     // Shared (not internationalized)
     bookImage,
     logos,
+    projectImages,
     // Homepage - Single document (new)
     homepage,
     // Old homepage sections (kept for migration, can be removed later)

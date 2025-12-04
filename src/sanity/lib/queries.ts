@@ -107,19 +107,24 @@ export const getHomepage = cache(async (language: string) => {
       }
     },
     projects {
-      images[] {
-        asset->{
-          _id,
-          url,
-          metadata {
-            dimensions {
-              width,
-              height
+      "images": imagesRef->images[] {
+        image {
+          asset->{
+            _id,
+            url,
+            metadata {
+              dimensions {
+                width,
+                height
+              }
             }
-          }
+          },
+          hotspot,
+          crop
         },
-        hotspot,
-        crop
+        title,
+        alt,
+        objectPosition
       }
     },
     book {

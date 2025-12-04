@@ -251,17 +251,13 @@ export default defineType({
       title: "Projects Section",
       fields: [
         defineField({
-          name: "images",
-          type: "array",
+          name: "imagesRef",
+          type: "reference",
           title: "Project Images",
-          of: [
-            {
-              type: "image",
-              options: {
-                hotspot: true,
-              },
-            },
-          ],
+          description:
+            "Reference to the shared project images document (shared across all languages)",
+          to: [{ type: "projectImages" }],
+          weak: true,
         }),
       ],
     }),

@@ -3,8 +3,33 @@
 import { GridBackground } from "@/components/ui/GridBackground";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { Section } from "@/components/ui/Section";
+import { urlFor } from "@/sanity/lib/image";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+
+interface ProjectsPhotosSectionProps {
+  data?: {
+    images?: Array<{
+      image?: {
+        asset?: {
+          _id?: string;
+          url?: string;
+          metadata?: {
+            dimensions?: {
+              width?: number;
+              height?: number;
+            };
+          };
+        };
+        hotspot?: { x: number; y: number };
+        crop?: { top: number; bottom: number; left: number; right: number };
+      };
+      title?: string;
+      alt?: string;
+      objectPosition?: string;
+    }>;
+  };
+}
 
 const projectPhotos = [
   {
@@ -35,18 +60,46 @@ const projectPhotos = [
   },
 ];
 
-export function ProjectsPhotosSection() {
+export function ProjectsPhotosSection({ data }: ProjectsPhotosSectionProps) {
   const t = useTranslations("projects");
 
-  // Convert photos to the format expected by InfiniteMovingCards
-  const cardItems = projectPhotos.map((photo) => ({
-    quote: photo.title,
-    name: photo.alt,
-    title: photo.title,
-    src: photo.src,
-    alt: photo.alt,
-    objectPosition: photo.objectPosition,
-  }));
+
+  // Use Sanity data if available, otherwise fallback to static images
+  const cardItems =
+    data?.images && data.images.length > 0
+      ? data.images.map((item) => {
+          console.log("Processing item:", item);
+          console.log("Item image:", item.image);
+          console.log("Item image asset:", item.image?.asset);
+          console.log("Item image asset URL:", item.image?.asset?.url);
+          const imageUrl = item.image?.asset?.url
+            ? urlFor(item.image)
+                .width(1920)
+                .height(1280)
+                .fit("max")
+                .quality(100)
+                .auto("format")
+                // .ignoreImageParams()
+                .url()
+            : null;
+
+          return {
+            quote: item.title || "Project",
+            name: item.alt || "Project",
+            title: item.title || "Project",
+            src: imageUrl || undefined,
+            alt: item.alt || "Project image",
+            objectPosition: item.objectPosition,
+          };
+        })
+      : projectPhotos.map((photo) => ({
+          quote: photo.title,
+          name: photo.alt,
+          title: photo.title,
+          src: photo.src,
+          alt: photo.alt,
+          objectPosition: photo.objectPosition,
+        }));
 
   return (
     <Section id="projects" spacing="md" className="relative bg-white">
