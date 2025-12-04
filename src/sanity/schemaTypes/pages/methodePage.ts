@@ -1,9 +1,23 @@
+import {
+  DocumentTextIcon,
+  SparklesIcon,
+  StackIcon,
+  TargetIcon,
+} from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "methodePage",
   title: "Méthode Page",
   type: "document",
+  groups: [
+    { name: "hero", title: "Hero", icon: SparklesIcon, default: true },
+    { name: "curiosityLoop", title: "Curiosity Loop", icon: TargetIcon },
+    { name: "impact", title: "Impact", icon: DocumentTextIcon },
+    { name: "singularity", title: "Singularity", icon: StackIcon },
+    { name: "proofs", title: "Proofs", icon: DocumentTextIcon },
+    { name: "finalCta", title: "Final CTA", icon: DocumentTextIcon },
+  ],
   fields: [
     defineField({
       name: "language",
@@ -15,6 +29,7 @@ export default defineType({
       name: "hero",
       type: "object",
       title: "Hero Section",
+      group: "hero",
       fields: [
         defineField({
           name: "title",
@@ -47,6 +62,7 @@ export default defineType({
       name: "curiosityLoop",
       type: "object",
       title: "Curiosity Loop Section",
+      group: "curiosityLoop",
       fields: [
         defineField({
           name: "title",
@@ -97,6 +113,7 @@ export default defineType({
       name: "impact",
       type: "object",
       title: "Impact Section",
+      group: "impact",
       fields: [
         defineField({
           name: "title",
@@ -115,6 +132,7 @@ export default defineType({
       name: "singularity",
       type: "object",
       title: "Singularity Section",
+      group: "singularity",
       fields: [
         defineField({
           name: "title",
@@ -167,6 +185,7 @@ export default defineType({
       name: "proofs",
       type: "object",
       title: "Proofs Section",
+      group: "proofs",
       fields: [
         defineField({
           name: "title",
@@ -206,6 +225,7 @@ export default defineType({
       name: "finalCta",
       type: "object",
       title: "Final CTA Section",
+      group: "finalCta",
       fields: [
         defineField({
           name: "title",

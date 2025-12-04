@@ -1,9 +1,26 @@
+import {
+  DocumentTextIcon,
+  ImageIcon,
+  SparklesIcon,
+  StackIcon,
+  TargetIcon,
+} from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "servicesPage",
   title: "Services Page",
   type: "document",
+  groups: [
+    { name: "hero", title: "Hero", icon: SparklesIcon, default: true },
+    { name: "overview", title: "Overview", icon: DocumentTextIcon },
+    { name: "diagnostics", title: "Diagnostics", icon: StackIcon },
+    { name: "rndStudio", title: "R&D Studio", icon: ImageIcon },
+    { name: "loop", title: "Loop", icon: DocumentTextIcon },
+    { name: "ventureDev", title: "Venture Dev", icon: TargetIcon },
+    { name: "impact", title: "Impact", icon: DocumentTextIcon },
+    { name: "finalCta", title: "Final CTA", icon: DocumentTextIcon },
+  ],
   fields: [
     defineField({
       name: "language",
@@ -15,6 +32,7 @@ export default defineType({
       name: "hero",
       type: "object",
       title: "Hero Section",
+      group: "hero",
       fields: [
         defineField({
           name: "title",
@@ -52,6 +70,7 @@ export default defineType({
       name: "overview",
       type: "object",
       title: "Overview Section",
+      group: "overview",
       fields: [
         defineField({
           name: "title",
@@ -89,6 +108,7 @@ export default defineType({
       name: "diagnostics",
       type: "object",
       title: "Diagnostics Section",
+      group: "diagnostics",
       fields: [
         defineField({
           name: "title",
@@ -151,6 +171,7 @@ export default defineType({
       name: "rndStudio",
       type: "object",
       title: "R&D Studio Section",
+      group: "rndStudio",
       fields: [
         defineField({
           name: "title",
@@ -207,6 +228,7 @@ export default defineType({
       name: "loop",
       type: "object",
       title: "Loop Section",
+      group: "loop",
       fields: [
         defineField({
           name: "text",
@@ -235,6 +257,7 @@ export default defineType({
       name: "ventureDev",
       type: "object",
       title: "Venture Development Section",
+      group: "ventureDev",
       fields: [
         defineField({
           name: "title",
@@ -297,6 +320,7 @@ export default defineType({
       name: "impact",
       type: "object",
       title: "Impact Section",
+      group: "impact",
       fields: [
         defineField({
           name: "title",
@@ -321,6 +345,7 @@ export default defineType({
       name: "finalCta",
       type: "object",
       title: "Final CTA Section",
+      group: "finalCta",
       fields: [
         defineField({
           name: "title",
@@ -358,7 +383,12 @@ export default defineType({
       language: "language",
     },
     prepare(selection) {
-      const flag = selection.language === "fr" ? "🇫🇷" : selection.language === "en" ? "🇬🇧" : "";
+      const flag =
+        selection.language === "fr"
+          ? "🇫🇷"
+          : selection.language === "en"
+            ? "🇬🇧"
+            : "";
       return {
         title: ` ${flag} Services Page (${selection.language?.toUpperCase() || "N/A"})`,
       };
