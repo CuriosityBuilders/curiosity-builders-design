@@ -1,5 +1,5 @@
 import { cache } from "react";
-import { client } from "./client";
+import { sanityFetch } from "./live";
 
 // Layout
 export const getFooter = cache(async (language: string) => {
@@ -15,7 +15,8 @@ export const getFooter = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getHeader = cache(async (language: string) => {
@@ -39,7 +40,8 @@ export const getHeader = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getNavigation = cache(async (language: string) => {
@@ -53,7 +55,8 @@ export const getNavigation = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 // Homepage - Single document with all sections
@@ -194,7 +197,8 @@ export const getHomepage = cache(async (language: string) => {
     }
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 // Homepage Sections (kept for backward compatibility during migration)
@@ -208,7 +212,8 @@ export const getHeroSection = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getIntroSection = cache(async (language: string) => {
@@ -221,7 +226,8 @@ export const getIntroSection = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getMissionSection = cache(async (language: string) => {
@@ -235,7 +241,8 @@ export const getMissionSection = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getTiersSection = cache(async (language: string) => {
@@ -257,7 +264,8 @@ export const getTiersSection = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getKeyMetricsSection = cache(async (language: string) => {
@@ -271,7 +279,8 @@ export const getKeyMetricsSection = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getProjectsSection = cache(async (language: string) => {
@@ -292,7 +301,8 @@ export const getProjectsSection = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getBookSection = cache(async (language: string) => {
@@ -318,7 +328,8 @@ export const getBookSection = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getCasesSection = cache(async (language: string) => {
@@ -360,7 +371,8 @@ export const getCasesSection = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getFooterCTASection = cache(async (language: string) => {
@@ -373,7 +385,8 @@ export const getFooterCTASection = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getNewsletterSection = cache(async (language: string) => {
@@ -387,7 +400,8 @@ export const getNewsletterSection = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 // Pages
@@ -434,7 +448,8 @@ export const getSignalsPage = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getServicesPage = cache(async (language: string) => {
@@ -512,7 +527,8 @@ export const getServicesPage = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getMethodePage = cache(async (language: string) => {
@@ -566,7 +582,8 @@ export const getMethodePage = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });
 
 export const getContactPage = cache(async (language: string) => {
@@ -625,5 +642,6 @@ export const getContactPage = cache(async (language: string) => {
     language
   }`;
 
-  return client.fetch(query, { language });
+  const { data } = await sanityFetch({ query, params: { language } });
+  return data;
 });

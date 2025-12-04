@@ -7,6 +7,10 @@ import { getHeader, getNavigation } from "@/sanity/lib/queries";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { SanityLive } from "@/sanity/lib/live";
+import { draftMode } from "next/headers";
+import { DisableDraftMode } from "@/components/DisableDraftMode";
+import { VisualEditing } from "next-sanity/visual-editing";
 
 export default async function LocaleLayout({
   children,
@@ -50,6 +54,13 @@ export default async function LocaleLayout({
         logoAlt={logoAlt}
       />
       {children}
+      <SanityLive />
+      {(await draftMode()).isEnabled && (
+        <>
+          <DisableDraftMode />
+          <VisualEditing />
+        </>
+      )}
       <Footer locale={locale} />
     </NextIntlClientProvider>
   );

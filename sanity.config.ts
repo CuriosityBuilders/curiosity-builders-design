@@ -8,6 +8,7 @@ import { documentInternationalization } from "@sanity/document-internationalizat
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { media } from "sanity-plugin-media";
+import { presentationTool } from "sanity/presentation";
 import { structureTool } from "sanity/structure";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
@@ -29,6 +30,13 @@ export default defineConfig({
     // Media browser for convenient asset management
     // https://www.sanity.io/plugins/sanity-plugin-media
     media(),
+    presentationTool({
+      previewUrl: {
+        previewMode: {
+          enable: "/api/draft-mode/enable",
+        },
+      },
+    }),
     documentInternationalization({
       supportedLanguages: [
         { id: "fr", title: "Français" },
