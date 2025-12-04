@@ -377,7 +377,24 @@ export const getMethodePage = cache(async (language: string) => {
     finalCta {
       title,
       body[],
-      button
+      button,
+      "clients": logosRef->clients[] {
+        name,
+        logo {
+          asset->{
+            _id,
+            url,
+            metadata {
+              dimensions {
+                width,
+                height
+              }
+            }
+          },
+          hotspot,
+          crop
+        }
+      }
     },
     language
   }`;

@@ -223,6 +223,15 @@ export default defineType({
           type: "string",
           title: "Button Text",
         }),
+        defineField({
+          name: "logosRef",
+          type: "reference",
+          title: "Logos",
+          description:
+            "Reference to the shared logos document (clients & press)",
+          to: [{ type: "logos" }],
+          weak: true,
+        }),
       ],
     }),
   ],
