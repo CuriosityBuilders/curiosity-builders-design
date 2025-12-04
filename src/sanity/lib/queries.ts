@@ -145,8 +145,7 @@ export const getHomepage = cache(async (language: string) => {
     },
     cases {
       title,
-      clients[] {
-        _key,
+      "clients": logosRef->clients[] {
         name,
         logo {
           asset->{
@@ -163,8 +162,7 @@ export const getHomepage = cache(async (language: string) => {
           crop
         }
       },
-      press[] {
-        _key,
+      "press": logosRef->press[] {
         name,
         logo {
           asset->{

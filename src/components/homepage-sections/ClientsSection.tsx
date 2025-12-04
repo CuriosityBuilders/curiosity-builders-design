@@ -1,11 +1,27 @@
 "use client";
 
+import { urlFor } from "@/sanity/lib/image";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface Company {
   name: string;
-  logo?: string;
+  logo?:
+    | string
+    | {
+        asset?: {
+          _id?: string;
+          url?: string;
+          metadata?: {
+            dimensions?: {
+              width?: number;
+              height?: number;
+            };
+          };
+        };
+        hotspot?: { x: number; y: number };
+        crop?: { top: number; bottom: number; left: number; right: number };
+      };
 }
 
 interface ClientsSectionProps {
@@ -45,18 +61,32 @@ export function ClientsSection({ companies }: ClientsSectionProps) {
             width: "fit-content",
           }}
         >
-          {duplicatedCompanies.map((company, index) =>
-            company.logo ? (
+          {duplicatedCompanies.map((company, index) => {
+            const logoSrc =
+              typeof company.logo === "string"
+                ? company.logo
+                : company.logo?.asset?.url
+                  ? urlFor(company.logo)
+                      .width(256)
+                      .height(128)
+                      .fit("max")
+                      .quality(100)
+                      .auto("format")
+                      .ignoreImageParams()
+                      .url()
+                  : null;
+
+            return logoSrc ? (
               <div
                 key={`${company.name}-${index}`}
-                className="flex h-16 w-32 shrink-0 items-center justify-center"
+                className="flex h-16 w-32 shrink-0 items-center justify-center "
               >
                 <Image
-                  src={company.logo}
+                  src={logoSrc}
                   alt={company.name}
                   width={128}
                   height={64}
-                  className="h-full w-full object-contain"
+                  className="max-h-full max-w-full object-contain"
                 />
               </div>
             ) : (
@@ -66,8 +96,8 @@ export function ClientsSection({ companies }: ClientsSectionProps) {
               >
                 {company.name}
               </div>
-            ),
-          )}
+            );
+          })}
         </div>
       </motion.div>
     </motion.div>

@@ -326,54 +326,13 @@ export default defineType({
           title: "Title",
         }),
         defineField({
-          name: "clients",
-          type: "array",
-          title: "Clients",
-          of: [
-            {
-              type: "object",
-              fields: [
-                defineField({
-                  name: "name",
-                  type: "string",
-                  title: "Client Name",
-                }),
-                defineField({
-                  name: "logo",
-                  type: "image",
-                  title: "Logo",
-                  options: {
-                    hotspot: true,
-                  },
-                }),
-              ],
-            },
-          ],
-        }),
-        defineField({
-          name: "press",
-          type: "array",
-          title: "Press",
-          of: [
-            {
-              type: "object",
-              fields: [
-                defineField({
-                  name: "name",
-                  type: "string",
-                  title: "Press Name",
-                }),
-                defineField({
-                  name: "logo",
-                  type: "image",
-                  title: "Logo",
-                  options: {
-                    hotspot: true,
-                  },
-                }),
-              ],
-            },
-          ],
+          name: "logosRef",
+          type: "reference",
+          title: "Logos",
+          description:
+            "Reference to the shared logos document (clients & press)",
+          to: [{ type: "logos" }],
+          weak: true,
         }),
       ],
     }),

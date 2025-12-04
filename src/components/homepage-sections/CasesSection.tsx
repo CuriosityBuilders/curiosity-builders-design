@@ -6,10 +6,33 @@ import { PressSection } from "./PressSection";
 
 interface Company {
   name: string;
-  logo?: string;
+  logo?:
+    | string
+    | {
+        asset?: {
+          _id?: string;
+          url?: string;
+          metadata?: {
+            dimensions?: {
+              width?: number;
+              height?: number;
+            };
+          };
+        };
+        hotspot?: { x: number; y: number };
+        crop?: { top: number; bottom: number; left: number; right: number };
+      };
 }
 
-const clients: Company[] = [
+interface CasesSectionProps {
+  data?: {
+    title?: string;
+    clients?: Company[];
+    press?: Company[];
+  };
+}
+
+const defaultClients: Company[] = [
   {
     name: "Aken Écosystèmes",
     logo: "/logos/logo partenaires & clients/LOGO_AKENECOSYSTEMES_COULEUR_RVB.png",
@@ -38,7 +61,7 @@ const clients: Company[] = [
   { name: "ULI", logo: "/logos/logo partenaires & clients/ULI.png" },
 ];
 
-const press: Company[] = [
+const defaultPress: Company[] = [
   { name: "Le Monde", logo: "/logos/logos presse/Le_monde_logo.svg" },
   { name: "Les Échos", logo: "/logos/logos presse/Les_echos_(logo).svg.png" },
   {
@@ -66,7 +89,12 @@ const press: Company[] = [
   { name: "Profession CGP", logo: "/logos/logos presse/profession-cgp.jpg" },
 ];
 
-export function CasesSection() {
+export function CasesSection({ data }: CasesSectionProps) {
+  const clients =
+    data?.clients && data.clients.length > 0 ? data.clients : defaultClients;
+  const press =
+    data?.press && data.press.length > 0 ? data.press : defaultPress;
+
   return (
     <Section id="cases" spacing="md" className="bg-white">
       <div className="mx-auto max-w-7xl px-4">
