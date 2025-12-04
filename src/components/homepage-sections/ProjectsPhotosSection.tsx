@@ -5,10 +5,10 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { Section } from "@/components/ui/Section";
 import { urlFor } from "@/sanity/lib/image";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
 
 interface ProjectsPhotosSectionProps {
   data?: {
+    title?: string;
     images?: Array<{
       image?: {
         asset?: {
@@ -61,9 +61,6 @@ const projectPhotos = [
 ];
 
 export function ProjectsPhotosSection({ data }: ProjectsPhotosSectionProps) {
-  const t = useTranslations("projects");
-
-
   // Use Sanity data if available, otherwise fallback to static images
   const cardItems =
     data?.images && data.images.length > 0
@@ -105,18 +102,20 @@ export function ProjectsPhotosSection({ data }: ProjectsPhotosSectionProps) {
     <Section id="projects" spacing="md" className="relative bg-white">
       <GridBackground size={200} opacity={0.1} />
       <div className="relative mx-auto max-w-7xl px-4">
-        <motion.h2
-          className="font-heading text-center text-3xl font-extrabold text-black sm:text-4xl"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94],
-          }}
-        >
-          {t("title")}
-        </motion.h2>
+        {data?.title && (
+          <motion.h2
+            className="font-heading text-center text-3xl font-extrabold text-black sm:text-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
+            {data.title}
+          </motion.h2>
+        )}
 
         <motion.div
           className="mt-12"

@@ -26,7 +26,6 @@ interface Company {
 
 interface CasesSectionProps {
   data?: {
-    title?: string;
     clients?: Company[];
     press?: Company[];
   };

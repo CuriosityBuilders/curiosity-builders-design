@@ -107,6 +107,7 @@ export const getHomepage = cache(async (language: string) => {
       }
     },
     projects {
+      title,
       "images": imagesRef->images[] {
         image {
           asset->{
@@ -149,7 +150,6 @@ export const getHomepage = cache(async (language: string) => {
       link
     },
     cases {
-      title,
       "clients": logosRef->clients[] {
         name,
         logo {

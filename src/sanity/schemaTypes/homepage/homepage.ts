@@ -278,6 +278,12 @@ export default defineType({
       group: "projects",
       fields: [
         defineField({
+          name: "title",
+          type: "string",
+          title: "Title",
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
           name: "imagesRef",
           type: "reference",
           title: "Project Images",
@@ -345,11 +351,6 @@ export default defineType({
       title: "Cases Section",
       group: "cases",
       fields: [
-        defineField({
-          name: "title",
-          type: "string",
-          title: "Title",
-        }),
         defineField({
           name: "logosRef",
           type: "reference",
