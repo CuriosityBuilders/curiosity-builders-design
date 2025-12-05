@@ -1,9 +1,17 @@
+import { DocumentTextIcon, SparklesIcon, UsersIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "contactPage",
   title: "Contact Page",
   type: "document",
+  groups: [
+    { name: "hero", title: "Hero", icon: SparklesIcon, default: true },
+    { name: "contactSection", title: "Contact Section", icon: UsersIcon },
+    { name: "unsure", title: "Unsure", icon: DocumentTextIcon },
+    { name: "form", title: "Form", icon: DocumentTextIcon },
+    { name: "finalCta", title: "Final CTA", icon: DocumentTextIcon },
+  ],
   fields: [
     defineField({
       name: "language",
@@ -15,6 +23,7 @@ export default defineType({
       name: "hero",
       type: "object",
       title: "Hero Section",
+      group: "hero",
       fields: [
         defineField({
           name: "title",
@@ -37,6 +46,7 @@ export default defineType({
       name: "contactSection",
       type: "object",
       title: "Contact Section",
+      group: "contactSection",
       fields: [
         defineField({
           name: "workWithUs",
@@ -110,6 +120,7 @@ export default defineType({
       name: "unsure",
       type: "object",
       title: "Unsure Section",
+      group: "unsure",
       fields: [
         defineField({
           name: "title",
@@ -143,6 +154,7 @@ export default defineType({
       name: "form",
       type: "object",
       title: "Form Section",
+      group: "form",
       fields: [
         defineField({
           name: "title",
@@ -215,6 +227,7 @@ export default defineType({
       name: "finalCta",
       type: "object",
       title: "Final CTA Section",
+      group: "finalCta",
       fields: [
         defineField({
           name: "title",
@@ -252,7 +265,12 @@ export default defineType({
       language: "language",
     },
     prepare(selection) {
-      const flag = selection.language === "fr" ? "🇫🇷" : selection.language === "en" ? "🇬🇧" : "";
+      const flag =
+        selection.language === "fr"
+          ? "🇫🇷"
+          : selection.language === "en"
+            ? "🇬🇧"
+            : "";
       return {
         title: ` ${flag} Contact Page (${selection.language?.toUpperCase() || "N/A"})`,
       };
