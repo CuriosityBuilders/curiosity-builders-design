@@ -29,6 +29,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       if (route) {
         url += `/${route}`;
+      } else {
+        // S'assurer que la homepage a un trailing slash
+        url += "/";
       }
 
       // Priorité et fréquence selon le type de page
@@ -56,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ) {
         // Pages légales - basse priorité, changent rarement
         priority = 0.3;
-        changeFrequency = "yearly";
+        changeFrequency = "monthly";
       }
 
       sitemapEntries.push({
