@@ -1,204 +1,198 @@
-"use client";
-
-import { useTranslations } from "next-intl";
 import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
+import { getSignalsPage } from "@/sanity/lib/queries";
+import { PortableText } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/types";
 
-export default function SignalsPage() {
-  const t = useTranslations("signals");
+export default async function SignalsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const data = await getSignalsPage(locale);
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <Section spacing="lg" className="bg-black">
-        <div className="mx-auto max-w-4xl px-4">
-          <h1 className="font-heading text-5xl font-bold leading-tight text-white sm:text-6xl">
-            {t("hero.title")}
-          </h1>
-          <p className="mt-6 text-xl leading-relaxed text-white sm:text-2xl">
-            {t("hero.subtitle")}
-          </p>
-          <p className="mt-4 text-xl leading-relaxed text-white">
-            {t("hero.body")}
-          </p>
-        </div>
-      </Section>
+      {data?.hero && (
+        <Section spacing="lg" className="bg-black">
+          <div className="mx-auto max-w-4xl px-4">
+            <h1 className="font-heading text-5xl font-bold leading-tight text-white sm:text-6xl">
+              {data.hero.title}
+            </h1>
+            {data.hero.subtitle && (
+              <p className="mt-6 text-xl leading-relaxed text-white sm:text-2xl">
+                {data.hero.subtitle}
+              </p>
+            )}
+            <div className="mt-4 text-xl leading-relaxed text-white">
+              {data.hero.body && <PortableText value={data.hero.body} />}
+            </div>
+          </div>
+        </Section>
+      )}
 
       {/* 3 Cards */}
-      <Section spacing="md">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="grid gap-8 md:grid-cols-3">
-            <DotCard>
-              <div className="mb-6 flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
-                  1
-                </div>
+      {data?.cards && (
+        <Section spacing="md">
+          <div className="mx-auto max-w-7xl px-4">
+            {data.cards.items && data.cards.items.length > 0 && (
+              <div className="grid gap-8 md:grid-cols-3">
+                {data.cards.items.map(
+                  (
+                    card: {
+                      _key: string;
+                      title: string;
+                      description: PortableTextBlock[];
+                      tagline?: string;
+                    },
+                    index: number
+                  ) => (
+                    <DotCard key={card._key}>
+                      <div className="mb-6 flex items-start justify-between">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+                          {index + 1}
+                        </div>
+                      </div>
+                      <h3 className="font-heading text-xl font-bold text-black">
+                        {card.title}
+                      </h3>
+                      <div className="mt-4 text-sm leading-relaxed text-black">
+                        {card.description && (
+                          <PortableText value={card.description} />
+                        )}
+                      </div>
+                      {card.tagline && (
+                        <p className="mt-4 text-sm italic text-black">
+                          {card.tagline}
+                        </p>
+                      )}
+                    </DotCard>
+                  )
+                )}
               </div>
-              <h3 className="font-heading text-xl font-bold text-black">
-                {t("cards.card1.title")}
-              </h3>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                {t("cards.card1.description")}
-              </p>
-              <p className="mt-4 text-sm italic text-black">
-                {t("cards.card1.tagline")}
-              </p>
-            </DotCard>
-
-            <DotCard>
-              <div className="mb-6 flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
-                  2
-                </div>
-              </div>
-              <h3 className="font-heading text-xl font-bold text-black">
-                {t("cards.card2.title")}
-              </h3>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                {t("cards.card2.description")}
-              </p>
-              <p className="mt-4 text-sm italic text-black">
-                {t("cards.card2.tagline")}
-              </p>
-            </DotCard>
-
-            <DotCard>
-              <div className="mb-6 flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
-                  3
-                </div>
-              </div>
-              <h3 className="font-heading text-xl font-bold text-black">
-                {t("cards.card3.title")}
-              </h3>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                {t("cards.card3.description")}
-              </p>
-              <p className="mt-4 text-sm italic text-black">
-                {t("cards.card3.tagline")}
-              </p>
-            </DotCard>
+            )}
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              {data.cards.button1 && (
+                <Button href="/contact">{data.cards.button1}</Button>
+              )}
+              {data.cards.button2 && (
+                <Button href="/contact" variant="secondary">
+                  {data.cards.button2}
+                </Button>
+              )}
+            </div>
           </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button href="/contact">{t("cards.button1")}</Button>
-            <Button href="/contact" variant="secondary">
-              {t("cards.button2")}
-            </Button>
-          </div>
-        </div>
-      </Section>
+        </Section>
+      )}
 
       {/* Studies Gallery */}
-      <Section spacing="md" className="bg-gray-100">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            {t("studies.title")}
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-black">
-            {t("studies.body1")}
-            <br />
-            <br />
-            {t("studies.body2")}
-          </p>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {/* Placeholder pour les études - à remplacer par un CMS */}
-            <Card>
-              <h3 className="font-heading text-lg font-semibold text-black">
-                {t("studies.exampleTitle")} 1
-              </h3>
-              <p className="mt-2 text-sm text-black">
-                {t("studies.exampleTheme")}
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                {t("studies.exampleSummary")}
-              </p>
-              <div className="mt-6">
-                <Button variant="secondary" className="text-sm">
-                  {t("studies.downloadButton")}
-                </Button>
+      {data?.studies && (
+        <Section spacing="md" className="bg-gray-100">
+          <div className="mx-auto max-w-7xl px-4">
+            <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+              {data.studies.title}
+            </h2>
+            <div className="mt-6 text-lg leading-relaxed text-black">
+              {data.studies.body1 && (
+                <PortableText value={data.studies.body1} />
+              )}
+              {data.studies.body2 && (
+                <>
+                  <br />
+                  <PortableText value={data.studies.body2} />
+                </>
+              )}
+            </div>
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {/* Placeholder cards - can be replaced with dynamic content later */}
+              {[1, 2, 3].map((num) => (
+                <Card key={num}>
+                  <h3 className="font-heading text-lg font-semibold text-black">
+                    {data.studies.exampleTitle} {num}
+                  </h3>
+                  <p className="mt-2 text-sm text-black">
+                    {data.studies.exampleTheme}
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-black">
+                    {data.studies.exampleSummary}
+                  </p>
+                  {data.studies.downloadButton && (
+                    <div className="mt-6">
+                      <Button variant="secondary" className="text-sm">
+                        {data.studies.downloadButton}
+                      </Button>
+                    </div>
+                  )}
+                </Card>
+              ))}
+            </div>
+            {data.studies.cta && (
+              <div className="mt-8 text-center">
+                <Button href="/contact">{data.studies.cta}</Button>
               </div>
-            </Card>
-            <Card>
-              <h3 className="font-heading text-lg font-semibold text-black">
-                {t("studies.exampleTitle")} 2
-              </h3>
-              <p className="mt-2 text-sm text-black">
-                {t("studies.exampleTheme")}
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                {t("studies.exampleSummary")}
-              </p>
-              <div className="mt-6">
-                <Button variant="secondary" className="text-sm">
-                  {t("studies.downloadButton")}
-                </Button>
-              </div>
-            </Card>
-            <Card>
-              <h3 className="font-heading text-lg font-semibold text-black">
-                {t("studies.exampleTitle")} 3
-              </h3>
-              <p className="mt-2 text-sm text-black">
-                {t("studies.exampleTheme")}
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-black">
-                {t("studies.exampleSummary")}
-              </p>
-              <div className="mt-6">
-                <Button variant="secondary" className="text-sm">
-                  {t("studies.downloadButton")}
-                </Button>
-              </div>
-            </Card>
+            )}
           </div>
-          <div className="mt-8 text-center">
-            <Button href="/contact">{t("studies.cta")}</Button>
-          </div>
-        </div>
-      </Section>
+        </Section>
+      )}
 
       {/* Book */}
-      <Section spacing="md">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            {t("book.title")}
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-black">
-            {t("book.description")}
-          </p>
-          <blockquote className="mt-6 border-l-4 border-black pl-4 italic text-black">
-            {t("book.quote")}
-          </blockquote>
-          <div className="mt-8">
-            <Button href="/contact">{t("book.cta")}</Button>
+      {data?.book && (
+        <Section spacing="md">
+          <div className="mx-auto max-w-4xl px-4 text-center">
+            <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+              {data.book.title}
+            </h2>
+            <div className="mt-6 text-lg leading-relaxed text-black">
+              {data.book.description && (
+                <PortableText value={data.book.description} />
+              )}
+            </div>
+            {data.book.quote && (
+              <blockquote className="mt-6 border-l-4 border-black pl-4 italic text-black">
+                {data.book.quote}
+              </blockquote>
+            )}
+            {data.book.cta && (
+              <div className="mt-8">
+                <Button href="/contact">{data.book.cta}</Button>
+              </div>
+            )}
           </div>
-        </div>
-      </Section>
+        </Section>
+      )}
 
       {/* Page Footer CTA */}
-      <Section spacing="md" className="bg-black">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
-            {t("finalCta.titleEmphasis") ? (
-              <>
-                {t("finalCta.title")} <em>{t("finalCta.titleEmphasis")}</em>
-              </>
-            ) : (
-              t("finalCta.title")
+      {data?.finalCta && (
+        <Section spacing="md" className="bg-black">
+          <div className="mx-auto max-w-4xl px-4 text-center">
+            <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
+              {data.finalCta.titleEmphasis ? (
+                <>
+                  {data.finalCta.title} <em>{data.finalCta.titleEmphasis}</em>
+                </>
+              ) : (
+                data.finalCta.title
+              )}
+            </h2>
+            <div className="mt-6 text-lg leading-relaxed text-white">
+              {data.finalCta.body && (
+                <PortableText value={data.finalCta.body} />
+              )}
+            </div>
+            {data.finalCta.button && (
+              <div className="mt-8">
+                <Button href="/contact" variant="inverted">
+                  {data.finalCta.button}
+                </Button>
+              </div>
             )}
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-white">
-            {t("finalCta.body")}
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" variant="inverted">
-              {t("finalCta.button")}
-            </Button>
           </div>
-        </div>
-      </Section>
+        </Section>
+      )}
     </div>
   );
 }

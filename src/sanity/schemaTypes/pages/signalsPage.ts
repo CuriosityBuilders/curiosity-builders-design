@@ -1,9 +1,23 @@
+import {
+  BookIcon,
+  DocumentTextIcon,
+  ImageIcon,
+  SparklesIcon,
+  StackIcon,
+} from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "signalsPage",
   title: "Signals Page",
   type: "document",
+  groups: [
+    { name: "hero", title: "Hero", icon: SparklesIcon, default: true },
+    { name: "cards", title: "Cards", icon: StackIcon },
+    { name: "studies", title: "Studies", icon: ImageIcon },
+    { name: "book", title: "Book", icon: BookIcon },
+    { name: "finalCta", title: "Final CTA", icon: DocumentTextIcon },
+  ],
   fields: [
     defineField({
       name: "language",
@@ -15,6 +29,7 @@ export default defineType({
       name: "hero",
       type: "object",
       title: "Hero Section",
+      group: "hero",
       fields: [
         defineField({
           name: "title",
@@ -42,6 +57,7 @@ export default defineType({
       name: "cards",
       type: "object",
       title: "Cards Section",
+      group: "cards",
       fields: [
         defineField({
           name: "items",
@@ -91,6 +107,7 @@ export default defineType({
       name: "studies",
       type: "object",
       title: "Studies Section",
+      group: "studies",
       fields: [
         defineField({
           name: "title",
@@ -140,6 +157,7 @@ export default defineType({
       name: "book",
       type: "object",
       title: "Book Section",
+      group: "book",
       fields: [
         defineField({
           name: "title",
@@ -168,6 +186,7 @@ export default defineType({
       name: "finalCta",
       type: "object",
       title: "Final CTA Section",
+      group: "finalCta",
       fields: [
         defineField({
           name: "title",
@@ -199,7 +218,12 @@ export default defineType({
       language: "language",
     },
     prepare(selection) {
-      const flag = selection.language === "fr" ? "🇫🇷" : selection.language === "en" ? "🇬🇧" : "";
+      const flag =
+        selection.language === "fr"
+          ? "🇫🇷"
+          : selection.language === "en"
+            ? "🇬🇧"
+            : "";
       return {
         title: ` ${flag} Signals Page (${selection.language?.toUpperCase() || "N/A"})`,
       };
