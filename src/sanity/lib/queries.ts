@@ -462,3 +462,33 @@ export const getContactPage = cache(async (language: string) => {
   const { data } = await sanityFetch({ query, params: { language } });
   return data;
 });
+
+export const getLegalNoticePage = cache(async (language: string) => {
+  const query = `*[_id == "legalNoticePage-${language}"][0] {
+    _id,
+    hero {
+      title,
+      subtitle
+    },
+    content[],
+    language
+  }`;
+
+  const { data } = await sanityFetch({ query });
+  return data;
+});
+
+export const getPrivacyPolicyPage = cache(async (language: string) => {
+  const query = `*[_id == "privacyPolicyPage-${language}"][0] {
+    _id,
+    hero {
+      title,
+      subtitle
+    },
+    content[],
+    language
+  }`;
+
+  const { data } = await sanityFetch({ query });
+  return data;
+});

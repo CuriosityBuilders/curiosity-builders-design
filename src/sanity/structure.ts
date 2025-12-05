@@ -103,6 +103,8 @@ export const structure: StructureResolver = (S) =>
       createSingleton(S, "servicesPage", "Services", DocumentTextIcon),
       createSingleton(S, "methodePage", "Méthode", DocumentTextIcon),
       createSingleton(S, "contactPage", "Contact", DocumentTextIcon),
+      createSingleton(S, "legalNoticePage", "Mentions légales", DocumentTextIcon),
+      createSingleton(S, "privacyPolicyPage", "Politique de confidentialité", DocumentTextIcon),
 
       // Layout - Each element as a singleton with language grouping
       S.divider().title("Layout"),
@@ -125,6 +127,8 @@ export const structure: StructureResolver = (S) =>
             "servicesPage",
             "methodePage",
             "contactPage",
+            "legalNoticePage",
+            "privacyPolicyPage",
           ].includes(listItem.getId() || "")
       ),
     ]);

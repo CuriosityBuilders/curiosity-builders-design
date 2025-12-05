@@ -54,6 +54,8 @@ export default defineConfig({
         "servicesPage",
         "methodePage",
         "contactPage",
+        "legalNoticePage",
+        "privacyPolicyPage",
       ],
       languageField: "language",
     }),

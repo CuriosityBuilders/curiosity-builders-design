@@ -15,6 +15,8 @@ import signalsPage from "./pages/signalsPage";
 import contactPage from "./pages/contactPage";
 import methodePage from "./pages/methodePage";
 import servicesPage from "./pages/servicesPage";
+import legalNoticePage from "./pages/legalNoticePage";
+import privacyPolicyPage from "./pages/privacyPolicyPage";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -33,5 +35,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     servicesPage,
     methodePage,
     contactPage,
+    legalNoticePage,
+    privacyPolicyPage,
   ],
 };
