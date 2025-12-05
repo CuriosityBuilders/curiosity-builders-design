@@ -65,10 +65,6 @@ export function ProjectsPhotosSection({ data }: ProjectsPhotosSectionProps) {
   const cardItems =
     data?.images && data.images.length > 0
       ? data.images.map((item) => {
-          console.log("Processing item:", item);
-          console.log("Item image:", item.image);
-          console.log("Item image asset:", item.image?.asset);
-          console.log("Item image asset URL:", item.image?.asset?.url);
           const imageUrl = item.image?.asset?.url
             ? urlFor(item.image)
                 .width(1920)
