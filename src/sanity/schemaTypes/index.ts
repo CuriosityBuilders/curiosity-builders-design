@@ -1,7 +1,7 @@
 import { type SchemaTypeDefinition } from "sanity";
 
 // Homepage - Single document
-import homepage from "./homepage/homepage";
+import homepage from "./pages/homepage";
 // Layout
 import header from "./layout/header";
 import footer from "./layout/footer";
@@ -15,8 +15,8 @@ import signalsPage from "./pages/signalsPage";
 import contactPage from "./pages/contactPage";
 import methodePage from "./pages/methodePage";
 import servicesPage from "./pages/servicesPage";
-import legalNoticePage from "./pages/legalNoticePage";
-import privacyPolicyPage from "./pages/privacyPolicyPage";
+import legalNoticePage from "./legale-pages/legalNoticePage";
+import privacyPolicyPage from "./legale-pages/privacyPolicyPage";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [

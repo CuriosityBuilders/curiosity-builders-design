@@ -92,25 +92,26 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title("Content")
     .items([
-      // Layout Section
-
-      // Homepage - Single document (new approach)
-      createSingleton(S, "homepage", "Homepage", HomeIcon),
-
-      // Pages - Each page as a singleton with language grouping
-      S.divider().title("Pages"),
-      createSingleton(S, "signalsPage", "Signals", DocumentTextIcon),
-      createSingleton(S, "servicesPage", "Services", DocumentTextIcon),
-      createSingleton(S, "methodePage", "Méthode", DocumentTextIcon),
-      createSingleton(S, "contactPage", "Contact", DocumentTextIcon),
-      createSingleton(S, "legalNoticePage", "Mentions légales", DocumentTextIcon),
-      createSingleton(S, "privacyPolicyPage", "Politique de confidentialité", DocumentTextIcon),
-
       // Layout - Each element as a singleton with language grouping
       S.divider().title("Layout"),
       createSingleton(S, "navigation", "Navigation", MenuIcon),
       createSingleton(S, "header", "Header", FilterIcon),
       createSingleton(S, "footer", "Footer", FilterIcon),
+
+
+      // Pages - Each page as a singleton with language grouping
+      S.divider().title("Pages"),
+      // Homepage - Single document (new approach)
+      createSingleton(S, "homepage", "Homepage", HomeIcon),
+      createSingleton(S, "signalsPage", "Signals", DocumentTextIcon),
+      createSingleton(S, "servicesPage", "Services", DocumentTextIcon),
+      createSingleton(S, "methodePage", "Méthode", DocumentTextIcon),
+      createSingleton(S, "contactPage", "Contact", DocumentTextIcon),
+
+      // Legal - Each legal page as a singleton with language grouping
+      S.divider().title("Legal"),
+      createSingleton(S, "legalNoticePage", "Mentions légales", DocumentTextIcon),
+      createSingleton(S, "privacyPolicyPage", "Politique de confidentialité", DocumentTextIcon),
 
       // Divider
       S.divider().title("Other"),
