@@ -1,28 +1,27 @@
-import { type SchemaTypeDefinition } from "sanity";
-
+import type { SchemaTypeDefinition } from "sanity";
+import footer from "./layout/footer";
+// Layout
+import logo from "./layout/logo";
+import navigation from "./layout/navigation";
+import legalNoticePage from "./legale-pages/legalNoticePage";
+import privacyPolicyPage from "./legale-pages/privacyPolicyPage";
+import contactPage from "./pages/contactPage";
 // Homepage - Single document
 import homepage from "./pages/homepage";
-// Layout
-import header from "./layout/header";
-import footer from "./layout/footer";
-import navigation from "./layout/navigation";
+import methodePage from "./pages/methodePage";
+import servicesPage from "./pages/servicesPage";
+// Pages
+import signalsPage from "./pages/signalsPage";
 // Shared
 import bookImage from "./shared/bookImage";
 import logos from "./shared/logos";
 import projectImages from "./shared/projectImages";
-// Pages
-import signalsPage from "./pages/signalsPage";
-import contactPage from "./pages/contactPage";
-import methodePage from "./pages/methodePage";
-import servicesPage from "./pages/servicesPage";
-import legalNoticePage from "./legale-pages/legalNoticePage";
-import privacyPolicyPage from "./legale-pages/privacyPolicyPage";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     // Layout
+    logo,
     navigation,
-    header,
     footer,
     // Shared (not internationalized)
     bookImage,

@@ -1,20 +1,15 @@
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: "header",
-  title: "Header",
+  name: "logo",
+  title: "Logo",
   type: "document",
   fields: [
-    defineField({
-      name: "language",
-      type: "string",
-      readOnly: true,
-      hidden: true,
-    }),
     defineField({
       name: "logo",
       type: "image",
       title: "Logo",
+      description: "Logo displayed in the header (shared for all languages)",
       options: {
         hotspot: true,
       },
@@ -24,18 +19,19 @@ export default defineType({
           type: "string",
           title: "Alt Text",
           description: "Alternative text for the logo",
+          initialValue: "Curiosity.Builders",
         }),
       ],
     }),
   ],
   preview: {
     select: {
-      language: "language",
+      logo: "logo",
     },
     prepare(selection) {
-      const flag = selection.language === "fr" ? "🇫🇷" : selection.language === "en" ? "🇬🇧" : "";
       return {
-        title: ` ${flag} Header (${selection.language?.toUpperCase() || "N/A"})`,
+        title: "Logo",
+        subtitle: "Header logo (shared for all languages)",
       };
     },
   },

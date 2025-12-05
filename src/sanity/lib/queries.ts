@@ -1,26 +1,9 @@
 import { cache } from "react";
 import { sanityFetch } from "./live";
 
-// Layout
-export const getFooter = cache(async (language: string) => {
-  const query = `*[_type == "footer" && language == $language][0] {
-    _id,
-    description[],
-    tagline,
-    copyright,
-    followUs,
-    privacy,
-    legalNotice,
-    privacyPolicy,
-    language
-  }`;
-
-  const { data } = await sanityFetch({ query, params: { language } });
-  return data;
-});
-
-export const getHeader = cache(async (language: string) => {
-  const query = `*[_type == "header" && language == $language][0] {
+// Layout (not internationalized)
+export const getLogo = cache(async () => {
+  const query = `*[_type == "logo"][0] {
     _id,
     logo {
       asset->{
@@ -36,7 +19,24 @@ export const getHeader = cache(async (language: string) => {
       alt,
       hotspot,
       crop
-    },
+    }
+  }`;
+
+  const { data } = await sanityFetch({ query });
+  return data;
+});
+
+// Layout
+export const getFooter = cache(async (language: string) => {
+  const query = `*[_type == "footer" && language == $language][0] {
+    _id,
+    description[],
+    tagline,
+    copyright,
+    followUs,
+    privacy,
+    legalNotice,
+    privacyPolicy,
     language
   }`;
 

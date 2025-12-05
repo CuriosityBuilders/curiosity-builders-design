@@ -1,8 +1,8 @@
 import {
   DocumentTextIcon,
+  FilterIcon,
   HomeIcon,
   MenuIcon,
-  FilterIcon
 } from "@sanity/icons";
 import type { StructureResolver } from "sanity/structure";
 
@@ -87,6 +87,21 @@ const createSingleton = (
     );
 };
 
+// Helper function to create a global singleton (not language-specific)
+const createGlobalSingleton = (
+  S: Parameters<StructureResolver>[0],
+  schemaType: string,
+  title: string,
+  icon: React.ComponentType | (() => string)
+) => {
+  return S.listItem()
+    .title(title)
+    .icon(icon)
+    .child(
+      S.document().schemaType(schemaType).documentId(schemaType).title(title)
+    );
+};
+
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -95,9 +110,8 @@ export const structure: StructureResolver = (S) =>
       // Layout - Each element as a singleton with language grouping
       S.divider().title("Layout"),
       createSingleton(S, "navigation", "Navigation", MenuIcon),
-      createSingleton(S, "header", "Header", FilterIcon),
+      createGlobalSingleton(S, "logo", "Logo", FilterIcon),
       createSingleton(S, "footer", "Footer", FilterIcon),
-
 
       // Pages - Each page as a singleton with language grouping
       S.divider().title("Pages"),
@@ -110,8 +124,18 @@ export const structure: StructureResolver = (S) =>
 
       // Legal - Each legal page as a singleton with language grouping
       S.divider().title("Legal"),
-      createSingleton(S, "legalNoticePage", "Mentions légales", DocumentTextIcon),
-      createSingleton(S, "privacyPolicyPage", "Politique de confidentialité", DocumentTextIcon),
+      createSingleton(
+        S,
+        "legalNoticePage",
+        "Mentions légales",
+        DocumentTextIcon
+      ),
+      createSingleton(
+        S,
+        "privacyPolicyPage",
+        "Politique de confidentialité",
+        DocumentTextIcon
+      ),
 
       // Divider
       S.divider().title("Other"),
@@ -120,8 +144,8 @@ export const structure: StructureResolver = (S) =>
       ...S.documentTypeListItems().filter(
         (listItem) =>
           ![
+            "logo",
             "navigation",
-            "header",
             "footer",
             "homepage",
             "signalsPage",

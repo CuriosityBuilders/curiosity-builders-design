@@ -45,7 +45,6 @@ export default defineConfig({
       schemaTypes: [
         // Layout
         "navigation",
-        "header",
         "footer",
         // Homepage - New Single document
         "homepage",
