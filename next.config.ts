@@ -18,36 +18,40 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Appliquer les security headers à toutes les routes
+        // Headers minimaux pour Sanity Studio (sans CSP restrictive)
+        source: "/studio",
+        headers: [
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+        ],
+      },
+      {
+        // Headers minimaux pour Sanity Studio (sans CSP restrictive)
+        source: "/studio/:path*",
+        headers: [
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+        ],
+      },
+      {
+        // Headers de sécurité pour les routes normales
         source: "/:path*",
         headers: [
           {
-            key: "X-DNS-Prefetch-Control",
-            value: "on",
-          },
-          {
-            key: "Strict-Transport-Security",
-            value: "max-age=63072000; includeSubDomains; preload",
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           {
             key: "X-Frame-Options",
             value: "SAMEORIGIN",
           },
           {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "X-XSS-Protection",
-            value: "1; mode=block",
-          },
-          {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
-          },
-          {
-            key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
           },
           {
             key: "Content-Security-Policy",
@@ -58,12 +62,8 @@ const nextConfig: NextConfig = {
               "img-src 'self' data: https: blob:",
               "font-src 'self' data:",
               "connect-src 'self' https://*.sanity.io https://cdn.sanity.io",
-              "frame-src 'self' https://*.sanity.io",
+              "frame-src 'self'",
               "object-src 'none'",
-              "base-uri 'self'",
-              "form-action 'self'",
-              "frame-ancestors 'self'",
-              "upgrade-insecure-requests",
             ].join("; "),
           },
         ],
