@@ -21,19 +21,18 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
-  // S'assurer que la locale entrante est valide
   if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
   }
 
-  // Fournir tous les messages au côté client pour la locale actuelle
-  const messages = await getMessages({ locale });
+  // Paralléliser les requêtes pour améliorer les performances
+  const [messages, navigationData, logoData, isDraftMode] = await Promise.all([
+    getMessages({ locale }),
+    getNavigation(locale),
+    getLogo(),
+    draftMode().then((dm) => dm.isEnabled),
+  ]);
 
-  // Fetch navigation and logo data from Sanity
-  const navigationData = await getNavigation(locale);
-  const logoData = await getLogo();
-
-  // Get logo URL from logo document (shared for all languages)
   const logoUrl = logoData?.logo?.asset
     ? urlFor(logoData.logo)
         .width(160)
@@ -44,19 +43,17 @@ export default async function LocaleLayout({
         .url()
     : undefined;
 
-  const logoAlt = logoData?.logo?.alt || "Curiosity.Builders";
-
   return (
     <NextIntlClientProvider messages={messages}>
       <LocaleHtml />
       <Header
         navigationItems={navigationData?.items || []}
         logoUrl={logoUrl}
-        logoAlt={logoAlt}
+        logoAlt={logoData?.logo?.alt || "Curiosity.Builders"}
       />
       {children}
       <SanityLive />
-      {(await draftMode()).isEnabled && (
+      {isDraftMode && (
         <>
           <DisableDraftMode />
           <VisualEditing />
