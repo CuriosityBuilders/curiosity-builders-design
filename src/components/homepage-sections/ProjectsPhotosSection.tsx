@@ -67,10 +67,10 @@ export function ProjectsPhotosSection({ data }: ProjectsPhotosSectionProps) {
       ? data.images.map((item) => {
           const imageUrl = item.image?.asset?.url
             ? urlFor(item.image)
-                .width(1920)
-                .height(1280)
+                .width(1200)
+                .height(800)
                 .fit("max")
-                .quality(100)
+                .quality(80)
                 .auto("format")
                 // .ignoreImageParams()
                 .url()

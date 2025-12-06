@@ -16,7 +16,17 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/LOGO CURIOSITY HD_Balloons_Deep Black.png",
+        width: 1200,
+        height: 630,
+        alt: "Curiosity.Builders",
       },
     ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  other: {
+    "dns-prefetch": "https://cdn.sanity.io",
   },
 };

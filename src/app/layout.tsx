@@ -24,7 +24,7 @@ const manrope = Manrope({
 const epilogue = Epilogue({
   variable: "--font-epilogue",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
@@ -41,6 +41,16 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${oswald.variable} ${inter.variable} ${manrope.variable} ${epilogue.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://cdn.sanity.io" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="antialiased">{children}</body>
     </html>
   );

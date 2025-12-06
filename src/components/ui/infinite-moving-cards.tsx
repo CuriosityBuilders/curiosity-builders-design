@@ -111,6 +111,8 @@ export const InfiniteMovingCards = ({
                   className="object-cover"
                   style={{ objectPosition: item.objectPosition || "center" }}
                   sizes="(max-width: 768px) 280px, 360px"
+                  loading="lazy"
+                  quality={85}
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">

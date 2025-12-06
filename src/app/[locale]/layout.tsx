@@ -38,7 +38,7 @@ export default async function LocaleLayout({
         .width(160)
         .height(64)
         .fit("max")
-        .quality(100)
+        .quality(85)
         .auto("format")
         .url()
     : undefined;
