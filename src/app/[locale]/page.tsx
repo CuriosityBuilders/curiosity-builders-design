@@ -12,6 +12,9 @@ import { TiersSection } from "@/components/homepage-sections/TiersSection";
 import { FilmGrain } from "@/components/ui/FilmGrain";
 import { getHomepage } from "@/sanity/lib/queries";
 
+// Revalidate toutes les minutes pour optimiser le LCP et mettre en cache agressivement
+export const revalidate = 60;
+
 export default async function Home({
   params,
 }: {

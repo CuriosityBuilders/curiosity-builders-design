@@ -26,6 +26,7 @@ const epilogue = Epilogue({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   display: "swap",
+  preload: true,
 });
 
 export { metadata };

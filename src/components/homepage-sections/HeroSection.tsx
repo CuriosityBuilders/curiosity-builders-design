@@ -1,11 +1,27 @@
 "use client";
 
-import { FloatingPaths } from "@/components/ui/background-paths";
-import { FilmGrain } from "@/components/ui/FilmGrain";
 import { Section } from "@/components/ui/Section";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Link } from "@/i18n/routing";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+// Lazy-load non-critical background elements for better LCP
+const FloatingPaths = dynamic(
+  () =>
+    import("@/components/ui/background-paths").then((mod) => ({
+      default: mod.FloatingPaths,
+    })),
+  { ssr: false }
+);
+
+const FilmGrain = dynamic(
+  () =>
+    import("@/components/ui/FilmGrain").then((mod) => ({
+      default: mod.FilmGrain,
+    })),
+  { ssr: false }
+);
 
 interface HeroSectionProps {
   data?: {
