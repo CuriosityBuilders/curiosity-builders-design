@@ -45,12 +45,11 @@ export function Header({
         <Link href="/" className="flex items-center">
           <motion.div
             className="relative h-10 w-[100px] sm:h-12 sm:w-[120px] md:h-16 md:w-[160px]"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={false}
+            animate={{ opacity: 1 }}
             transition={{
-              duration: 0.6,
-              delay: 0.1,
-              ease: [0.25, 0.46, 0.45, 0.94],
+              duration: 0.3,
+              ease: "easeOut",
             }}
           >
             {/* Skeleton placeholder to prevent layout shift */}
@@ -65,6 +64,8 @@ export function Header({
                 height={40}
                 className="relative h-10 w-full sm:h-12 md:h-16"
                 priority
+                sizes="(max-width: 640px) 100px, (max-width: 768px) 120px, 160px"
+                quality={90}
                 onLoad={() => setImageLoaded(true)}
               />
             ) : (
@@ -75,6 +76,8 @@ export function Header({
                 height={40}
                 className="relative h-10 w-full sm:h-12 md:h-16"
                 priority
+                sizes="(max-width: 640px) 100px, (max-width: 768px) 120px, 160px"
+                quality={75}
                 onLoad={() => setImageLoaded(true)}
               />
             )}

@@ -38,9 +38,15 @@ export function HeroSection({ data }: HeroSectionProps) {
         <FloatingPaths position={1} />
         <FloatingPaths position={-1} />
 
-        {/* Radial gradient overlay for depth */}
+        {/* Radial gradient overlay for depth - Static on mobile for performance */}
+        <div
+          className="absolute inset-0 md:hidden"
+          style={{
+            background: `radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 50%)`,
+          }}
+        />
         <motion.div
-          className="absolute inset-0"
+          className="absolute inset-0 hidden md:block"
           style={{
             background: `radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 50%)`,
           }}

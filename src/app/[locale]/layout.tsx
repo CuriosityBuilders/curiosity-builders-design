@@ -35,10 +35,10 @@ export default async function LocaleLayout({
 
   const logoUrl = logoData?.logo?.asset
     ? urlFor(logoData.logo)
-        .width(160)
-        .height(64)
+        .width(120)
+        .height(48)
         .fit("max")
-        .quality(85)
+        .quality(80)
         .auto("format")
         .url()
     : undefined;
