@@ -1,5 +1,6 @@
 import { DisableDraftMode } from "@/components/DisableDraftMode";
 import { LocaleHtml } from "@/components/LocaleHtml";
+import { LogoPreload } from "@/components/LogoPreload";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { routing } from "@/i18n/routing";
@@ -46,6 +47,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <LocaleHtml />
+      <LogoPreload logoUrl={logoUrl} />
       <Header
         navigationItems={navigationData?.items || []}
         logoUrl={logoUrl}

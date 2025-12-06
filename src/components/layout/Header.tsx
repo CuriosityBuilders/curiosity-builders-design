@@ -23,7 +23,6 @@ export function Header({
   logoUrl,
   logoAlt = "Curiosity.Builders",
 }: HeaderProps) {
-  const [imageLoaded, setImageLoaded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Fallback to default navigation if no items from Sanity
@@ -43,19 +42,7 @@ export function Header({
       <nav className="mx-auto flex items-center justify-between border border-black/10 bg-white/50 px-4 py-2 shadow-sm backdrop-blur-xl backdrop-saturate-200 sm:px-8 md:px-16 lg:px-24">
         {/* Logo - Left */}
         <Link href="/" className="flex items-center">
-          <motion.div
-            className="relative h-10 w-[100px] sm:h-12 sm:w-[120px] md:h-16 md:w-[160px]"
-            initial={false}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.3,
-              ease: "easeOut",
-            }}
-          >
-            {/* Skeleton placeholder to prevent layout shift */}
-            {!imageLoaded && (
-              <div className="absolute inset-0 animate-pulse bg-gray-200" />
-            )}
+          <div className="relative h-10 w-[100px] sm:h-12 sm:w-[120px] md:h-16 md:w-[160px]">
             {logoUrl ? (
               <Image
                 src={logoUrl}
@@ -64,9 +51,9 @@ export function Header({
                 height={40}
                 className="relative h-10 w-full sm:h-12 md:h-16"
                 priority
+                fetchPriority="high"
                 sizes="(max-width: 640px) 100px, (max-width: 768px) 120px, 160px"
                 quality={90}
-                onLoad={() => setImageLoaded(true)}
               />
             ) : (
               <Image
@@ -76,12 +63,12 @@ export function Header({
                 height={40}
                 className="relative h-10 w-full sm:h-12 md:h-16"
                 priority
+                fetchPriority="high"
                 sizes="(max-width: 640px) 100px, (max-width: 768px) 120px, 160px"
                 quality={75}
-                onLoad={() => setImageLoaded(true)}
               />
             )}
-          </motion.div>
+          </div>
         </Link>
 
         {/* Right Side - Navigation Links, Language Toggle & Mobile Menu */}
