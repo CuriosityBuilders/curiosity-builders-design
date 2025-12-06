@@ -376,5 +376,10 @@
       "button1": "Contact Us",
       "button2": "Discover Our Method"
     }
+  },
+  "notFound": {
+    "title": "This page hasn't been built... yet.",
+    "description": "Like a real estate project under development, this page is still in the design phase. But don't worry, we build better than this!",
+    "backToHome": "Back to Home"
   }
 }

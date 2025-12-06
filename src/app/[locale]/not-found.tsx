@@ -1,10 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function NotFound() {
+  const t = useTranslations("notFound");
+
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-4">
       <div className="relative mx-auto max-w-2xl py-8 px-4 text-center">
@@ -43,28 +45,7 @@ export default function NotFound() {
         <div className="absolute right-0 bottom-0 z-10 bg-black/20 size-1 translate-x-1/2 rounded-full ring-8 ring-white" />
 
         {/* Content */}
-        <div className="relative z-20">
-          {/* Animated Logo */}
-          <motion.div
-            className="mb-8 flex h-20 w-full items-center justify-center sm:h-28 md:h-32"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-          >
-            <div className="relative h-full w-48 sm:w-64 md:w-80">
-              <Image
-                src="/Logo Curiosity Builders V2.svg"
-                alt="Curiosity.Builders"
-                width={320}
-                height={128}
-                className="h-full w-full object-contain"
-                priority
-              />
-            </div>
-          </motion.div>
+        <div className="relative z-20 p-4">
 
           {/* 404 Title */}
           <motion.h1
@@ -91,7 +72,7 @@ export default function NotFound() {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
-            This page hasn't been built... yet.
+            {t("title")}
           </motion.h2>
 
           {/* Description */}
@@ -105,8 +86,7 @@ export default function NotFound() {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
-            Like a real estate project under development, this page is still in
-            the design phase. But don't worry, we build better than this!
+            {t("description")}
           </motion.p>
 
           {/* CTA Button */}
@@ -121,7 +101,7 @@ export default function NotFound() {
             }}
           >
             <Button href="/" variant="primary">
-              Back to Home
+              {t("backToHome")}
             </Button>
           </motion.div>
         </div>

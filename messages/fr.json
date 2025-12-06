@@ -376,5 +376,10 @@
       "button1": "Nous écrire",
       "button2": "Découvrir notre méthode"
     }
+  },
+  "notFound": {
+    "title": "Cette page n'a pas encore été construite...",
+    "description": "Comme un projet immobilier en développement, cette page est encore en phase de conception. Mais ne vous inquiétez pas, nous construisons mieux que ça !",
+    "backToHome": "Retour à l'accueil"
   }
 }
