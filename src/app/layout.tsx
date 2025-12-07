@@ -1,12 +1,6 @@
 import { metadata } from "@/app/metadata";
-import { Epilogue, Inter, Manrope, Oswald } from "next/font/google";
+import { Epilogue, Inter, Manrope } from "next/font/google";
 import "./globals.css";
-
-const oswald = Oswald({
-  variable: "--font-oswald",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -40,7 +34,7 @@ export default function RootLayout({
     <html
       lang="fr"
       suppressHydrationWarning
-      className={`${oswald.variable} ${inter.variable} ${manrope.variable} ${epilogue.variable}`}
+      className={`${inter.variable} ${manrope.variable} ${epilogue.variable}`}
     >
       <head>
         <link rel="preconnect" href="https://cdn.sanity.io" />
