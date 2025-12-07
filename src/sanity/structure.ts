@@ -159,7 +159,7 @@ export const structure: StructureResolver = (S) =>
 
       // Settings
       S.divider().title("Settings"),
-      createGlobalSingleton(S, "seoSettings", "SEO Settings", SearchIcon),
+      createGlobalSingleton(S, "seoSettings", "SEO Settings (Global)", SearchIcon),
 
       // Shared Assets
       S.divider().title("Shared Assets"),

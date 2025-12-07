@@ -4,6 +4,7 @@ import { LocaleHtml } from "@/components/LocaleHtml";
 import { LogoPreload } from "@/components/LogoPreload";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { StructuredData } from "@/components/seo/StructuredData";
 import { routing } from "@/i18n/routing";
 import { urlFor } from "@/sanity/lib/image";
 import { SanityLive } from "@/sanity/lib/live";
@@ -57,6 +58,7 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
+      <StructuredData locale={locale} />
       <LocaleHtml />
       <LogoPreload logoUrl={logoUrl} />
       <Header
