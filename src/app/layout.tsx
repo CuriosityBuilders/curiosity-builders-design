@@ -1,19 +1,6 @@
 import { metadata } from "@/app/metadata";
-import { Epilogue, Inter, Manrope } from "next/font/google";
+import { Epilogue } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["700"],
-  display: "swap",
-});
 
 const epilogue = Epilogue({
   variable: "--font-epilogue",
@@ -31,11 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="fr"
-      suppressHydrationWarning
-      className={`${inter.variable} ${manrope.variable} ${epilogue.variable}`}
-    >
+    <html lang="fr" suppressHydrationWarning className={`${epilogue.variable}`}>
       <head>
         <link rel="preconnect" href="https://cdn.sanity.io" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />

@@ -4,7 +4,7 @@ Plateforme d'accélération de vos projets de lieux. Centrée sur l'humain, guid
 
 ## Vue d'ensemble
 
-Site web pour Curiosity.Builders construit avec Next.js 16, React 19, TypeScript et Tailwind CSS v4.
+Site web pour Curiosity.Builders construit avec Next.js 16, React 19, TypeScript, Tailwind CSS v4, Sanity CMS et next-intl pour l'internationalisation.
 
 ## Tone and Style
 
@@ -30,23 +30,35 @@ Le site doit refléter :
 
 ### Pages complémentaires
 
-- **Cases & credibility**: `/cases` (références, études de cas)
-- **About & contact**: `/about` · `/contact`
+- **Cases & credibility**: Références et études de cas intégrées dans les pages
+- **Contact**: `/contact`
+- **Méthode**: `/methode` - Présentation de la méthode Curiosity Loop
+- **Signals**: `/signals` - Veille stratégique, études, livre
 
 ## Stack technique
 
 - **Framework**: Next.js 16 (App Router)
 - **React**: v19.2.0
-- **TypeScript**: v5
+- **TypeScript**: v5 (strict mode)
 - **Styling**: Tailwind CSS v4
-- **Linter/Formatter**: Biome
+- **CMS**: Sanity v4.19.0
+- **Internationalisation**: next-intl v4.5.5
+- **Linter/Formatter**: Biome v2.2.0
+
+### CMS & Contenu
+
+- **Sanity Studio**: Accessible via `/studio`
+- **Document Internationalization**: Gestion des traductions FR/EN
+- **Visual Editing**: Édition visuelle avec next-sanity
+- **Draft Mode**: Prévisualisation des contenus en brouillon
 
 ### Besoins techniques
 
 #### Phase actuelle
 
 - Site web haut de gamme, orienté contenu (visual storytelling, portfolio, service tiers clairs)
-- CMS simple pour les études de cas et insights
+- CMS Sanity pour les études de cas, insights et toutes les pages
+- Internationalisation FR/EN avec next-intl
 - Intégration newsletter avec Substack
 - Automations optionnelles :
   - Formulaires → Notion/Zapier
@@ -72,23 +84,20 @@ Référence principale : [Subrequest](https://subrequest.com/fr) - épuré, mode
 
 ### Typographie
 
-- **Titres**: Oswald (Google Fonts)
+- **Titres**: Epilogue (Google Fonts)
   - Tailles généreuses : `text-4xl` à `text-6xl` pour H1, `text-2xl` à `text-4xl` pour H2
   - Espacement de ligne confortable : `leading-relaxed` à `leading-loose`
-- **Texte**: Inter (Google Fonts)
+- **Texte**: Helvetica (police système)
   - Espacement de ligne : `leading-relaxed` pour une lisibilité optimale
+  - Fallback : Arial, sans-serif
 
 ### Palette de couleurs
 
-**Direction** : Fond blanc, texte noir, accents en lime / sand beige / muted teal (cohérent avec le branding Curiosity).
+**Direction** : Fond blanc, texte noir, accents discrets.
 
 - **Noir**: `#000000` - Textes principaux
 - **Blanc**: `#FFFFFF` - Fonds principaux
 - **Gris clair**: `#F9F9F9` - Fonds alternatifs (bandeaux off-white)
-- **Accents**:
-  - Lime (vert citron)
-  - Sand beige (beige sable)
-  - Muted teal (sarcelle atténué)
 
 **Principes**: Contrastes nets, fonds blancs purs, textes noirs pour un design épuré et professionnel. Alternance de sections noir/blanc pour créer du rythme visuel.
 
@@ -188,13 +197,17 @@ Référence principale : [Subrequest](https://subrequest.com/fr) - épuré, mode
 3. **Services** (`/services`) - Diagnostics, R&D Studio, Venture Development
 4. **Signals** (`/signals`) - Veille stratégique, études, livre
 5. **Contact** (`/contact`) - Formulaires avec accordéons
+6. **Mentions légales** (`/mentions-legales`) - Page légale
+7. **Politique de confidentialité** (`/politique-confidentialite`) - Page légale
 
 ## Règles importantes
 
 ### ❌ Interdictions
 
 - **PAS de dark mode**: Aucune classe `dark:` ne doit être utilisée
-- **PAS de Geist**: Utiliser uniquement Oswald et Inter
+- **PAS de Geist**: Utiliser uniquement Epilogue (titres) et Helvetica (body)
+- **PAS de CSS modules**: Tailwind CSS v4 uniquement
+- **PAS de yarn**: Utiliser npm uniquement
 
 ### ✅ Obligations
 
@@ -203,13 +216,35 @@ Référence principale : [Subrequest](https://subrequest.com/fr) - épuré, mode
 - Tailwind CSS v4 uniquement
 - Respecter l'espacement généreux (inspiration Subrequest)
 - Images N&B sauf cas clients réels
+- Server Components par défaut (Next.js App Router)
 
 ## Développement
+
+### Prérequis
+
+- Node.js 18+
+- npm
+- Compte Sanity (pour le CMS)
 
 ### Installation
 
 ```bash
 npm install
+```
+
+### Variables d'environnement
+
+Créer un fichier `.env.local` avec :
+
+```bash
+# Sanity
+NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2024-01-01
+SANITY_API_TOKEN=your-token-here
+
+# Pour les scripts de migration
+SANITY_API_WRITE_TOKEN=your-write-token-here
 ```
 
 ### Développement
@@ -219,6 +254,10 @@ npm run dev
 ```
 
 Ouvrir [http://localhost:3000](http://localhost:3000)
+
+### Sanity Studio
+
+Le studio Sanity est accessible via [http://localhost:3000/studio](http://localhost:3000/studio)
 
 ### Build
 
@@ -230,6 +269,7 @@ npm run build
 
 ```bash
 npm run lint
+npm run lint:fix
 npm run format
 ```
 
@@ -238,35 +278,51 @@ npm run format
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # Layout principal avec fonts
-│   ├── page.tsx            # Page Home
-│   ├── globals.css         # Styles globaux
-│   ├── signals/
-│   │   └── page.tsx
-│   ├── services/
-│   │   └── page.tsx
-│   ├── methode/
-│   │   └── page.tsx
-│   └── contact/
-│       └── page.tsx
-└── components/
-    ├── layout/
-    │   ├── Header.tsx
-    │   ├── Footer.tsx
-    │   └── ProgressLine.tsx
-    └── ui/
-        ├── Button.tsx
-        ├── Card.tsx
-        ├── Section.tsx
-        └── Accordion.tsx
+│   ├── [locale]/              # Routes internationalisées (fr, en)
+│   │   ├── layout.tsx         # Layout avec i18n
+│   │   ├── page.tsx           # Page Home
+│   │   ├── signals/
+│   │   ├── services/
+│   │   ├── methode/
+│   │   ├── contact/
+│   │   └── (legal)/           # Pages légales
+│   ├── api/                   # API routes (draft mode)
+│   ├── studio/                # Sanity Studio
+│   ├── layout.tsx             # Root layout
+│   ├── globals.css            # Styles globaux
+│   └── metadata.ts            # Métadonnées SEO
+├── components/
+│   ├── layout/                # Header, Footer
+│   ├── ui/                    # Composants UI réutilisables
+│   ├── homepage-sections/     # Sections de la homepage
+│   └── pages/                 # Composants spécifiques aux pages
+├── sanity/
+│   ├── schemaTypes/           # Schémas Sanity
+│   ├── lib/                   # Client Sanity, queries, image utils
+│   └── structure.ts           # Structure du studio
+├── i18n/                      # Configuration next-intl
+│   ├── routing.ts
+│   └── request.ts
+└── lib/
+    └── utils.ts               # Utilitaires
 ```
+
+## Scripts disponibles
+
+- `npm run dev` - Démarre le serveur de développement
+- `npm run build` - Build de production
+- `npm run start` - Démarre le serveur de production
+- `npm run lint` - Vérifie le code avec Biome
+- `npm run lint:fix` - Corrige automatiquement les erreurs
+- `npm run format` - Formate le code
 
 ## Conventions de nommage
 
 - **Composants**: PascalCase (`Button.tsx`, `Header.tsx`)
-- **Fichiers**: kebab-case pour les pages (`page.tsx`)
-- **Classes CSS**: Tailwind utilities uniquement
+- **Fichiers de pages**: `page.tsx` (convention Next.js)
 - **Variables**: camelCase
+- **Constantes**: UPPER_SNAKE_CASE
+- **Types/Interfaces**: PascalCase avec préfixe si nécessaire
 
 ## SEO Focus Keywords
 
@@ -287,3 +343,4 @@ Mots-clés stratégiques pour le référencement :
 - Continuité visuelle entre les sections (fil conducteur rappelant la rigueur méthodologique)
 - Design qui reflète la position à l'intersection boutique consultancy / innovation lab
 - Crédibilité technique et modernité au cœur de l'identité visuelle
+- Tous les contenus sont gérés via Sanity CMS avec support FR/EN
