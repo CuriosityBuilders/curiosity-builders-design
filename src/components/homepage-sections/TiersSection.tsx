@@ -65,7 +65,7 @@ export function TiersSection({ data }: TiersSectionProps) {
         <h2 className="font-heading text-center text-3xl font-extrabold text-black sm:text-4xl py-2 tracking-wide uppercase">
           {data?.title ?? ""}
         </h2>
-        <div className="mt-16 grid gap-8 md:grid-cols-3 items-stretch">
+        <div className="mt-12 sm:mt-16 grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
           {tiers.map((tier, index) => (
             <TierCard key={tier.number} {...tier} delay={0.1 + index * 0.1} />
           ))}

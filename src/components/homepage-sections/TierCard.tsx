@@ -41,21 +41,21 @@ export function TierCard({
       }}
     >
       <DotCard>
-        <div className="flex h-full min-h-[400px] flex-col">
+        <div className="flex h-full min-h-[400px] sm:min-h-[450px] md:min-h-[400px] flex-col">
           <div className="mb-6 flex items-start justify-between">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl font-heading font-bold text-white">
+            <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-black text-2xl sm:text-3xl font-heading font-bold text-white">
               {number}
             </div>
           </div>
-          <h3 className="font-heading text-2xl font-bold leading-tight text-black">
+          <h3 className="font-heading text-2xl sm:text-3xl font-bold leading-tight text-black">
             {title}
           </h3>
-          <p className="mt-3 text-base font-medium text-black/80">{subtitle}</p>
-          <p className="mt-6 grow text-base leading-relaxed text-black/70">
+          <p className="mt-3 text-base sm:text-lg font-medium text-black/80">{subtitle}</p>
+          <p className="mt-6 grow text-base sm:text-lg leading-relaxed text-black/70">
             {description}
           </p>
           <div className="mt-auto pt-6">
-            <p className="text-base font-medium italic text-black/60">
+            <p className="text-base sm:text-lg font-medium italic text-black/60">
               {tagline}
             </p>
             <div
