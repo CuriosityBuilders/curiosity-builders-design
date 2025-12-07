@@ -253,8 +253,14 @@ export const getSignalsPage = cache(async (language: string) => {
               originalFilename
             }
           },
-          theme,
-          summary
+          theme {
+            fr,
+            en
+          },
+          summary {
+            fr,
+            en
+          }
         }
       }
     },

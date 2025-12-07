@@ -155,7 +155,8 @@ export default defineType({
           name: "pdfs",
           type: "reference",
           title: "PDFs",
-          description: "Référence au document contenant les PDFs téléchargeables",
+          description:
+            "Référence au document contenant les PDFs téléchargeables",
           to: [{ type: "signalsPdfs" }],
         }),
       ],

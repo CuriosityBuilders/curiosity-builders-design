@@ -119,11 +119,21 @@ export default async function SignalsPage({
                       file: {
                         asset: { url: string; originalFilename?: string };
                       };
-                      theme?: string;
-                      summary?: string;
+                      theme?: { fr?: string; en?: string };
+                      summary?: { fr?: string; en?: string };
                     }) => {
                       const title =
                         locale === "fr" ? pdf.title.fr : pdf.title.en;
+                      const theme = pdf.theme
+                        ? locale === "fr"
+                          ? pdf.theme.fr
+                          : pdf.theme.en
+                        : undefined;
+                      const summary = pdf.summary
+                        ? locale === "fr"
+                          ? pdf.summary.fr
+                          : pdf.summary.en
+                        : undefined;
                       const coverImageUrl = pdf.coverImage?.asset?.url
                         ? urlFor(pdf.coverImage)
                             .width(800)
@@ -136,9 +146,9 @@ export default async function SignalsPage({
                       const pdfUrl = pdf.file?.asset?.url;
 
                       return (
-                        <Card key={pdf._key}>
+                        <Card key={pdf._key} className="relative">
                           {coverImageUrl && (
-                            <div className="relative mb-4 aspect-[4/3] w-full overflow-hidden rounded-lg">
+                            <div className="relative mb-4 aspect-4/3 w-full overflow-hidden rounded-lg">
                               <Image
                                 src={coverImageUrl}
                                 alt={pdf.coverImage?.alt || title}
@@ -147,19 +157,28 @@ export default async function SignalsPage({
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 quality={85}
                               />
+                              {theme && (
+                                <div className="absolute right-2 top-2 rounded-full bg-black px-3 py-1">
+                                  <span className="text-xs font-black uppercase tracking-wide text-white">
+                                    {theme}
+                                  </span>
+                                </div>
+                              )}
+                            </div>
+                          )}
+                          {!coverImageUrl && theme && (
+                            <div className="absolute right-4 top-4 rounded-full bg-black px-3 py-1">
+                              <span className="text-xs font-medium uppercase tracking-wide text-white">
+                                {theme}
+                              </span>
                             </div>
                           )}
                           <h3 className="font-heading text-lg font-semibold text-black">
                             {title}
                           </h3>
-                          {pdf.theme && (
-                            <p className="mt-2 text-sm text-black">
-                              {pdf.theme}
-                            </p>
-                          )}
-                          {pdf.summary && (
+                          {summary && (
                             <p className="mt-4 text-sm leading-relaxed text-black">
-                              {pdf.summary}
+                              {summary}
                             </p>
                           )}
                           {pdfUrl && data.studies.downloadButton && (
@@ -169,7 +188,7 @@ export default async function SignalsPage({
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 download
-                                className="inline-flex items-center justify-center rounded-full border border-black/90 bg-white px-6 py-3 text-sm font-medium text-black transition-colors hover:border-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+                                className="flex w-full items-center justify-center rounded-full border border-black/90 bg-white px-6 py-3 text-sm font-medium text-black transition-colors hover:border-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
                               >
                                 {data.studies.downloadButton}
                               </a>

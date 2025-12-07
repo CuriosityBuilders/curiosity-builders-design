@@ -56,15 +56,39 @@ export default defineType({
             }),
             defineField({
               name: "theme",
-              type: "string",
+              type: "object",
               title: "Theme",
               description: "Thème du PDF (optionnel)",
+              fields: [
+                defineField({
+                  name: "fr",
+                  type: "string",
+                  title: "Thème (Français)",
+                }),
+                defineField({
+                  name: "en",
+                  type: "string",
+                  title: "Theme (English)",
+                }),
+              ],
             }),
             defineField({
               name: "summary",
-              type: "string",
+              type: "object",
               title: "Summary",
               description: "Résumé du PDF (optionnel)",
+              fields: [
+                defineField({
+                  name: "fr",
+                  type: "string",
+                  title: "Résumé (Français)",
+                }),
+                defineField({
+                  name: "en",
+                  type: "string",
+                  title: "Summary (English)",
+                }),
+              ],
             }),
           ],
           preview: {
