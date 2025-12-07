@@ -37,7 +37,7 @@ export function HeroSection({ data }: HeroSectionProps) {
     <Section
       id="hero"
       spacing="lg"
-      className="relative py-24 sm:py-32 lg:py-40 min-h-screen"
+      className="relative py-24 sm:py-32 lg:py-40 min-h-[calc(100vh-200px)] sm:min-h-screen"
       style={{ backgroundColor: "#08090B" }}
     >
       {/* Background Layers */}
