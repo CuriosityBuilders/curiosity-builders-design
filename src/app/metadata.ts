@@ -58,10 +58,33 @@ export async function generateMetadata(
     }
   }
 
+  // Build favicon URL
+  let faviconUrl: string | undefined;
+  if (seoSettings?.favicon?.asset) {
+    try {
+      faviconUrl = urlFor(seoSettings.favicon)
+        .width(32)
+        .height(32)
+        .fit("max")
+        .quality(100)
+        .auto("format")
+        .url();
+    } catch (error) {
+      console.warn("Failed to generate favicon URL:", error);
+    }
+  }
+
   return {
     metadataBase: new URL(siteUrl),
     title,
     description,
+    icons: faviconUrl
+      ? {
+          icon: faviconUrl,
+          shortcut: faviconUrl,
+          apple: faviconUrl,
+        }
+      : undefined,
     openGraph: {
       title,
       description,

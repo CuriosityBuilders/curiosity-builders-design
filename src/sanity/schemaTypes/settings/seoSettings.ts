@@ -79,6 +79,16 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: "favicon",
+      type: "image",
+      title: "Favicon",
+      description:
+        "Favicon displayed in browser tabs (recommended: 32x32px or 16x16px, PNG or ICO format). Shared across all languages.",
+      options: {
+        hotspot: true,
+      },
+    }),
   ],
   preview: {
     prepare() {

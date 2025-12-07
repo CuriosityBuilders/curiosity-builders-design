@@ -558,6 +558,20 @@ export const getSEOSettings = cache(async (language: string) => {
       alt,
       hotspot,
       crop
+    },
+    favicon {
+      asset->{
+        _id,
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      },
+      hotspot,
+      crop
     }
   }`;
 
@@ -577,5 +591,6 @@ export const getSEOSettings = cache(async (language: string) => {
             "Curiosity.Builders",
         }
       : null,
+    favicon: data.favicon || null,
   };
 });
