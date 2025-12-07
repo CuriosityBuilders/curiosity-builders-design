@@ -208,6 +208,8 @@ export const getHomepage = cache(async (language: string) => {
 export const getSignalsPage = cache(async (language: string) => {
   const query = `*[_type == "signalsPage" && language == $language][0] {
     _id,
+    seoTitle,
+    seoDescription,
     hero {
       title,
       subtitle,
@@ -300,6 +302,8 @@ export const getSignalsPage = cache(async (language: string) => {
 export const getServicesPage = cache(async (language: string) => {
   const query = `*[_type == "servicesPage" && language == $language][0] {
     _id,
+    seoTitle,
+    seoDescription,
     hero {
       title,
       body[],
@@ -379,6 +383,8 @@ export const getServicesPage = cache(async (language: string) => {
 export const getMethodePage = cache(async (language: string) => {
   const query = `*[_type == "methodePage" && language == $language][0] {
     _id,
+    seoTitle,
+    seoDescription,
     hero {
       title,
       body1[],
@@ -451,6 +457,8 @@ export const getMethodePage = cache(async (language: string) => {
 export const getContactPage = cache(async (language: string) => {
   const query = `*[_type == "contactPage" && language == $language][0] {
     _id,
+    seoTitle,
+    seoDescription,
     hero {
       title,
       body[]

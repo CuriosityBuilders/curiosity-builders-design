@@ -12,11 +12,31 @@ const defaultDescription =
 const defaultOgImage = "/LOGO CURIOSITY HD_Balloons_Deep Black.png";
 
 /**
+ * Generates metadata for a specific page with optional page-specific SEO fields
+ * Falls back to global SEO settings, then to default values
+ */
+export async function generatePageMetadata(
+  locale: string = "fr",
+  pageData?: {
+    seoTitle?: string | null;
+    seoDescription?: string | null;
+    hero?: { title?: string | null };
+  }
+): Promise<Metadata> {
+  return generateMetadata(locale, pageData);
+}
+
+/**
  * Generates metadata from Sanity SEO settings
  * Falls back to default values if Sanity data is not available
  */
 export async function generateMetadata(
-  locale: string = "fr"
+  locale: string = "fr",
+  pageData?: {
+    seoTitle?: string | null;
+    seoDescription?: string | null;
+    hero?: { title?: string | null };
+  }
 ): Promise<Metadata> {
   let seoSettings: Awaited<ReturnType<typeof getSEOSettings>> | undefined;
 
@@ -29,8 +49,14 @@ export async function generateMetadata(
     );
   }
 
-  const title = seoSettings?.title || defaultTitle;
-  const description = seoSettings?.description || defaultDescription;
+  // Use page-specific SEO fields if available, otherwise fall back to global SEO settings
+  const title =
+    pageData?.seoTitle ||
+    pageData?.hero?.title ||
+    seoSettings?.title ||
+    defaultTitle;
+  const description =
+    pageData?.seoDescription || seoSettings?.description || defaultDescription;
 
   // Build Open Graph image URL
   let ogImageUrl = defaultOgImage;

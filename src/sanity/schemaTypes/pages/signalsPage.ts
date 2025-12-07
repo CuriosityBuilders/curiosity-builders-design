@@ -2,6 +2,7 @@ import {
   BookIcon,
   DocumentTextIcon,
   ImageIcon,
+  SearchIcon,
   SparklesIcon,
   StackIcon,
 } from "@sanity/icons";
@@ -12,6 +13,7 @@ export default defineType({
   title: "Signals Page",
   type: "document",
   groups: [
+    { name: "seo", title: "SEO", icon: SearchIcon },
     { name: "hero", title: "Hero", icon: SparklesIcon, default: true },
     { name: "cards", title: "Cards", icon: StackIcon },
     { name: "studies", title: "Studies", icon: ImageIcon },
@@ -24,6 +26,23 @@ export default defineType({
       type: "string",
       readOnly: true,
       hidden: true,
+    }),
+    // SEO Fields
+    defineField({
+      name: "seoTitle",
+      type: "string",
+      title: "SEO Title",
+      description:
+        "Page title for SEO (appears in browser tabs and search results). If empty, uses the hero title. (Optimal length is 50-60 characters)",
+      group: "seo",
+    }),
+    defineField({
+      name: "seoDescription",
+      type: "text",
+      title: "SEO Description",
+      description:
+        "Meta description for SEO (appears in search results). If empty, uses a default description. (150-160 characters recommended)",
+      group: "seo",
     }),
     defineField({
       name: "hero",

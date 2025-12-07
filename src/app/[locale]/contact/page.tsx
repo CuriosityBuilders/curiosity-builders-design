@@ -2,8 +2,20 @@ import { ContactForm } from "@/components/pages/ContactForm";
 import { ContactUnsureSection } from "@/components/pages/ContactUnsureSection";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { generatePageMetadata } from "@/app/metadata";
 import { getContactPage } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const contactData = await getContactPage(locale);
+  return generatePageMetadata(locale, contactData);
+}
 
 export default async function ContactPage({
   params,

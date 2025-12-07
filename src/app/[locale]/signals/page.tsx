@@ -1,3 +1,4 @@
+import { generatePageMetadata } from "@/app/metadata";
 import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -6,7 +7,18 @@ import { urlFor } from "@/sanity/lib/image";
 import { getSignalsPage } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const signalsData = await getSignalsPage(locale);
+  return generatePageMetadata(locale, signalsData);
+}
 
 export default async function SignalsPage({
   params,

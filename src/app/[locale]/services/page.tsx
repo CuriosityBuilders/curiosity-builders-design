@@ -2,8 +2,20 @@ import DotCard from "@/components/mvpblocks/dot-card";
 import { ServicesLoopSection } from "@/components/pages/ServicesLoopSection";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { generatePageMetadata } from "@/app/metadata";
 import { getServicesPage } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const servicesData = await getServicesPage(locale);
+  return generatePageMetadata(locale, servicesData);
+}
 
 export default async function ServicesPage({
   params,

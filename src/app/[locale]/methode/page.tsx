@@ -3,9 +3,21 @@ import { MethodeFinalCta } from "@/components/pages/MethodeFinalCta";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
+import { generatePageMetadata } from "@/app/metadata";
 import { getMethodePage } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const methodeData = await getMethodePage(locale);
+  return generatePageMetadata(locale, methodeData);
+}
 
 export default async function MethodePage({
   params,
