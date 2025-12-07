@@ -173,7 +173,7 @@ export default async function SignalsPage({
                               </span>
                             </div>
                           )}
-                          <h3 className="font-heading text-lg font-semibold text-black">
+                          <h3 className="font-heading text-xl font-black text-black py-2">
                             {title}
                           </h3>
                           {summary && (
@@ -201,7 +201,7 @@ export default async function SignalsPage({
                 : // Fallback to placeholder if no PDFs are available
                   [1, 2, 3].map((num) => (
                     <Card key={num}>
-                      <h3 className="font-heading text-lg font-semibold text-black">
+                      <h3 className="font-heading text-lg font-bold text-black">
                         {data.studies.exampleTitle} {num}
                       </h3>
                       <p className="mt-2 text-sm text-black">
@@ -231,26 +231,54 @@ export default async function SignalsPage({
 
       {/* Book */}
       {data?.book && (
-        <Section spacing="md">
-          <div className="mx-auto max-w-4xl px-4 text-center">
-            <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-              {data.book.title}
-            </h2>
-            <div className="mt-6 text-lg leading-relaxed text-black">
-              {data.book.description && (
-                <PortableText value={data.book.description} />
+        <Section spacing="md" className="bg-white">
+          <div className="mx-auto max-w-5xl px-4">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8">
+              {/* Contenu à gauche */}
+              <div className="flex flex-col justify-center">
+                <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
+                  {data.book.title}
+                </h2>
+                <div className="mt-6 text-lg leading-relaxed text-black">
+                  {data.book.description && (
+                    <PortableText value={data.book.description} />
+                  )}
+                </div>
+                {data.book.quote && (
+                  <blockquote className="mt-8 border-l-8 border-black bg-gray-100 pl-6 py-6 px-2 italic text-black">
+                    <p className="font-heading text-xl font-bold leading-relaxed">
+                      "{data.book.quote}"
+                    </p>
+                  </blockquote>
+                )}
+                {data.book.cta && (
+                  <div className="mt-8">
+                    <Button href="/contact">{data.book.cta}</Button>
+                  </div>
+                )}
+              </div>
+
+              {/* Image à droite */}
+              {data.book.image?.asset?.url && (
+                <div className="flex items-center justify-center md:justify-end">
+                  <div className="relative w-full max-w-xs">
+                    <Image
+                      src={urlFor(data.book.image)
+                        .width(800)
+                        .height(1200)
+                        .fit("max")
+                        .quality(100)
+                        .auto("format")
+                        .url()}
+                      alt={data.book.title || "Book cover"}
+                      width={320}
+                      height={480}
+                      className="h-auto w-full object-contain drop-shadow-lg"
+                    />
+                  </div>
+                </div>
               )}
             </div>
-            {data.book.quote && (
-              <blockquote className="mt-6 border-l-4 border-black pl-4 italic text-black">
-                {data.book.quote}
-              </blockquote>
-            )}
-            {data.book.cta && (
-              <div className="mt-8">
-                <Button href="/contact">{data.book.cta}</Button>
-              </div>
-            )}
           </div>
         </Section>
       )}

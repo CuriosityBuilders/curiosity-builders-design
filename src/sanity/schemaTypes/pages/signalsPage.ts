@@ -188,6 +188,15 @@ export default defineType({
           type: "string",
           title: "Call to Action Text",
         }),
+        defineField({
+          name: "imageRef",
+          type: "reference",
+          title: "Book Cover",
+          description:
+            "Référence vers l'image partagée (même image pour toutes les langues)",
+          to: [{ type: "bookImage" }],
+          weak: true,
+        }),
       ],
     }),
     defineField({

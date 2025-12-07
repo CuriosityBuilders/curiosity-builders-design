@@ -268,7 +268,21 @@ export const getSignalsPage = cache(async (language: string) => {
       title,
       description[],
       quote,
-      cta
+      cta,
+      "image": imageRef->image {
+        asset-> {
+          _id,
+          url,
+          metadata {
+            dimensions {
+              width,
+              height
+            }
+          }
+        },
+        hotspot,
+        crop
+      }
     },
     finalCta {
       title,
