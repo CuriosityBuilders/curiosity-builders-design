@@ -22,10 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const route of routes) {
       let url = baseUrl;
 
-      // Avec localePrefix: "as-needed", la locale par défaut (fr) n'est pas dans l'URL
-      if (locale !== routing.defaultLocale) {
-        url += `/${locale}`;
-      }
+      // Toutes les locales sont maintenant dans l'URL (localePrefix: "always")
+      url += `/${locale}`;
 
       if (route) {
         url += `/${route}`;
