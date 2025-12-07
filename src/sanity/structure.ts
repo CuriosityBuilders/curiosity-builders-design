@@ -2,7 +2,9 @@ import {
   DocumentTextIcon,
   FilterIcon,
   HomeIcon,
+  ImageIcon,
   MenuIcon,
+  SearchIcon,
 } from "@sanity/icons";
 import type { StructureResolver } from "sanity/structure";
 
@@ -107,10 +109,19 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title("Content")
     .items([
-      // Layout - Each element as a singleton with language grouping
+      // Layout
       S.divider().title("Layout"),
-      createSingleton(S, "navigation", "Navigation", MenuIcon),
-      createGlobalSingleton(S, "logo", "Logo", FilterIcon),
+      S.listItem()
+        .title("Header")
+        .icon(MenuIcon)
+        .child(
+          S.list()
+            .title("Header")
+            .items([
+              createGlobalSingleton(S, "logo", "Logo", FilterIcon),
+              createSingleton(S, "navigation", "Navigation", MenuIcon),
+            ])
+        ),
       createSingleton(S, "footer", "Footer", FilterIcon),
 
       // Pages - Each page as a singleton with language grouping
@@ -146,6 +157,36 @@ export const structure: StructureResolver = (S) =>
             ])
         ),
 
+      // Settings
+      S.divider().title("Settings"),
+      createGlobalSingleton(S, "seoSettings", "SEO Settings", SearchIcon),
+
+      // Shared Assets
+      S.divider().title("Shared Assets"),
+      S.listItem()
+        .title("Shared Content")
+        .icon(ImageIcon)
+        .child(
+          S.list()
+            .title("Shared Content")
+            .items([
+              createGlobalSingleton(S, "bookImage", "Book Image", ImageIcon),
+              createGlobalSingleton(S, "logos", "Logos", ImageIcon),
+              createGlobalSingleton(
+                S,
+                "projectImages",
+                "Project Images",
+                ImageIcon
+              ),
+              createGlobalSingleton(
+                S,
+                "signalsPdfs",
+                "Signals PDFs",
+                DocumentTextIcon
+              ),
+            ])
+        ),
+
       // Divider
       S.divider().title("Other"),
 
@@ -163,6 +204,11 @@ export const structure: StructureResolver = (S) =>
             "contactPage",
             "legalNoticePage",
             "privacyPolicyPage",
+            "seoSettings",
+            "bookImage",
+            "logos",
+            "projectImages",
+            "signalsPdfs",
           ].includes(listItem.getId() || "")
       ),
     ]);
