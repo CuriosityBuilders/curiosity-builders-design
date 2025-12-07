@@ -1,3 +1,4 @@
+import { generateMetadata as generateSEOMetadata } from "@/app/metadata";
 import { DisableDraftMode } from "@/components/DisableDraftMode";
 import { LocaleHtml } from "@/components/LocaleHtml";
 import { LogoPreload } from "@/components/LogoPreload";
@@ -7,11 +8,21 @@ import { routing } from "@/i18n/routing";
 import { urlFor } from "@/sanity/lib/image";
 import { SanityLive } from "@/sanity/lib/live";
 import { getLogo, getNavigation } from "@/sanity/lib/queries";
+import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return generateSEOMetadata(locale);
+}
 
 export default async function LocaleLayout({
   children,

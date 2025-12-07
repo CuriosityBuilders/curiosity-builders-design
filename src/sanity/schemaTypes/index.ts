@@ -12,6 +12,8 @@ import methodePage from "./pages/methodePage";
 import servicesPage from "./pages/servicesPage";
 // Pages
 import signalsPage from "./pages/signalsPage";
+// Settings
+import seoSettings from "./settings/seoSettings";
 // Shared
 import bookImage from "./shared/bookImage";
 import logos from "./shared/logos";
@@ -38,5 +40,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contactPage,
     legalNoticePage,
     privacyPolicyPage,
+    // Settings
+    seoSettings,
   ],
 };

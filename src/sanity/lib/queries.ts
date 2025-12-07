@@ -537,3 +537,45 @@ export const getPrivacyPolicyPage = cache(async (language: string) => {
   const { data } = await sanityFetch({ query });
   return data;
 });
+
+// SEO Settings (single document with internationalized fields)
+export const getSEOSettings = cache(async (language: string) => {
+  const query = `*[_type == "seoSettings"][0] {
+    _id,
+    title,
+    description,
+    ogImage {
+      asset->{
+        _id,
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      },
+      alt,
+      hotspot,
+      crop
+    }
+  }`;
+
+  const { data } = await sanityFetch({ query });
+
+  if (!data) return null;
+
+  return {
+    title: data.title?.[language] || data.title?.fr,
+    description: data.description?.[language] || data.description?.fr,
+    ogImage: data.ogImage
+      ? {
+          ...data.ogImage,
+          alt:
+            data.ogImage.alt?.[language] ||
+            data.ogImage.alt?.fr ||
+            "Curiosity.Builders",
+        }
+      : null,
+  };
+});
