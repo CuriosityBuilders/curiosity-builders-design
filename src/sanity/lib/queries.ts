@@ -231,7 +231,32 @@ export const getSignalsPage = cache(async (language: string) => {
       exampleTheme,
       exampleSummary,
       downloadButton,
-      cta
+      cta,
+      pdfs-> {
+        pdfs[] {
+          _key,
+          title {
+            fr,
+            en
+          },
+          coverImage {
+            asset-> {
+              _id,
+              url
+            },
+            alt
+          },
+          file {
+            asset-> {
+              _id,
+              url,
+              originalFilename
+            }
+          },
+          theme,
+          summary
+        }
+      }
     },
     book {
       title,

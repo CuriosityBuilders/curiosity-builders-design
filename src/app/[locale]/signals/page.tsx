@@ -2,9 +2,11 @@ import DotCard from "@/components/mvpblocks/dot-card";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
+import { urlFor } from "@/sanity/lib/image";
 import { getSignalsPage } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
+import Image from "next/image";
 
 export default async function SignalsPage({
   params,
@@ -108,27 +110,96 @@ export default async function SignalsPage({
               )}
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {/* Placeholder cards - can be replaced with dynamic content later */}
-              {[1, 2, 3].map((num) => (
-                <Card key={num}>
-                  <h3 className="font-heading text-lg font-semibold text-black">
-                    {data.studies.exampleTitle} {num}
-                  </h3>
-                  <p className="mt-2 text-sm text-black">
-                    {data.studies.exampleTheme}
-                  </p>
-                  <p className="mt-4 text-sm leading-relaxed text-black">
-                    {data.studies.exampleSummary}
-                  </p>
-                  {data.studies.downloadButton && (
-                    <div className="mt-6">
-                      <Button variant="secondary" className="text-sm">
-                        {data.studies.downloadButton}
-                      </Button>
-                    </div>
-                  )}
-                </Card>
-              ))}
+              {data.studies.pdfs?.pdfs && data.studies.pdfs.pdfs.length > 0
+                ? data.studies.pdfs.pdfs.map(
+                    (pdf: {
+                      _key: string;
+                      title: { fr: string; en: string };
+                      coverImage: { asset: { url: string }; alt?: string };
+                      file: {
+                        asset: { url: string; originalFilename?: string };
+                      };
+                      theme?: string;
+                      summary?: string;
+                    }) => {
+                      const title =
+                        locale === "fr" ? pdf.title.fr : pdf.title.en;
+                      const coverImageUrl = pdf.coverImage?.asset?.url
+                        ? urlFor(pdf.coverImage)
+                            .width(800)
+                            .height(600)
+                            .fit("max")
+                            .quality(85)
+                            .auto("format")
+                            .url()
+                        : null;
+                      const pdfUrl = pdf.file?.asset?.url;
+
+                      return (
+                        <Card key={pdf._key}>
+                          {coverImageUrl && (
+                            <div className="relative mb-4 aspect-[4/3] w-full overflow-hidden rounded-lg">
+                              <Image
+                                src={coverImageUrl}
+                                alt={pdf.coverImage?.alt || title}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                quality={85}
+                              />
+                            </div>
+                          )}
+                          <h3 className="font-heading text-lg font-semibold text-black">
+                            {title}
+                          </h3>
+                          {pdf.theme && (
+                            <p className="mt-2 text-sm text-black">
+                              {pdf.theme}
+                            </p>
+                          )}
+                          {pdf.summary && (
+                            <p className="mt-4 text-sm leading-relaxed text-black">
+                              {pdf.summary}
+                            </p>
+                          )}
+                          {pdfUrl && data.studies.downloadButton && (
+                            <div className="mt-6">
+                              <a
+                                href={pdfUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                download
+                                className="inline-flex items-center justify-center rounded-full border border-black/90 bg-white px-6 py-3 text-sm font-medium text-black transition-colors hover:border-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+                              >
+                                {data.studies.downloadButton}
+                              </a>
+                            </div>
+                          )}
+                        </Card>
+                      );
+                    }
+                  )
+                : // Fallback to placeholder if no PDFs are available
+                  [1, 2, 3].map((num) => (
+                    <Card key={num}>
+                      <h3 className="font-heading text-lg font-semibold text-black">
+                        {data.studies.exampleTitle} {num}
+                      </h3>
+                      <p className="mt-2 text-sm text-black">
+                        {data.studies.exampleTheme}
+                      </p>
+                      <p className="mt-4 text-sm leading-relaxed text-black">
+                        {data.studies.exampleSummary}
+                      </p>
+                      {data.studies.downloadButton && (
+                        <div className="mt-6">
+                          <Button variant="secondary" className="text-sm">
+                            {data.studies.downloadButton}
+                          </Button>
+                        </div>
+                      )}
+                    </Card>
+                  ))}
             </div>
             {data.studies.cta && (
               <div className="mt-8 text-center">

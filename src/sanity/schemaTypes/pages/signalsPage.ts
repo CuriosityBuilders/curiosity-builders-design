@@ -151,6 +151,13 @@ export default defineType({
           type: "string",
           title: "Call to Action Text",
         }),
+        defineField({
+          name: "pdfs",
+          type: "reference",
+          title: "PDFs",
+          description: "Référence au document contenant les PDFs téléchargeables",
+          to: [{ type: "signalsPdfs" }],
+        }),
       ],
     }),
     defineField({

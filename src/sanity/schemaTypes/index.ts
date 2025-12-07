@@ -16,6 +16,7 @@ import signalsPage from "./pages/signalsPage";
 import bookImage from "./shared/bookImage";
 import logos from "./shared/logos";
 import projectImages from "./shared/projectImages";
+import signalsPdfs from "./shared/signalsPdfs";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -27,6 +28,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     bookImage,
     logos,
     projectImages,
+    signalsPdfs,
     // Homepage - Single document (new)
     homepage,
     // Pages
