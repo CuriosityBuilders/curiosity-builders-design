@@ -122,20 +122,29 @@ export const structure: StructureResolver = (S) =>
       createSingleton(S, "methodePage", "Méthode", DocumentTextIcon),
       createSingleton(S, "contactPage", "Contact", DocumentTextIcon),
 
-      // Legal - Each legal page as a singleton with language grouping
+      // Legal - Grouped together
       S.divider().title("Legal"),
-      createSingleton(
-        S,
-        "legalNoticePage",
-        "Mentions légales",
-        DocumentTextIcon
-      ),
-      createSingleton(
-        S,
-        "privacyPolicyPage",
-        "Politique de confidentialité",
-        DocumentTextIcon
-      ),
+      S.listItem()
+        .title("Legal Pages")
+        .icon(DocumentTextIcon)
+        .child(
+          S.list()
+            .title("Legal Pages")
+            .items([
+              createSingleton(
+                S,
+                "legalNoticePage",
+                "Mentions légales",
+                DocumentTextIcon
+              ),
+              createSingleton(
+                S,
+                "privacyPolicyPage",
+                "Politique de confidentialité",
+                DocumentTextIcon
+              ),
+            ])
+        ),
 
       // Divider
       S.divider().title("Other"),
