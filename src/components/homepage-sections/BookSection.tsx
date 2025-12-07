@@ -112,13 +112,14 @@ export function BookSection({ data }: BookSectionProps) {
                     .width(1024)
                     .height(1536)
                     .fit("max")
-                    .quality(100)
+                    .quality(85)
                     .auto("format")
                     .url()}
                   alt={data.title || "Book cover"}
-                  quality={100}
+                  quality={85}
                   width={256}
                   height={384}
+                  loading="lazy"
                   className="relative h-auto w-full object-contain"
                 />
               ) : (
@@ -127,6 +128,7 @@ export function BookSection({ data }: BookSectionProps) {
                   alt="Changer l'Immobilier : de l'Utopie à la Réalité"
                   width={256}
                   height={384}
+                  loading="lazy"
                   className="relative h-auto w-full object-contain"
                 />
               )}

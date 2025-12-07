@@ -70,7 +70,7 @@ export function ClientsSection({ companies }: ClientsSectionProps) {
                       .width(256)
                       .height(128)
                       .fit("max")
-                      .quality(100)
+                      .quality(80)
                       .auto("format")
                       .ignoreImageParams()
                       .url()
@@ -86,6 +86,8 @@ export function ClientsSection({ companies }: ClientsSectionProps) {
                   alt={company.name}
                   width={128}
                   height={64}
+                  loading="lazy"
+                  quality={80}
                   className="max-h-full max-w-full object-contain"
                 />
               </div>

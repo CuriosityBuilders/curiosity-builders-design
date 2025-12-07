@@ -8,13 +8,7 @@ export const getLogo = cache(async () => {
     logo {
       asset->{
         _id,
-        url,
-        metadata {
-          dimensions {
-            width,
-            height
-          }
-        }
+        url
       },
       alt,
       hotspot,
@@ -112,13 +106,7 @@ export const getHomepage = cache(async (language: string) => {
         image {
           asset->{
             _id,
-            url,
-            metadata {
-              dimensions {
-                width,
-                height
-              }
-            }
+            url
           },
           hotspot,
           crop
@@ -136,13 +124,7 @@ export const getHomepage = cache(async (language: string) => {
       "image": imageRef->image {
         asset->{
           _id,
-          url,
-          metadata {
-            dimensions {
-              width,
-              height
-            }
-          }
+          url
         },
         hotspot,
         crop
@@ -155,13 +137,7 @@ export const getHomepage = cache(async (language: string) => {
         logo {
           asset->{
             _id,
-            url,
-            metadata {
-              dimensions {
-                width,
-                height
-              }
-            }
+            url
           },
           hotspot,
           crop
@@ -172,13 +148,7 @@ export const getHomepage = cache(async (language: string) => {
         logo {
           asset->{
             _id,
-            url,
-            metadata {
-              dimensions {
-                width,
-                height
-              }
-            }
+            url
           },
           hotspot,
           crop
@@ -274,13 +244,7 @@ export const getSignalsPage = cache(async (language: string) => {
       "image": imageRef->image {
         asset-> {
           _id,
-          url,
-          metadata {
-            dimensions {
-              width,
-              height
-            }
-          }
+          url
         },
         hotspot,
         crop
@@ -434,13 +398,7 @@ export const getMethodePage = cache(async (language: string) => {
         logo {
           asset->{
             _id,
-            url,
-            metadata {
-              dimensions {
-                width,
-                height
-              }
-            }
+            url
           },
           hotspot,
           crop
@@ -555,13 +513,7 @@ export const getSEOSettings = cache(async (language: string) => {
     ogImage {
       asset->{
         _id,
-        url,
-        metadata {
-          dimensions {
-            width,
-            height
-          }
-        }
+        url
       },
       alt,
       hotspot,
@@ -570,13 +522,7 @@ export const getSEOSettings = cache(async (language: string) => {
     favicon {
       asset->{
         _id,
-        url,
-        metadata {
-          dimensions {
-            width,
-            height
-          }
-        }
+        url
       },
       hotspot,
       crop
