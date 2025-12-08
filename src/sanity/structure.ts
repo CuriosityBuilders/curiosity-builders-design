@@ -2,7 +2,6 @@ import {
   DocumentTextIcon,
   FilterIcon,
   HomeIcon,
-  ImageIcon,
   MenuIcon,
   SearchIcon,
 } from "@sanity/icons";
@@ -159,33 +158,12 @@ export const structure: StructureResolver = (S) =>
 
       // Settings
       S.divider().title("Settings"),
-      createGlobalSingleton(S, "seoSettings", "SEO Settings (Global)", SearchIcon),
-
-      // Shared Assets
-      S.divider().title("Shared Assets"),
-      S.listItem()
-        .title("Shared Content")
-        .icon(ImageIcon)
-        .child(
-          S.list()
-            .title("Shared Content")
-            .items([
-              createGlobalSingleton(S, "bookImage", "Book Image", ImageIcon),
-              createGlobalSingleton(S, "logos", "Logos", ImageIcon),
-              createGlobalSingleton(
-                S,
-                "projectImages",
-                "Project Images",
-                ImageIcon
-              ),
-              createGlobalSingleton(
-                S,
-                "signalsPdfs",
-                "Signals PDFs",
-                DocumentTextIcon
-              ),
-            ])
-        ),
+      createGlobalSingleton(
+        S,
+        "seoSettings",
+        "SEO Settings (Global)",
+        SearchIcon
+      ),
 
       // Divider
       S.divider().title("Other"),
