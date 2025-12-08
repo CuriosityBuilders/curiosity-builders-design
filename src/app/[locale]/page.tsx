@@ -31,13 +31,11 @@ const MissionSection = dynamic(() =>
   )
 );
 
-// MissionTaglineSection uses Particles (client-only), so disable SSR
-const MissionTaglineSection = dynamic(
-  () =>
-    import("@/components/homepage-sections/MissionTaglineSection").then(
-      (mod) => mod.MissionTaglineSection
-    ),
-  { ssr: false }
+// MissionTaglineSection uses Particles - lazy loaded for better performance
+const MissionTaglineSection = dynamic(() =>
+  import("@/components/homepage-sections/MissionTaglineSection").then(
+    (mod) => mod.MissionTaglineSection
+  )
 );
 
 const TiersSection = dynamic(() =>
@@ -46,13 +44,11 @@ const TiersSection = dynamic(() =>
   )
 );
 
-// KeyMetricsSection uses Particles (client-only), so disable SSR
-const KeyMetricsSection = dynamic(
-  () =>
-    import("@/components/homepage-sections/KeyMetricsSection").then(
-      (mod) => mod.KeyMetricsSection
-    ),
-  { ssr: false }
+// KeyMetricsSection uses Particles - lazy loaded for better performance
+const KeyMetricsSection = dynamic(() =>
+  import("@/components/homepage-sections/KeyMetricsSection").then(
+    (mod) => mod.KeyMetricsSection
+  )
 );
 
 const ProjectsPhotosSection = dynamic(() =>
@@ -73,13 +69,11 @@ const CasesSection = dynamic(() =>
   )
 );
 
-// FooterCTASection uses Particles (client-only), so disable SSR
-const FooterCTASection = dynamic(
-  () =>
-    import("@/components/homepage-sections/FooterCTASection").then(
-      (mod) => mod.FooterCTASection
-    ),
-  { ssr: false }
+// FooterCTASection uses Particles - lazy loaded for better performance
+const FooterCTASection = dynamic(() =>
+  import("@/components/homepage-sections/FooterCTASection").then(
+    (mod) => mod.FooterCTASection
+  )
 );
 
 const NewsletterSection = dynamic(() =>
