@@ -245,6 +245,11 @@ SANITY_API_TOKEN=your-token-here
 
 # Pour les scripts de migration
 SANITY_API_WRITE_TOKEN=your-write-token-here
+
+# Resend (pour les emails de contact)
+RESEND_API_KEY=your-resend-api-key
+FROM_EMAIL=onboarding@resend.dev  # Email d'envoi (doit être vérifié dans Resend)
+CONTACT_EMAIL=contact@curiosity.builders  # Email de destination pour recevoir les demandes
 ```
 
 ### Développement
@@ -258,6 +263,18 @@ Ouvrir [http://localhost:3000](http://localhost:3000)
 ### Sanity Studio
 
 Le studio Sanity est accessible via [http://localhost:3000/studio](http://localhost:3000/studio)
+
+### Preview Email (React Email)
+
+Pour prévisualiser les emails React Email avec l'interface de développement :
+
+```bash
+npm run email:dev
+```
+
+Cela lancera le serveur de développement React Email qui scanne le dossier `src/emails/` et crée automatiquement une interface de prévisualisation interactive. Ouvrez [http://localhost:3001](http://localhost:3001) pour voir l'interface de prévisualisation.
+
+**Note** : Le serveur React Email utilise le port 3001 pour éviter les conflits avec Next.js (port 3000). Vous pouvez lancer les deux serveurs en parallèle dans des terminaux différents.
 
 ### Build
 

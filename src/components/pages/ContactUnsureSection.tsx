@@ -56,7 +56,13 @@ export function ContactUnsureSection({ data }: ContactUnsureSectionProps) {
                   "contact-form-section"
                 );
                 if (formElement) {
-                  formElement.scrollIntoView({ behavior: "smooth" });
+                  const elementPosition = formElement.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - 100; // 100px offset pour éviter que le header masque le formulaire
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                  });
                 }
               }}
             >

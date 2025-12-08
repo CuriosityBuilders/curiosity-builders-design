@@ -33,14 +33,31 @@ export function ContactForm({ data }: ContactFormProps) {
     bookExtract: false,
     consent: false,
   });
+  const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implémenter l'envoi du formulaire
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Une erreur est survenue.");
+      }
+
+      setSubmitted(true);
       setFormData({
         name: "",
         organization: "",
@@ -50,7 +67,11 @@ export function ContactForm({ data }: ContactFormProps) {
         bookExtract: false,
         consent: false,
       });
-    }, 5000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Une erreur est survenue.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (
@@ -229,14 +250,22 @@ export function ContactForm({ data }: ContactFormProps) {
             </div>
           )}
 
+          {error && (
+            <div className="rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-800">
+              {error}
+            </div>
+          )}
+
           {submitted && data?.successMessage && (
-            <div className="rounded-md bg-green-50 p-4 text-sm text-green-800">
+            <div className="rounded-md border border-green-200 bg-green-50 p-4 text-base text-green-800">
               {data.successMessage}
             </div>
           )}
 
           {data?.submitButton && (
-            <Button type="submit">{data.submitButton}</Button>
+            <Button type="submit" disabled={isLoading}>
+              {isLoading ? "Envoi en cours..." : data.submitButton}
+            </Button>
           )}
         </form>
       </div>
