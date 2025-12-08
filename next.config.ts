@@ -6,9 +6,12 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const nextConfig: NextConfig = {
   compiler: {
     // Remove console.log in production
-    removeConsole: process.env.NODE_ENV === "production" ? {
-      exclude: ["error", "warn"], // Keep console.error and console.warn
-    } : false,
+    removeConsole:
+      process.env.NODE_ENV === "production"
+        ? {
+            exclude: ["error", "warn"], // Keep console.error and console.warn
+          }
+        : false,
   },
   experimental: {
     // Optimize package imports for better tree-shaking
