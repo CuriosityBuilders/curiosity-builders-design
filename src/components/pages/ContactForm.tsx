@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useState } from "react";
 
 interface ContactFormProps {
@@ -245,7 +245,13 @@ export function ContactForm({ data }: ContactFormProps) {
                 className="mt-1 h-4 w-4 rounded border-black/20 text-black focus:ring-black"
               />
               <label htmlFor="consent" className="ml-3 text-sm text-black">
-                {data.consentLabel}
+                {data.consentLabel}{" "}
+                <Link
+                  href="/politique-confidentialite"
+                  className="underline transition-colors hover:text-gray-700"
+                >
+                  (privacy policy)
+                </Link>
               </label>
             </div>
           )}

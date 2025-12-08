@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          message: "Tous les champs requis doivent être remplis.",
+          message: "All required fields must be filled.",
         },
         { status: 400 }
       );
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { success: false, message: "Format d'email invalide." },
+        { success: false, message: "Invalid email format." },
         { status: 400 }
       );
     }
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          message: "Veuillez sélectionner au moins un document.",
+          message: "Please select at least one document.",
         },
         { status: 400 }
       );
@@ -56,9 +56,9 @@ export async function POST(request: NextRequest) {
     const contactEmail = process.env.CONTACT_EMAIL;
 
     if (!fromEmail || !contactEmail) {
-      console.error("FROM_EMAIL ou CONTACT_EMAIL non configuré");
+      console.error("FROM_EMAIL or CONTACT_EMAIL not configured");
       return NextResponse.json(
-        { success: false, message: "Erreur de configuration serveur." },
+        { success: false, message: "Server configuration error." },
         { status: 500 }
       );
     }
@@ -84,21 +84,21 @@ export async function POST(request: NextRequest) {
     });
 
     if (error) {
-      console.error("Erreur Resend:", error);
+      console.error("Resend error:", error);
       return NextResponse.json(
-        { success: false, message: "Erreur lors de l'envoi de l'email." },
+        { success: false, message: "Error sending email." },
         { status: 500 }
       );
     }
 
     return NextResponse.json(
-      { success: true, message: "Email envoyé avec succès." },
+      { success: true, message: "Email sent successfully." },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Erreur API contact:", error);
+    console.error("Contact API error:", error);
     return NextResponse.json(
-      { success: false, message: "Une erreur est survenue." },
+      { success: false, message: "An error occurred." },
       { status: 500 }
     );
   }
