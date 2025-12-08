@@ -1,7 +1,6 @@
 import { generateMetadata as generateSEOMetadata } from "@/app/metadata";
 import { DisableDraftMode } from "@/components/DisableDraftMode";
 import { LocaleHtml } from "@/components/LocaleHtml";
-import { LogoPreload } from "@/components/LogoPreload";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { StructuredData } from "@/components/seo/StructuredData";
@@ -46,12 +45,15 @@ export default async function LocaleLayout({
     draftMode().then((dm) => dm.isEnabled),
   ]);
 
+  // Generate logo URL with maximum quality for crisp display on all devices
+  // Using 3x dimensions for ultra-high DPI displays (540x192 = 3x of 180x64 desktop)
+  // Aspect ratio: 2.8125:1 (matches container: 180px × 64px)
   const logoUrl = logoData?.logo?.asset
     ? urlFor(logoData.logo)
-        .width(120)
-        .height(48)
+        .width(540)
+        .height(192)
         .fit("max")
-        .quality(80)
+        .quality(100)
         .auto("format")
         .url()
     : undefined;
@@ -60,7 +62,6 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <StructuredData locale={locale} />
       <LocaleHtml />
-      <LogoPreload logoUrl={logoUrl} />
       <Header
         navigationItems={navigationData?.items || []}
         logoUrl={logoUrl}
