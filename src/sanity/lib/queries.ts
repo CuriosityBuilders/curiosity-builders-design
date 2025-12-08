@@ -481,6 +481,8 @@ export const getLegalNoticePage = cache(async (language: string) => {
       title,
       subtitle
     },
+    seoTitle,
+    seoDescription,
     content[],
     language
   }`;
@@ -496,6 +498,8 @@ export const getPrivacyPolicyPage = cache(async (language: string) => {
       title,
       subtitle
     },
+    seoTitle,
+    seoDescription,
     content[],
     language
   }`;

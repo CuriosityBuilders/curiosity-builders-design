@@ -1,4 +1,4 @@
-import { DocumentTextIcon, SparklesIcon } from "@sanity/icons";
+import { DocumentTextIcon, SearchIcon, SparklesIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export default defineType({
@@ -7,6 +7,7 @@ export default defineType({
   type: "document",
   groups: [
     { name: "hero", title: "Hero", icon: SparklesIcon, default: true },
+    { name: "seo", title: "SEO", icon: SearchIcon },
     { name: "content", title: "Content", icon: DocumentTextIcon },
   ],
   fields: [
@@ -33,6 +34,24 @@ export default defineType({
           title: "Sous-titre",
         }),
       ],
+    }),
+    defineField({
+      name: "seoTitle",
+      type: "string",
+      title: "SEO Title",
+      description:
+        "Titre pour les moteurs de recherche (50-60 caractères recommandés)",
+      group: "seo",
+      validation: (Rule) => Rule.max(60),
+    }),
+    defineField({
+      name: "seoDescription",
+      type: "text",
+      title: "SEO Description",
+      description:
+        "Description pour les moteurs de recherche (150-160 caractères recommandés)",
+      group: "seo",
+      validation: (Rule) => Rule.max(160),
     }),
     defineField({
       name: "content",
@@ -73,7 +92,12 @@ export default defineType({
       title: "hero.title",
     },
     prepare(selection) {
-      const flag = selection.language === "fr" ? "🇫🇷" : selection.language === "en" ? "🇬🇧" : "";
+      const flag =
+        selection.language === "fr"
+          ? "🇫🇷"
+          : selection.language === "en"
+            ? "🇬🇧"
+            : "";
       return {
         title: ` ${flag} Privacy Policy (${selection.language?.toUpperCase() || "N/A"})`,
         subtitle: selection.title || "Politique de confidentialité",

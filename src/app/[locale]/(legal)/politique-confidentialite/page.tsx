@@ -1,7 +1,24 @@
+import { generatePageMetadata } from "@/app/metadata";
 import { portableTextComponents } from "@/components/ui/PortableTextComponents";
 import { Section } from "@/components/ui/Section";
 import { getPrivacyPolicyPage } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const data = await getPrivacyPolicyPage(locale);
+
+  return generatePageMetadata(locale, {
+    seoTitle: data?.seoTitle,
+    seoDescription: data?.seoDescription,
+    hero: data?.hero,
+  });
+}
 
 export default async function PolitiqueConfidentialitePage({
   params,
