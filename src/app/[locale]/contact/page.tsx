@@ -1,6 +1,5 @@
 import { generatePageMetadata } from "@/app/metadata";
-import { ContactForm } from "@/components/pages/ContactForm";
-import { ContactUnsureSection } from "@/components/pages/ContactUnsureSection";
+import { ContactFormWrapper } from "@/components/pages/ContactFormWrapper";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { getContactPage } from "@/sanity/lib/queries";
@@ -118,15 +117,8 @@ export default async function ContactPage({
         </Section>
       )}
 
-      {/* Section Vous ne savez pas par où commencer ? */}
-      <ContactUnsureSection data={data?.unsure} />
-
-      {/* Formulaire Brochure */}
-      {data?.form && (
-        <div id="contact-form-section">
-          <ContactForm data={data.form} />
-        </div>
-      )}
+      {/* Section Vous ne savez pas par où commencer ? + Formulaire Brochure */}
+      <ContactFormWrapper unsureData={data?.unsure} formData={data?.form} />
 
       {/* Final CTA */}
       {data?.finalCta && (

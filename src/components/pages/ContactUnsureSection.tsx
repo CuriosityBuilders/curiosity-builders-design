@@ -13,9 +13,13 @@ interface ContactUnsureSectionProps {
     button2?: string;
     button3?: string;
   };
+  onRequestBrochure?: () => void;
 }
 
-export function ContactUnsureSection({ data }: ContactUnsureSectionProps) {
+export function ContactUnsureSection({
+  data,
+  onRequestBrochure,
+}: ContactUnsureSectionProps) {
   if (!data) return null;
 
   return (
@@ -52,17 +56,24 @@ export function ContactUnsureSection({ data }: ContactUnsureSectionProps) {
             <Button
               variant="primary"
               onClick={() => {
-                const formElement = document.getElementById(
-                  "contact-form-section"
-                );
-                if (formElement) {
-                  const elementPosition = formElement.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - 100; // 100px offset pour éviter que le header masque le formulaire
+                if (onRequestBrochure) {
+                  onRequestBrochure();
+                } else {
+                  // Fallback si onRequestBrochure n'est pas fourni
+                  const formElement = document.getElementById(
+                    "contact-form-section"
+                  );
+                  if (formElement) {
+                    const elementPosition =
+                      formElement.getBoundingClientRect().top;
+                    const offsetPosition =
+                      elementPosition + window.pageYOffset - 100;
 
-                  window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth",
-                  });
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: "smooth",
+                    });
+                  }
                 }
               }}
             >
