@@ -10,6 +10,19 @@ const nextConfig: NextConfig = {
       exclude: ["error", "warn"], // Keep console.error and console.warn
     } : false,
   },
+  experimental: {
+    // Optimize package imports for better tree-shaking
+    // Only loads the modules you actually use, reducing bundle size
+    optimizePackageImports: [
+      "framer-motion", // Heavy animation library
+      "@sanity/icons", // Icon library
+      "@tsparticles/react", // Particle library
+      "@tsparticles/engine", // Particle engine
+      "@tsparticles/slim", // Slim particle library
+      // Note: @tabler/icons-react and lucide-react are already optimized by default
+      // but can be explicitly added if needed
+    ],
+  },
   images: {
     remotePatterns: [
       {
