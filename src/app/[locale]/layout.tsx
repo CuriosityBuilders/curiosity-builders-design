@@ -68,9 +68,9 @@ export default async function LocaleLayout({
         logoAlt={logoData?.logo?.alt || "Curiosity.Builders"}
       />
       {children}
-      <SanityLive />
       {isDraftMode && (
         <>
+          <SanityLive />
           <DisableDraftMode />
           <VisualEditing />
         </>
