@@ -92,12 +92,8 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const homepageData = await getHomepage(locale);
 
   return generatePageMetadata(locale, {
-    seoTitle: homepageData?.seo?.title,
-    seoDescription: homepageData?.seo?.description,
-    hero: homepageData?.hero,
     currentPath: "",
   });
 }
