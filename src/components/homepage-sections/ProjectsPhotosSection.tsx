@@ -33,7 +33,7 @@ interface ProjectsPhotosSectionProps {
 
 const projectPhotos = [
   {
-    src: "/photos projets/bas chantenay.png",
+    src: "/photos projets/bas chantenay.webp",
     alt: "Bas Chantenay",
     title: "Bas Chantenay",
   },
@@ -49,7 +49,7 @@ const projectPhotos = [
     objectPosition: "top",
   },
   {
-    src: "/photos projets/Ref Neoz.png",
+    src: "/photos projets/Ref Neoz.webp",
     alt: "Référence Neoz",
     title: "Référence Neoz",
   },
