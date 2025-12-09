@@ -38,12 +38,12 @@ const projectPhotos = [
     title: "Bas Chantenay",
   },
   {
-    src: "/photos projets/bas chantenay usine élec.png",
+    src: "/photos projets/bas chantenay usine élec.webp",
     alt: "Bas Chantenay - Usine électrique",
     title: "Bas Chantenay - Usine électrique",
   },
   {
-    src: "/photos projets/parcours UX bas chantenay 2.png",
+    src: "/photos projets/parcours-UX-bas-chantenay.webp",
     alt: "Parcours UX Bas Chantenay",
     title: "Parcours UX Bas Chantenay",
     objectPosition: "top",
@@ -54,7 +54,7 @@ const projectPhotos = [
     title: "Référence Neoz",
   },
   {
-    src: "/photos projets/Screenshot 2025-11-19 at 17.48.55.png",
+    src: "/photos projets/Screenshot 2025-11-19 at 17.48.55.webp",
     alt: "Projet Coliving",
     title: "Projet Coliving",
   },
