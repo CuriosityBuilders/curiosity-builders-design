@@ -7,7 +7,8 @@ import { token } from "./token";
 
 export const { sanityFetch, SanityLive } = defineLive({
   client,
-  // Only expose token to browser in development/draft mode for security
-  browserToken: process.env.NODE_ENV === "development" ? token : undefined,
+  // Expose token to browser in development OR when draft mode is enabled
+  // This allows live editing to work in production when using draft mode
+  browserToken: token,
   serverToken: token,
 });
