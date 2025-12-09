@@ -17,7 +17,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const signalsData = await getSignalsPage(locale);
-  return generatePageMetadata(locale, signalsData);
+  return generatePageMetadata(locale, {
+    ...signalsData,
+    currentPath: "/signals",
+  });
 }
 
 export default async function SignalsPage({

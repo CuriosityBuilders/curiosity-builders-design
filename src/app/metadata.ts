@@ -1,3 +1,4 @@
+import { routing } from "@/i18n/routing";
 import { urlFor } from "@/sanity/lib/image";
 import { getSEOSettings } from "@/sanity/lib/queries";
 import type { Metadata } from "next";
@@ -21,6 +22,7 @@ export async function generatePageMetadata(
     seoTitle?: string | null;
     seoDescription?: string | null;
     hero?: { title?: string | null };
+    currentPath?: string;
   }
 ): Promise<Metadata> {
   return generateMetadata(locale, pageData);
@@ -36,6 +38,7 @@ export async function generateMetadata(
     seoTitle?: string | null;
     seoDescription?: string | null;
     hero?: { title?: string | null };
+    currentPath?: string;
   }
 ): Promise<Metadata> {
   let seoSettings: Awaited<ReturnType<typeof getSEOSettings>> | undefined;
@@ -57,6 +60,18 @@ export async function generateMetadata(
     defaultTitle;
   const description =
     pageData?.seoDescription || seoSettings?.description || defaultDescription;
+
+  // Build canonical URL and alternate language URLs
+  const currentPath = pageData?.currentPath || "";
+  const canonicalUrl = `${siteUrl}/${locale}${currentPath}`;
+
+  // Build alternate language URLs for hreflang
+  const languages: Record<string, string> = {};
+  for (const loc of routing.locales) {
+    languages[loc] = `${siteUrl}/${loc}${currentPath}`;
+  }
+  // Add x-default pointing to the default locale
+  languages["x-default"] = `${siteUrl}/${routing.defaultLocale}${currentPath}`;
 
   // Build Open Graph image URL
   let ogImageUrl = defaultOgImage;
@@ -104,6 +119,10 @@ export async function generateMetadata(
     metadataBase: new URL(siteUrl),
     title,
     description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: languages,
+    },
     icons: faviconUrl
       ? {
           icon: faviconUrl,
@@ -114,6 +133,9 @@ export async function generateMetadata(
     openGraph: {
       title,
       description,
+      url: canonicalUrl,
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+      type: "website",
       images: [
         {
           url: ogImageUrl,

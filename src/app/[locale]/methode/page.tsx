@@ -16,7 +16,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const methodeData = await getMethodePage(locale);
-  return generatePageMetadata(locale, methodeData);
+  return generatePageMetadata(locale, {
+    ...methodeData,
+    currentPath: "/methode",
+  });
 }
 
 export default async function MethodePage({

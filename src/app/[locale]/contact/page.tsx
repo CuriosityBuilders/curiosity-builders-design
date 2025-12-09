@@ -13,7 +13,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const contactData = await getContactPage(locale);
-  return generatePageMetadata(locale, contactData);
+  return generatePageMetadata(locale, {
+    ...contactData,
+    currentPath: "/contact",
+  });
 }
 
 export default async function ContactPage({

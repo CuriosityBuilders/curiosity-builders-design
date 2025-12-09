@@ -1,3 +1,4 @@
+import { generatePageMetadata } from "@/app/metadata";
 import { FilmGrain } from "@/components/ui/FilmGrain";
 import { getHomepage } from "@/sanity/lib/queries";
 import dynamic from "next/dynamic";
@@ -84,6 +85,22 @@ const NewsletterSection = dynamic(() =>
 
 // Increase revalidate to 1 hour for better caching and reduced server load
 export const revalidate = 3600;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const homepageData = await getHomepage(locale);
+
+  return generatePageMetadata(locale, {
+    seoTitle: homepageData?.seo?.title,
+    seoDescription: homepageData?.seo?.description,
+    hero: homepageData?.hero,
+    currentPath: "",
+  });
+}
 
 export default async function Home({
   params,

@@ -17,6 +17,7 @@ export async function generateMetadata({
     seoTitle: data?.seoTitle,
     seoDescription: data?.seoDescription,
     hero: data?.hero,
+    currentPath: "/mentions-legales",
   });
 }
 

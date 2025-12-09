@@ -14,7 +14,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const servicesData = await getServicesPage(locale);
-  return generatePageMetadata(locale, servicesData);
+  return generatePageMetadata(locale, {
+    ...servicesData,
+    currentPath: "/services",
+  });
 }
 
 export default async function ServicesPage({
