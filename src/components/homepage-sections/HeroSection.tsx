@@ -1,12 +1,20 @@
 "use client";
 
+import { FilmGrain } from "@/components/ui/FilmGrain";
 import { Section } from "@/components/ui/Section";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Link } from "@/i18n/routing";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
-import { FilmGrain } from "@/components/ui/FilmGrain";
+// Dynamic import de framer-motion pour réduire le bundle initial
+const MotionDiv = dynamic(
+  () => import("framer-motion").then((mod) => mod.motion.div),
+  {
+    ssr: false, // Pas de SSR pour les animations
+    loading: () => <div />, // Fallback vide pendant le chargement
+  }
+);
 
 // Lazy-load non-critical background elements for better LCP
 const FloatingPaths = dynamic(
@@ -103,18 +111,12 @@ export function HeroSection({ data }: HeroSectionProps) {
       {/* Content */}
       <div className="relative z-10 ml-0 mr-auto max-w-4xl pl-4 pr-4 md:pl-8 lg:pl-44">
         <div className="flex flex-col gap-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.3,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
+          <h1
+            className="text-pretty font-epilogue text-4xl md:text-5xl lg:text-[84px] max-w-4xl font-bold text-white tracking-medium animate-text"
+            data-value={data?.title ?? ""}
           >
-            <h1 className="font-epilogue text-4xl md:text-5xl lg:text-[84px] max-w-4xl font-bold text-white tracking-medium">
-              {data?.title ?? ""}
-            </h1>
-          </motion.div>
+            {data?.title ?? ""}
+          </h1>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
