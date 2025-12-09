@@ -1,22 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
+import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
-import dynamic from "next/dynamic";
 import Image from "next/image";
-
-// Lazy load SparklesCore (heavy @tsparticles dependency) only when needed
-const SparklesCore = dynamic(
-  () =>
-    import("@/components/ui/sparkles").then((mod) => ({
-      default: mod.SparklesCore,
-    })),
-  { ssr: false }
-);
 
 interface Company {
   name: string;
@@ -99,15 +90,12 @@ export function MethodeFinalCta({ data }: MethodeFinalCtaProps) {
               })}
             </div>
             <div className="absolute inset-0 z-0 mask-[radial-gradient(50%_50%,white,transparent_70%)]">
-              <SparklesCore
-                id="tsparticles-logos"
-                background="transparent"
-                particleDensity={150}
-                particleColor="#ffffff"
-                minSize={0.5}
-                maxSize={1.5}
-                speed={1.5}
+              <Particles
                 className="absolute inset-0 h-full w-full opacity-60"
+                quantity={150}
+                ease={80}
+                color="#ffffff"
+                size={1}
               />
             </div>
           </div>

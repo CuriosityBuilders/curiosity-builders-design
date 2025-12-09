@@ -19,9 +19,6 @@ const nextConfig: NextConfig = {
     optimizePackageImports: [
       "framer-motion", // Heavy animation library (lazy loaded where possible)
       "@sanity/icons", // Icon library
-      "@tsparticles/react", // Particle library
-      "@tsparticles/engine", // Particle engine
-      "@tsparticles/slim", // Slim particle library
       "lucide-react", // Icon library (only 1 icon used)
       "@react-email/components", // Email components
     ],
