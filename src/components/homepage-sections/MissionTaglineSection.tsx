@@ -4,10 +4,16 @@ import { Button } from "@/components/ui/Button";
 import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { useTranslations } from "next-intl";
 
-export function MissionTaglineSection() {
-  const t = useTranslations("mission");
+interface MissionTaglineSectionProps {
+  data?: {
+    tagline?: string;
+    cta1?: string;
+    cta2?: string;
+  };
+}
+
+export function MissionTaglineSection({ data }: MissionTaglineSectionProps) {
   const { ref: taglineRef, isVisible: taglineVisible } = useScrollAnimation({
     threshold: 0.1,
     rootMargin: "-100px",
@@ -30,11 +36,11 @@ export function MissionTaglineSection() {
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
         <p
           ref={taglineRef as React.RefObject<HTMLParagraphElement>}
-          className={`font-heading text-xl font-bold text-white sm:text-3xl scroll-animate scroll-animate-up ${
+          className={`font-heading text-3xl font-bold text-white sm:text-4xl scroll-animate scroll-animate-up ${
             taglineVisible ? "is-visible" : ""
           }`}
         >
-          {t("tagline")}
+          {data?.tagline ?? ""}
         </p>
         <div
           ref={buttonsRef as React.RefObject<HTMLDivElement>}
@@ -49,7 +55,7 @@ export function MissionTaglineSection() {
             style={{ transitionDelay: "0.1s" }}
           >
             <Button href="/services" variant="inverted">
-              {t("cta1")}
+              {data?.cta1 ?? ""}
             </Button>
           </div>
           <div
@@ -59,7 +65,7 @@ export function MissionTaglineSection() {
             style={{ transitionDelay: "0.2s" }}
           >
             <Button href="/contact" variant="secondary-inverted">
-              {t("cta2")}
+              {data?.cta2 ?? ""}
             </Button>
           </div>
         </div>

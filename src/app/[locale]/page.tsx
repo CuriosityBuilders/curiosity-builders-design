@@ -117,7 +117,7 @@ export default async function Home({
       <HeroSection data={homepageData?.hero} />
       <IntroSection data={homepageData?.intro} />
       <MissionSection data={homepageData?.mission} />
-      <MissionTaglineSection />
+      <MissionTaglineSection data={homepageData?.mission} />
       <TiersSection data={homepageData?.tiers} />
       <KeyMetricsSection data={homepageData?.keyMetrics} />
       <ProjectsPhotosSection data={homepageData?.projects} />
