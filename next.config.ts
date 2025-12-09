@@ -25,11 +25,6 @@ const nextConfig: NextConfig = {
       // Note: @tabler/icons-react and lucide-react are already optimized by default
       // but can be explicitly added if needed
     ],
-    // Exclure les packages Sanity du bundle des pages publiques
-    serverComponentsExternalPackages: [
-      "@sanity/client",
-      "@sanity/vision", // Vision seulement dans Studio
-    ],
   },
   images: {
     remotePatterns: [
