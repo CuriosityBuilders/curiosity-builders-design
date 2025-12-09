@@ -7,15 +7,6 @@ import { Link } from "@/i18n/routing";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
-// Dynamic import de framer-motion pour réduire le bundle initial
-const MotionDiv = dynamic(
-  () => import("framer-motion").then((mod) => mod.motion.div),
-  {
-    ssr: false, // Pas de SSR pour les animations
-    loading: () => <div />, // Fallback vide pendant le chargement
-  }
-);
-
 // Lazy-load non-critical background elements for better LCP
 const FloatingPaths = dynamic(
   () =>
@@ -89,15 +80,6 @@ export function HeroSection({ data }: HeroSectionProps) {
         {/* Film Grain Texture */}
         <FilmGrain intensity={0.05} />
 
-        {/* Particles Background */}
-        {/* <Particles
-          className="absolute inset-0"
-          quantity={100}
-          ease={80}
-          color="#ffffff"
-          refresh
-        /> */}
-
         {/* Decorative Lines */}
         <div className="absolute inset-0 pointer-events-none hidden md:block">
           <div className="absolute left-[10%] top-0 bottom-0 w-px bg-white/10" />
@@ -112,7 +94,7 @@ export function HeroSection({ data }: HeroSectionProps) {
       <div className="relative z-10 ml-0 mr-auto max-w-4xl pl-4 pr-4 md:pl-8 lg:pl-44">
         <div className="flex flex-col gap-12">
           <h1
-            className="text-pretty font-epilogue text-4xl md:text-5xl lg:text-[84px] max-w-4xl font-bold text-white tracking-medium animate-text"
+            className="font-epilogue text-4xl md:text-5xl lg:text-[84px] max-w-4xl font-bold text-white tracking-medium animate-text"
             data-value={data?.title ?? ""}
           >
             {data?.title ?? ""}
