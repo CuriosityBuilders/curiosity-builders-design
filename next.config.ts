@@ -17,13 +17,13 @@ const nextConfig: NextConfig = {
     // Optimize package imports for better tree-shaking
     // Only loads the modules you actually use, reducing bundle size
     optimizePackageImports: [
-      "framer-motion", // Heavy animation library
+      "framer-motion", // Heavy animation library (lazy loaded where possible)
       "@sanity/icons", // Icon library
       "@tsparticles/react", // Particle library
       "@tsparticles/engine", // Particle engine
       "@tsparticles/slim", // Slim particle library
-      // Note: @tabler/icons-react and lucide-react are already optimized by default
-      // but can be explicitly added if needed
+      "lucide-react", // Icon library (only 1 icon used)
+      "@react-email/components", // Email components
     ],
   },
   images: {

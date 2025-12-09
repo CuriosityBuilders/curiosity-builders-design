@@ -2,12 +2,21 @@
 
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { SparklesCore } from "@/components/ui/sparkles";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+
+// Lazy load SparklesCore (heavy @tsparticles dependency) only when needed
+const SparklesCore = dynamic(
+  () =>
+    import("@/components/ui/sparkles").then((mod) => ({
+      default: mod.SparklesCore,
+    })),
+  { ssr: false }
+);
 
 interface Company {
   name: string;
@@ -37,6 +46,11 @@ interface MethodeFinalCtaProps {
 }
 
 export function MethodeFinalCta({ data }: MethodeFinalCtaProps) {
+  const { ref: logosRef, isVisible: logosVisible } = useScrollAnimation({
+    threshold: 0.1,
+    rootMargin: "-100px",
+  });
+
   if (!data) return null;
 
   return (
@@ -49,7 +63,10 @@ export function MethodeFinalCta({ data }: MethodeFinalCtaProps) {
           {data.body && <PortableText value={data.body} />}
         </div>
         {data.clients && data.clients.length > 0 && (
-          <div className="relative mt-8 overflow-hidden rounded-lg">
+          <div
+            ref={logosRef as React.RefObject<HTMLDivElement>}
+            className="relative mt-8 overflow-hidden rounded-lg"
+          >
             <div className="relative z-10 flex flex-wrap items-center justify-center gap-6 py-8 md:gap-8">
               {data.clients.map((company: Company, index: number) => {
                 const logoSrc = company.logo?.asset?.url
@@ -63,16 +80,12 @@ export function MethodeFinalCta({ data }: MethodeFinalCtaProps) {
                   : null;
 
                 return logoSrc ? (
-                  <motion.div
+                  <div
                     key={`${company.name}-${index}`}
-                    className="flex h-10 w-20 shrink-0 items-center justify-center opacity-90 grayscale-50 transition-all hover:opacity-100 hover:grayscale-0 md:h-14 md:w-28"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.6,
-                      delay: index * 0.1,
-                    }}
+                    className={`flex h-10 w-20 shrink-0 items-center justify-center opacity-90 grayscale-50 transition-all hover:opacity-100 hover:grayscale-0 md:h-14 md:w-28 scroll-animate scroll-animate-up ${
+                      logosVisible ? "is-visible" : ""
+                    }`}
+                    style={{ transitionDelay: `${index * 0.1}s` }}
                   >
                     <Image
                       src={logoSrc}
@@ -81,7 +94,7 @@ export function MethodeFinalCta({ data }: MethodeFinalCtaProps) {
                       height={56}
                       className="max-h-full max-w-full object-contain brightness-0 invert opacity-70"
                     />
-                  </motion.div>
+                  </div>
                 ) : null;
               })}
             </div>

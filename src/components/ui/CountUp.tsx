@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 interface CountUpProps {
@@ -19,11 +18,35 @@ export function CountUp({
   className = "",
 }: CountUpProps) {
   const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (isInView) {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(element);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "-100px",
+      }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
       const startTime = Date.now();
       const startValue = 0;
       const endValue = value;
@@ -50,23 +73,22 @@ export function CountUp({
 
       requestAnimationFrame(animate);
     }
-  }, [isInView, value, duration]);
+  }, [isVisible, value, duration]);
 
   return (
-    <motion.span
+    <span
       ref={ref}
-      className={className}
-      initial={{ opacity: 0, scale: 0.5 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{
-        duration: 0.5,
-        ease: [0.25, 0.46, 0.45, 0.94],
+      className={`${className} scroll-animate scroll-animate-fade ${
+        isVisible ? "is-visible" : ""
+      }`}
+      style={{
+        transform: isVisible ? "scale(1)" : "scale(0.5)",
+        transition: "opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
       }}
     >
       {prefix}
       {count}
       {suffix}
-    </motion.span>
+    </span>
   );
 }

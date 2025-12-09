@@ -4,7 +4,6 @@ import { FilmGrain } from "@/components/ui/FilmGrain";
 import { Section } from "@/components/ui/Section";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Link } from "@/i18n/routing";
-import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
 // Lazy-load non-critical background elements for better LCP
@@ -13,6 +12,12 @@ const FloatingPaths = dynamic(
     import("@/components/ui/background-paths").then((mod) => ({
       default: mod.FloatingPaths,
     })),
+  { ssr: false }
+);
+
+// Lazy-load motion only for the radial gradient animation (desktop only)
+const MotionDiv = dynamic(
+  () => import("framer-motion").then((mod) => ({ default: mod.motion.div })),
   { ssr: false }
 );
 
@@ -54,7 +59,7 @@ export function HeroSection({ data }: HeroSectionProps) {
             background: `radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 50%)`,
           }}
         />
-        <motion.div
+        <MotionDiv
           className="absolute inset-0 hidden md:block"
           style={{
             background: `radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 50%)`,
@@ -64,7 +69,7 @@ export function HeroSection({ data }: HeroSectionProps) {
           }}
           transition={{
             duration: 8,
-            repeat: Infinity,
+            repeat: Number.POSITIVE_INFINITY,
             ease: "easeInOut",
           }}
         />
@@ -99,37 +104,20 @@ export function HeroSection({ data }: HeroSectionProps) {
           >
             {data?.title ?? ""}
           </h1>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.2,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-          >
+          <div className="animate-fade-in-up animation-delay-200">
             <p className="font-epilogue text-2xl font-extrabold leading-relaxed text-white">
               {data?.subtitleLine1 ?? ""} <br /> {data?.subtitleLine2 ?? ""}
             </p>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.4,
-            ease: [0.25, 0.46, 0.45, 0.94],
-          }}
-          className="mt-12"
-        >
+        <div className="mt-12 animate-fade-in-up animation-delay-400">
           <Link href="/methode">
             <ShinyButton className="font-epilogue bg-white border-white/20 text-black hover:bg-white/90 px-6 py-3">
               {data?.cta ?? ""}
             </ShinyButton>
           </Link>
-        </motion.div>
+        </div>
       </div>
     </Section>
   );

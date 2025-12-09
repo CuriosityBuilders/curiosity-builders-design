@@ -3,11 +3,20 @@
 import { Button } from "@/components/ui/Button";
 import { Particles } from "@/components/ui/particles";
 import { Section } from "@/components/ui/Section";
-import { motion } from "framer-motion";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useTranslations } from "next-intl";
 
 export function MissionTaglineSection() {
   const t = useTranslations("mission");
+  const { ref: taglineRef, isVisible: taglineVisible } = useScrollAnimation({
+    threshold: 0.1,
+    rootMargin: "-100px",
+  });
+  const { ref: buttonsRef, isVisible: buttonsVisible } = useScrollAnimation({
+    threshold: 0.1,
+    rootMargin: "-100px",
+  });
+
   return (
     <Section id="mission-tagline" spacing="md" className="relative bg-black">
       {/* Particles Background */}
@@ -19,58 +28,41 @@ export function MissionTaglineSection() {
         refresh
       />
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
-        <motion.p
-          className="font-heading text-xl font-bold text-white sm:text-3xl"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94],
-          }}
+        <p
+          ref={taglineRef as React.RefObject<HTMLParagraphElement>}
+          className={`font-heading text-xl font-bold text-white sm:text-3xl scroll-animate scroll-animate-up ${
+            taglineVisible ? "is-visible" : ""
+          }`}
         >
           {t("tagline")}
-        </motion.p>
-        <motion.div
-          className="mt-8 flex flex-wrap gap-4 justify-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{
-            duration: 0.6,
-            delay: 0.2,
-            ease: [0.25, 0.46, 0.45, 0.94],
-          }}
+        </p>
+        <div
+          ref={buttonsRef as React.RefObject<HTMLDivElement>}
+          className={`mt-8 flex flex-wrap gap-4 justify-center scroll-animate scroll-animate-fade ${
+            buttonsVisible ? "is-visible" : ""
+          }`}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{
-              duration: 0.6,
-              delay: 0.3,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
+          <div
+            className={`scroll-animate scroll-animate-up ${
+              buttonsVisible ? "is-visible" : ""
+            }`}
+            style={{ transitionDelay: "0.1s" }}
           >
             <Button href="/services" variant="inverted">
               {t("cta1")}
             </Button>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{
-              duration: 0.6,
-              delay: 0.4,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
+          </div>
+          <div
+            className={`scroll-animate scroll-animate-up ${
+              buttonsVisible ? "is-visible" : ""
+            }`}
+            style={{ transitionDelay: "0.2s" }}
           >
             <Button href="/contact" variant="secondary-inverted">
               {t("cta2")}
             </Button>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </Section>
   );
