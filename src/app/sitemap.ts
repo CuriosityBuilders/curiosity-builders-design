@@ -27,9 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       if (route) {
         url += `/${route}`;
-      } else {
-        // S'assurer que la homepage a un trailing slash
-        url += "/";
       }
 
       // Priorité et fréquence selon le type de page

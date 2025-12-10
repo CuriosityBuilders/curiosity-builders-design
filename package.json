@@ -11,6 +11,7 @@
     "format": "biome format --write",
     "migrate:content": "tsx scripts/migrate-content.ts",
     "migrate:homepage": "tsx scripts/migrate-to-homepage.ts",
+    "delete:invalid-metadata": "node scripts/delete-invalid-metadata.mjs",
     "email:dev": "email dev --dir src/emails --port 3001"
   },
   "dependencies": {
