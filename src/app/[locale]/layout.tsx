@@ -1,6 +1,6 @@
+import { epilogue } from "@/app/layout";
 import { generateMetadata as generateSEOMetadata } from "@/app/metadata";
 import { DisableDraftMode } from "@/components/DisableDraftMode";
-import { LocaleHtml } from "@/components/LocaleHtml";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { StructuredData } from "@/components/seo/StructuredData";
@@ -59,23 +59,36 @@ export default async function LocaleLayout({
     : undefined;
 
   return (
-    <NextIntlClientProvider messages={messages}>
-      <StructuredData locale={locale} />
-      <LocaleHtml />
-      <Header
-        navigationItems={navigationData?.items || []}
-        logoUrl={logoUrl}
-        logoAlt={logoData?.logo?.alt || "Curiosity.Builders"}
-      />
-      {children}
-      {isDraftMode && (
-        <>
-          <SanityLive />
-          <DisableDraftMode />
-          <VisualEditing />
-        </>
-      )}
-      <Footer locale={locale} />
-    </NextIntlClientProvider>
+    <html lang={locale} suppressHydrationWarning className={epilogue.variable}>
+      <head>
+        <link rel="preconnect" href="https://cdn.sanity.io" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body className="antialiased">
+        <NextIntlClientProvider messages={messages}>
+          <StructuredData locale={locale} />
+          <Header
+            navigationItems={navigationData?.items || []}
+            logoUrl={logoUrl}
+            logoAlt={logoData?.logo?.alt || "Curiosity.Builders"}
+          />
+          {children}
+          {isDraftMode && (
+            <>
+              <SanityLive />
+              <DisableDraftMode />
+              <VisualEditing />
+            </>
+          )}
+          <Footer locale={locale} />
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }
