@@ -64,7 +64,7 @@ const createSingleton = (
     .icon(icon)
     .child(
       S.list()
-        .title(`${title} by Language`)
+        .title(`${title} par langue`)
         .items([
           S.listItem()
             .title("Français")
@@ -106,40 +106,56 @@ const createGlobalSingleton = (
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title("Content")
+    .title("Curiosity Builders - Contenu")
     .items([
       // Layout
       S.divider().title("Layout"),
+
+      // ========================================
+      // LAYOUT & NAVIGATION
+      // ========================================
       S.listItem()
-        .title("Header")
+        .title("Layout & Navigation")
         .icon(MenuIcon)
         .child(
           S.list()
-            .title("Header")
+            .title("Layout & Navigation")
             .items([
               createGlobalSingleton(S, "logo", "Logo", FilterIcon),
-              createSingleton(S, "navigation", "Navigation", MenuIcon),
+              createSingleton(S, "navigation", "Menu de navigation", MenuIcon),
+              createSingleton(S, "footer", "Footer (Pied de page)", FilterIcon),
             ])
         ),
-      createSingleton(S, "footer", "Footer", FilterIcon),
 
-      // Pages - Each page as a singleton with language grouping
+      // ========================================
+      // PAGES DU SITE
+      // ========================================
       S.divider().title("Pages"),
-      // Homepage - Single document (new approach)
-      createSingleton(S, "homepage", "Homepage", HomeIcon),
-      createSingleton(S, "signalsPage", "Signals", DocumentTextIcon),
-      createSingleton(S, "servicesPage", "Services", DocumentTextIcon),
-      createSingleton(S, "methodePage", "Méthode", DocumentTextIcon),
-      createSingleton(S, "contactPage", "Contact", DocumentTextIcon),
-
-      // Legal - Grouped together
-      S.divider().title("Legal"),
       S.listItem()
-        .title("Legal Pages")
+        .title("Pages principales")
         .icon(DocumentTextIcon)
         .child(
           S.list()
-            .title("Legal Pages")
+            .title("Pages")
+            .items([
+              createSingleton(S, "homepage", "Page d'accueil", HomeIcon),
+              createSingleton(S, "signalsPage", "Signals", DocumentTextIcon),
+              createSingleton(S, "servicesPage", "Services", DocumentTextIcon),
+              createSingleton(S, "methodePage", "Méthode", DocumentTextIcon),
+              createSingleton(S, "contactPage", "Contact", DocumentTextIcon),
+            ])
+        ),
+
+      // ========================================
+      // PAGES LÉGALES
+      // ========================================
+      S.divider(),
+      S.listItem()
+        .title("Pages légales")
+        .icon(DocumentTextIcon)
+        .child(
+          S.list()
+            .title("Pages légales")
             .items([
               createSingleton(
                 S,
@@ -155,18 +171,64 @@ export const structure: StructureResolver = (S) =>
               ),
             ])
         ),
-
-      // Settings
+      // S.divider().title("Contenu partagé"),
+      // S.listItem()
+      //   .title("Images & Médias")
+      //   .icon(ImageIcon)
+      //   .child(
+      //     S.list()
+      //       .title("Médias partagés (FR + EN)")
+      //       .items([
+      //         createGlobalSingleton(
+      //           S,
+      //           "bookImage",
+      //           "Couverture du livre",
+      //           BookIcon
+      //         ),
+      //         createGlobalSingleton(
+      //           S,
+      //           "projectImages",
+      //           "Images des projets",
+      //           ImageIcon
+      //         ),
+      //         createGlobalSingleton(
+      //           S,
+      //           "logos",
+      //           "Logos (Clients & Presse)",
+      //           FilterIcon
+      //         ),
+      //         createGlobalSingleton(
+      //           S,
+      //           "signalsPdfs",
+      //           "PDFs Signals",
+      //           DocumentTextIcon
+      //         ),
+      //       ])
+      //   ),
+      // ========================================
+      // PARAMÈTRES
+      // ========================================
       S.divider().title("Settings"),
-      createGlobalSingleton(
-        S,
-        "seoSettings",
-        "SEO Settings (Global)",
-        SearchIcon
-      ),
+      S.listItem()
+        .title("SEO")
+        .icon(SearchIcon)
+        .child(
+          S.list()
+            .title("Paramètres")
+            .items([
+              createGlobalSingleton(
+                S,
+                "seoSettings",
+                "SEO (Référencement global)",
+                SearchIcon
+              ),
+            ])
+        ),
 
-      // Divider
-      S.divider().title("Other"),
+      // ========================================
+      // AUTRES
+      // ========================================
+      S.divider().title("Others"),
 
       // All other documents (fallback for any schemas not explicitly listed above)
       ...S.documentTypeListItems().filter(
