@@ -7,6 +7,8 @@ import {
 } from "@sanity/icons";
 import type { StructureResolver } from "sanity/structure";
 
+import { DocumentationPage } from "./components/DocumentationPage";
+
 // Helper function to create language-filtered lists
 // const createLanguageGroup = (
 //   S: Parameters<StructureResolver>[0],
@@ -108,6 +110,18 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title("Curiosity Builders - Contenu")
     .items([
+      // ========================================
+      // 📚 DOCUMENTATION
+      // ========================================
+      S.listItem()
+        .title("Guide d'utilisation")
+        .icon(() => "📚")
+        .child(
+          S.component()
+            .component(DocumentationPage)
+            .title("Guide d'utilisation")
+        ),
+
       // Layout
       S.divider().title("Layout"),
 
@@ -116,7 +130,7 @@ export const structure: StructureResolver = (S) =>
       // ========================================
       S.listItem()
         .title("Layout & Navigation")
-        .icon(MenuIcon)
+        .icon(() => "🧱")
         .child(
           S.list()
             .title("Layout & Navigation")
@@ -133,7 +147,7 @@ export const structure: StructureResolver = (S) =>
       S.divider().title("Pages"),
       S.listItem()
         .title("Pages principales")
-        .icon(DocumentTextIcon)
+        .icon(() => "📄")
         .child(
           S.list()
             .title("Pages")
@@ -152,7 +166,7 @@ export const structure: StructureResolver = (S) =>
       S.divider(),
       S.listItem()
         .title("Pages légales")
-        .icon(DocumentTextIcon)
+        .icon(() => "📄")
         .child(
           S.list()
             .title("Pages légales")
@@ -211,7 +225,7 @@ export const structure: StructureResolver = (S) =>
       S.divider().title("Settings"),
       S.listItem()
         .title("SEO")
-        .icon(SearchIcon)
+        .icon(() => "🔍")
         .child(
           S.list()
             .title("Paramètres")
