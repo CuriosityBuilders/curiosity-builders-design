@@ -84,7 +84,7 @@ const NewsletterSection = dynamic(() =>
 );
 
 // Increase revalidate to 1 hour for better caching and reduced server load
-export const revalidate = 3600;
+export const revalidate = 60;
 
 export async function generateMetadata({
   params,
