@@ -1,10 +1,3 @@
-import {
-  DocumentTextIcon,
-  FilterIcon,
-  HomeIcon,
-  MenuIcon,
-  SearchIcon,
-} from "@sanity/icons";
 import type { StructureResolver } from "sanity/structure";
 
 import { DocumentationPage } from "./components/DocumentationPage";
@@ -130,14 +123,19 @@ export const structure: StructureResolver = (S) =>
       // ========================================
       S.listItem()
         .title("Layout & Navigation")
-        .icon(() => "🧱")
+        .icon(() => "🧭")
         .child(
           S.list()
             .title("Layout & Navigation")
             .items([
-              createGlobalSingleton(S, "logo", "Logo", FilterIcon),
-              createSingleton(S, "navigation", "Menu de navigation", MenuIcon),
-              createSingleton(S, "footer", "Footer (Pied de page)", FilterIcon),
+              createGlobalSingleton(S, "logo", "Logo", () => "🎨"),
+              createSingleton(
+                S,
+                "navigation",
+                "Menu de navigation",
+                () => "🧭"
+              ),
+              createSingleton(S, "footer", "Footer (Pied de page)", () => "📄"),
             ])
         ),
 
@@ -152,11 +150,11 @@ export const structure: StructureResolver = (S) =>
           S.list()
             .title("Pages")
             .items([
-              createSingleton(S, "homepage", "Page d'accueil", HomeIcon),
-              createSingleton(S, "signalsPage", "Signals", DocumentTextIcon),
-              createSingleton(S, "servicesPage", "Services", DocumentTextIcon),
-              createSingleton(S, "methodePage", "Méthode", DocumentTextIcon),
-              createSingleton(S, "contactPage", "Contact", DocumentTextIcon),
+              createSingleton(S, "homepage", "Page d'accueil", () => "🏠"),
+              createSingleton(S, "signalsPage", "Signals", () => "📡"),
+              createSingleton(S, "servicesPage", "Services", () => "🛠️"),
+              createSingleton(S, "methodePage", "Méthode", () => "📐"),
+              createSingleton(S, "contactPage", "Contact", () => "📞"),
             ])
         ),
 
@@ -175,13 +173,13 @@ export const structure: StructureResolver = (S) =>
                 S,
                 "legalNoticePage",
                 "Mentions légales",
-                DocumentTextIcon
+                () => "📋"
               ),
               createSingleton(
                 S,
                 "privacyPolicyPage",
                 "Politique de confidentialité",
-                DocumentTextIcon
+                () => "🔒"
               ),
             ])
         ),
@@ -234,7 +232,7 @@ export const structure: StructureResolver = (S) =>
                 S,
                 "seoSettings",
                 "SEO (Référencement global)",
-                SearchIcon
+                () => "🔍"
               ),
             ])
         ),
