@@ -31,6 +31,15 @@ export const getFooter = cache(async (language: string) => {
     privacy,
     legalNotice,
     privacyPolicy,
+    brandName,
+    linkedin {
+      label,
+      url
+    },
+    substack {
+      label,
+      url
+    },
     language
   }`;
 

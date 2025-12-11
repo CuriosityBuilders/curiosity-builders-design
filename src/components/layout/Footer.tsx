@@ -40,7 +40,7 @@ export async function Footer({ locale }: FooterProps) {
           <div className="flex flex-col">
             <Link href="/" className="mb-4">
               <h2 className="font-heading text-3xl font-extrabold text-black">
-                Curiosity.Builders
+                {footerData?.brandName || "Curiosity.Builders"}
               </h2>
             </Link>
             <div className="mt-2 text-sm text-black">
@@ -62,24 +62,28 @@ export async function Footer({ locale }: FooterProps) {
 
         {/* Ligne de liens horizontale */}
         <div className="flex flex-wrap justify-center gap-4 md:justify-start md:gap-6">
-          <a
-            href="https://fr.linkedin.com/in/claireflurin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-black transition-colors hover:text-gray-700"
-          >
-            <Linkedin className="h-5 w-5" />
-            LinkedIn
-          </a>
-          <a
-            href="https://substack.com/@curiositybuilders"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-black transition-colors hover:text-gray-700"
-          >
-            <SubstackIcon className="h-5 w-5" />
-            Substack
-          </a>
+          {footerData?.linkedin?.url && (
+            <a
+              href={footerData.linkedin.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-black transition-colors hover:text-gray-700"
+            >
+              <Linkedin className="h-5 w-5" />
+              {footerData.linkedin.label || "LinkedIn"}
+            </a>
+          )}
+          {footerData?.substack?.url && (
+            <a
+              href={footerData.substack.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-black transition-colors hover:text-gray-700"
+            >
+              <SubstackIcon className="h-5 w-5" />
+              {footerData.substack.label || "Substack"}
+            </a>
+          )}
           <Link
             href="/mentions-legales"
             className="text-black transition-colors hover:text-gray-700"
