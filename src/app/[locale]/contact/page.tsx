@@ -101,18 +101,19 @@ export default async function ContactPage({
                   <p className="mt-6 text-lg leading-relaxed text-black">
                     {data.contactSection.newsletter.body}
                   </p>
-                  {data.contactSection.newsletter.link && (
-                    <p className="mt-4">
-                      <a
-                        href="https://substack.com/@curiositybuilders"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-lg text-black underline transition-colors hover:text-gray-700"
-                      >
-                        {data.contactSection.newsletter.link}
-                      </a>
-                    </p>
-                  )}
+                  {data.contactSection.newsletter.link &&
+                    data.contactSection.newsletter.url && (
+                      <p className="mt-4">
+                        <a
+                          href={data.contactSection.newsletter.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg text-black underline transition-colors hover:text-gray-700"
+                        >
+                          {data.contactSection.newsletter.link}
+                        </a>
+                      </p>
+                    )}
                 </div>
               )}
             </div>

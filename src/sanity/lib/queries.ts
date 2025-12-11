@@ -444,14 +444,17 @@ export const getContactPage = cache(async (language: string) => {
       newsletter {
         title,
         body,
-        link
+        link,
+        url
       }
     },
     unsure {
       title,
       body[],
       button1,
+      button1Url,
       button2,
+      button2Url,
       button3
     },
     form {

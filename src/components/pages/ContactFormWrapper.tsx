@@ -10,7 +10,9 @@ interface ContactFormWrapperProps {
     title?: string;
     body?: PortableTextBlock[];
     button1?: string;
+    button1Url?: string;
     button2?: string;
+    button2Url?: string;
     button3?: string;
   };
   formData?: {

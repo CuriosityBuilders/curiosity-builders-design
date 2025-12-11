@@ -10,7 +10,9 @@ interface ContactUnsureSectionProps {
     title?: string;
     body?: PortableTextBlock[];
     button1?: string;
+    button1Url?: string;
     button2?: string;
+    button2Url?: string;
     button3?: string;
   };
   onRequestBrochure?: () => void;
@@ -34,20 +36,18 @@ export function ContactUnsureSection({
           {data.body && <PortableText value={data.body} />}
         </div>
         <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:justify-center">
-          {data.button1 && (
+          {data.button1 && data.button1Url && (
             <Button
               variant="primary"
-              onClick={() =>
-                window.open("https://substack.com/@curiositybuilders", "_blank")
-              }
+              onClick={() => window.open(data.button1Url, "_blank")}
             >
               {data.button1}
             </Button>
           )}
-          {data.button2 && (
+          {data.button2 && data.button2Url && (
             <Button
               variant="primary"
-              onClick={() => window.open("https://calendly.com", "_blank")}
+              onClick={() => window.open(data.button2Url, "_blank")}
             >
               {data.button2}
             </Button>
