@@ -54,6 +54,18 @@ export default defineType({
               },
               initialValue: "center",
             }),
+            defineField({
+              name: "captionFr",
+              type: "string",
+              title: "Légende (Français)",
+              description: "Légende subtile en français (optionnel)",
+            }),
+            defineField({
+              name: "captionEn",
+              type: "string",
+              title: "Caption (English)",
+              description: "Subtle caption in English (optional)",
+            }),
           ],
           preview: {
             select: {

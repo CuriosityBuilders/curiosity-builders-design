@@ -139,7 +139,8 @@ export default defineType({
               name: "url",
               type: "url",
               title: "Newsletter URL",
-              description: "URL pour rejoindre la newsletter (ex: https://substack.com/@curiositybuilders)",
+              description:
+                "URL pour rejoindre la newsletter (ex: https://substack.com/@curiositybuilders)",
               validation: (Rule) => Rule.required(),
             }),
           ],

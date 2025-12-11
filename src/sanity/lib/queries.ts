@@ -122,7 +122,9 @@ export const getHomepage = cache(async (language: string) => {
         },
         title,
         alt,
-        objectPosition
+        objectPosition,
+        captionFr,
+        captionEn
       }
     },
     book {

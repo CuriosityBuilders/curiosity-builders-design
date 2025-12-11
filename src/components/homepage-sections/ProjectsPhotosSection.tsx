@@ -5,6 +5,7 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { Section } from "@/components/ui/Section";
 import { urlFor } from "@/sanity/lib/image";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
 
 interface ProjectsPhotosSectionProps {
   data?: {
@@ -27,6 +28,8 @@ interface ProjectsPhotosSectionProps {
       title?: string;
       alt?: string;
       objectPosition?: string;
+      captionFr?: string;
+      captionEn?: string;
     }>;
   };
 }
@@ -61,6 +64,8 @@ const projectPhotos = [
 ];
 
 export function ProjectsPhotosSection({ data }: ProjectsPhotosSectionProps) {
+  const locale = useLocale();
+
   // Use Sanity data if available, otherwise fallback to static images
   const cardItems =
     data?.images && data.images.length > 0
@@ -76,6 +81,9 @@ export function ProjectsPhotosSection({ data }: ProjectsPhotosSectionProps) {
                 .url()
             : null;
 
+          // Select caption based on locale
+          const caption = locale === "fr" ? item.captionFr : item.captionEn;
+
           return {
             quote: item.title || "Project",
             name: item.alt || "Project",
@@ -83,6 +91,7 @@ export function ProjectsPhotosSection({ data }: ProjectsPhotosSectionProps) {
             src: imageUrl || undefined,
             alt: item.alt || "Project image",
             objectPosition: item.objectPosition,
+            caption: caption || undefined,
           };
         })
       : projectPhotos.map((photo) => ({
