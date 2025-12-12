@@ -56,6 +56,18 @@ export function DocumentationPage() {
                 tone="positive"
                 mode="ghost"
               />
+              <Text muted size={2} style={{ margin: "1rem" }}>
+                Un guide vidéo est également disponible pour vous accompagner
+                dans l'utilisation de Sanity Studio !
+              </Text>
+              <Button
+                as="a"
+                href="https://screenrec.com/share/HzxshFTlU6"
+                target="_blank"
+                text="🎥 Voir le guide vidéo"
+                tone="primary"
+                mode="ghost"
+              />
             </Stack>
           </Stack>
         </Card>
