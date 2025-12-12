@@ -97,7 +97,6 @@ export const getHomepage = cache(async (language: string) => {
         tagline,
         cta,
         cta1,
-        cta2,
         href
       }
     },
@@ -478,7 +477,6 @@ export const getContactPage = cache(async (language: string) => {
       title,
       body1[],
       body2[],
-      button1,
       button2
     },
     language

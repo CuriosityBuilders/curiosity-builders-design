@@ -142,14 +142,6 @@ export default async function ContactPage({
               </div>
             )}
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              {data.finalCta.button1 && (
-                <Button
-                  href="mailto:contact@curiosity.builders"
-                  variant="inverted"
-                >
-                  {data.finalCta.button1}
-                </Button>
-              )}
               {data.finalCta.button2 && (
                 <Button href="/methode" variant="secondary-inverted">
                   {data.finalCta.button2}

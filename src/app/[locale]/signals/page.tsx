@@ -41,7 +41,7 @@ export default async function SignalsPage({
               {data.hero.title}
             </h1>
             {data.hero.subtitle && (
-              <p className="mt-6 text-xl leading-relaxed text-white sm:text-2xl">
+              <p className="mt-6 text-xl leading-relaxed text-white">
                 {data.hero.subtitle}
               </p>
             )}

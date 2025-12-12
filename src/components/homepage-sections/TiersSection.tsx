@@ -15,7 +15,6 @@ interface TiersSectionProps {
       tagline?: string;
       cta?: string;
       cta1?: string;
-      cta2?: string;
       href?: string;
     }>;
   };
@@ -30,23 +29,15 @@ export function TiersSection({ data }: TiersSectionProps) {
           href: card.href,
           variant: "primary" as const,
           label: card.cta,
-          className: "w-full",
+          className: "w-full text-center",
         });
       } else if (card.cta1 && card.href) {
         buttons.push({
           href: card.href,
           variant: "primary" as const,
           label: card.cta1,
-          className: "w-full py-1 text-sm text-center",
+          className: "w-full text-center",
         });
-        if (card.cta2) {
-          buttons.push({
-            href: "/contact",
-            variant: "secondary" as const,
-            label: card.cta2,
-            className: "w-full py-1 text-sm",
-          });
-        }
       }
 
       return {
