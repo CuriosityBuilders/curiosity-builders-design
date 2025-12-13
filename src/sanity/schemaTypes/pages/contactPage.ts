@@ -193,6 +193,22 @@ export default defineType({
           type: "string",
           title: "Button 3 Text",
         }),
+        defineField({
+          name: "button4",
+          type: "string",
+          title: "Button 4 Text",
+          description: "Texte du bouton (ex: Extrait du livre)",
+        }),
+        defineField({
+          name: "button4Pdf",
+          type: "file",
+          title: "Button 4 PDF",
+          description:
+            "Fichier PDF de l'extrait du livre à télécharger (configurer pour les 2 langues car il n'est pas partagé)",
+          options: {
+            accept: ".pdf",
+          },
+        }),
       ],
     }),
     defineField({

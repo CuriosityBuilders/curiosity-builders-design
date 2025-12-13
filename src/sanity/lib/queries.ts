@@ -458,7 +458,15 @@ export const getContactPage = cache(async (language: string) => {
       button1Url,
       button2,
       button2Url,
-      button3
+      button3,
+      button4,
+      button4Pdf {
+        asset-> {
+          _id,
+          url,
+          originalFilename
+        }
+      }
     },
     form {
       title,
