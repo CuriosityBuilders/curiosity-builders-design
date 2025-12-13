@@ -11,11 +11,15 @@ interface ContactUnsureSectionProps {
   data?: {
     title?: string;
     body?: PortableTextBlock[];
+    card1Title?: string;
     button1?: string;
     button1Url?: string;
+    card2Title?: string;
     button2?: string;
     button2Url?: string;
+    card3Title?: string;
     button3?: string;
+    card4Title?: string;
     button4?: string;
     button4Pdf?: {
       asset?: {
@@ -50,7 +54,7 @@ export function ContactUnsureSection({
             <Card className="flex flex-col items-center text-center p-6 h-full">
               <Mailbox className="h-8 w-8 text-black mb-4" />
               <h3 className="font-heading text-xl font-bold text-black mb-6">
-                Recevez nos insights et analyses
+                {data.card1Title}
               </h3>
               <div className="mt-auto w-full flex justify-center">
                 <Button
@@ -69,7 +73,7 @@ export function ContactUnsureSection({
             <Card className="flex flex-col items-center text-center p-6 h-full">
               <CalendarCheck className="h-8 w-8 text-black mb-4" />
               <h3 className="font-heading text-xl font-bold text-black mb-6">
-                Discutons de votre projet
+                {data.card2Title}
               </h3>
               <div className="mt-auto w-full flex justify-center">
                 <Button
@@ -88,7 +92,7 @@ export function ContactUnsureSection({
             <Card className="flex flex-col items-center text-center p-6 border-2 border-black shadow-lg h-full">
               <Send className="h-8 w-8 text-black mb-4" />
               <h3 className="font-heading text-xl font-bold text-black mb-6">
-                Recevez notre documentation
+                {data.card3Title}
               </h3>
               <div className="mt-auto w-full flex justify-center">
                 <Button
@@ -129,7 +133,7 @@ export function ContactUnsureSection({
             <Card className="flex flex-col items-center text-center p-6 h-full">
               <BookOpenText className="h-8 w-8 text-black mb-4" />
               <h3 className="font-heading text-xl font-bold text-black mb-6">
-                Découvrez un extrait de notre livre
+                {data.card4Title}
               </h3>
               <div className="mt-auto w-full flex justify-center">
                 <Button

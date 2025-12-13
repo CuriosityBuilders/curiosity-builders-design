@@ -165,6 +165,13 @@ export default defineType({
           of: [{ type: "block" }],
         }),
         defineField({
+          name: "card1Title",
+          type: "string",
+          title: "Card 1 Title",
+          description:
+            "Titre de la card Newsletter (ex: Recevez nos insights et analyses)",
+        }),
+        defineField({
           name: "button1",
           type: "string",
           title: "Button 1 Text",
@@ -175,6 +182,13 @@ export default defineType({
           type: "url",
           title: "Button 1 URL",
           description: "URL du bouton 1",
+        }),
+        defineField({
+          name: "card2Title",
+          type: "string",
+          title: "Card 2 Title",
+          description:
+            "Titre de la card Rendez-vous (ex: Discutons de votre projet)",
         }),
         defineField({
           name: "button2",
@@ -189,9 +203,23 @@ export default defineType({
           description: "URL du bouton 2",
         }),
         defineField({
+          name: "card3Title",
+          type: "string",
+          title: "Card 3 Title",
+          description:
+            "Titre de la card Brochure (ex: Recevez notre documentation)",
+        }),
+        defineField({
           name: "button3",
           type: "string",
           title: "Button 3 Text",
+        }),
+        defineField({
+          name: "card4Title",
+          type: "string",
+          title: "Card 4 Title",
+          description:
+            "Titre de la card Extrait (ex: Découvrez un extrait de notre livre)",
         }),
         defineField({
           name: "button4",
