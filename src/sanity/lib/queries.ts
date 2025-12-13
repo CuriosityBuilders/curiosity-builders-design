@@ -441,12 +441,6 @@ export const getContactPage = cache(async (language: string) => {
         title,
         body,
         email
-      },
-      newsletter {
-        title,
-        body,
-        link,
-        url
       }
     },
     unsure {

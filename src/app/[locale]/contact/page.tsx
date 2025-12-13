@@ -91,31 +91,6 @@ export default async function ContactPage({
                   )}
                 </div>
               )}
-
-              {/* S'abonner à la newsletter */}
-              {data.contactSection.newsletter && (
-                <div>
-                  <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-                    {data.contactSection.newsletter.title}
-                  </h2>
-                  <p className="mt-6 text-lg leading-relaxed text-black">
-                    {data.contactSection.newsletter.body}
-                  </p>
-                  {data.contactSection.newsletter.link &&
-                    data.contactSection.newsletter.url && (
-                      <p className="mt-4">
-                        <a
-                          href={data.contactSection.newsletter.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-lg text-black underline transition-colors hover:text-gray-700"
-                        >
-                          {data.contactSection.newsletter.link}
-                        </a>
-                      </p>
-                    )}
-                </div>
-              )}
             </div>
           </div>
         </Section>
