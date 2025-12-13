@@ -38,6 +38,21 @@ export function Button({
   const classes = `${baseClasses} ${variantClasses[variant]} ${disabledClasses} ${className}`;
 
   if (href) {
+    // Use standard <a> for external links (mailto:, http://, https://)
+    const isExternalLink =
+      href.startsWith("mailto:") ||
+      href.startsWith("http://") ||
+      href.startsWith("https://");
+
+    if (isExternalLink) {
+      return (
+        <a href={href} className={classes}>
+          {children}
+        </a>
+      );
+    }
+
+    // Use Link component for internal routes
     return (
       <Link href={href} className={classes}>
         {children}

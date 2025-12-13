@@ -1,9 +1,11 @@
 import { generatePageMetadata } from "@/app/metadata";
 import { ContactFormWrapper } from "@/components/pages/ContactFormWrapper";
 import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { getContactPage } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
+import { Mail } from "lucide-react";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -46,50 +48,60 @@ export default async function ContactPage({
       {/* Section Contact */}
       {data?.contactSection && (
         <Section spacing="md" className="bg-white">
-          <div className="mx-auto max-w-4xl px-4">
-            <div className="space-y-16">
-              {/* Travaillons ensemble */}
+          <div className="mx-auto max-w-7xl px-4">
+            {/* Titre principal */}
+            {data.contactSection.workWithUs && (
+              <h2 className="font-heading text-3xl text-center font-bold text-black sm:text-4xl mb-8">
+                {data.contactSection.workWithUs.title}
+              </h2>
+            )}
+
+            {/* Cards côte à côte */}
+            <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+              {/* Card 1 : Projets */}
               {data.contactSection.workWithUs && (
-                <div>
-                  <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-                    {data.contactSection.workWithUs.title}
-                  </h2>
-                  <p className="mt-6 text-lg leading-relaxed text-black">
+                <Card className="flex flex-col h-full p-5 text-center items-center">
+                  <p className="text-base leading-relaxed text-black font-bold">
                     {data.contactSection.workWithUs.body}
                   </p>
                   {data.contactSection.workWithUs.email && (
-                    <p className="mt-4">
-                      <a
+                    <div className="mt-6">
+                      <Button
                         href={`mailto:${data.contactSection.workWithUs.email}`}
-                        className="text-lg text-black underline transition-colors hover:text-gray-700"
+                        variant="secondary"
+                        className="gap-2"
                       >
-                        {data.contactSection.workWithUs.email}
-                      </a>
-                    </p>
+                        <Mail className="h-4 w-4" />
+                        <span className="font-bold">
+                          {data.contactSection.workWithUs.email}
+                        </span>
+                      </Button>
+                    </div>
                   )}
-                </div>
+                </Card>
               )}
 
-              {/* Presse & interventions */}
+              {/* Card 2 : Presse */}
               {data.contactSection.press && (
-                <div>
-                  <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-                    {data.contactSection.press.title}
-                  </h2>
-                  <p className="mt-6 text-lg leading-relaxed text-black">
+                <Card className="flex flex-col h-full p-5 text-center items-center">
+                  <p className="text-base leading-relaxed text-black font-bold">
                     {data.contactSection.press.body}
                   </p>
                   {data.contactSection.press.email && (
-                    <p className="mt-4">
-                      <a
+                    <div className="mt-6">
+                      <Button
                         href={`mailto:${data.contactSection.press.email}`}
-                        className="text-lg text-black underline transition-colors hover:text-gray-700"
+                        variant="secondary"
+                        className="gap-2"
                       >
-                        {data.contactSection.press.email}
-                      </a>
-                    </p>
+                        <Mail className="h-4 w-4" />
+                        <span className="font-bold">
+                          {data.contactSection.press.email}
+                        </span>
+                      </Button>
+                    </div>
                   )}
-                </div>
+                </Card>
               )}
             </div>
           </div>
