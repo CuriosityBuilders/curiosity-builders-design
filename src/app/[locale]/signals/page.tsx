@@ -43,11 +43,11 @@ export default async function SignalsPage({
               {data.hero.title}
             </h1>
             {data.hero.subtitle && (
-              <p className="mt-6 text-xl leading-relaxed text-white">
+              <p className="mt-6 text-lg leading-relaxed text-white">
                 {data.hero.subtitle}
               </p>
             )}
-            <div className="mt-4 text-xl leading-relaxed text-white">
+            <div className="mt-4 text-lg leading-relaxed text-white">
               {data.hero.body && <PortableText value={data.hero.body} />}
             </div>
           </div>
