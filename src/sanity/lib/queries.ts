@@ -251,6 +251,14 @@ export const getSignalsPage = cache(async (language: string) => {
       description[],
       quote,
       cta,
+      extractButtonText,
+      extractPdf {
+        asset-> {
+          _id,
+          url,
+          originalFilename
+        }
+      },
       "image": imageRef->image {
         asset-> {
           _id,

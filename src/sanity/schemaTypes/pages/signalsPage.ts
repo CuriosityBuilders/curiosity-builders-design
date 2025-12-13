@@ -208,6 +208,23 @@ export default defineType({
           title: "Call to Action Text",
         }),
         defineField({
+          name: "extractPdf",
+          type: "file",
+          title: "Book Extract PDF",
+          description:
+            "Fichier PDF de l'extrait du livre à télécharger (configurer pour les 2 langues car il n'est pas partagé)",
+          options: {
+            accept: ".pdf",
+          },
+        }),
+        defineField({
+          name: "extractButtonText",
+          type: "string",
+          title: "CTA Book Extract",
+          description:
+            "Texte affiché sur le bouton de téléchargement de l'extrait PDF",
+        }),
+        defineField({
           name: "imageRef",
           type: "reference",
           title: "Book Cover",

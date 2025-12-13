@@ -1,5 +1,6 @@
 import { generatePageMetadata } from "@/app/metadata";
 import DotCard from "@/components/mvpblocks/dot-card";
+import { BookImage3D } from "@/components/pages/BookImage3D";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
@@ -7,6 +8,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { getSignalsPage } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
+import { Download } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 
@@ -266,32 +268,31 @@ export default async function SignalsPage({
                     </p>
                   </blockquote>
                 )}
-                {data.book.cta && (
-                  <div className="mt-8">
-                    <Button href="/contact">{data.book.cta}</Button>
+                {(data.book.cta || data.book.extractPdf) && (
+                  <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                    {data.book.cta && (
+                      <Button href="/contact">{data.book.cta}</Button>
+                    )}
+                    {data.book.extractPdf?.asset?.url && (
+                      <a
+                        href={data.book.extractPdf.asset.url}
+                        download={
+                          data.book.extractPdf.asset.originalFilename ||
+                          "extrait-livre.pdf"
+                        }
+                        className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium transition-colors border border-black/90 bg-white text-black hover:border-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 gap-2"
+                      >
+                        <Download className="h-4 w-4" />
+                        {data.book.extractButtonText || "Télécharger l'extrait"}
+                      </a>
+                    )}
                   </div>
                 )}
               </div>
 
               {/* Image à droite */}
               {data.book.image?.asset?.url && (
-                <div className="flex items-center justify-center md:justify-end">
-                  <div className="relative w-full max-w-xs">
-                    <Image
-                      src={urlFor(data.book.image)
-                        .width(800)
-                        .height(1200)
-                        .fit("max")
-                        .quality(100)
-                        .auto("format")
-                        .url()}
-                      alt={data.book.title || "Book cover"}
-                      width={320}
-                      height={480}
-                      className="h-auto w-full object-contain drop-shadow-lg"
-                    />
-                  </div>
-                </div>
+                <BookImage3D image={data.book.image} title={data.book.title} />
               )}
             </div>
           </div>
