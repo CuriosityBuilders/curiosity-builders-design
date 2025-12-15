@@ -45,7 +45,7 @@ function AnimatedQuote({ quote, index }: AnimatedQuoteProps) {
       }}
     >
       <motion.p
-        className="text-lg italic font-semibold leading-relaxed text-black whitespace-nowrap"
+        className="text-lg italic font-semibold leading-relaxed text-black"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -59,7 +59,7 @@ function AnimatedQuote({ quote, index }: AnimatedQuoteProps) {
       </motion.p>
       {quote.author && (
         <motion.p
-          className="mt-4 text-sm font-medium text-black"
+          className="mt-2 text-sm font-medium text-black"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
