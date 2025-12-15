@@ -207,11 +207,6 @@ export default defineType({
       group: "proofs",
       fields: [
         defineField({
-          name: "title",
-          type: "string",
-          title: "Title",
-        }),
-        defineField({
           name: "quotes",
           type: "array",
           title: "Quotes",
@@ -232,11 +227,6 @@ export default defineType({
               ],
             },
           ],
-        }),
-        defineField({
-          name: "button",
-          type: "string",
-          title: "Button Text",
         }),
       ],
     }),

@@ -1,6 +1,5 @@
 import DotCard from "@/components/mvpblocks/dot-card";
 import { MethodeFinalCta } from "@/components/pages/MethodeFinalCta";
-import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { generatePageMetadata } from "@/app/metadata";
@@ -162,9 +161,6 @@ export default async function MethodePage({
       {data?.proofs && (
         <Section spacing="md" className="bg-white">
           <div className="mx-auto max-w-4xl px-4">
-            <h2 className="font-heading text-2xl font-bold text-black">
-              {data.proofs.title}
-            </h2>
             <div className="mt-8 space-y-6">
               {data.proofs.quotes?.map(
                 (quote: { _key: string; text: string; author?: string }) => (
@@ -180,11 +176,6 @@ export default async function MethodePage({
                 )
               )}
             </div>
-            {data.proofs.button && (
-              <div className="mt-8">
-                <Button href="/contact">{data.proofs.button}</Button>
-              </div>
-            )}
           </div>
         </Section>
       )}

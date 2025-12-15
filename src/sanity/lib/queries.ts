@@ -399,13 +399,11 @@ export const getMethodePage = cache(async (language: string) => {
       }
     },
     proofs {
-      title,
       quotes[] {
         _key,
         text,
         author
-      },
-      button
+      }
     },
     finalCta {
       title,
