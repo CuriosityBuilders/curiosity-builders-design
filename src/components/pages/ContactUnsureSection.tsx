@@ -100,22 +100,6 @@ export function ContactUnsureSection({
                   onClick={() => {
                     if (onRequestBrochure) {
                       onRequestBrochure();
-                    } else {
-                      // Fallback si onRequestBrochure n'est pas fourni
-                      const formElement = document.getElementById(
-                        "contact-form-section"
-                      );
-                      if (formElement) {
-                        const elementPosition =
-                          formElement.getBoundingClientRect().top;
-                        const offsetPosition =
-                          elementPosition + window.pageYOffset - 100;
-
-                        window.scrollTo({
-                          top: offsetPosition,
-                          behavior: "smooth",
-                        });
-                      }
                     }
                   }}
                   className="w-2/3 min-w-[180px] gap-2"

@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
-import { Section } from "@/components/ui/Section";
 import { Link } from "@/i18n/routing";
 import { useState } from "react";
 
@@ -21,9 +20,10 @@ interface ContactFormProps {
     submitButton?: string;
     successMessage?: string;
   };
+  onSuccess?: () => void;
 }
 
-export function ContactForm({ data }: ContactFormProps) {
+export function ContactForm({ data, onSuccess }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     organization: "",
@@ -67,6 +67,12 @@ export function ContactForm({ data }: ContactFormProps) {
         bookExtract: false,
         consent: false,
       });
+      // Fermer la modale après 2 secondes pour laisser le temps de voir le message de succès
+      if (onSuccess) {
+        setTimeout(() => {
+          onSuccess();
+        }, 2000);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Une erreur est survenue.");
     } finally {
@@ -91,19 +97,13 @@ export function ContactForm({ data }: ContactFormProps) {
   if (!data) return null;
 
   return (
-    <Section spacing="md" className="bg-white">
-      <div className="mx-auto max-w-2xl px-4">
-        {data?.title && (
-          <h2 className="font-heading text-3xl font-bold text-black sm:text-4xl">
-            {data.title}
-          </h2>
-        )}
-        {data?.description && (
-          <p className="mt-6 text-lg leading-relaxed text-black">
-            {data.description}
-          </p>
-        )}
-        <form onSubmit={handleSubmit} className="mt-12 space-y-6">
+    <div className="mx-auto max-w-2xl">
+      {data?.description && (
+        <p className="mb-6 text-lg leading-relaxed text-black">
+          {data.description}
+        </p>
+      )}
+      <form onSubmit={handleSubmit} className="space-y-6">
           {/* Checkboxes pour les documents */}
           <div className="space-y-4">
             {data?.brochureLabel && (
@@ -274,7 +274,6 @@ export function ContactForm({ data }: ContactFormProps) {
             </Button>
           )}
         </form>
-      </div>
-    </Section>
+    </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { ContactForm } from "@/components/pages/ContactForm";
 import { ContactUnsureSection } from "@/components/pages/ContactUnsureSection";
+import { Modal } from "@/components/ui/Modal";
 import type { PortableTextBlock } from "@portabletext/types";
 import { useState } from "react";
 
@@ -40,19 +41,10 @@ export function ContactFormWrapper({
 
   const handleShowForm = () => {
     setShowForm(true);
-    // Scroll vers le formulaire après un court délai pour laisser le temps au DOM de se mettre à jour
-    setTimeout(() => {
-      const formElement = document.getElementById("contact-form-section");
-      if (formElement) {
-        const elementPosition = formElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - 100;
+  };
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }
-    }, 100);
+  const handleCloseForm = () => {
+    setShowForm(false);
   };
 
   return (
@@ -62,12 +54,13 @@ export function ContactFormWrapper({
         onRequestBrochure={handleShowForm}
       />
       {formData && (
-        <div
-          id="contact-form-section"
-          className={showForm ? "block" : "hidden"}
+        <Modal
+          isOpen={showForm}
+          onClose={handleCloseForm}
+          title={formData.title}
         >
-          <ContactForm data={formData} />
-        </div>
+          <ContactForm data={formData} onSuccess={handleCloseForm} />
+        </Modal>
       )}
     </>
   );
