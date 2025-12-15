@@ -319,7 +319,7 @@ export default async function SignalsPage({
             </div>
             {data.finalCta.button && (
               <div className="mt-8">
-                <Button href="/contact" variant="inverted">
+                <Button href="/methode" variant="secondary-inverted">
                   {data.finalCta.button}
                 </Button>
               </div>
