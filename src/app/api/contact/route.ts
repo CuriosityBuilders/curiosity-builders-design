@@ -40,17 +40,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Vérifier qu'au moins un document est demandé
-    if (!brochure && !bookExtract) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "Please select at least one document.",
-        },
-        { status: 400 }
-      );
-    }
-
     // Variables d'environnement
     const fromEmail = process.env.FROM_EMAIL;
     const contactEmail = process.env.CONTACT_EMAIL;
@@ -79,7 +68,7 @@ export async function POST(request: NextRequest) {
     const { error } = await resend.emails.send({
       from: fromEmail,
       to: contactEmail,
-      subject: `Nouvelle demande de documentation - ${name.trim()}`,
+      subject: `Brochure - Nouvelle demande de ${name.trim()}`,
       html: emailHtml,
     });
 

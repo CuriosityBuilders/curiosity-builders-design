@@ -29,7 +29,7 @@ export function ContactForm({ data, onSuccess }: ContactFormProps) {
     organization: "",
     email: "",
     interest: "",
-    brochure: false,
+    brochure: true, // Par défaut true car on est dans la modale de demande de documentation
     bookExtract: false,
     consent: false,
   });
@@ -63,7 +63,7 @@ export function ContactForm({ data, onSuccess }: ContactFormProps) {
         organization: "",
         email: "",
         interest: "",
-        brochure: false,
+        brochure: true,
         bookExtract: false,
         consent: false,
       });
@@ -104,176 +104,128 @@ export function ContactForm({ data, onSuccess }: ContactFormProps) {
         </p>
       )}
       <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Checkboxes pour les documents */}
-          <div className="space-y-4">
-            {data?.brochureLabel && (
-              <div className="flex items-start">
-                <input
-                  type="checkbox"
-                  id="brochure"
-                  name="brochure"
-                  checked={formData.brochure}
-                  onChange={handleChange}
-                  className="mt-1 h-4 w-4 rounded border-black/20 text-black focus:ring-black"
-                />
-                <label
-                  htmlFor="brochure"
-                  className="ml-3 text-sm leading-relaxed text-black"
-                >
-                  {data.brochureLabel}
-                </label>
-              </div>
-            )}
-            {data?.bookExtractLabel && (
-              <div className="flex items-start">
-                <input
-                  type="checkbox"
-                  id="bookExtract"
-                  name="bookExtract"
-                  checked={formData.bookExtract}
-                  onChange={handleChange}
-                  className="mt-1 h-4 w-4 rounded border-black/20 text-black focus:ring-black"
-                />
-                <label
-                  htmlFor="bookExtract"
-                  className="ml-3 text-sm leading-relaxed text-black"
-                >
-                  {data.bookExtractLabel}{" "}
-                  {data.bookTitle && (
-                    <Link
-                      href="/signals"
-                      className="underline transition-colors hover:text-gray-700"
-                    >
-                      "{data.bookTitle}"
-                    </Link>
-                  )}
-                </label>
-              </div>
-            )}
+        {/* Champs du formulaire */}
+        {data?.nameLabel && (
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-black"
+            >
+              {data.nameLabel}
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+              className="mt-1 w-full rounded-md border border-black/20 px-3 py-2 text-black focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
+            />
           </div>
+        )}
 
-          {/* Champs du formulaire */}
-          {data?.nameLabel && (
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-black"
+        {data?.organizationLabel && (
+          <div>
+            <label
+              htmlFor="organization"
+              className="block text-sm font-medium text-black"
+            >
+              {data.organizationLabel}
+            </label>
+            <input
+              type="text"
+              id="organization"
+              name="organization"
+              required
+              value={formData.organization}
+              onChange={handleChange}
+              className="mt-1 w-full rounded-md border border-black/20 px-3 py-2 text-black focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
+            />
+          </div>
+        )}
+
+        {data?.emailLabel && (
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-black"
+            >
+              {data.emailLabel}
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+              className="mt-1 w-full rounded-md border border-black/20 px-3 py-2 text-black focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
+            />
+          </div>
+        )}
+
+        {data?.interestLabel && (
+          <div>
+            <label
+              htmlFor="interest"
+              className="block text-sm font-medium text-black"
+            >
+              {data.interestLabel}
+            </label>
+            <input
+              type="text"
+              id="interest"
+              name="interest"
+              value={formData.interest}
+              onChange={handleChange}
+              placeholder={data.interestPlaceholder}
+              className="mt-1 w-full rounded-md border border-black/20 px-3 py-2 text-black focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
+            />
+          </div>
+        )}
+
+        {data?.consentLabel && (
+          <div className="flex items-start">
+            <input
+              type="checkbox"
+              id="consent"
+              name="consent"
+              required
+              checked={formData.consent}
+              onChange={handleChange}
+              className="mt-1 h-4 w-4 rounded border-black/20 text-black focus:ring-black"
+            />
+            <label htmlFor="consent" className="ml-3 text-sm text-black">
+              {data.consentLabel}{" "}
+              <Link
+                href="/politique-confidentialite"
+                className="underline transition-colors hover:text-gray-700"
               >
-                {data.nameLabel}
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="mt-1 w-full rounded-md border border-black/20 px-3 py-2 text-black focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
-              />
-            </div>
-          )}
+                (privacy policy)
+              </Link>
+            </label>
+          </div>
+        )}
 
-          {data?.organizationLabel && (
-            <div>
-              <label
-                htmlFor="organization"
-                className="block text-sm font-medium text-black"
-              >
-                {data.organizationLabel}
-              </label>
-              <input
-                type="text"
-                id="organization"
-                name="organization"
-                required
-                value={formData.organization}
-                onChange={handleChange}
-                className="mt-1 w-full rounded-md border border-black/20 px-3 py-2 text-black focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
-              />
-            </div>
-          )}
+        {error && (
+          <div className="rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-800">
+            {error}
+          </div>
+        )}
 
-          {data?.emailLabel && (
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-black"
-              >
-                {data.emailLabel}
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="mt-1 w-full rounded-md border border-black/20 px-3 py-2 text-black focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
-              />
-            </div>
-          )}
+        {submitted && data?.successMessage && (
+          <div className="rounded-md border border-green-200 bg-green-50 p-4 text-base text-green-800">
+            {data.successMessage}
+          </div>
+        )}
 
-          {data?.interestLabel && (
-            <div>
-              <label
-                htmlFor="interest"
-                className="block text-sm font-medium text-black"
-              >
-                {data.interestLabel}
-              </label>
-              <input
-                type="text"
-                id="interest"
-                name="interest"
-                value={formData.interest}
-                onChange={handleChange}
-                placeholder={data.interestPlaceholder}
-                className="mt-1 w-full rounded-md border border-black/20 px-3 py-2 text-black focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
-              />
-            </div>
-          )}
-
-          {data?.consentLabel && (
-            <div className="flex items-start">
-              <input
-                type="checkbox"
-                id="consent"
-                name="consent"
-                required
-                checked={formData.consent}
-                onChange={handleChange}
-                className="mt-1 h-4 w-4 rounded border-black/20 text-black focus:ring-black"
-              />
-              <label htmlFor="consent" className="ml-3 text-sm text-black">
-                {data.consentLabel}{" "}
-                <Link
-                  href="/politique-confidentialite"
-                  className="underline transition-colors hover:text-gray-700"
-                >
-                  (privacy policy)
-                </Link>
-              </label>
-            </div>
-          )}
-
-          {error && (
-            <div className="rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-800">
-              {error}
-            </div>
-          )}
-
-          {submitted && data?.successMessage && (
-            <div className="rounded-md border border-green-200 bg-green-50 p-4 text-base text-green-800">
-              {data.successMessage}
-            </div>
-          )}
-
-          {data?.submitButton && (
-            <Button type="submit" disabled={isLoading}>
-              {isLoading ? "Envoi en cours..." : data.submitButton}
-            </Button>
-          )}
-        </form>
+        {data?.submitButton && (
+          <Button type="submit" disabled={isLoading}>
+            {isLoading ? "Envoi en cours..." : data.submitButton}
+          </Button>
+        )}
+      </form>
     </div>
   );
 }

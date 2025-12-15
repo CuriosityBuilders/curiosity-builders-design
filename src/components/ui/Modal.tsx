@@ -50,13 +50,13 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
       />
 
       {/* Modal Content */}
-      <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white shadow-xl rounded-2xl">
+      <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white shadow-xl rounded-lg">
         {/* Header */}
-        <div className="sticky top-0 flex items-center justify-between border-b border-black/10 bg-white px-6 py-4 rounded-2xl">
+        <div className="sticky top-0 flex items-center justify-between border-b border-black/10 bg-white px-6 py-4 rounded-lg">
           {title && (
             <h2
               id="modal-title"
-              className="font-heading text-3xl font-bold text-black"
+              className="font-heading text-3xl font-bold text-black mt-2"
             >
               {title}
             </h2>
