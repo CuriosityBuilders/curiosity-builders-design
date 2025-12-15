@@ -1,8 +1,9 @@
+import { generatePageMetadata } from "@/app/metadata";
 import DotCard from "@/components/mvpblocks/dot-card";
+import { AnimatedProofs } from "@/components/pages/AnimatedProofs";
 import { MethodeFinalCta } from "@/components/pages/MethodeFinalCta";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
-import { generatePageMetadata } from "@/app/metadata";
 import { getMethodePage } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
@@ -161,20 +162,8 @@ export default async function MethodePage({
       {data?.proofs && (
         <Section spacing="md" className="bg-white">
           <div className="mx-auto max-w-4xl px-4">
-            <div className="mt-8 space-y-6">
-              {data.proofs.quotes?.map(
-                (quote: { _key: string; text: string; author?: string }) => (
-                  <blockquote
-                    key={quote._key}
-                    className="border-l-4 border-black pl-4"
-                  >
-                    <p className="text-lg italic text-black">{quote.text}</p>
-                    {quote.author && (
-                      <p className="mt-2 text-sm text-black">{quote.author}</p>
-                    )}
-                  </blockquote>
-                )
-              )}
+            <div>
+              <AnimatedProofs quotes={data.proofs.quotes} />
             </div>
           </div>
         </Section>
