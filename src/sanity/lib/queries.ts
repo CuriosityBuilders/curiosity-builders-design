@@ -202,8 +202,7 @@ export const getSignalsPage = cache(async (language: string) => {
         description[],
         tagline
       },
-      button1,
-      button2
+      button1
     },
     studies {
       title,

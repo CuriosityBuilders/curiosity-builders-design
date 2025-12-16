@@ -115,11 +115,6 @@ export default defineType({
           type: "string",
           title: "Button 1 Text",
         }),
-        defineField({
-          name: "button2",
-          type: "string",
-          title: "Button 2 Text",
-        }),
       ],
     }),
     defineField({

@@ -94,16 +94,11 @@ export default async function SignalsPage({
                 )}
               </div>
             )}
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              {data.cards.button1 && (
+            {data.cards.button1 && (
+              <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Button href="/contact">{data.cards.button1}</Button>
-              )}
-              {data.cards.button2 && (
-                <Button href="/contact" variant="secondary">
-                  {data.cards.button2}
-                </Button>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </Section>
       )}
