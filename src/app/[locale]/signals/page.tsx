@@ -3,7 +3,6 @@ import DotCard from "@/components/mvpblocks/dot-card";
 import { BookExtractButton } from "@/components/pages/BookExtractButton";
 import { BookImage3D } from "@/components/pages/BookImage3D";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { urlFor } from "@/sanity/lib/image";
 import { getContactPage, getSignalsPage } from "@/sanity/lib/queries";
@@ -149,9 +148,10 @@ export default async function SignalsPage({
                         : undefined;
                       const coverImageUrl = pdf.coverImage?.asset?.url
                         ? urlFor(pdf.coverImage)
-                            .width(800)
-                            .height(600)
-                            .fit("max")
+                            .width(600)
+                            .height(900)
+                            .fit("crop")
+                            .crop("center")
                             .quality(85)
                             .auto("format")
                             .url()
@@ -159,61 +159,107 @@ export default async function SignalsPage({
                       const pdfUrl = pdf.file?.asset?.url;
 
                       return (
-                        <Card key={pdf._key} className="relative">
-                          {coverImageUrl && (
-                            <div className="relative mb-4 aspect-4/3 w-full overflow-hidden rounded-lg">
+                        <div
+                          key={pdf._key}
+                          className="group relative w-full overflow-hidden rounded-2xl bg-gray-200 shadow-sm transition-all hover:shadow-xl"
+                          style={{ paddingBottom: "150%" }}
+                        >
+                          {coverImageUrl ? (
+                            <>
+                              {/* Image de fond qui remplit toute la card */}
                               <Image
                                 src={coverImageUrl}
                                 alt={pdf.coverImage?.alt || title}
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-500 group-hover:scale-105"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 quality={85}
+                                priority={false}
                               />
+
+                              {/* Gradient overlay pour la lisibilité */}
+                              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent" />
+
+                              {/* Badge thème en haut à droite */}
                               {theme && (
-                                <div className="absolute right-2 top-2 rounded-full bg-black px-3 py-1">
-                                  <span className="text-xs font-black uppercase tracking-wide text-white">
+                                <div className="absolute right-4 top-4 z-10 rounded-full bg-white px-3 py-1.5 shadow-lg">
+                                  <span className="text-xs font-bold uppercase tracking-wider text-black">
                                     {theme}
                                   </span>
                                 </div>
                               )}
+
+                              {/* Contenu en bas avec backdrop blur */}
+                              <div className="absolute inset-x-0 bottom-0 z-10 p-6 backdrop-blur-xl bg-black/20">
+                                <h3 className="font-heading text-2xl font-black text-white drop-shadow-lg">
+                                  {title}
+                                </h3>
+                                {summary && (
+                                  <p className="mt-2 text-sm leading-relaxed text-white/90 drop-shadow-md line-clamp-2">
+                                    {summary}
+                                  </p>
+                                )}
+                                {pdfUrl && data.studies.downloadButton && (
+                                  <div className="mt-4">
+                                    <a
+                                      href={pdfUrl}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      download
+                                      className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black shadow-lg transition-all hover:bg-gray-100 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+                                    >
+                                      {data.studies.downloadButton}
+                                    </a>
+                                  </div>
+                                )}
+                              </div>
+                            </>
+                          ) : (
+                            // Fallback si pas d'image
+                            <div className="flex h-full flex-col justify-between p-6">
+                              {theme && (
+                                <div className="self-end rounded-full bg-black px-3 py-1">
+                                  <span className="text-xs font-medium uppercase tracking-wide text-white">
+                                    {theme}
+                                  </span>
+                                </div>
+                              )}
+                              <div>
+                                <h3 className="font-heading text-xl font-black text-black">
+                                  {title}
+                                </h3>
+                                {summary && (
+                                  <p className="mt-4 text-sm leading-relaxed text-black">
+                                    {summary}
+                                  </p>
+                                )}
+                                {pdfUrl && data.studies.downloadButton && (
+                                  <div className="mt-6">
+                                    <a
+                                      href={pdfUrl}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      download
+                                      className="flex w-full items-center justify-center rounded-full border border-black/90 bg-white px-6 py-3 text-sm font-medium text-black transition-colors hover:border-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+                                    >
+                                      {data.studies.downloadButton}
+                                    </a>
+                                  </div>
+                                )}
+                              </div>
                             </div>
                           )}
-                          {!coverImageUrl && theme && (
-                            <div className="absolute right-4 top-4 rounded-full bg-black px-3 py-1">
-                              <span className="text-xs font-medium uppercase tracking-wide text-white">
-                                {theme}
-                              </span>
-                            </div>
-                          )}
-                          <h3 className="font-heading text-xl font-black text-black py-2">
-                            {title}
-                          </h3>
-                          {summary && (
-                            <p className="mt-4 text-sm leading-relaxed text-black">
-                              {summary}
-                            </p>
-                          )}
-                          {pdfUrl && data.studies.downloadButton && (
-                            <div className="mt-6">
-                              <a
-                                href={pdfUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                download
-                                className="flex w-full items-center justify-center rounded-full border border-black/90 bg-white px-6 py-3 text-sm font-medium text-black transition-colors hover:border-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
-                              >
-                                {data.studies.downloadButton}
-                              </a>
-                            </div>
-                          )}
-                        </Card>
+                        </div>
                       );
                     }
                   )
                 : // Fallback to placeholder if no PDFs are available
                   [1, 2, 3].map((num) => (
-                    <Card key={num}>
+                    <div
+                      key={num}
+                      className="relative w-full overflow-hidden rounded-2xl bg-gray-100 p-6 shadow-sm transition-all hover:shadow-xl flex flex-col justify-end"
+                      style={{ paddingBottom: "150%" }}
+                    >
                       <h3 className="font-heading text-lg font-bold text-black">
                         {data.studies.exampleTitle} {num}
                       </h3>
@@ -230,7 +276,7 @@ export default async function SignalsPage({
                           </Button>
                         </div>
                       )}
-                    </Card>
+                    </div>
                   ))}
             </div>
             {data.studies.cta && (
