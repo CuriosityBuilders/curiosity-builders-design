@@ -475,7 +475,8 @@ export const getContactPage = cache(async (language: string) => {
       interestPlaceholder,
       consentLabel,
       submitButton,
-      successMessage
+      successMessage,
+      bookExtractSuccessMessage
     },
     finalCta {
       title,

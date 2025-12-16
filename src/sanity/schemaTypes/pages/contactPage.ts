@@ -267,6 +267,12 @@ export default defineType({
           type: "string",
           title: "Success Message",
         }),
+        defineField({
+          name: "bookExtractSuccessMessage",
+          type: "string",
+          title: "Book Extract Success Message",
+          description: "Message shown after submitting the book extract form (e.g., 'Thank you! You will be redirected to the document.')",
+        }),
       ],
     }),
     defineField({

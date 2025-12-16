@@ -16,6 +16,7 @@ interface ContactFormProps {
     consentLabel?: string;
     submitButton?: string;
     successMessage?: string;
+    bookExtractSuccessMessage?: string;
   };
   formType?: "brochure" | "bookExtract";
   onSuccess?: () => void;
@@ -216,9 +217,12 @@ export function ContactForm({
           </div>
         )}
 
-        {submitted && data?.successMessage && (
+        {submitted && (
           <div className="rounded-md border border-green-200 bg-green-50 p-4 text-base text-green-800">
-            {data.successMessage}
+            {formType === "bookExtract"
+              ? data?.bookExtractSuccessMessage ||
+                "Merci ! Vous allez être redirigé vers le document."
+              : data?.successMessage || "Merci !"}
           </div>
         )}
 
