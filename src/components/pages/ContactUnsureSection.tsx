@@ -23,11 +23,13 @@ interface ContactUnsureSectionProps {
     };
   };
   onRequestBrochure?: () => void;
+  onRequestBookExtract?: () => void;
 }
 
 export function ContactUnsureSection({
   data,
   onRequestBrochure,
+  onRequestBookExtract,
 }: ContactUnsureSectionProps) {
   if (!data) return null;
 
@@ -78,19 +80,12 @@ export function ContactUnsureSection({
           )}
 
           {/* Button Extrait du livre */}
-          {data.button4 && data.button4Pdf?.asset?.url && (
+          {data.button4 && (
             <Button
               variant="primary"
               onClick={() => {
-                if (data.button4Pdf?.asset?.url) {
-                  const link = document.createElement("a");
-                  link.href = data.button4Pdf.asset.url;
-                  link.download =
-                    data.button4Pdf.asset.originalFilename ||
-                    "extrait-livre.pdf";
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
+                if (onRequestBookExtract) {
+                  onRequestBookExtract();
                 }
               }}
             >

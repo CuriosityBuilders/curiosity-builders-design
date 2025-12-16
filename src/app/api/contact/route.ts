@@ -52,6 +52,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Déterminer le type de demande pour le sujet de l'email
+    const isBrochure = Boolean(brochure);
+    const isBookExtract = Boolean(bookExtract);
+
+    let emailSubject: string;
+    if (isBookExtract && !isBrochure) {
+      // Uniquement pour le livre
+      emailSubject = `Livre - Nouvelle demande de ${name.trim()}`;
+    } else if (isBrochure && !isBookExtract) {
+      // Uniquement pour la brochure
+      emailSubject = `Brochure - Nouvelle demande de ${name.trim()}`;
+    } else {
+      // Les deux
+      emailSubject = `Documentation - Nouvelle demande de ${name.trim()}`;
+    }
+
     // Générer l'email HTML avec React Email
     const emailHtml = await render(
       ContactFormEmail({
@@ -59,8 +75,8 @@ export async function POST(request: NextRequest) {
         organization: organization.trim(),
         email: email.trim(),
         interest: interest?.trim() || undefined,
-        brochure: Boolean(brochure),
-        bookExtract: Boolean(bookExtract),
+        brochure: isBrochure,
+        bookExtract: isBookExtract,
       })
     );
 
@@ -68,7 +84,7 @@ export async function POST(request: NextRequest) {
     const { error } = await resend.emails.send({
       from: fromEmail,
       to: contactEmail,
-      subject: `Brochure - Nouvelle demande de ${name.trim()}`,
+      subject: emailSubject,
       html: emailHtml,
     });
 

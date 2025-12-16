@@ -67,7 +67,7 @@ export default async function ContactPage({
                   {data.contactSection.workWithUs.email && (
                     <div className="mt-6">
                       <Button
-                        href={`mailto:${data.contactSection.workWithUs.email}`}
+                        href={`mailto:${encodeURIComponent(data.contactSection.workWithUs.email)}`}
                         variant="secondary"
                         className="gap-2"
                       >
@@ -90,7 +90,7 @@ export default async function ContactPage({
                   {data.contactSection.press.email && (
                     <div className="mt-6">
                       <Button
-                        href={`mailto:${data.contactSection.press.email}`}
+                        href={`mailto:${encodeURIComponent(data.contactSection.press.email)}`}
                         variant="secondary"
                         className="gap-2"
                       >

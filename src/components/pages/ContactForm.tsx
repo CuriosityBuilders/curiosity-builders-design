@@ -17,17 +17,22 @@ interface ContactFormProps {
     submitButton?: string;
     successMessage?: string;
   };
+  formType?: "brochure" | "bookExtract";
   onSuccess?: () => void;
 }
 
-export function ContactForm({ data, onSuccess }: ContactFormProps) {
+export function ContactForm({
+  data,
+  formType = "brochure",
+  onSuccess,
+}: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     organization: "",
     email: "",
     interest: "",
-    brochure: true, // Par défaut true car on est dans la modale de demande de documentation
-    bookExtract: false,
+    brochure: formType === "brochure",
+    bookExtract: formType === "bookExtract",
     consent: false,
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -60,8 +65,8 @@ export function ContactForm({ data, onSuccess }: ContactFormProps) {
         organization: "",
         email: "",
         interest: "",
-        brochure: true,
-        bookExtract: false,
+        brochure: formType === "brochure",
+        bookExtract: formType === "bookExtract",
         consent: false,
       });
       // Fermer la modale après 2 secondes pour laisser le temps de voir le message de succès
