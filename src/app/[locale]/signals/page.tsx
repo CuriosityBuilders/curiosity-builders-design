@@ -190,28 +190,31 @@ export default async function SignalsPage({
                               )}
 
                               {/* Contenu en bas avec backdrop blur */}
-                              <div className="absolute inset-x-0 bottom-0 z-10 p-6 backdrop-blur-xl bg-black/20">
-                                <h3 className="font-heading text-2xl font-black text-white drop-shadow-lg">
-                                  {title}
-                                </h3>
-                                {summary && (
-                                  <p className="mt-2 text-sm leading-relaxed text-white/90 drop-shadow-md line-clamp-2">
-                                    {summary}
-                                  </p>
-                                )}
-                                {pdfUrl && data.studies.downloadButton && (
-                                  <div className="mt-4">
-                                    <a
-                                      href={pdfUrl}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      download
-                                      className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black shadow-lg transition-all hover:bg-gray-100 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
-                                    >
-                                      {data.studies.downloadButton}
-                                    </a>
-                                  </div>
-                                )}
+                              <div className="absolute inset-x-0 bottom-0 z-10 backdrop-blur-xl bg-black/20 p-6">
+                                <div className="h-[180px] flex flex-col">
+                                  <h3 className="font-heading text-2xl font-black text-white drop-shadow-lg line-clamp-2">
+                                    {title}
+                                  </h3>
+                                  {summary && (
+                                    <p className="mt-2 text-sm leading-relaxed text-white drop-shadow-md line-clamp-2">
+                                      {summary}
+                                    </p>
+                                  )}
+                                  <div className="grow"></div>
+                                  {pdfUrl && data.studies.downloadButton && (
+                                    <div className="mt-4">
+                                      <a
+                                        href={pdfUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        download
+                                        className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black shadow-lg transition-all hover:bg-gray-100 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+                                      >
+                                        {data.studies.downloadButton}
+                                      </a>
+                                    </div>
+                                  )}
+                                </div>
                               </div>
                             </>
                           ) : (
