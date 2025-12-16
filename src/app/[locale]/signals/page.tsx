@@ -121,7 +121,7 @@ export default async function SignalsPage({
                 </>
               )}
             </div>
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {data.studies.pdfs?.pdfs && data.studies.pdfs.pdfs.length > 0
                 ? data.studies.pdfs.pdfs.map(
                     (pdf: {
