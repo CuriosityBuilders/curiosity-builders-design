@@ -177,8 +177,7 @@ export default async function SignalsPage({
                                 priority={false}
                               />
 
-                              {/* Gradient overlay pour la lisibilité */}
-                              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent" />
+                              
 
                               {/* Badge thème en haut à droite */}
                               {theme && (
