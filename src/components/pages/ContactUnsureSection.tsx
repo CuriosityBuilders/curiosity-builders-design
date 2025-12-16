@@ -1,11 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
-import { BookOpenText, CalendarCheck, Mailbox, Send } from "lucide-react";
 
 interface ContactUnsureSectionProps {
   data?: {
@@ -48,98 +46,60 @@ export function ContactUnsureSection({
         <div className="mt-6 text-lg leading-relaxed text-black">
           {data.body && <PortableText value={data.body} />}
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 items-stretch">
-          {/* Card Newsletter */}
+        <div className="mt-12 grid sm:grid-cols-2 gap-4 md:flex md:flex-wrap md:justify-center md:gap-4">
+          {/* Button Newsletter */}
           {data.button1 && data.button1Url && (
-            <Card className="flex flex-col items-center text-center p-6 h-full">
-              <Mailbox className="h-8 w-8 text-black mb-4" />
-              <h3 className="font-heading text-xl font-bold text-black mb-6">
-                {data.card1Title}
-              </h3>
-              <div className="mt-auto w-full flex justify-center">
-                <Button
-                  variant="secondary"
-                  onClick={() => window.open(data.button1Url, "_blank")}
-                  className="w-2/3 min-w-[180px] gap-2"
-                >
-                  {data.button1}
-                </Button>
-              </div>
-            </Card>
+            <Button
+              variant="secondary"
+              onClick={() => window.open(data.button1Url, "_blank")}
+            >
+              {data.button1}
+            </Button>
           )}
 
-          {/* Card Rendez-vous */}
+          {/* Button Rendez-vous */}
           {data.button2 && data.button2Url && (
-            <Card className="flex flex-col items-center text-center p-6 h-full">
-              <CalendarCheck className="h-8 w-8 text-black mb-4" />
-              <h3 className="font-heading text-xl font-bold text-black mb-6">
-                {data.card2Title}
-              </h3>
-              <div className="mt-auto w-full flex justify-center">
-                <Button
-                  variant="secondary"
-                  onClick={() => window.open(data.button2Url, "_blank")}
-                  className="w-2/3 min-w-[180px] gap-2"
-                >
-                  {data.button2}
-                </Button>
-              </div>
-            </Card>
+            <Button
+              variant="secondary"
+              onClick={() => window.open(data.button2Url, "_blank")}
+            >
+              {data.button2}
+            </Button>
           )}
 
-          {/* Card Brochure - Mise en évidence */}
+          {/* Button Brochure */}
           {data.button3 && (
-            <Card className="flex flex-col items-center text-center p-6 border-2 border-black shadow-lg h-full">
-              <Send className="h-8 w-8 text-black mb-4" />
-              <h3 className="font-heading text-xl font-bold text-black mb-6">
-                {data.card3Title}
-              </h3>
-              <div className="mt-auto w-full flex justify-center">
-                <Button
-                  variant="primary"
-                  onClick={() => {
-                    if (onRequestBrochure) {
-                      onRequestBrochure();
-                    }
-                  }}
-                  className="w-2/3 min-w-[180px] gap-2"
-                >
-                  <span className="flex items-center gap-2">
-                    {data.button3}
-                  </span>
-                </Button>
-              </div>
-            </Card>
+            <Button
+              variant="primary"
+              onClick={() => {
+                if (onRequestBrochure) {
+                  onRequestBrochure();
+                }
+              }}
+            >
+              {data.button3}
+            </Button>
           )}
 
-          {/* Card Extrait du livre */}
+          {/* Button Extrait du livre */}
           {data.button4 && data.button4Pdf?.asset?.url && (
-            <Card className="flex flex-col items-center text-center p-6 h-full">
-              <BookOpenText className="h-8 w-8 text-black mb-4" />
-              <h3 className="font-heading text-xl font-bold text-black mb-6">
-                {data.card4Title}
-              </h3>
-              <div className="mt-auto w-full flex justify-center">
-                <Button
-                  variant="primary"
-                  onClick={() => {
-                    if (data.button4Pdf?.asset?.url) {
-                      const link = document.createElement("a");
-                      link.href = data.button4Pdf.asset.url;
-                      link.download =
-                        data.button4Pdf.asset.originalFilename ||
-                        "extrait-livre.pdf";
-                      document.body.appendChild(link);
-                      link.click();
-                      document.body.removeChild(link);
-                    }
-                  }}
-                  className="w-2/3 min-w-[180px] gap-2"
-                >
-                  {data.button4}
-                </Button>
-              </div>
-            </Card>
+            <Button
+              variant="primary"
+              onClick={() => {
+                if (data.button4Pdf?.asset?.url) {
+                  const link = document.createElement("a");
+                  link.href = data.button4Pdf.asset.url;
+                  link.download =
+                    data.button4Pdf.asset.originalFilename ||
+                    "extrait-livre.pdf";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }
+              }}
+            >
+              {data.button4}
+            </Button>
           )}
         </div>
       </div>
