@@ -9,15 +9,11 @@ interface ContactUnsureSectionProps {
   data?: {
     title?: string;
     body?: PortableTextBlock[];
-    card1Title?: string;
     button1?: string;
     button1Url?: string;
-    card2Title?: string;
     button2?: string;
     button2Url?: string;
-    card3Title?: string;
     button3?: string;
-    card4Title?: string;
     button4?: string;
     button4Pdf?: {
       asset?: {

@@ -451,15 +451,11 @@ export const getContactPage = cache(async (language: string) => {
     unsure {
       title,
       body[],
-      card1Title,
       button1,
       button1Url,
-      card2Title,
       button2,
       button2Url,
-      card3Title,
       button3,
-      card4Title,
       button4,
       button4Pdf {
         asset-> {
@@ -472,9 +468,6 @@ export const getContactPage = cache(async (language: string) => {
     form {
       title,
       description,
-      brochureLabel,
-      bookExtractLabel,
-      bookTitle,
       nameLabel,
       organizationLabel,
       emailLabel,

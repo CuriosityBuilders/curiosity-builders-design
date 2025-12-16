@@ -8,9 +8,6 @@ interface ContactFormProps {
   data?: {
     title?: string;
     description?: string;
-    brochureLabel?: string;
-    bookExtractLabel?: string;
-    bookTitle?: string;
     nameLabel?: string;
     organizationLabel?: string;
     emailLabel?: string;
