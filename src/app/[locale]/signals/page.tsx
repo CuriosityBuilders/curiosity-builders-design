@@ -59,7 +59,7 @@ export default async function SignalsPage({
         <Section spacing="md">
           <div className="mx-auto max-w-7xl px-4">
             {data.cards.items && data.cards.items.length > 0 && (
-              <div className="grid gap-8 md:grid-cols-3">
+              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {data.cards.items.map(
                   (
                     card: {
@@ -177,8 +177,6 @@ export default async function SignalsPage({
                                 priority={false}
                               />
 
-                              
-
                               {/* Badge thème en haut à droite */}
                               {theme && (
                                 <div className="absolute right-4 top-4 z-10 rounded-full bg-white px-3 py-1.5 shadow-lg">
@@ -188,33 +186,20 @@ export default async function SignalsPage({
                                 </div>
                               )}
 
-                              {/* Contenu en bas avec backdrop blur */}
-                              <div className="absolute inset-x-0 bottom-0 z-10 backdrop-blur-xl bg-black/20 p-6">
-                                <div className="h-[180px] flex flex-col">
-                                  <h3 className="font-heading text-2xl font-black text-white drop-shadow-lg line-clamp-2">
-                                    {title}
-                                  </h3>
-                                  {summary && (
-                                    <p className="mt-2 text-sm leading-relaxed text-white drop-shadow-md line-clamp-2">
-                                      {summary}
-                                    </p>
-                                  )}
-                                  <div className="grow"></div>
-                                  {pdfUrl && data.studies.downloadButton && (
-                                    <div className="mt-4">
-                                      <a
-                                        href={pdfUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        download
-                                        className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black shadow-lg transition-all hover:bg-gray-100 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
-                                      >
-                                        {data.studies.downloadButton}
-                                      </a>
-                                    </div>
-                                  )}
+                              {/* Bouton seul en bas */}
+                              {pdfUrl && data.studies.downloadButton && (
+                                <div className="absolute inset-x-0 bottom-0 z-10 p-6">
+                                  <a
+                                    href={pdfUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    download
+                                    className="inline-flex w-full items-center justify-center rounded-full bg-white border border-black/20 px-6 py-3 text-sm font-semibold text-black shadow-xl transition-all hover:bg-gray-100 hover:border-black/20 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+                                  >
+                                    {data.studies.downloadButton}
+                                  </a>
                                 </div>
-                              </div>
+                              )}
                             </>
                           ) : (
                             // Fallback si pas d'image
